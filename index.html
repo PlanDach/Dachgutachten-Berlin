@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlanDach Höfinghoff</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <style>
+    /* Hero Section mit Hintergrundbild */
+    .hero {
+      background-image: url('https://cdn.pixabay.com/photo/2016/05/10/15/13/berlin-1385942_960_720.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+
+    .hero h1, .hero p {
+      background: rgba(42, 157, 143, 0.7); /* Salbeigrün halbtransparent */
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+
+    /* Optional: Mobile Hero-Höhe kleiner */
+    @media (max-width: 768px) {
+      .hero {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">PlanDach Höfinghoff</div>
+    <div class="hamburger" id="hamburger">☰</div>
+    <nav class="nav-menu" id="navMenu">
+      <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="ueber-mich.html">Über mich</a></li>
+        <li class="has-submenu">
+          <a href="#" class="submenu-toggle">Leistungen ▸</a>
+          <ul class="submenu">
+            <li><a href="gutachten.html">Gutachten</a></li>
+            <li class="has-submenu">
+              <a href="#" class="submenu-toggle">Planung ▸</a>
+              <ul class="submenu">
+                <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
+                <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
+                <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
+                <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#" class="submenu-toggle">Bauüberwachung ▸</a>
+              <ul class="submenu">
+                <li><a href="bau-koordination.html">Koordination</a></li>
+                <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
+                <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
+                <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#" class="submenu-toggle">Ausschreibung ▸</a>
+              <ul class="submenu">
+                <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
+                <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
+                <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
+              </ul>
+            </li>
+            <li><a href="dachwartung.html">Dachwartung</a></li>
+          </ul>
+        </li>
+        <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Moderne Dachgutachten & Bauüberwachung</h1>
+      <p>Professionell – unabhängig – zuverlässig</p>
+    </section>
+
+    <section class="intro">
+      <h2>Willkommen bei PlanDach Höfinghoff</h2>
+      <p>Wir bieten unabhängige Dachgutachten, Planung, Bauüberwachung und den Online-DachCheck für unsere Kunden in Berlin und Umgebung. Qualität, Transparenz und Erfahrung stehen bei uns an erster Stelle.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
+  </footer>
+</body>
+</html>
