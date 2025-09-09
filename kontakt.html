@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt – PlanDach Höfinghoff</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <style>
+    /* Formular-Section passend zu PlanDach-Grün */
+    .form-section {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 25px 20px;
+      background-color: rgba(0,128,0,0.15); /* leicht transparentes Grün */
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .form-section h2 {
+      text-align: center;
+      color: #004d00; /* dunkleres Grün */
+      margin-bottom: 20px;
+      font-size: 1.8em;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #004d00; /* dunkleres Grün */
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+      box-sizing: border-box;
+      transition: border 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      border-color: #004d00;
+      box-shadow: 0 0 5px rgba(0,77,0,0.4);
+      outline: none;
+    }
+
+    form textarea {
+      resize: vertical;
+    }
+
+    form button {
+      background-color: #004d00;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+      width: 100%;
+    }
+
+    form button:hover {
+      background-color: #003300;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">PlanDach Höfinghoff</div>
+    <div class="hamburger" id="hamburger">☰</div>
+    <nav class="nav-menu" id="navMenu">
+      <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="ueber-mich.html">Über mich</a></li>
+        <li class="has-submenu">
+          <a href="#" class="submenu-toggle">Leistungen</a>
+          <ul class="submenu">
+            <li><a href="gutachten.html">Gutachten</a></li>
+            <li class="has-submenu">
+              <a href="#" class="submenu-toggle">Planung</a>
+              <ul class="submenu">
+                <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
+                <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
+                <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
+                <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#" class="submenu-toggle">Bauüberwachung</a>
+              <ul class="submenu">
+                <li><a href="bau-koordination.html">Koordination</a></li>
+                <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
+                <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
+                <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#" class="submenu-toggle">Ausschreibung</a>
+              <ul class="submenu">
+                <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
+                <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
+                <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
+              </ul>
+            </li>
+            <li><a href="dachwartung.html">Dachwartung</a></li>
+            <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+            <li><a href="leckageortung.html">Leckageortung</a></li>
+          </ul>
+        </li>
+        <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+        <li><a href="kontakt.html" class="active">Kontakt</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Kontakt</h1>
+      <p>Schreib uns eine Nachricht – wir melden uns schnellstmöglich bei dir zurück.</p>
+    </section>
+
+    <section class="form-section">
+      <h2>Kontaktformular</h2>
+      <form id="contactForm" action="https://formspree.io/f/yourformid" method="POST">
+        <label for="name">Name*</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">E-Mail*</label>
+        <input type="email" id="email" name="_replyto" required>
+
+        <label for="phone">Telefonnummer</label>
+        <input type="tel" id="phone" name="phone">
+
+        <label for="message">Nachricht*</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Absenden</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
+  </footer>
+</body>
+</html>
