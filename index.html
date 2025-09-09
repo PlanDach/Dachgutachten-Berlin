@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlanDach Höfinghoff</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <style>
+    /* Hero-Section */
+    .hero {
+      position: relative;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero-img {
+      width: 100%;
+      max-height: 70vh; /* Desktop-Höhe */
+      object-fit: cover;
+      opacity: 0.7; /* leichte Transparenz */
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      max-width: 90%;
+    }
+
+    .hero-text h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #004d00;
+    }
+
+    .hero-text p {
+      font-size: 1.2em;
+      color: #004d00;
+    }
+
+    @media (max-width: 768px) {
+      .hero-text h1 {
+        font-size: 1.8em;
+      }
+      .hero-text p {
+        font-size: 1em;
+      }
+      .hero-img {
+        max-height: 50vh; /* weniger Höhe auf Mobil */
+      }
+    }
+
+    /* Services Section */
+    .services {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .service-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .service-box {
+      background-color: #f8f8f8;
+      border-radius: 8px;
+      padding: 20px;
+      max-width: 300px;
+      width: 100%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .service-box img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .service-box h3 {
+      margin-bottom: 10px;
+      color: #004d00;
+    }
+
+    .service-box p {
+      font-size: 0.95em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">PlanDach Höfinghoff</div>
+    <div class="hamburger" id="hamburger">☰</div>
+    <nav class="nav-menu" id="navMenu">
+      <ul>
+        <li><a href="index.html" class="active">Startseite</a></li>
+        <li><a href="ueber-mich.html">Über mich</a></li>
+        <li class="has-submenu">
+          <a href="#" class="submenu-toggle">Leistungen</a>
+          <ul class="submenu">
+            <li><a href="gutachten.html">Gutachten</a></li>
+            <li class="has-submenu">
+              <a href="#" class="submenu-toggle">Planung</a>
+              <ul class="submenu">
+                <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
+                <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
+                <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
+                <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#" class="submenu-toggle">Bauüberwachung</a>
+              <ul class="submenu">
+                <li><a href="bau-koordination.html">Koordination</a></li>
+                <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
+                <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
+                <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#" class="submenu-toggle">Ausschreibung</a>
+              <ul class="submenu">
+                <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
+                <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
+                <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
+              </ul>
+            </li>
+            <li><a href="dachwartung.html">Dachwartung</a></li>
+            <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+            <li><a href="leckageortung.html">Leckageortung</a></li>
+          </ul>
+        </li>
+        <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGJlcmxpbiUyMGRha2d8ZW58MHx8fHwxNjkzMjEyODQ1&ixlib=rb-4.0.3&q=80&w=1920" alt="Berlin Dächer Skyline" class="hero-img">
+      <div class="hero-text">
+        <h1>Dachgutachten Berlin</h1>
+        <p>Moderne Gutachten, Planung & Bauüberwachung – professionell und unabhängig.</p>
+      </div>
+    </section>
+
+    <section class="services">
+      <h2>Unsere Leistungen</h2>
+      <div class="service-grid">
+        <div class="service-box">
+          <img src="https://via.placeholder.com/300x200" alt="Gutachten">
+          <h3>Gutachten</h3>
+          <p>Unabhängige Dachgutachten für Privat und Gewerbe.</p>
+        </div>
+        <div class="service-box">
+          <img src="https://via.placeholder.com/300x200" alt="Planung">
+          <h3>Planung</h3>
+          <p>Professionelle Planung und Projektmanagement.</p>
+        </div>
+        <div class="service-box">
+          <img src="https://via.placeholder.com/300x200" alt="Bauüberwachung">
+          <h3>Bauüberwachung</h3>
+          <p>Koordination, Qualitätskontrolle und Abnahmebegleitung.</p>
+        </div>
+        <div class="service-box">
+          <img src="https://via.placeholder.com/300x200" alt="Online DachCheck">
+          <h3>Online-DachCheck</h3>
+          <p>Bequem online prüfen lassen – mit Kontaktformular.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background-color:#f8f8f8; padding:40px 20px; text-align:center; font-family:Arial, sans-serif; font-size:14px; color:#333;">
+    <div style="max-width:1000px; margin:0 auto;">
+      <p style="margin:5px 0;">© 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
+      <p style="margin:5px 0;">
+        <a href="impressum.html" style="color:#007f5f; text-decoration:none; margin:0 10px;">Impressum</a> |
+        <a href="datenschutz.html" style="color:#007f5f; text-decoration:none; margin:0 10px;">Datenschutz</a> |
+        <a href="kontakt.html" style="color:#007f5f; text-decoration:none; margin:0 10px;">Kontakt</a>
+      </p>
+      <p style="margin:5px 0;">
+        Adresse: Musterstraße 1, 12345 Berlin | Telefon: 030 12345678 | E-Mail: <a href="mailto:info@plandach.de" style="color:#007f5f; text-decoration:none;">info@plandach.de</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
