@@ -1,0 +1,73 @@
+/* -----------------------------
+   FORMULARE UND BUTTONS (PlanDach-Grün)
+------------------------------ */
+
+/* Formular-Container */
+.form-section {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px 20px;
+  background-color: rgba(0,128,0,0.15); /* leicht transparentes PlanDach-Grün */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Formular-Überschriften */
+.form-section h2 {
+  text-align: center;
+  color: #004d00; /* dunkleres Grün */
+  margin-bottom: 20px;
+  font-size: 1.8em;
+}
+
+/* Labels */
+form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #004d00; /* dunkleres Grün */
+}
+
+/* Inputs und Textareas */
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Fokuszustand */
+form input:focus,
+form textarea:focus {
+  border-color: #004d00;
+  box-shadow: 0 0 5px rgba(0,77,0,0.4);
+  outline: none;
+}
+
+/* Textareas anpassbar */
+form textarea {
+  resize: vertical;
+}
+
+/* Buttons */
+form button {
+  background-color: #004d00;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+/* Hover für Buttons */
+form button:hover {
+  background-color: #003300;
+}
