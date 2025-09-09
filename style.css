@@ -1,0 +1,275 @@
+/* -----------------------------
+   GRUNDLAYOUT
+------------------------------ */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+/* -----------------------------
+   HEADER & NAVIGATION
+------------------------------ */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 20px;
+  position: relative;
+  border-bottom: 1px solid #ccc;
+  z-index: 1000; /* Header immer oben */
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.hamburger {
+  font-size: 1.8em;
+  cursor: pointer;
+  display: none;
+}
+
+.nav-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 15px;
+  display: block;
+  transition: color 0.3s, background 0.3s;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: #fff;
+  background-color: #004d00; /* PlanDach-Grün */
+  border-radius: 4px;
+}
+
+/* Submenüs */
+.submenu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  min-width: 220px;
+  border: 1px solid #ccc;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  z-index: 999;
+}
+
+/* Desktop Hover */
+.has-submenu:hover > .submenu {
+  max-height: 1000px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Pfeile für Submenüs */
+.has-submenu > a::after {
+  content: ' ▾';
+  float: right;
+  transition: transform 0.3s ease;
+}
+
+.has-submenu > a.active::after {
+  transform: rotate(180deg);
+}
+
+/* Stagger Animation Unterpunkte */
+.submenu li {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.submenu.active li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.submenu.active li:nth-child(1) { transition-delay: 0.05s; }
+.submenu.active li:nth-child(2) { transition-delay: 0.1s; }
+.submenu.active li:nth-child(3) { transition-delay: 0.15s; }
+.submenu.active li:nth-child(4) { transition-delay: 0.2s; }
+
+/* -----------------------------
+   MOBILANSICHT
+------------------------------ */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -1000px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    transition: top 0.4s ease;
+    z-index: 1000;
+  }
+
+  .nav-menu.active {
+    top: 60px;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+  }
+
+  .submenu,
+  .submenu-horizontal {
+    position: relative;
+    border: none;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    flex-direction: column;
+  }
+
+  .submenu.active {
+    max-height: 1000px;
+    opacity: 1;
+  }
+}
+
+/* -----------------------------
+   HERO SECTION
+------------------------------ */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+/* -----------------------------
+   FORMULARE UND BUTTONS (PlanDach-Grün)
+------------------------------ */
+
+/* Formular-Container */
+.form-section {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px 20px;
+  background-color: rgba(0,77,0,0.15); /* leicht transparentes PlanDach-Grün */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: relative; /* verhindert Overlay Probleme */
+  z-index: 1;
+}
+
+/* Formular-Überschriften */
+.form-section h2 {
+  text-align: center;
+  color: #004d00; /* dunkleres Grün */
+  margin-bottom: 20px;
+  font-size: 1.8em;
+}
+
+/* Labels */
+form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #004d00; /* dunkleres Grün */
+}
+
+/* Inputs und Textareas */
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Fokuszustand */
+form input:focus,
+form textarea:focus {
+  border-color: #004d00;
+  box-shadow: 0 0 5px rgba(0,77,0,0.4);
+  outline: none;
+}
+
+/* Textareas anpassbar */
+form textarea {
+  resize: vertical;
+}
+
+/* Buttons */
+form button {
+  background-color: #004d00;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+/* Hover für Buttons */
+form button:hover {
+  background-color: #003300;
+}
+
+/* -----------------------------
+   SERVICES / CONTENT BOXEN
+------------------------------ */
+.services {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #f7f7f7;
+}
+
+.service-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.service-box {
+  background: #fff;
+  border-radius: 6px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.service-box img {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
