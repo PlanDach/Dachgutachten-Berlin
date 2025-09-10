@@ -1,0 +1,160 @@
+/* style.css - robuste Version für alle Seiten */
+
+/* immer scrollbar, verhindert Springen */
+html { overflow-y: scroll; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+main { padding-top: 60px; /* Platz für fixierten Header */ }
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  height: 60px;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  z-index: 1000;
+}
+
+.logo { font-weight: bold; font-size: 1.2em; color: #333; line-height: 60px; }
+.hamburger { font-size: 1.8em; cursor: pointer; display: none; line-height: 60px; }
+
+/* universelle Nav-Selectoren (deck tendenziell alle HTML-Varianten ab) */
+nav, .nav-menu, #navMenu { }
+nav ul, .nav-menu ul, #navMenu ul, #navMenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Li/Link Grund */
+nav li, .nav-menu li { position: relative; }
+nav a, .nav-menu a, #navMenu a {
+  text-decoration: none;
+  color: #333;
+  padding: 0 15px;
+  height: 60px;
+  line-height: 60px;
+  display: block;
+  transition: color 0.3s, background 0.3s;
+}
+nav a:hover, .nav-menu a:hover, nav a.active, .nav-menu a.active {
+  color: #fff;
+  background-color: #004d00;
+  border-radius: 4px;
+}
+
+/* Desktop-Submenu (absolute) */
+.submenu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  min-width: 220px;
+  border: 1px solid #ccc;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  z-index: 999;
+}
+.has-submenu:hover > .submenu { max-height: 1000px; opacity: 1; pointer-events: auto; }
+
+.has-submenu > a::after { content: ' ▾'; float: right; transition: transform 0.3s ease; }
+.has-submenu > a.active::after { transform: rotate(180deg); }
+
+/* Stagger (nur optisch) */
+.submenu li { opacity: 0; transform: translateY(-10px); transition: opacity 0.3s ease, transform 0.3s ease; }
+.submenu.active li { opacity: 1; transform: translateY(0); }
+.submenu.active li:nth-child(1) { transition-delay: 0.05s; }
+.submenu.active li:nth-child(2) { transition-delay: 0.1s; }
+.submenu.active li:nth-child(3) { transition-delay: 0.15s; }
+.submenu.active li:nth-child(4) { transition-delay: 0.2s; }
+
+/* -----------------------------
+   MOBILANSICHT (wichtig für Zentrierung)
+------------------------------ */
+@media (max-width: 768px) {
+  .hamburger { display: block; line-height: normal; }
+
+  /* nav kann entweder die #navMenu id haben oder das UL - wir behandeln beide */
+  nav ul,
+  nav .nav-menu,
+  #navMenu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -1000px; /* versteckt standardmäßig */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    transition: top 0.32s ease;
+    z-index: 1000;
+  }
+
+  /* wenn aktiv => sichtbar (toggelt JS) */
+  nav ul.active,
+  #navMenu.active,
+  .nav-menu.active,
+  nav ul.show,
+  #navMenu.show {
+    top: 60px; /* direkt unter Header */
+  }
+
+  nav ul { flex-direction: column; width:100%; }
+  nav li { width:100%; }
+  nav a { height:auto; line-height:normal; padding:12px 20px; width:100%; box-sizing:border-box; text-align:center; }
+
+  /* Submenüs mobile: vollbreit, zentriert und eingezogen paddings entfernt */
+  .submenu {
+    position: relative;
+    border: none;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    transition: max-height 0.36s ease, opacity 0.36s ease;
+    box-shadow: none;
+  }
+
+  /* wenn Submenu aktiv auf mobile -> sichtbar */
+  .submenu.active {
+    max-height: 9999px;
+    opacity: 1;
+  }
+
+  /* Unterpunkte: volle Breite, zentriert */
+  .submenu li { width: 100%; }
+  .submenu li a { display:block; padding:12px 24px; text-align:center; }
+
+  /* Pfeil an mobile angepasst: nicht float, sondern inline */
+  .has-submenu > a::after { float: none; margin-left: 8px; display:inline-block; }
+}
+
+/* Rest (hero, forms etc.) behalten wir unverändert */
+.hero { text-align: center; padding: 80px 20px; }
+.form-section { max-width:600px; margin:40px auto; padding:25px 20px; background-color: rgba(0,77,0,0.15); border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.1); z-index:1; }
+.form-section h2 { text-align:center; color:#004d00; margin-bottom:20px; font-size:1.8em; }
+footer { background:#f8f8f8; padding:30px 20px; text-align:center; font-size:14px; color:#333; }
