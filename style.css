@@ -1,0 +1,195 @@
+/* =============================
+   style.css — Navigation fix
+   (mobile Untermenüs mittig)
+   ============================= */
+
+/* Grund */
+html { overflow-y: scroll; } /* verhindert Layout-Sprung beim ein/ausblenden */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #333;
+}
+
+/* Fix für Hauptbereich wegen fixed header */
+main { padding-top: 60px; }
+
+/* Header / Navigation */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  z-index: 1000;
+}
+
+.logo { font-weight: bold; font-size: 1.2em; line-height: 60px; color: #333; }
+
+.hamburger {
+  display: none;
+  font-size: 1.8em;
+  cursor: pointer;
+  line-height: 60px;
+}
+
+/* Desktop / default nav */
+header nav ul,
+.nav-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  height: 100%;
+}
+
+/* Li */
+header nav li,
+.nav-menu li { position: relative; }
+
+/* Links (desktop) — normal links sind links ausgerichtet, mobil zentriert per MediaQuery */
+header nav a,
+.nav-menu a {
+  text-decoration: none;
+  color: #004d00;
+  font-weight: 500;
+  padding: 6px 10px;
+  display: block;
+  height: 60px;
+  line-height: 60px;
+  transition: background 0.25s, color 0.25s;
+}
+
+header nav a:hover,
+.nav-menu a:hover,
+header nav a.active,
+.nav-menu a.active {
+  color: #fff;
+  background: #004d00;
+  border-radius: 4px;
+}
+
+/* Submenu (desktop) */
+.submenu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  min-width: 220px;
+  border: 1px solid #ddd;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: top;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 999;
+}
+
+/* show on hover (desktop) */
+.has-submenu:hover > .submenu { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+/* submenu items desktop */
+.submenu li a {
+  padding: 8px 15px;
+  color: #004d00;
+  height: auto;
+  line-height: normal;
+}
+
+/* -------------------------
+   Mobile styles
+   ------------------------- */
+@media (max-width: 768px) {
+
+  .hamburger { display: block; }
+
+  /* Hauptnav wird eine Spalte und ist zunächst eingeklappt */
+  header nav ul,
+  .nav-menu ul {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    align-items: center;   /* WICHTIG: zentriert die Einträge horizontal */
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.36s ease;
+    border-top: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+
+  /* wenn geöffnet */
+  header nav ul.show,
+  .nav-menu ul.show,
+  .nav-menu.active { max-height: 1200px; } /* groß genug für alle Einträge */
+
+  /* Hauptlinks mobil */
+  header nav li,
+  .nav-menu li { width: 100%; }
+  header nav a,
+  .nav-menu a {
+    height: auto;
+    line-height: normal;
+    padding: 14px 20px;
+    width: 100%;
+    text-align: center; /* zentriert die Hauptmenü-Einträge */
+    box-sizing: border-box;
+  }
+
+  /* Submenü mobile: voll-breite Box, Inhalte aber zentriert */
+  .submenu {
+    position: relative;        /* kein absolut mehr */
+    width: 100%;
+    background: #fff;          /* weiß hintergrund */
+    border: none;
+    box-shadow: none;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.36s ease, opacity 0.28s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;       /* WICHTIG: zentriert Listeneinträge */
+  }
+
+  /* aktive/aufgeklappte Submenu */
+  .submenu.active {
+    max-height: 1200px;
+    opacity: 1;
+  }
+
+  /* Submenu items mobile: volle Breite anklickbar, Text zentriert */
+  .submenu li {
+    width: 100%;
+  }
+  .submenu li a {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    text-align: center;       /* Text zentriert */
+    box-sizing: border-box;
+    color: #004d00;
+  }
+
+  /* falls du an Sub-Submenus (zweite Ebene) hast */
+  .submenu .submenu {
+    padding-left: 0;
+  }
+}
