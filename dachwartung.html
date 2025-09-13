@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dachwartung – PlanDach Höfinghoff</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Arial, sans-serif; overflow-x:hidden; background:#fff; color:#333; }
+
+header {
+  width:100%;
+  background:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 20px;
+  position:fixed;
+  top:0; left:0;
+  z-index:10;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+.logo { font-weight:bold; font-size:1.2em; }
+.hamburger { display:none; font-size:1.8em; cursor:pointer; user-select:none; }
+
+nav ul { list-style:none; display:flex; gap:20px; align-items:center; justify-content:center; }
+nav ul li { position:relative; }
+nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:6px 10px; display:block; }
+nav ul li a.active { color:#004d00; }
+
+nav ul li ul {
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#fff;
+  list-style:none;
+  padding:8px 0;
+  min-width:220px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  z-index:20;
+  border-radius:6px;
+}
+nav ul li:hover > ul { display:block; }
+nav ul li ul li a { padding:8px 15px; color:#004d00; }
+nav ul li ul li ul { top:0; left:100%; }
+
+main { padding-top:0; }
+.hero {
+  position: relative;
+  text-align:center;
+  padding:120px 20px;
+  overflow:hidden;
+  min-height:350px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+.hero::before {
+  content:"";
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background: url('IMG_2145.jpeg') center center / cover no-repeat;
+  opacity:0.5;
+  z-index:1;
+  filter: brightness(0.7);
+}
+.hero h1, .hero p {
+  position: relative;
+  z-index:2;
+  color:#ffffff;
+}
+.hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
+.hero p { font-size:1.2em; }
+
+.content-wrapper {
+  display:flex;
+  gap:20px;
+  max-width:1200px;
+  margin:40px auto;
+  padding:0 20px;
+  align-items:flex-start;
+}
+.form-section {
+  flex:2;
+  padding:25px 20px;
+  background-color: rgba(0,128,0,0.08);
+  border-radius:8px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+.form-section h2 { color:#004d00; margin-bottom:12px; }
+.form-section p, .form-section ul { color:#000; line-height:1.6; }
+.form-section ul { padding-left:20px; }
+
+.image-section {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.image-box {
+  text-align:center;
+}
+.image-box img {
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:12px; /* Alle 4 Ecken abgerundet */
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+.image-comment {
+  font-size:0.95rem;
+  color:#004d00;
+  text-align:center;
+  margin-bottom:15px; /* Abstand unter Kommentar */
+}
+
+footer { background:#f8f8f8; padding:30px 20px; text-align:center; font-size:14px; color:#333; }
+
+@media (max-width:768px) {
+  .hamburger { display:block; }
+  nav ul {
+    flex-direction:column;
+    display:none;
+    background:#fff;
+    position:absolute;
+    top:60px;
+    left:0;
+    width:100%;
+    padding:10px 0;
+    gap:0;
+    text-align:center;
+  }
+  nav ul.show { display:flex; }
+
+  nav ul li { width:100%; }
+  nav ul li a { font-size:1.05rem; text-align:center; padding:10px 0; }
+
+  nav ul li ul {
+    display:none;
+    flex-direction:column;
+    width:100%;
+    text-align:center;
+    padding:0;
+    margin:0;
+    position:relative;
+    top:0; left:0;
+    box-shadow:none;
+    border-radius:0;
+  }
+  nav ul li ul.active { display:flex; }
+  nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
+  nav ul li ul li ul { left:0; }
+
+  .hero { padding:120px 20px; min-height:350px; }
+  .hero h1 { font-size:2.5em; }
+  .hero p { font-size:1.2em; }
+
+  .content-wrapper { flex-direction:column; }
+  .image-section { flex-direction:column; width:100%; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">PlanDach Höfinghoff</div>
+  <div class="hamburger" id="hamburger">☰</div>
+  <nav>
+    <ul id="navMenu">
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
+      <li class="has-submenu">
+        <a href="#">Leistungen</a>
+        <ul class="submenu">
+          <li><a href="gutachten.html">Gutachten</a></li>
+          <li class="has-submenu">
+            <a href="#">Planung</a>
+            <ul class="submenu">
+              <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
+              <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
+              <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
+              <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#">Bauüberwachung</a>
+            <ul class="submenu">
+              <li><a href="bau-koordination.html">Koordination</a></li>
+              <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
+              <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
+              <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#">Ausschreibung</a>
+            <ul class="submenu">
+              <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
+              <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
+              <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
+            </ul>
+          </li>
+          <li><a href="dachwartung.html" class="active">Dachwartung</a></li>
+          <li><a href="leckageortung.html">Leckageortung</a></li>
+        </ul>
+      </li>
+      <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Dachwartung</h1>
+    <p>Regelmäßige Kontrolle und Wartung Ihres Daches für dauerhafte Sicherheit und Werterhalt Ihrer Immobilie.</p>
+  </section>
+
+  <div class="content-wrapper">
+    <section class="form-section">
+      <h2>Unsere Leistungen im Bereich Dachwartung</h2>
+      <ul>
+        <li>Inspektion von Dächern und Dachflächen: Sorgfältige Prüfung aller Dachbereiche auf Schäden, Materialermüdung oder undichte Stellen, um Folgeschäden frühzeitig zu verhindern.</li>
+        <li>Reinigung von Dachrinnen, Fallrohren und Entwässerungssystemen: Entfernung von Laub, Schmutz und Ablagerungen, um Stauwasser, Durchfeuchtung und Belastung der Dachkonstruktion zu vermeiden.</li>
+        <li>Prüfung von Abdichtungen und Anschlüssen: Fachgerechte Kontrolle von Übergängen, Einfassungen, Lichtkuppeln und Schornsteinen, um Undichtigkeiten und Feuchtigkeitsschäden zu vermeiden.</li>
+        <li>Erstellung von Wartungsprotokollen: Dokumentation der Inspektionsergebnisse, inkl. fotografischer Aufnahmen und Empfehlungen für Reparaturen oder Instandsetzungen.</li>
+        <li>Empfehlungen für Reparaturen oder Sanierungen: Präzise Handlungsempfehlungen für sofortige Maßnahmen oder langfristige Sanierungsplanung, basierend auf aktuellem Zustand und Materialanalyse.</li>
+        <li>Vorbeugende Sicherheitsprüfung: Überprüfung der Tragfähigkeit, Dachlasten und Gefährdungspotenziale, um mögliche Risiken für Bewohner und Immobilie rechtzeitig zu erkennen.</li>
+      </ul>
+
+      <h2>Ihr Vorteil</h2>
+      <ul>
+        <li>die Lebensdauer Ihres Daches</li>
+        <li>die Werterhaltung Ihrer Immobilie</li>
+        <li>die frühzeitige Erkennung von Schäden, bevor teure Reparaturen notwendig werden</li>
+        <li>die Minimierung von Unfall- und Haftungsrisiken durch vorbeugende Sicherheitskontrollen</li>
+      </ul>
+
+      <p>Bei Fragen oder individuellen Problemen rund um Ihr Dach stehen wir Ihnen jederzeit kompetent zur Verfügung – sprechen Sie uns gerne an.</p>
+    </section>
+
+    <aside class="image-section">
+      <div class="image-box">
+        <img src="IMG_2243.jpeg" alt="Dachwartung Bild 1">
+      </div>
+      <div class="image-comment">„Verstopfte Abläufe erhöhen die Last und können zu Schäden führen – frühzeitige Kontrolle beugt vor.“</div>
+
+      <div class="image-box">
+        <img src="IMG_2461.jpeg" alt="Dachwartung Bild 2">
+      </div>
+      <div class="image-comment">„Undichte Anschlüsse an Lichtkuppeln werden rechtzeitig erkannt und sicher behoben.“</div>
+
+      <div class="image-box">
+        <img src="IMG_2305.jpeg" alt="Dachwartung Bild 3">
+      </div>
+      <div class="image-comment">„Defekte First-Elemente gefährden die Dachfunktion – frühzeitige Instandsetzung schützt.“</div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+
+document.querySelectorAll('.has-submenu > a').forEach(link => {
+  link.addEventListener('click', e => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      const submenu = link.nextElementSibling;
+      if (submenu) submenu.classList.toggle('active');
+    }
+  });
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    navMenu.classList.remove('show');
+    document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
+  }
+});
+</script>
+</body>
+</html>
