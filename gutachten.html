@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gutachten – PlanDach Höfinghoff</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Arial, sans-serif; background:#fff; color:#333; overflow-x:hidden; }
+
+header {
+  width:100%;
+  background:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 20px;
+  position:fixed;
+  top:0; left:0;
+  z-index:10;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+.logo { font-weight:bold; font-size:1.2em; }
+.hamburger { display:none; font-size:1.8em; cursor:pointer; user-select:none; }
+
+nav ul { list-style:none; display:flex; gap:20px; align-items:center; justify-content:center; }
+nav ul li { position:relative; }
+nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:6px 10px; display:block; }
+nav ul li a.active { color:#004d00; }
+
+nav ul li ul {
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#fff;
+  list-style:none;
+  padding:8px 0;
+  min-width:220px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  z-index:20;
+  border-radius:6px;
+}
+nav ul li:hover > ul { display:block; }
+nav ul li ul li a { padding:8px 15px; color:#004d00; }
+nav ul li ul li ul { top:0; left:100%; }
+
+main { padding-top:80px; }
+
+/* HERO - vollbild */
+.hero {
+  position: relative;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  min-height:350px;
+  width:100vw;
+  overflow:hidden;
+  padding:0;
+}
+.hero::before {
+  content:"";
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background: url('IMG_2341.jpeg') center bottom / cover no-repeat;
+  opacity:0.5;
+  z-index:1;
+  filter: brightness(0.7);
+}
+.hero h1, .hero p {
+  position: relative;
+  z-index:2;
+  max-width:900px;
+  color:#fff;
+}
+.hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
+.hero p { font-size:1.2em; font-weight:600; }
+
+.content-wrapper {
+  max-width:1200px;
+  margin:40px auto;
+  padding:0 20px;
+}
+
+/* Leistungs-Section */
+.form-section {
+  padding:25px 0;
+  margin-bottom:40px;
+}
+.form-section h2 { color:#004d00; margin-bottom:12px; }
+.form-section p, 
+.form-section ul { color:#004d00; line-height:1.6; }
+.form-section ul { padding-left:20px; }
+.form-section ul li { margin-bottom:1em; }
+
+/* Highlight-Box Wrapper für gleiche Breite wie Bilder */
+.highlight-wrapper {
+  max-width: 95%;
+  margin: 30px auto;
+}
+.highlight-box {
+  background-color:#f2f2f2; /* sehr helles Grau */
+  border-radius:12px;
+  padding:20px;
+  box-shadow:0 1px 4px rgba(0,0,0,0.05);
+}
+.highlight-box h2 {
+  margin-bottom:12px;
+  color:#004d00;
+}
+.highlight-box ul {
+  padding-left:20px;
+  margin:0;
+}
+
+/* BILDER fast volle Breite */
+.image-section {
+  column-count: 2;
+  column-gap: 20px;
+  max-width: 95%;        
+  margin: 0 auto 40px auto;
+  padding: 0 10px;        
+}
+.image-box {
+  break-inside: avoid;
+  margin-bottom: 20px;
+}
+.image-box img {
+  width: 100%;
+  height: 300px; /* hier nur die Höhe geändert */
+  object-fit: cover; /* Bild skaliert ohne Verzerrung */
+  border-radius:12px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  display:block;
+}
+.image-comment {
+  font-size:0.95rem;
+  color:#004d00;
+  text-align:center;
+  margin-top:8px;
+}
+
+footer { background:#f8f8f8; padding:30px 20px; text-align:center; font-size:14px; color:#333; }
+
+@media (max-width:768px) {
+  .hamburger { display:block; }
+  nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:60px; left:0; width:100%; padding:10px 0; gap:0; text-align:center; }
+  nav ul.show { display:flex; }
+  nav ul li { width:100%; }
+  nav ul li a { font-size:1.05rem; text-align:center; padding:10px 0; }
+  nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
+  nav ul li ul.active { display:flex; }
+  nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
+  nav ul li ul li ul { left:0; }
+  .hero { padding:0; min-height:350px; }
+  .hero h1 { font-size:2.5em; }
+  .hero p { font-size:1.2em; }
+
+  /* mobil nur eine Spalte, fast volle Breite */
+  .image-section {
+    column-count: 1;
+    max-width: 100%;
+    padding:0 5px;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">PlanDach Höfinghoff</div>
+  <div class="hamburger" id="hamburger">☰</div>
+  <nav>
+    <ul id="navMenu">
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
+      <li class="has-submenu">
+        <a href="#">Leistungen</a>
+        <ul class="submenu">
+          <li><a href="gutachten.html" class="active">Gutachten</a></li>
+          <li class="has-submenu">
+            <a href="#">Planung</a>
+            <ul class="submenu">
+              <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
+              <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
+              <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
+              <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#">Bauüberwachung</a>
+            <ul class="submenu">
+              <li><a href="bau-koordination.html">Koordination</a></li>
+              <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
+              <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
+              <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#">Ausschreibung</a>
+            <ul class="submenu">
+              <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
+              <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
+              <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
+            </ul>
+          </li>
+          <li><a href="dachwartung.html">Dachwartung</a></li>
+          <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+          <li><a href="leckageortung.html">Leckageortung</a></li>
+        </ul>
+      </li>
+      <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Gutachten</h1>
+    <p>Professionelle Dachgutachten für private und gewerbliche Kunden in Berlin und Umgebung.</p>
+  </section>
+
+  <div class="content-wrapper">
+    <section class="form-section">
+      <h2>Unsere Leistungen im Bereich Gutachten</h2>
+      <ul>
+        <li>Erstellung unabhängiger, objektiver Dach- und Spenglergutachten für private, gewerbliche und industrielle Objekte, einschließlich Wohngebäude, Bürogebäude, Hallen und Neubauprojekte.</li>
+        <li>Detaillierte Beurteilung von Dachflächen, Dachaufbauten, Abdichtungen, Dachentwässerungssystemen und Photovoltaik-Anlagen unter Berücksichtigung von Materialzustand, Alter, Funktionalität und geltenden Normen.</li>
+        <li>Umfassende Schadensanalyse: Erkennung von Feuchtigkeitsschäden, Materialermüdung, Leckagen, Sturmschäden, korrosionsanfälligen Bauteilen und Montagefehlern.</li>
+        <li>Prüfung und Bewertung von Photovoltaik-Anlagen hinsichtlich struktureller Integration, Tragfähigkeit, Brandschutzanforderungen, Alterung und Garantieansprüchen.</li>
+        <li>Detaillierte Dokumentation aller Befunde mit Fotografien und übersichtlichen Protokollen.</li>
+        <li>Praxisnahe Empfehlungen für Reparaturen, Instandsetzungen oder Sanierungen.</li>
+      </ul>
+
+      <br> <!-- zusätzliche Leerzeile nach Empfehlungen -->
+
+      <div class="highlight-wrapper">
+        <div class="highlight-box">
+          <h2>Ihr Vorteil</h2>
+          <ul>
+            <li>Klare Entscheidungsgrundlagen für Reparatur- und Sanierungsentscheidungen</li>
+            <li>Rechtliche Sicherheit durch neutrale Gutachten</li>
+            <li>Fundierte Basis für die Werterhaltung Ihrer Immobilie</li>
+          </ul>
+        </div>
+      </div>
+
+      <br> <!-- zusätzliche Leerzeile nach Highlight-Box -->
+
+      <p>Zögern Sie nicht, uns bei Fragen oder individuellen Problemen rund um Ihr Dach oder Ihre PV-Anlage anzusprechen – wir stehen Ihnen jederzeit kompetent zur Verfügung.</p>
+
+      <br> <!-- zusätzliche Leerzeile vor Bilder -->
+
+    </section>
+  </div>
+
+  <section class="image-section">
+    <div class="image-box">
+      <img src="IMG_2299.jpeg" alt="Beispiel 1">
+      <div class="image-comment">„fehlender Anschluss an Unterspannbahn“</div>
+    </div>
+    <div class="image-box">
+      <img src="IMG_2146.jpeg" alt="Beispiel 2">
+      <div class="image-comment">„Mangelhafte Reparatur am aufgehenden Bauteil, kann zu Feuchtigkeitseintritt und Bauschäden führen“</div>
+    </div>
+    <div class="image-box">
+      <img src="IMG_2346.jpeg" alt="Beispiel 3">
+      <div class="image-comment">„Typischer Versicherungsfall eines defekten Dachflächenfensters“</div>
+    </div>
+    <div class="image-box">
+      <img src="IMG_2205.jpeg" alt="Beispiel 4">
+      <div class="image-comment">„Gully oder doch Küchensieb?“</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
+document.querySelectorAll('.has-submenu > a').forEach(link => {
+  link.addEventListener('click', e => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      const submenu = link.nextElementSibling;
+      if (submenu) submenu.classList.toggle('active');
+    }
+  });
+});
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    navMenu.classList.remove('show');
+    document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
+  }
+});
+</script>
+</body>
+</html>
