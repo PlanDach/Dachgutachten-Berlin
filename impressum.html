@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressum – PlanDach Höfinghoff</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Arial, sans-serif; overflow-x:hidden; background:#ffffff; }
+
+/* Header */
+header {
+  width:100%;
+  background:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 20px;
+  position:fixed;
+  top:0; left:0;
+  z-index:10;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+.logo { font-weight:bold; font-size:1.2em; }
+.hamburger { display:none; font-size:2em; cursor:pointer; }
+nav ul { list-style:none; display:flex; gap:20px; }
+nav ul li { position:relative; }
+nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:5px 10px; display:block; }
+nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#fff; list-style:none; padding:10px 0; min-width:200px; box-shadow:0 4px 10px rgba(0,0,0,0.1); z-index:10; }
+nav ul li:hover > ul { display:block; }
+nav ul li ul li { padding:0; }
+nav ul li ul li a { padding:8px 15px; }
+nav ul li ul li ul { top:0; left:100%; }
+
+/* Hero wie Dachwartung */
+.hero {
+  position: relative;
+  text-align:center;
+  padding:120px 20px;
+  overflow:hidden;
+  min-height:350px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+.hero::before {
+  content:"";
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background: url('IMG_4009.jpeg') center center / cover no-repeat;
+  opacity:0.5;
+  z-index:1;
+  filter: brightness(0.7);
+}
+.hero h1, .hero p {
+  position: relative;
+  z-index:2;
+  color:#ffffff;
+}
+.hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
+.hero p { font-size:1.2em; }
+
+/* Content Section */
+.form-section {
+  max-width:800px;
+  margin:40px auto;
+  padding:0;
+  border-radius:0;
+  box-shadow:none;
+  text-align:center;
+}
+.form-section h2 { color:#004d00; margin-top:20px; }
+.form-section p { color:#004d00; line-height:1.6; }
+
+/* Footer */
+footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
+
+/* Responsive */
+@media (max-width:768px) {
+  .hamburger { display:block; }
+  nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:60px; left:0; width:100%; }
+  nav ul.show { display:flex; }
+  nav ul li a { font-size:1.2em; text-align:center; }
+  nav ul li ul { position:relative; top:0; left:0; box-shadow:none; }
+  nav ul li ul li ul { left:0; }
+  .form-section h2 { font-size:1.5rem; }
+  .hero h1 { font-size:2.5rem; }
+  .hero p { font-size:1.2em; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">PlanDach Höfinghoff</div>
+  <div class="hamburger" id="hamburger">☰</div>
+  <nav>
+    <ul id="navMenu">
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
+      <li class="has-submenu">
+        <a href="#">Leistungen</a>
+        <ul>
+          <li><a href="gutachten.html">Gutachten</a></li>
+          <li class="has-submenu">
+            <a href="#">Planung</a>
+            <ul>
+              <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
+              <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
+              <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
+              <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#">Bauüberwachung</a>
+            <ul>
+              <li><a href="bau-koordination.html">Koordination</a></li>
+              <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
+              <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
+              <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#">Ausschreibung</a>
+            <ul>
+              <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
+              <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
+              <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
+            </ul>
+          </li>
+          <li><a href="dachwartung.html">Dachwartung</a></li>
+          <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+          <li><a href="leckageortung.html">Leckageortung</a></li>
+        </ul>
+      </li>
+      <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Impressum</h1>
+    <p>Alle rechtlich erforderlichen Angaben zu PlanDach Höfinghoff auf einen Blick.</p>
+  </section>
+
+  <section class="form-section">
+    <h2>Angaben gemäß § 5 TMG</h2>
+    <p>
+      <strong>PlanDach Höfinghoff</strong><br>
+      Philipp Höfinghoff<br>
+      Musterstraße 1<br>
+      12345 Berlin<br>
+      Deutschland
+    </p>
+
+    <h2>Kontakt</h2>
+    <p>
+      Telefon: 030 / 12345678<br>
+      E-Mail: info@plandach.de
+    </p>
+
+    <h2>Umsatzsteuer-ID</h2>
+    <p>DE123456789</p>
+
+    <h2>Haftung für Inhalte</h2>
+    <p>
+      Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Inhalte Dritter werden entsprechend § 8 bis 10 TMG geprüft.
+    </p>
+
+    <h2>Haftung für Links</h2>
+    <p>
+      Verweise auf externe Websites liegen außerhalb unseres Verantwortungsbereichs. Für deren Inhalte übernehmen wir keine Haftung.
+    </p>
+
+    <h2>Urheberrecht</h2>
+    <p>
+      Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet.
+    </p>
+  </section>
+</main>
+
+<footer>
+  <div style="max-width:1000px; margin:0 auto; text-align:center;">
+    <p>&copy; 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
+  </div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
+</script>
+</body>
+</html>
