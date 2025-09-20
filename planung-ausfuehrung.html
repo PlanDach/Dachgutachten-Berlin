@@ -6,7 +6,7 @@
 <title>Ausführungsplanung – Planung | PlanDach Höfinghoff</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: Arial, sans-serif; overflow-x:hidden; background:#ffffff; }
+body { font-family: Arial, sans-serif; overflow-x:hidden; background:#ffffff; color:#004D00; line-height:1.7; }
 
 /* Header */
 header {
@@ -32,17 +32,18 @@ nav ul li ul li { padding:0; }
 nav ul li ul li a { padding:8px 15px; }
 nav ul li ul li ul { top:0; left:100%; }
 
-/* Hero-Bereich mit transparentem Hintergrundbild */
+/* Hero-Bereich */
 .hero {
   position: relative;
   text-align:center;
-  padding:120px 20px;
+  padding:100px 20px;
   overflow:hidden;
   min-height:350px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
+  color:white;
 }
 .hero::before {
   content:"";
@@ -55,26 +56,48 @@ nav ul li ul li ul { top:0; left:100%; }
   z-index:1;
   filter: brightness(0.7);
 }
-
-/* weiße Schrift */
 .hero h1, .hero p {
   position: relative;
   z-index:2;
-  color:#ffffff;
+  max-width:900px;
 }
-.hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
+.hero h1 { font-size:2.5em; margin-bottom:15px; }
 .hero p { font-size:1.2em; }
 
-/* Content Section */
-.form-section {
+/* Steps Section */
+.steps-section {
   max-width:900px;
-  margin:40px auto;
-  padding:25px 30px;
-  background-color: rgba(0,128,0,0.15);
-  border-radius:8px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  margin:40px auto 40px auto;
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+  text-align:center;
 }
-.form-section p { color:#000; line-height:1.7; margin-bottom:18px; }
+.steps-section h2 {
+  font-size:1.8em;
+  font-weight:bold;
+  margin-bottom:30px;
+}
+.step {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:15px;
+}
+.step .icon {
+  font-size:48px;
+  color:#004D00;
+}
+.step h3 {
+  font-size:1.2em;
+  font-weight:bold;
+}
+.step p {
+  font-size:1rem;
+  color:#004D00;
+  line-height:1.4;
+  max-width:600px;
+}
 
 /* Footer */
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
@@ -87,13 +110,16 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
   nav ul li a { font-size:1.2em; text-align:center; }
   nav ul li ul { position:relative; top:0; left:0; box-shadow:none; }
   nav ul li ul li ul { left:0; }
-  .form-section { padding:20px; }
   .hero h1 { font-size:1.8rem; }
   .hero p { font-size:1rem; }
+  .steps-section { gap:25px; }
+  .step .icon { font-size:40px; }
+  .step p { font-size:0.95rem; max-width:100%; }
 }
 </style>
 </head>
 <body>
+
 <header>
   <div class="logo">PlanDach Höfinghoff</div>
   <div class="hamburger" id="hamburger">☰</div>
@@ -149,14 +175,33 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
     <p>Wir erstellen detaillierte Pläne, die direkt von Handwerkern umgesetzt werden können.</p>
   </section>
 
-  <section class="form-section">
-    <p>In der Ausführungsplanung entwickeln wir auf Basis der zuvor ermittelten Daten eine detaillierte, praxisorientierte Planung, die als verbindliche Arbeitsgrundlage für alle beteiligten Handwerksgewerke dient. Hierbei werden sämtliche Materialien, Mengen, Maße, Anschlüsse und Toleranzen präzise definiert, um eine reibungslose Umsetzung auf der Baustelle zu gewährleisten.</p>
-    
-    <p>Wir erstellen exakte Arbeitsabläufe, Montageanleitungen, Materiallisten und Zeitpläne, die auf die spezifischen Gegebenheiten Ihres Daches abgestimmt sind. Auch baurechtliche Vorgaben, Normen und Sicherheitsanforderungen werden berücksichtigt, damit die Arbeiten effizient, normgerecht und risikofrei durchgeführt werden können.</p>
-    
-    <p>Die Koordination zwischen Dachdeckern, Spenglern, Gerüstbauern und weiteren beteiligten Gewerken wird hierbei bereits in der Planungsphase berücksichtigt. Auf diese Weise lassen sich Schnittstellenprobleme, Doppelarbeiten und Verzögerungen minimieren. Besonderer Fokus liegt zudem auf statisch relevanten Details, Abdichtungssystemen, Belüftung und Wärmedämmung, um langfristige Funktionalität und Werterhalt Ihres Gebäudes zu sichern.</p>
-    
-    <p>Alle Ergebnisse werden in einem umfassenden Ausführungsplan dokumentiert, der als rechtssicheres, nachvollziehbares Dokument dient und die Grundlage für eine kosten- und termingerechte Bauausführung bildet. So erhalten Sie ein <strong>hochwertiges, professionelles und praxisnahes Planungsdokument</strong>, das die Qualität, Wirtschaftlichkeit und Sicherheit Ihres Dachprojekts gewährleistet.</p>
+  <section class="steps-section">
+    <h2>Schritte der Ausführungsplanung</h2>
+    <div class="step">
+      <div class="icon">📐</div>
+      <h3>1. Detaillierte Pläne erstellen</h3>
+      <p>Grundrisse, Schnitte, Details, Materialien, Maße und Anschlüsse werden präzise geplant, um die Umsetzung auf der Baustelle zu erleichtern.</p>
+    </div>
+    <div class="step">
+      <div class="icon">🛠️</div>
+      <h3>2. Arbeitsabläufe & Montageanleitungen</h3>
+      <p>Montageanleitungen, Arbeitsreihenfolgen und Schnittstellenkoordination sorgen für eine reibungslose Durchführung zwischen allen Gewerken.</p>
+    </div>
+    <div class="step">
+      <div class="icon">📋</div>
+      <h3>3. Materiallisten & Zeitplanung</h3>
+      <p>Mengen, Lieferzeiten, Ressourcenplanung und Zeitpläne werden erstellt, um die Baustelle effizient zu organisieren.</p>
+    </div>
+    <div class="step">
+      <div class="icon">⚖️</div>
+      <h3>4. Normen & Sicherheitsanforderungen</h3>
+      <p>Baurecht, Statik, Abdichtungssysteme, Belüftung und Wärmedämmung werden berücksichtigt, um Normen einzuhalten und Risiken zu minimieren.</p>
+    </div>
+    <div class="step">
+      <div class="icon">📝</div>
+      <h3>5. Dokumentation & Übergabe</h3>
+      <p>Alle Ergebnisse werden in einem professionellen, rechtssicheren Ausführungsplan dokumentiert, der als Arbeitsgrundlage für alle Beteiligten dient.</p>
+    </div>
   </section>
 </main>
 
@@ -167,7 +212,21 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 <script>
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
+
+// Hauptmenü toggle
 hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
+
+// Mobile Untermenü toggle
+document.querySelectorAll('#navMenu .has-submenu > a').forEach(link => {
+  link.addEventListener('click', e => {
+    if(window.innerWidth <= 768){
+      e.preventDefault();
+      const submenu = link.nextElementSibling;
+      submenu.style.display = (submenu.style.display === 'flex') ? 'none' : 'flex';
+      submenu.style.flexDirection = 'column';
+    }
+  });
+});
 </script>
 </body>
 </html>
