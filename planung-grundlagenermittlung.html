@@ -64,10 +64,37 @@ nav ul li ul li ul { top:0; left:100%; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; }
 .hero p { font-size:1.2em; }
 
+/* Steps Erklärung über Text */
+.steps-section {
+  max-width:900px;
+  margin:40px auto 20px auto;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+  gap:25px;
+  text-align:center;
+}
+.step {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  max-width:160px;
+}
+.step .icon {
+  font-size:36px;
+  margin-bottom:12px;
+  color:#004D00;
+}
+.step p {
+  font-size:1rem;
+  color:#004D00;
+  line-height:1.3;
+}
+
 /* Content Section */
 .content-section {
   max-width:900px;
-  margin:40px auto;
+  margin:20px auto 40px auto;
   padding:0 20px;
 }
 .content-section p {
@@ -85,9 +112,11 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
   nav ul li a { font-size:1.2em; text-align:center; }
   nav ul li ul { position:relative; top:0; left:0; box-shadow:none; }
   nav ul li ul li ul { left:0; }
-  .content-section { padding:0 15px; }
   .hero h1 { font-size:1.8rem; }
   .hero p { font-size:1rem; }
+  .steps-section { flex-direction:column; align-items:center; gap:20px; }
+  .step { max-width:280px; }
+  .content-section { padding:0 15px; }
 }
 </style>
 </head>
@@ -146,6 +175,26 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
   <section class="hero">
     <h1>Grundlagenermittlung</h1>
     <p>Wir schaffen die Basis für eine präzise und sichere Planung Ihres Dachprojekts.</p>
+  </section>
+
+  <!-- Steps Erklärung über Text -->
+  <section class="steps-section">
+    <div class="step">
+      <div class="icon">🔍</div>
+      <p>Bestandsaufnahme</p>
+    </div>
+    <div class="step">
+      <div class="icon">📐</div>
+      <p>Maß- und Materialprüfung</p>
+    </div>
+    <div class="step">
+      <div class="icon">⚖️</div>
+      <p>Statik & Belastung</p>
+    </div>
+    <div class="step">
+      <div class="icon">📝</div>
+      <p>Dokumentation & Empfehlungen</p>
+    </div>
   </section>
 
   <section class="content-section">
