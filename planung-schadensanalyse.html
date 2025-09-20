@@ -6,7 +6,7 @@
 <title>Schadensanalyse – Planung | PlanDach Höfinghoff</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: Arial, sans-serif; overflow-x:hidden; background:#ffffff; }
+body { font-family: Arial, sans-serif; overflow-x:hidden; background:#ffffff; color:#004D00; line-height:1.7; }
 
 /* Header */
 header {
@@ -32,7 +32,7 @@ nav ul li ul li { padding:0; }
 nav ul li ul li a { padding:8px 15px; }
 nav ul li ul li ul { top:0; left:100%; }
 
-/* Hero-Bereich mit Hintergrundbild */
+/* Hero-Bereich */
 .hero {
   position: relative;
   text-align:center;
@@ -64,17 +64,36 @@ nav ul li ul li ul { top:0; left:100%; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; }
 .hero p { font-size:1.2em; }
 
-/* Content Section */
-.form-section {
-  max-width:800px;
-  margin:40px auto;
-  padding:25px 20px;
-  background-color: rgba(0,128,0,0.15);
-  border-radius:8px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+/* Steps Section */
+.steps-section {
+  max-width:900px;
+  margin:40px auto 40px auto;
+  display:flex;
+  flex-direction:column;
+  gap:30px;
 }
-.form-section p, .form-section ul { color:#000; line-height:1.6; }
-.form-section ul { padding-left:20px; }
+.steps-section h2 {
+  font-size:1.8em;
+  font-weight:bold;
+  margin-bottom:20px;
+  text-align:center;
+}
+.step {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  background-color: rgba(0,128,0,0.1);
+  padding:20px;
+  border-radius:8px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+.step .icon {
+  font-size:48px;
+  color:#004D00;
+}
+.step h3 { font-size:1.2em; font-weight:bold; }
+.step p { font-size:1rem; max-width:650px; text-align:center; }
 
 /* Footer */
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
@@ -87,13 +106,16 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
   nav ul li a { font-size:1.2em; text-align:center; }
   nav ul li ul { position:relative; top:0; left:0; box-shadow:none; }
   nav ul li ul li ul { left:0; }
-  .form-section { padding:20px; }
   .hero h1 { font-size:1.8rem; }
   .hero p { font-size:1rem; }
+  .steps-section { gap:20px; }
+  .step .icon { font-size:40px; }
+  .step p { font-size:0.95rem; max-width:100%; }
 }
 </style>
 </head>
 <body>
+
 <header>
   <div class="logo">PlanDach Höfinghoff</div>
   <div class="hamburger" id="hamburger">☰</div>
@@ -149,21 +171,28 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
     <p>Professionelle Untersuchung von Bauschäden zur Ermittlung von Ursachen und geeigneten Sanierungsmaßnahmen.</p>
   </section>
 
-  <section class="form-section">
-    <h2>Ursachen erkennen – Schäden beheben</h2>
-    <p>Bei auftretenden Schäden an Dach- und Fassadenkonstruktionen ist eine fundierte Schadensanalyse unverzichtbar. Ziel ist es, die genaue Ursache zu identifizieren, Folgeschäden zu vermeiden und wirtschaftlich sinnvolle Sanierungsmaßnahmen vorzuschlagen.</p>
-
+  <section class="steps-section">
     <h2>Unser Vorgehen</h2>
-    <ul>
-      <li>Sichtung der vorhandenen Unterlagen und Pläne</li>
-      <li>Vor-Ort-Begutachtung des betroffenen Bereichs</li>
-      <li>Dokumentation von Schadensbildern</li>
-      <li>Bewertung möglicher Ursachen (z. B. Materialfehler, Ausführungsfehler, Alterung)</li>
-      <li>Empfehlung passender Sanierungsmaßnahmen</li>
-    </ul>
-
-    <h2>Ihr Vorteil</h2>
-    <p>Mit einer professionellen Schadensanalyse erhalten Sie eine klare Entscheidungsgrundlage für Reparaturen oder Sanierungen und vermeiden unnötige Kosten durch falsche Maßnahmen.</p>
+    <div class="step">
+      <div class="icon">📄</div>
+      <h3>1. Unterlagen prüfen</h3>
+      <p>Sichtung von Plänen, Dokumentationen und bisherigen Gutachten, um den Schadenskontext zu verstehen.</p>
+    </div>
+    <div class="step">
+      <div class="icon">🔍</div>
+      <h3>2. Vor-Ort-Begutachtung</h3>
+      <p>Analyse der betroffenen Bereiche und detaillierte Aufnahme von Schadensbildern und Defekten.</p>
+    </div>
+    <div class="step">
+      <div class="icon">⚖️</div>
+      <h3>3. Ursachenanalyse</h3>
+      <p>Ermittlung möglicher Ursachen wie Materialfehler, Ausführungsfehler oder natürliche Alterung.</p>
+    </div>
+    <div class="step">
+      <div class="icon">💡</div>
+      <h3>4. Maßnahmenempfehlung</h3>
+      <p>Erarbeitung konkreter, wirtschaftlicher Sanierungsvorschläge zur dauerhaften Schadensbehebung.</p>
+    </div>
   </section>
 </main>
 
