@@ -219,7 +219,21 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 <script>
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
+
+// Hauptmenü toggle
 hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
+
+// Mobile Untermenü toggle
+document.querySelectorAll('#navMenu .has-submenu > a').forEach(link => {
+  link.addEventListener('click', e => {
+    if(window.innerWidth <= 768){
+      e.preventDefault(); // Link nicht folgen
+      const submenu = link.nextElementSibling;
+      submenu.style.display = (submenu.style.display === 'flex') ? 'none' : 'flex';
+      submenu.style.flexDirection = 'column';
+    }
+  });
+});
 </script>
 
 </body>
