@@ -64,31 +64,34 @@ nav ul li ul li ul { top:0; left:100%; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; }
 .hero p { font-size:1.2em; }
 
-/* Steps Erklärung über Text */
+/* Steps Section */
 .steps-section {
   max-width:900px;
   margin:40px auto 20px auto;
   display:flex;
-  flex-wrap:wrap;
-  justify-content:space-around;
-  gap:25px;
+  flex-direction:column;
+  gap:40px;
+  text-align:center;
 }
 .step {
   display:flex;
+  flex-direction:column;
   align-items:center;
   gap:15px;
-  max-width:300px;
 }
 .step .icon {
-  font-size:36px;
+  font-size:48px;
   color:#004D00;
-  flex-shrink:0;
+}
+.step h3 {
+  font-size:1.2em;
+  font-weight:bold;
 }
 .step p {
   font-size:1rem;
   color:#004D00;
-  line-height:1.3;
-  margin:0;
+  line-height:1.4;
+  max-width:600px;
 }
 
 /* Content Section */
@@ -114,8 +117,9 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
   nav ul li ul li ul { left:0; }
   .hero h1 { font-size:1.8rem; }
   .hero p { font-size:1rem; }
-  .steps-section { flex-direction:column; align-items:center; gap:20px; }
-  .step { flex-direction:column; text-align:center; max-width:280px; }
+  .steps-section { gap:25px; }
+  .step .icon { font-size:40px; }
+  .step p { font-size:0.95rem; max-width:100%; }
 }
 </style>
 </head>
@@ -176,35 +180,30 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
     <p>Wir schaffen die Basis für eine präzise und sichere Planung Ihres Dachprojekts.</p>
   </section>
 
-  <!-- Steps Erklärung über Text -->
+  <!-- Schritte der Grundlagenermittlung -->
   <section class="steps-section">
     <div class="step">
       <div class="icon">🔍</div>
-      <p>Bestandsaufnahme</p>
+      <h3>1. Bestandsaufnahme</h3>
+      <p>Wir erfassen alle konstruktiven Gegebenheiten Ihres Daches – von der Dachneigung über die Dachlast bis hin zur Unterkonstruktion. So wissen wir genau, womit wir arbeiten.</p>
+    </div>
+    <div class="step">
+      <div class="icon">⚠️</div>
+      <h3>2. Schwachstellen erkennen</h3>
+      <p>Risse, Feuchtigkeitsschäden, Korrosion oder Materialermüdung werden frühzeitig identifiziert. Modernste Messverfahren und visuelle Inspektionen sorgen für eine präzise Zustandsbewertung.</p>
     </div>
     <div class="step">
       <div class="icon">📐</div>
-      <p>Maß- und Materialprüfung</p>
-    </div>
-    <div class="step">
-      <div class="icon">⚖️</div>
-      <p>Statik & Belastung</p>
+      <h3>3. Bauphysik berücksichtigen</h3>
+      <p>Wärmebrücken, Belüftung und Feuchtigkeitseintrag werden sorgfältig geprüft. So vermeiden wir spätere Risiken und sichern die technische Qualität.</p>
     </div>
     <div class="step">
       <div class="icon">📝</div>
-      <p>Dokumentation & Empfehlungen</p>
+      <h3>4. Fundierte Planung & Dokumentation</h3>
+      <p>Alle Daten fließen in einen klar strukturierten Bericht. Handlungsempfehlungen für Instandsetzung, Sanierung oder Optimierung werden verständlich dargestellt. Damit kann die Ausführungsplanung präzise und wirtschaftlich umgesetzt werden.</p>
     </div>
   </section>
 
-  <section class="content-section">
-    <p>Die Grundlagenermittlung bildet das Fundament jeder erfolgreichen Dachplanung. In dieser Phase führen wir eine detaillierte Bestandsaufnahme durch, bei der sowohl die konstruktiven Gegebenheiten als auch die verwendeten Materialien erfasst werden. Dazu gehören unter anderem die Dachneigung, die Dachlast, die vorhandene Dacheindeckung, die Beschaffenheit der Unterkonstruktion sowie mögliche thermische und statische Belastungen.</p>
-    
-    <p>Besondere Aufmerksamkeit gilt der Identifikation von Schwachstellen, wie Risse, Feuchtigkeitsschäden, Korrosion oder Materialermüdung. Mit modernsten Messverfahren und visuellen Inspektionen erstellen wir eine präzise Zustandsbewertung, die als Grundlage für die risikominimierte Planung dient.</p>
-    
-    <p>Zusätzlich berücksichtigen wir bauphysikalische Parameter wie Wärmebrücken, Feuchtigkeitseintrag und Belüftung. Alle erhobenen Daten werden in einem umfassenden Bericht dokumentiert, der nicht nur die Ist-Situation beschreibt, sondern auch Handlungsempfehlungen für Instandsetzung, Sanierung oder Optimierung enthält.</p>
-    
-    <p>Auf Basis dieser fachlich fundierten Analyse können wir die anschließende Ausführungsplanung exakt auf die Gegebenheiten Ihres Daches abstimmen, wodurch Planungsunsicherheiten, Bauverzögerungen und Kostenrisiken minimiert werden. Diese professionelle Vorgehensweise garantiert eine nachhaltige, wirtschaftliche und technisch einwandfreie Umsetzung Ihres Bauprojekts.</p>
-  </section>
 </main>
 
 <footer>
@@ -212,7 +211,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 </footer>
 
 <script>
-const hamburger = document.getElementById('hamburger');
+const hamburger = document.getElementById
 const navMenu = document.getElementById('navMenu');
 hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
 </script>
