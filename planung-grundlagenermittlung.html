@@ -6,7 +6,7 @@
 <title>Grundlagenermittlung – Planung | PlanDach Höfinghoff</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: Arial, sans-serif; overflow-x:hidden; background:#ffffff; }
+body { font-family: Arial, sans-serif; overflow-x:hidden; background:#ffffff; color:#004D00; line-height:1.7; }
 
 /* Header */
 header {
@@ -25,25 +25,25 @@ header {
 .hamburger { display:none; font-size:2em; cursor:pointer; }
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
-nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:5px 10px; display:block; }
+nav ul li a { text-decoration:none; color:#004D00; font-weight:500; padding:5px 10px; display:block; }
 nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#fff; list-style:none; padding:10px 0; min-width:200px; box-shadow:0 4px 10px rgba(0,0,0,0.1); z-index:10; }
 nav ul li:hover > ul { display:block; }
 nav ul li ul li { padding:0; }
 nav ul li ul li a { padding:8px 15px; }
 nav ul li ul li ul { top:0; left:100%; }
 
-/* Hero-Bereich mit Hintergrundbild */
+/* Hero-Bereich */
 .hero {
   position: relative;
   text-align:center;
   padding:100px 20px;
-  color:white;
   overflow:hidden;
   min-height:350px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
+  color:white;
 }
 .hero::before {
   content:"";
@@ -65,15 +65,14 @@ nav ul li ul li ul { top:0; left:100%; }
 .hero p { font-size:1.2em; }
 
 /* Content Section */
-.form-section {
+.content-section {
   max-width:900px;
   margin:40px auto;
-  padding:25px 30px;
-  background-color: rgba(0,128,0,0.15);
-  border-radius:8px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  padding:0 20px;
 }
-.form-section p { color:#000; line-height:1.7; margin-bottom:18px; }
+.content-section p {
+  margin-bottom:20px;
+}
 
 /* Footer */
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
@@ -86,13 +85,14 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
   nav ul li a { font-size:1.2em; text-align:center; }
   nav ul li ul { position:relative; top:0; left:0; box-shadow:none; }
   nav ul li ul li ul { left:0; }
-  .form-section { padding:20px; }
+  .content-section { padding:0 15px; }
   .hero h1 { font-size:1.8rem; }
   .hero p { font-size:1rem; }
 }
 </style>
 </head>
 <body>
+
 <header>
   <div class="logo">PlanDach Höfinghoff</div>
   <div class="hamburger" id="hamburger">☰</div>
@@ -148,7 +148,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
     <p>Wir schaffen die Basis für eine präzise und sichere Planung Ihres Dachprojekts.</p>
   </section>
 
-  <section class="form-section">
+  <section class="content-section">
     <p>Die Grundlagenermittlung bildet das Fundament jeder erfolgreichen Dachplanung. In dieser Phase führen wir eine detaillierte Bestandsaufnahme durch, bei der sowohl die konstruktiven Gegebenheiten als auch die verwendeten Materialien erfasst werden. Dazu gehören unter anderem die Dachneigung, die Dachlast, die vorhandene Dacheindeckung, die Beschaffenheit der Unterkonstruktion sowie mögliche thermische und statische Belastungen.</p>
     
     <p>Besondere Aufmerksamkeit gilt der Identifikation von Schwachstellen, wie Risse, Feuchtigkeitsschäden, Korrosion oder Materialermüdung. Mit modernsten Messverfahren und visuellen Inspektionen erstellen wir eine präzise Zustandsbewertung, die als Grundlage für die risikominimierte Planung dient.</p>
@@ -168,5 +168,6 @@ const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
 </script>
+
 </body>
 </html>
