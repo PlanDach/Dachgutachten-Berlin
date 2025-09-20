@@ -73,6 +73,11 @@ nav ul li ul li ul { top:0; left:100%; }
   gap:40px;
   text-align:center;
 }
+.steps-section h2 {
+  font-size:1.8em;
+  font-weight:bold;
+  margin-bottom:30px;
+}
 .step {
   display:flex;
   flex-direction:column;
@@ -182,6 +187,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 
   <!-- Schritte der Grundlagenermittlung -->
   <section class="steps-section">
+    <h2>Schritte der Grundlagenermittlung</h2>
     <div class="step">
       <div class="icon">🔍</div>
       <h3>1. Bestandsaufnahme</h3>
@@ -211,7 +217,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 </footer>
 
 <script>
-const hamburger = document.getElementById
+const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
 </script>
