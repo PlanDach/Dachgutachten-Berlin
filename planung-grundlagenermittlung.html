@@ -85,8 +85,8 @@ nav ul li ul li ul { top:0; left:100%; }
   gap:15px;
 }
 .step .icon {
-  font-size:48px;
-  color:#004D00;
+  width:48px;
+  height:48px;
 }
 .step h3 {
   font-size:1.2em;
@@ -123,7 +123,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
   .hero h1 { font-size:1.8rem; }
   .hero p { font-size:1rem; }
   .steps-section { gap:25px; }
-  .step .icon { font-size:40px; }
+  .step .icon { width:40px; height:40px; }
   .step p { font-size:0.95rem; max-width:100%; }
 }
 </style>
@@ -188,26 +188,57 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
   <!-- Schritte der Grundlagenermittlung -->
   <section class="steps-section">
     <h2>Schritte der Grundlagenermittlung</h2>
+
     <div class="step">
-      <div class="icon">🔍</div>
+      <div class="icon">
+        <!-- Lupe SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#004D00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="16.65" y1="16.65" x2="22" y2="22"></line>
+        </svg>
+      </div>
       <h3>1. Bestandsaufnahme</h3>
       <p>Wir erfassen alle konstruktiven Gegebenheiten Ihres Daches – von der Dachneigung über die Dachlast bis hin zur Unterkonstruktion. So wissen wir genau, womit wir arbeiten.</p>
     </div>
+
     <div class="step">
-      <div class="icon">⚠️</div>
+      <div class="icon">
+        <!-- Warnsymbol SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#004D00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 22 20 2 20 12 2"></polygon>
+          <line x1="12" y1="8" x2="12" y2="13"></line>
+          <circle cx="12" cy="17" r="1"></circle>
+        </svg>
+      </div>
       <h3>2. Schwachstellen erkennen</h3>
       <p>Risse, Feuchtigkeitsschäden, Korrosion oder Materialermüdung werden frühzeitig identifiziert. Modernste Messverfahren und visuelle Inspektionen sorgen für eine präzise Zustandsbewertung.</p>
     </div>
+
     <div class="step">
-      <div class="icon">📐</div>
+      <div class="icon">
+        <!-- Geodreieck SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#004D00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="3 21 21 21 3 3 3 21"></polygon>
+          <line x1="3" y1="3" x2="21" y2="21"></line>
+        </svg>
+      </div>
       <h3>3. Bauphysik berücksichtigen</h3>
       <p>Wärmebrücken, Belüftung und Feuchtigkeitseintrag werden sorgfältig geprüft. So vermeiden wir spätere Risiken und sichern die technische Qualität.</p>
     </div>
+
     <div class="step">
-      <div class="icon">📝</div>
+      <div class="icon">
+        <!-- Notiz SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#004D00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16v16H4z"></path>
+          <line x1="8" y1="8" x2="16" y2="8"></line>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+        </svg>
+      </div>
       <h3>4. Fundierte Planung & Dokumentation</h3>
       <p>Alle Daten fließen in einen klar strukturierten Bericht. Handlungsempfehlungen für Instandsetzung, Sanierung oder Optimierung werden verständlich dargestellt. Damit kann die Ausführungsplanung präzise und wirtschaftlich umgesetzt werden.</p>
     </div>
+
   </section>
 
 </main>
@@ -227,7 +258,7 @@ hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); })
 document.querySelectorAll('#navMenu .has-submenu > a').forEach(link => {
   link.addEventListener('click', e => {
     if(window.innerWidth <= 768){
-      e.preventDefault(); // Link nicht folgen
+      e.preventDefault();
       const submenu = link.nextElementSibling;
       submenu.style.display = (submenu.style.display === 'flex') ? 'none' : 'flex';
       submenu.style.flexDirection = 'column';
