@@ -6,7 +6,7 @@
 <title>Baukoordination – Bauüberwachung | PlanDach Höfinghoff</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: Arial, sans-serif; overflow-x:hidden; background:#ffffff; }
+body { font-family: Arial, sans-serif; overflow-x:hidden; background:#ffffff; color:#004D00; line-height:1.7; }
 
 /* Header */
 header {
@@ -25,24 +25,25 @@ header {
 .hamburger { display:none; font-size:2em; cursor:pointer; }
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
-nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:5px 10px; display:block; }
+nav ul li a { text-decoration:none; color:#004D00; font-weight:500; padding:5px 10px; display:block; }
 nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#fff; list-style:none; padding:10px 0; min-width:200px; box-shadow:0 4px 10px rgba(0,0,0,0.1); z-index:10; }
 nav ul li:hover > ul { display:block; }
 nav ul li ul li { padding:0; }
 nav ul li ul li a { padding:8px 15px; }
 nav ul li ul li ul { top:0; left:100%; }
 
-/* Hero */
+/* Hero-Bereich */
 .hero {
   position: relative;
   text-align:center;
-  padding:120px 20px;
+  padding:100px 20px;
+  overflow:hidden;
   min-height:350px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  overflow:hidden;
+  color:white;
 }
 .hero::before {
   content:"";
@@ -58,23 +59,45 @@ nav ul li ul li ul { top:0; left:100%; }
 .hero h1, .hero p {
   position: relative;
   z-index:2;
-  color:#ffffff;
+  max-width:900px;
 }
-.hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
+.hero h1 { font-size:2.5em; margin-bottom:15px; }
 .hero p { font-size:1.2em; }
 
-/* Content Section */
-.form-section {
+/* Steps Section */
+.steps-section {
   max-width:900px;
-  margin:40px auto;
-  padding:30px 25px;
-  background-color: rgba(0,128,0,0.15);
-  border-radius:8px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  margin:40px auto 20px auto;
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+  text-align:center;
 }
-.form-section h2 { margin-bottom:15px; color:#004d00; }
-.form-section p, .form-section ul { color:#000; line-height:1.8; margin-bottom:20px; }
-.form-section ul { padding-left:25px; }
+.steps-section h2 {
+  font-size:1.8em;
+  font-weight:bold;
+  margin-bottom:30px;
+}
+.step {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:15px;
+}
+.step .icon {
+  width:48px;
+  height:48px;
+}
+.step h3 {
+  font-size:1.2em;
+  font-weight:bold;
+}
+.step p {
+  font-size:1rem;
+  color:#004D00;
+  line-height:1.4;
+  max-width:600px;
+}
 
 /* Footer */
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
@@ -87,13 +110,16 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
   nav ul li a { font-size:1.2em; text-align:center; }
   nav ul li ul { position:relative; top:0; left:0; box-shadow:none; }
   nav ul li ul li ul { left:0; }
-  .form-section { padding:20px; }
   .hero h1 { font-size:1.8rem; }
   .hero p { font-size:1rem; }
+  .steps-section { gap:25px; }
+  .step .icon { width:40px; height:40px; }
+  .step p { font-size:0.95rem; max-width:100%; }
 }
 </style>
 </head>
 <body>
+
 <header>
   <div class="logo">PlanDach Höfinghoff</div>
   <div class="hamburger" id="hamburger">☰</div>
@@ -149,21 +175,50 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
     <p>Reibungslose Abläufe, transparente Kommunikation und effizientes Projektmanagement auf Ihrer Baustelle.</p>
   </section>
 
-  <section class="form-section">
-    <h2>Unsere Aufgabe</h2>
-    <p>Eine fundierte Baukoordination gewährleistet, dass sämtliche Gewerke strukturiert zusammenarbeiten, Schnittstellen professionell abgeklärt sind und der Bauablauf termingerecht erfolgt. Wir minimieren Risiken, koordinieren Änderungen und stellen sicher, dass die vereinbarten Qualitätsstandards eingehalten werden.</p>
+  <!-- Steps Section -->
+  <section class="steps-section">
+    <h2>Unsere Leistungen</h2>
 
-    <h2>Leistungen</h2>
-    <ul>
-      <li><strong>Organisation und Abstimmung aller Gewerke:</strong> Wir erstellen einen detaillierten Ablaufplan, klären Verantwortlichkeiten und koordinieren Handwerker, Ingenieure und Fachplaner, um Verzögerungen zu vermeiden.</li>
-      <li><strong>Bauablaufplanung und Terminmanagement:</strong> Erstellung von Meilensteinplänen, Ressourcenplanung, Fristenkontrolle und frühzeitige Anpassung bei Änderungen, um eine termingerechte Fertigstellung sicherzustellen.</li>
-      <li><strong>Schnittstellenmanagement:</strong> Identifikation kritischer Schnittstellen zwischen verschiedenen Gewerken, Lösung potenzieller Konflikte und Sicherstellung reibungsloser Übergaben.</li>
-      <li><strong>Kommunikation und Dokumentation:</strong> Kontinuierliche Abstimmung mit Bauherr, Architekt, Fachplanern und Handwerkern, lückenlose Dokumentation von Fortschritten, Änderungen und Entscheidungen.</li>
-      <li><strong>Qualitätssicherung:</strong> Überprüfung der Einhaltung technischer Normen, baurechtlicher Vorgaben und vertraglicher Vereinbarungen während des gesamten Bauprozesses.</li>
-    </ul>
+    <div class="step">
+      <div class="icon">
+        <img src="platzhalter1.png" alt="Organisation Icon" width="48" height="48">
+      </div>
+      <h3>Organisation & Abstimmung</h3>
+      <p>Wir erstellen detaillierte Ablaufpläne, klären Verantwortlichkeiten und koordinieren Handwerker, Ingenieure und Fachplaner, um Verzögerungen zu vermeiden.</p>
+    </div>
 
-    <h2>Ihr Vorteil</h2>
-    <p>Mit professioneller Baukoordination reduzieren Sie Bauverzögerungen, minimieren Schnittstellenprobleme und vermeiden unnötige Kosten. Ihre Projekte werden effizient, termingerecht und in hoher Qualität umgesetzt, während Sie jederzeit den Überblick behalten.</p>
+    <div class="step">
+      <div class="icon">
+        <img src="platzhalter2.png" alt="Bauablauf Icon" width="48" height="48">
+      </div>
+      <h3>Bauablaufplanung & Terminmanagement</h3>
+      <p>Meilensteinpläne, Ressourcenplanung, Fristenkontrolle und frühzeitige Anpassungen bei Änderungen sichern die termingerechte Fertigstellung.</p>
+    </div>
+
+    <div class="step">
+      <div class="icon">
+        <img src="platzhalter3.png" alt="Schnittstellenmanagement Icon" width="48" height="48">
+      </div>
+      <h3>Schnittstellenmanagement</h3>
+      <p>Kritische Schnittstellen zwischen Gewerken werden identifiziert, Konflikte gelöst und reibungslose Übergaben sichergestellt.</p>
+    </div>
+
+    <div class="step">
+      <div class="icon">
+        <img src="platzhalter4.png" alt="Kommunikation Icon" width="48" height="48">
+      </div>
+      <h3>Kommunikation & Dokumentation</h3>
+      <p>Abstimmung mit Bauherr, Architekt, Fachplanern und Handwerkern sowie lückenlose Dokumentation von Fortschritten, Änderungen und Entscheidungen.</p>
+    </div>
+
+    <div class="step">
+      <div class="icon">
+        <img src="platzhalter5.png" alt="Qualitätssicherung Icon" width="48" height="48">
+      </div>
+      <h3>Qualitätssicherung</h3>
+      <p>Überprüfung der Einhaltung technischer Normen, baurechtlicher Vorgaben und vertraglicher Vereinbarungen während des gesamten Bauprozesses.</p>
+    </div>
+
   </section>
 </main>
 
