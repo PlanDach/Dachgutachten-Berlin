@@ -25,7 +25,8 @@ header {
 .hamburger { display:none; font-size:1.8em; cursor:pointer; }
 nav ul { list-style:none; display:flex; gap:18px; align-items:center; }
 nav ul li { position:relative; }
-nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:6px 10px; display:block; }
+nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:6px 10px; display:block; transition: color 0.2s ease, background 0.2s ease; }
+nav ul li a:hover, nav ul li a.active { color:#007f5f; background:#e6f4ea; border-radius:6px; }
 nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#fff; list-style:none; padding:10px 0; min-width:200px; box-shadow:0 6px 18px rgba(0,0,0,0.08); z-index:10; }
 nav ul li:hover > ul { display:block; }
 nav ul li ul li a { padding:8px 15px; white-space:nowrap; }
@@ -33,14 +34,22 @@ nav ul li ul li ul { top:0; left:100%; }
 
 /* Hero */
 .hero { 
+  position:relative;
   text-align:center; 
   padding:120px 20px; 
-  background-color:#f7f7f7; 
-  color:#333; 
   min-height:350px; /* gleiche Höhe wie Kontakt-Hero */
+  background: url('IMG_4009.jpeg') center center / cover no-repeat;
+  color:#ffffff;
 }
-.hero h1 { font-size:2rem; margin-bottom:10px; color:#004d00; }
-.hero p { font-size:1rem; max-width:900px; margin:0 auto; color:#444; }
+.hero::after {
+  content:"";
+  position:absolute;
+  top:0; left:0; right:0; bottom:0;
+  background:rgba(0,0,0,0.5);
+  filter: brightness(0.7);
+  z-index:1;
+}
+.hero h1, .hero p { position:relative; z-index:2; }
 
 /* CHECK CONTAINER */
 .check-container {
