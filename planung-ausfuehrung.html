@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Ausführungsplanung – Planung | PlanDach Höfinghoff</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -21,15 +21,48 @@ header {
   z-index:10;
   box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
-.logo { font-weight:bold; font-size:1.2em; }
+.logo img { height:80px; width:auto; }
 .hamburger { display:none; font-size:2em; cursor:pointer; }
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
-nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:5px 10px; display:block; }
-nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#fff; list-style:none; padding:10px 0; min-width:200px; box-shadow:0 4px 10px rgba(0,0,0,0.1); z-index:10; }
+nav ul li a { 
+  text-decoration:none; 
+  color:#004d00; 
+  font-weight:500; 
+  padding:5px 10px; 
+  display:block; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover- und Klick-Effekte */
+nav ul li a:hover { 
+  background-color:#e6f4ea; 
+  border-radius:6px; 
+  color:#007f5f; 
+}
+nav ul li a:active, 
+nav ul li a.active { 
+  background-color:#cde9d8; 
+  border-radius:6px; 
+  color:#007f5f; 
+}
+
+/* Untermenüs Desktop */
+nav ul li ul { 
+  display:none; 
+  position:absolute; 
+  top:100%; 
+  left:0; 
+  background:#fff; 
+  list-style:none; 
+  padding:10px 0; 
+  min-width:200px; 
+  box-shadow:0 4px 10px rgba(0,0,0,0.1); 
+  z-index:10; 
+}
 nav ul li:hover > ul { display:block; }
 nav ul li ul li { padding:0; }
-nav ul li ul li a { padding:8px 15px; }
+nav ul li ul li a { padding:8px 15px; white-space:nowrap; }
 nav ul li ul li ul { top:0; left:100%; }
 
 /* Hero-Bereich */
@@ -121,7 +154,9 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 <body>
 
 <header>
-  <div class="logo">PlanDach Höfinghoff</div>
+  <div class="logo">
+    <img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo">
+  </div>
   <div class="hamburger" id="hamburger">☰</div>
   <nav>
     <ul id="navMenu">
@@ -180,8 +215,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 
     <div class="step">
       <div class="icon">
-        <!-- Erstes Icon ersetzt durch PNG -->
-        <img src="best_18289742.png" alt="Planung Icon" style="width:48px; height:48px;">
+        <img src="best_18289742.png" alt="Planung Icon">
       </div>
       <h3>1. Planung & Arbeitsabläufe</h3>
       <p>Detaillierte Pläne, Grundrisse, Schnitte, Materialien, Maße und Montageanleitungen, um die Umsetzung auf der Baustelle reibungslos zu gestalten.</p>
@@ -189,8 +223,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 
     <div class="step">
       <div class="icon">
-        <!-- Zweites Icon ersetzt -->
-        <img src="positive-thinking_18128003.png" alt="Ressourcen & Sicherheit Icon" style="width:48px; height:48px;">
+        <img src="positive-thinking_18128003.png" alt="Ressourcen & Sicherheit Icon">
       </div>
       <h3>2. Ressourcen & Sicherheit</h3>
       <p>Materiallisten, Mengen, Lieferzeiten, Zeitplanung sowie Normen, Sicherheitsanforderungen, Statik, Abdichtungen und Dämmung werden berücksichtigt.</p>
@@ -198,8 +231,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 
     <div class="step">
       <div class="icon">
-        <!-- Drittes Icon ersetzt durch PNG -->
-        <img src="evaluate_18289840.png" alt="Dokumentation Icon" style="width:48px; height:48px;">
+        <img src="evaluate_18289840.png" alt="Dokumentation Icon">
       </div>
       <h3>3. Dokumentation & Übergabe</h3>
       <p>Alle Ergebnisse werden in einem professionellen, rechtssicheren Ausführungsplan dokumentiert und an Bauherren sowie ausführende Gewerke übergeben.</p>
@@ -215,8 +247,6 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 <script>
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
-
-// Hauptmenü toggle
 hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
 
 // Mobile Untermenü toggle
