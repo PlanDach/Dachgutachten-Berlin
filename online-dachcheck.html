@@ -5,13 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Online-DachCheck – PlanDach Höfinghoff</title>
 <style>
-/* Reset / Basis */
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: Arial, Helvetica, sans-serif; overflow-x:hidden; background:#ffffff; color:#333; }
-
-/* Fix für festen Header */
-header { height:64px; }
-main { padding-top:20px; }
 
 /* Header */
 header {
@@ -26,7 +21,7 @@ header {
   z-index:100;
   box-shadow:0 2px 5px rgba(0,0,0,0.06);
 }
-.logo { font-weight:bold; font-size:1.15em; color:#004d00; letter-spacing:0.2px; }
+.logo img { height:80px; width:auto; }
 .hamburger { display:none; font-size:1.8em; cursor:pointer; }
 nav ul { list-style:none; display:flex; gap:18px; align-items:center; }
 nav ul li { position:relative; }
@@ -34,13 +29,20 @@ nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:6px 
 nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#fff; list-style:none; padding:10px 0; min-width:200px; box-shadow:0 6px 18px rgba(0,0,0,0.08); z-index:10; }
 nav ul li:hover > ul { display:block; }
 nav ul li ul li a { padding:8px 15px; white-space:nowrap; }
+nav ul li ul li ul { top:0; left:100%; }
 
 /* Hero */
-.hero { text-align:center; padding:90px 20px 40px 20px; background-color:#f7f7f7; color:#333; }
+.hero { 
+  text-align:center; 
+  padding:120px 20px; 
+  background-color:#f7f7f7; 
+  color:#333; 
+  min-height:350px; /* gleiche Höhe wie Kontakt-Hero */
+}
 .hero h1 { font-size:2rem; margin-bottom:10px; color:#004d00; }
 .hero p { font-size:1rem; max-width:900px; margin:0 auto; color:#444; }
 
-/* CHECK CONTAINER: Beschreibung + Formular + Steps */
+/* CHECK CONTAINER */
 .check-container {
   max-width:800px;
   margin:30px auto 60px;
@@ -58,12 +60,11 @@ nav ul li ul li a { padding:8px 15px; white-space:nowrap; }
   font-size:1rem;
 }
 
-/* Steps-Box oberhalb des Formulars */
+/* Steps-Box */
 .steps-section {
   background:#ffffff;
   padding:22px;
   text-align:center;
-  /* Rand entfernt */
   border:none;
   box-shadow:none;
 }
@@ -119,7 +120,7 @@ nav ul li ul li a { padding:8px 15px; white-space:nowrap; }
 .step p {
   margin-top:14px;
   font-size:0.95rem;
-  color:#004D00; /* Grün statt schwarz */
+  color:#004D00;
   line-height:1.2;
   text-align:center;
 }
@@ -172,7 +173,7 @@ form button:hover { background-color:#003300; transform:translateY(-1px); }
 footer { background:#f8f8f8; padding:36px 20px; text-align:center; font-size:14px; color:#333; }
 footer a { color:#007f5f; text-decoration:none; margin:0 8px; }
 
-/* RESPONSIVE */
+/* Responsive */
 @media (max-width:768px) {
   .hamburger { display:block; }
   nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:64px; left:0; width:100%; box-shadow:none; }
@@ -187,15 +188,14 @@ footer a { color:#007f5f; text-decoration:none; margin:0 8px; }
   .steps-grid { grid-template-columns:1fr; gap:28px; }
   .step { max-width:280px; }
 }
-
-/* Kleine opt. Anpassungen für touch */
-input[type="file"] { cursor:pointer; }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">PlanDach Höfinghoff</div>
+  <div class="logo">
+    <img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo">
+  </div>
   <div class="hamburger" id="hamburger">☰</div>
   <nav>
     <ul id="navMenu">
@@ -251,14 +251,12 @@ input[type="file"] { cursor:pointer; }
 
   <div class="check-container">
 
-    <!-- Beschreibung -->
     <section class="form-description">
       Nutzen Sie unseren Online-DachCheck, um den Zustand Ihres Daches bequem von zu Hause aus einzuschätzen. 
       Unser digitaler Check führt Sie strukturiert durch alle relevanten Bereiche – von der Dacheindeckung über die Abdichtung bis zur Entwässerung. 
       So erhalten Sie eine fundierte Übersicht, erkennen mögliche Schäden frühzeitig und können gezielt Maßnahmen für den Werterhalt Ihrer Immobilie planen.
     </section>
 
-    <!-- Steps-Box unter Beschreibung -->
     <section class="steps-section" aria-labelledby="steps-heading">
       <div class="steps-header">
         <span class="check-icon" aria-hidden="true">✅</span>
@@ -284,7 +282,6 @@ input[type="file"] { cursor:pointer; }
       </div>
     </section>
 
-    <!-- Formular -->
     <section class="form-section" aria-labelledby="form-heading">
       <h2 id="form-heading">Online-DachCheck Formular</h2>
       <form id="dachcheckForm" action="https://formspree.io/f/yourformid" method="POST" enctype="multipart/form-data">
@@ -330,7 +327,7 @@ input[type="file"] { cursor:pointer; }
       </form>
     </section>
 
-  </div> <!-- /.check-container -->
+  </div>
 </main>
 
 <footer>
@@ -342,12 +339,9 @@ input[type="file"] { cursor:pointer; }
 </footer>
 
 <script>
-/* Mobile Nav Toggle */
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
-if (hamburger && navMenu) {
-  hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
-}
+hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
 </script>
 </body>
 </html>
