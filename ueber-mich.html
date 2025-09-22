@@ -25,8 +25,40 @@ header {
 .hamburger { display:none; font-size:2em; cursor:pointer; }
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
-nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:5px 10px; display:block; }
-nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#fff; list-style:none; padding:10px 0; min-width:200px; box-shadow:0 4px 10px rgba(0,0,0,0.1); z-index:10; }
+nav ul li a { 
+  text-decoration:none; 
+  color:#004d00; 
+  font-weight:500; 
+  padding:5px 10px; 
+  display:block; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover- und Klick-Effekte */
+nav ul li a:hover { 
+  background-color:#e6f4ea; 
+  border-radius:6px; 
+  color:#007f5f; 
+}
+nav ul li a:active, 
+nav ul li a.active { 
+  background-color:#cde9d8; 
+  border-radius:6px; 
+  color:#007f5f; 
+}
+
+nav ul li ul { 
+  display:none; 
+  position:absolute; 
+  top:100%; 
+  left:0; 
+  background:#fff; 
+  list-style:none; 
+  padding:10px 0; 
+  min-width:200px; 
+  box-shadow:0 4px 10px rgba(0,0,0,0.1); 
+  z-index:10; 
+}
 nav ul li:hover > ul { display:block; }
 nav ul li ul li { padding:0; }
 nav ul li ul li a { padding:8px 15px; }
