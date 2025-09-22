@@ -15,13 +15,13 @@ header {
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:20px 20px; /* erhöhtes Padding für großes Logo */
+  padding:10px 20px;
   position:fixed;
   top:0; left:0;
   z-index:10;
   box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
-.logo img { height:80px; width:auto; } /* LOGO GRÖSSER */
+.logo img { height:80px; width:auto; } /* LOGO NOCH GRÖßER */
 .hamburger { display:none; font-size:2em; cursor:pointer; }
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
@@ -65,7 +65,7 @@ nav ul li ul li a { padding:8px 15px; }
 nav ul li ul li ul { top:0; left:100%; }
 
 /* Hero */
-.hero { text-align:center; padding:120px 20px 80px 20px; background-color:#f8f8f8; color:#333; } /* mehr Top-Padding wegen Header */
+.hero { text-align:center; padding:80px 20px; background-color:#f8f8f8; color:#333; }
 
 /* Main content */
 .content-section { background:#ffffff; padding:40px 20px; }
@@ -82,8 +82,8 @@ nav ul li ul li ul { top:0; left:100%; }
 /* Signatur unter dem letzten Absatz */
 .signature {
   display: block;
-  margin: 20px auto 0 auto; 
-  width: 300px; 
+  margin: 20px auto 0 auto; /* Abstand nach oben, zentriert */
+  width: 300px; /* doppelt so groß */
   height: auto;
 }
 
@@ -94,7 +94,7 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 /* Responsive */
 @media (max-width:768px) {
   .hamburger { display:block; }
-  nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:100px; left:0; width:100%; } /* angepasst */
+  nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:60px; left:0; width:100%; }
   nav ul.show { display:flex; }
   nav ul li a { font-size:1.2em; text-align:center; }
   nav ul li ul { position:relative; top:0; left:0; box-shadow:none; }
@@ -103,7 +103,6 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
   .text-box h2 { font-size:1.5rem; }
   .text-box p { font-size:1rem; }
   .signature { width: 220px; margin-top:15px; }
-  .hero { padding:100px 20px 60px 20px; } /* mobil Header-Padding */
 }
 </style>
 </head>
