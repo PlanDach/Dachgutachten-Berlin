@@ -6,7 +6,7 @@
 <title>Grundlagenermittlung – Planung | PlanDach Höfinghoff</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: Arial, Helvetica, sans-serif; overflow-x:hidden; background:#ffffff; color:#333; }
+body { font-family: Arial, sans-serif; overflow-x:hidden; background:#ffffff; color:#333; }
 
 /* Header */
 header {
@@ -18,39 +18,80 @@ header {
   padding:10px 20px;
   position:fixed;
   top:0; left:0;
-  z-index:100;
-  box-shadow:0 2px 5px rgba(0,0,0,0.06);
+  z-index:10;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 .logo img { height:80px; width:auto; }
-.hamburger { display:none; font-size:1.8em; cursor:pointer; }
-nav ul { list-style:none; display:flex; gap:18px; align-items:center; }
+.hamburger { display:none; font-size:2em; cursor:pointer; }
+nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
-nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:6px 10px; display:block; transition: color 0.2s ease, background 0.2s ease; }
-nav ul li a:hover, nav ul li a.active { color:#007f5f; background:#e6f4ea; border-radius:6px; }
+nav ul li a { 
+  text-decoration:none; 
+  color:#004d00; 
+  font-weight:500; 
+  padding:5px 10px; 
+  display:block; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-nav ul li.has-submenu ul { display:none; position:absolute; top:100%; left:0; background:#fff; list-style:none; padding:10px 0; min-width:200px; box-shadow:0 6px 18px rgba(0,0,0,0.08); z-index:10; }
+/* Hover- und Klick-Effekte */
+nav ul li a:hover { 
+  background-color:#e6f4ea; 
+  border-radius:6px; 
+  color:#007f5f; 
+}
+nav ul li a:active, 
+nav ul li a.active { 
+  background-color:#cde9d8; 
+  border-radius:6px; 
+  color:#007f5f; 
+}
+
+nav ul li ul { 
+  display:none; 
+  position:absolute; 
+  top:100%; 
+  left:0; 
+  background:#fff; 
+  list-style:none; 
+  padding:10px 0; 
+  min-width:200px; 
+  box-shadow:0 4px 10px rgba(0,0,0,0.1); 
+  z-index:10; 
+}
 nav ul li:hover > ul { display:block; }
-nav ul li ul li a { padding:8px 15px; white-space:nowrap; }
+nav ul li ul li { padding:0; }
+nav ul li ul li a { padding:8px 15px; }
 nav ul li ul li ul { top:0; left:100%; }
 
 /* Hero */
 .hero { 
-  position:relative;
+  position: relative;
   text-align:center; 
   padding:120px 20px; 
   min-height:350px; 
-  background: url('IMG_3949.jpeg') center center / cover no-repeat;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background: url('IMG_3949.jpeg') center center / cover no-repeat; 
   color:#ffffff;
 }
-.hero::after {
+.hero::before {
   content:"";
   position:absolute;
-  top:0; left:0; right:0; bottom:0;
-  background:rgba(0,0,0,0.5);
-  filter: brightness(0.7);
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background: inherit;
+  opacity:0.5;
   z-index:1;
+  filter: brightness(0.7);
 }
-.hero h1, .hero p { position:relative; z-index:2; }
+.hero h1, .hero p {
+  position: relative;
+  z-index:2;
+}
 
 /* Steps Section */
 .steps-section {
@@ -86,9 +127,9 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 /* Responsive */
 @media (max-width:768px) {
   .hamburger { display:block; }
-  nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:64px; left:0; width:100%; box-shadow:none; }
+  nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:80px; left:0; width:100%; }
   nav ul.show { display:flex; }
-  nav ul li a { font-size:1.05rem; text-align:center; }
+  nav ul li a { font-size:1.2em; text-align:center; }
   nav ul li ul { position:relative; top:0; left:0; box-shadow:none; }
   nav ul li ul li ul { left:0; }
   .hero { padding:70px 16px 18px 16px; }
@@ -165,7 +206,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 
     <div class="step">
       <div class="icon">
-        <img src="survey_18289663.png" alt="Bestandsaufnahme Icon" width="48" height="48">
+        <img src="survey_18289663.png" alt="Bestandsaufnahme Icon">
       </div>
       <h3>1. Bestandsaufnahme</h3>
       <p>Wir erfassen alle konstruktiven Gegebenheiten Ihres Daches – von der Dachneigung über die Dachlast bis hin zur Unterkonstruktion. So wissen wir genau, womit wir arbeiten.</p>
@@ -173,7 +214,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 
     <div class="step">
       <div class="icon">
-        <img src="reshot-icon-construction-site-75FNWSUP6K.svg" alt="Schwachstellen Icon" width="48" height="48">
+        <img src="reshot-icon-construction-site-75FNWSUP6K.svg" alt="Schwachstellen Icon">
       </div>
       <h3>2. Schwachstellen erkennen</h3>
       <p>Risse, Feuchtigkeitsschäden, Korrosion oder Materialermüdung werden frühzeitig identifiziert. Modernste Messverfahren und visuelle Inspektionen sorgen für eine präzise Zustandsbewertung.</p>
@@ -181,7 +222,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 
     <div class="step">
       <div class="icon">
-        <img src="drafting_17416290.png" alt="Bauphysik Icon" width="48" height="48">
+        <img src="drafting_17416290.png" alt="Bauphysik Icon">
       </div>
       <h3>3. Bauphysik berücksichtigen</h3>
       <p>Wärmebrücken, Belüftung und Feuchtigkeitseintrag werden sorgfältig geprüft. So vermeiden wir spätere Risiken und sichern die technische Qualität.</p>
@@ -189,7 +230,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 
     <div class="step">
       <div class="icon">
-        <img src="sections_17416483.png" alt="Dokumentation Icon" width="48" height="48">
+        <img src="sections_17416483.png" alt="Dokumentation Icon">
       </div>
       <h3>4. Fundierte Planung & Dokumentation</h3>
       <p>Alle Daten fließen in einen klar strukturierten Bericht. Handlungsempfehlungen für Instandsetzung, Sanierung oder Optimierung werden verständlich dargestellt. Damit kann die Ausführungsplanung präzise und wirtschaftlich umgesetzt werden.</p>
