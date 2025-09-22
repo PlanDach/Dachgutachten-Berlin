@@ -27,6 +27,21 @@ nav ul { list-style:none; display:flex; gap:18px; align-items:center; }
 nav ul li { position:relative; }
 nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:6px 10px; display:block; transition: color 0.2s ease, background 0.2s ease; }
 nav ul li a:hover, nav ul li a.active { color:#007f5f; background:#e6f4ea; border-radius:6px; }
+
+/* NEUE REGEL: Wenn Untermenü „Online-DachCheck“ angezeigt wird, Hauptmenü grün */
+nav ul li.has-submenu ul li a[href="online-dachcheck.html"]:hover {
+  background:#e6f4ea;
+  color:#007f5f;
+}
+nav ul li.has-submenu ul li a[href="online-dachcheck.html"]:hover {
+  /* Hauptmenüpunkt ebenfalls markieren */
+}
+nav ul li.has-submenu:hover > a[href="online-dachcheck.html"] {
+  color:#007f5f;
+  background:#e6f4ea;
+  border-radius:6px;
+}
+
 nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#fff; list-style:none; padding:10px 0; min-width:200px; box-shadow:0 6px 18px rgba(0,0,0,0.08); z-index:10; }
 nav ul li:hover > ul { display:block; }
 nav ul li ul li a { padding:8px 15px; white-space:nowrap; }
@@ -37,7 +52,7 @@ nav ul li ul li ul { top:0; left:100%; }
   position:relative;
   text-align:center; 
   padding:120px 20px; 
-  min-height:350px;
+  min-height:350px; /* gleiche Höhe wie Kontakt-Hero */
   background: url('IMG_4009.jpeg') center center / cover no-repeat;
   color:#ffffff;
 }
@@ -241,11 +256,11 @@ footer a { color:#007f5f; text-decoration:none; margin:0 8px; }
             </ul>
           </li>
           <li><a href="dachwartung.html">Dachwartung</a></li>
-          <li><a href="online-dachcheck.html" class="active">Online-DachCheck</a></li>
+          <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
           <li><a href="leckageortung.html">Leckageortung</a></li>
         </ul>
       </li>
-      <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+      <li><a href="online-dachcheck.html" class="active">Online-DachCheck</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
       <li><a href="impressum.html">Impressum</a></li>
     </ul>
