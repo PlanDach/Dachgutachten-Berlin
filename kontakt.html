@@ -21,12 +21,41 @@ header {
   z-index:10;
   box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
-.logo { font-weight:bold; font-size:1.2em; }
+.logo img { height:80px; width:auto; }
 .hamburger { display:none; font-size:2em; cursor:pointer; }
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
-nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:5px 10px; display:block; }
-nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#fff; list-style:none; padding:10px 0; min-width:200px; box-shadow:0 4px 10px rgba(0,0,0,0.1); z-index:10; }
+nav ul li a { 
+  text-decoration:none; 
+  color:#004d00; 
+  font-weight:500; 
+  padding:5px 10px; 
+  display:block; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+nav ul li a:hover { 
+  background-color:#e6f4ea; 
+  border-radius:6px; 
+  color:#007f5f; 
+}
+nav ul li a:active, 
+nav ul li a.active { 
+  background-color:#cde9d8; 
+  border-radius:6px; 
+  color:#007f5f; 
+}
+nav ul li ul { 
+  display:none; 
+  position:absolute; 
+  top:100%; 
+  left:0; 
+  background:#fff; 
+  list-style:none; 
+  padding:10px 0; 
+  min-width:200px; 
+  box-shadow:0 4px 10px rgba(0,0,0,0.1); 
+  z-index:10; 
+}
 nav ul li:hover > ul { display:block; }
 nav ul li ul li { padding:0; }
 nav ul li ul li a { padding:8px 15px; }
@@ -43,7 +72,6 @@ nav ul li ul li ul { top:0; left:100%; }
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  color:#fff;
 }
 .hero::before {
   content:"";
@@ -59,6 +87,7 @@ nav ul li ul li ul { top:0; left:100%; }
 .hero h1, .hero p {
   position: relative;
   z-index:2;
+  color:#ffffff;
 }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
 .hero p { font-size:1.2em; }
@@ -66,7 +95,7 @@ nav ul li ul li ul { top:0; left:100%; }
 /* Contact Section */
 .contact-wrapper {
   display:flex;
-  flex-direction:column; /* Text über Formular */
+  flex-direction:column;
   gap:20px;
   max-width:800px;
   margin:40px auto;
@@ -147,7 +176,9 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 </head>
 <body>
 <header>
-  <div class="logo">PlanDach Höfinghoff</div>
+  <div class="logo">
+    <img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo">
+  </div>
   <div class="hamburger" id="hamburger">☰</div>
   <nav>
     <ul id="navMenu">
@@ -228,8 +259,8 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 </main>
 
 <footer>
-  <div style="max-width:1000px; margin:0 auto;">
-    <p>© 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
+  <div style="max-width:1000px; margin:0 auto; text-align:center;">
+    <p>&copy; 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
     <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="kontakt.html">Kontakt</a></p>
     <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: 030 12345678 | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
   </div>
