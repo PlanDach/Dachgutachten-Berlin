@@ -8,6 +8,7 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: Arial, sans-serif; overflow-x:hidden; background:#fff; color:#333; }
 
+/* Header */
 header {
   width:100%;
   background:#fff;
@@ -20,13 +21,13 @@ header {
   z-index:10;
   box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
-.logo { font-weight:bold; font-size:1.2em; }
+.logo img { height:80px; width:auto; display:block; }
 .hamburger { display:none; font-size:1.8em; cursor:pointer; user-select:none; }
 
 nav ul { list-style:none; display:flex; gap:20px; align-items:center; justify-content:center; }
 nav ul li { position:relative; }
 nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:6px 10px; display:block; }
-nav ul li a.active { color:#004d00; }
+nav ul li a.active { color:#007f5f; }
 
 nav ul li ul {
   display:none;
@@ -45,7 +46,11 @@ nav ul li:hover > ul { display:block; }
 nav ul li ul li a { padding:8px 15px; color:#004d00; }
 nav ul li ul li ul { top:0; left:100%; }
 
-main { padding-top:0; }
+nav ul li a:hover, nav ul li a.active { color:#007f5f; background:#e6f4ea; border-radius:6px; }
+
+main { padding-top:100px; }
+
+/* Hero */
 .hero {
   position: relative;
   text-align:center;
@@ -76,6 +81,7 @@ main { padding-top:0; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
 .hero p { font-size:1.2em; }
 
+/* Content */
 .content-wrapper {
   max-width:1200px;
   margin:40px auto;
@@ -86,31 +92,21 @@ main { padding-top:0; }
   margin-bottom:40px;
 }
 .form-section h2 { color:#004d00; margin-bottom:12px; }
-.form-section p, 
-.form-section ul { color:#004d00; line-height:1.6; }
+.form-section p, .form-section ul { color:#004d00; line-height:1.6; }
 .form-section ul { padding-left:20px; }
 .form-section ul li strong { font-weight:bold; display:inline; }
 .form-section ul li { margin-bottom:1em; }
 
-/* Highlight-Box wie bei Gutachten */
-.highlight-wrapper {
-  max-width: 95%;
-  margin: 30px auto;
-}
+/* Highlight-Box */
+.highlight-wrapper { max-width: 95%; margin: 30px auto; }
 .highlight-box {
   background-color:#f2f2f2;
   border-radius:12px;
   padding:20px;
   box-shadow:0 1px 4px rgba(0,0,0,0.05);
 }
-.highlight-box h2 {
-  margin-bottom:12px;
-  color:#004d00;
-}
-.highlight-box ul {
-  padding-left:20px;
-  margin:0;
-}
+.highlight-box h2 { margin-bottom:12px; color:#004d00; }
+.highlight-box ul { padding-left:20px; margin:0; }
 
 .image-section {
   display:grid;
@@ -119,9 +115,7 @@ main { padding-top:0; }
   max-width:95%;
   margin:0 auto 40px auto;
 }
-.image-box {
-  text-align:center;
-}
+.image-box { text-align:center; }
 .image-box img {
   width:100%;
   height:auto;
@@ -136,15 +130,12 @@ main { padding-top:0; }
   margin-top:8px;
 }
 
+/* Footer */
 footer { background:#f8f8f8; padding:30px 20px; text-align:center; font-size:14px; color:#333; }
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
-@media (max-width:992px) {
-  .image-section { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width:600px) {
-  .image-section { grid-template-columns: 1fr; }
-}
+@media (max-width:992px) { .image-section { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width:600px) { .image-section { grid-template-columns: 1fr; } }
 
 @media (max-width:768px) {
   .hamburger { display:block; }
@@ -165,18 +156,7 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
   nav ul li { width:100%; }
   nav ul li a { font-size:1.05rem; text-align:center; padding:10px 0; }
 
-  nav ul li ul {
-    display:none;
-    flex-direction:column;
-    width:100%;
-    text-align:center;
-    padding:0;
-    margin:0;
-    position:relative;
-    top:0; left:0;
-    box-shadow:none;
-    border-radius:0;
-  }
+  nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
   nav ul li ul.active { display:flex; }
   nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
   nav ul li ul li ul { left:0; }
@@ -184,15 +164,12 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
   .hero { padding:120px 20px; min-height:350px; }
   .hero h1 { font-size:2.5em; }
   .hero p { font-size:1.2em; }
-
-  .content-wrapper { flex-direction:column; gap:20px; }
-  .form-section { width:100%; }
 }
 </style>
 </head>
 <body>
 <header>
-  <div class="logo">PlanDach Höfinghoff</div>
+  <div class="logo"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></div>
   <div class="hamburger" id="hamburger">☰</div>
   <nav>
     <ul id="navMenu">
