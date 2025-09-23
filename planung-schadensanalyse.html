@@ -8,7 +8,7 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: Arial, sans-serif; overflow-x:hidden; background:#ffffff; color:#004D00; line-height:1.7; }
 
-/* Header */
+/* Header (exakt wie in ueber-mich.html) */
 header {
   width:100%;
   background:#fff;
@@ -21,18 +21,50 @@ header {
   z-index:10;
   box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
-.logo { font-weight:bold; font-size:1.2em; }
+.logo img { height:80px; width:auto; } /* LOGO NOCH GRÖßER */
 .hamburger { display:none; font-size:2em; cursor:pointer; }
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
-nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:5px 10px; display:block; }
-nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#fff; list-style:none; padding:10px 0; min-width:200px; box-shadow:0 4px 10px rgba(0,0,0,0.1); z-index:10; }
+nav ul li a { 
+  text-decoration:none; 
+  color:#004d00; 
+  font-weight:500; 
+  padding:5px 10px; 
+  display:block; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover- und Klick-Effekte (exakt wie in ueber-mich.html) */
+nav ul li a:hover { 
+  background-color:#e6f4ea; 
+  border-radius:6px; 
+  color:#007f5f; 
+}
+nav ul li a:active, 
+nav ul li a.active { 
+  background-color:#cde9d8; 
+  border-radius:6px; 
+  color:#007f5f; 
+}
+
+nav ul li ul { 
+  display:none; 
+  position:absolute; 
+  top:100%; 
+  left:0; 
+  background:#fff; 
+  list-style:none; 
+  padding:10px 0; 
+  min-width:200px; 
+  box-shadow:0 4px 10px rgba(0,0,0,0.1); 
+  z-index:10; 
+}
 nav ul li:hover > ul { display:block; }
 nav ul li ul li { padding:0; }
 nav ul li ul li a { padding:8px 15px; }
 nav ul li ul li ul { top:0; left:100%; }
 
-/* Hero-Bereich */
+/* Hero-Bereich (unverändert) */
 .hero {
   position: relative;
   text-align:center;
@@ -64,7 +96,7 @@ nav ul li ul li ul { top:0; left:100%; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; }
 .hero p { font-size:1.2em; }
 
-/* Steps Section */
+/* Steps Section (unverändert) */
 .steps-section {
   max-width:900px;
   margin:40px auto 40px auto;
@@ -83,7 +115,6 @@ nav ul li ul li ul { top:0; left:100%; }
   flex-direction:column;
   align-items:center;
   gap:12px;
-  /* Hintergrundfarbe und Schatten entfernt */
   padding:20px;
   border-radius:8px;
 }
@@ -94,10 +125,10 @@ nav ul li ul li ul { top:0; left:100%; }
 .step h3 { font-size:1.2em; font-weight:bold; }
 .step p { font-size:1rem; max-width:650px; text-align:center; }
 
-/* Footer */
+/* Footer (unverändert) */
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
 
-/* Responsive */
+/* Responsive (exakt wie in ueber-mich.html) */
 @media (max-width:768px) {
   .hamburger { display:block; }
   nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:60px; left:0; width:100%; }
@@ -116,12 +147,14 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 <body>
 
 <header>
-  <div class="logo">PlanDach Höfinghoff</div>
+  <div class="logo">
+    <img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo">
+  </div>
   <div class="hamburger" id="hamburger">☰</div>
   <nav>
     <ul id="navMenu">
       <li><a href="index.html">Startseite</a></li>
-      <li><a href="ueber-mich.html">Über mich</a></li>
+      <li><a href="ueber-mich.html" class="active">Über mich</a></li>
       <li class="has-submenu">
         <a href="#">Leistungen</a>
         <ul>
