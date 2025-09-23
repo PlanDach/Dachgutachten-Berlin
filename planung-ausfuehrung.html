@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ausführungsplanung – Planung | PlanDach Höfinghoff</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -25,40 +25,22 @@ header {
 .hamburger { display:none; font-size:2em; cursor:pointer; }
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
-nav ul li a { 
-  text-decoration:none; 
-  color:#004d00; 
-  font-weight:500; 
-  padding:5px 10px; 
-  display:block; 
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Hover- und Klick-Effekte */
-nav ul li a:hover { 
-  background-color:#e6f4ea; 
-  border-radius:6px; 
-  color:#007f5f; 
-}
-nav ul li a:active, 
-nav ul li a.active { 
-  background-color:#cde9d8; 
-  border-radius:6px; 
-  color:#007f5f; 
-}
+nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:5px 10px; display:block; transition: background-color 0.3s, color 0.3s; }
+nav ul li a:hover { background-color:#e6f4ea; border-radius:6px; color:#007f5f; }
+nav ul li a:active, nav ul li a.active { background-color:#cde9d8; border-radius:6px; color:#007f5f; }
 
 /* Untermenüs Desktop */
-nav ul li ul { 
-  display:none; 
-  position:absolute; 
-  top:100%; 
-  left:0; 
-  background:#fff; 
-  list-style:none; 
-  padding:10px 0; 
-  min-width:200px; 
-  box-shadow:0 4px 10px rgba(0,0,0,0.1); 
-  z-index:10; 
+nav ul li ul {
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#fff;
+  list-style:none;
+  padding:10px 0;
+  min-width:200px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  z-index:10;
 }
 nav ul li:hover > ul { display:block; }
 nav ul li ul li { padding:0; }
@@ -89,11 +71,7 @@ nav ul li ul li ul { top:0; left:100%; }
   z-index:1;
   filter: brightness(0.7);
 }
-.hero h1, .hero p {
-  position: relative;
-  z-index:2;
-  max-width:900px;
-}
+.hero h1, .hero p { position: relative; z-index:2; max-width:900px; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; }
 .hero p { font-size:1.2em; }
 
@@ -106,31 +84,11 @@ nav ul li ul li ul { top:0; left:100%; }
   gap:40px;
   text-align:center;
 }
-.steps-section h2 {
-  font-size:1.8em;
-  font-weight:bold;
-  margin-bottom:30px;
-}
-.step {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:15px;
-}
-.step .icon {
-  width:48px;
-  height:48px;
-}
-.step h3 {
-  font-size:1.2em;
-  font-weight:bold;
-}
-.step p {
-  font-size:1rem;
-  color:#004D00;
-  line-height:1.4;
-  max-width:600px;
-}
+.steps-section h2 { font-size:1.8em; font-weight:bold; margin-bottom:30px; }
+.step { display:flex; flex-direction:column; align-items:center; gap:15px; }
+.step .icon { width:48px; height:48px; }
+.step h3 { font-size:1.2em; font-weight:bold; }
+.step p { font-size:1rem; color:#004D00; line-height:1.4; max-width:600px; }
 
 /* Footer */
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
@@ -215,7 +173,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 
     <div class="step">
       <div class="icon">
-        <img src="survey_18289663.png" alt="Bestandsaufnahme Icon">
+        <img src="best_18289742.png" alt="Planung Icon" style="width:48px; height:48px;">
       </div>
       <h3>1. Planung & Arbeitsabläufe</h3>
       <p>Detaillierte Pläne, Grundrisse, Schnitte, Materialien, Maße und Montageanleitungen, um die Umsetzung auf der Baustelle reibungslos zu gestalten.</p>
@@ -223,7 +181,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 
     <div class="step">
       <div class="icon">
-        <img src="reshot-icon-construction-site-75FNWSUP6K.svg" alt="Schwachstellen Icon">
+        <img src="positive-thinking_18128003.png" alt="Ressourcen & Sicherheit Icon" style="width:48px; height:48px;">
       </div>
       <h3>2. Ressourcen & Sicherheit</h3>
       <p>Materiallisten, Mengen, Lieferzeiten, Zeitplanung sowie Normen, Sicherheitsanforderungen, Statik, Abdichtungen und Dämmung werden berücksichtigt.</p>
@@ -231,18 +189,10 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 
     <div class="step">
       <div class="icon">
-        <img src="drafting_17416290.png" alt="Bauphysik Icon">
+        <img src="evaluate_18289840.png" alt="Dokumentation Icon" style="width:48px; height:48px;">
       </div>
       <h3>3. Dokumentation & Übergabe</h3>
       <p>Alle Ergebnisse werden in einem professionellen, rechtssicheren Ausführungsplan dokumentiert und an Bauherren sowie ausführende Gewerke übergeben.</p>
-    </div>
-
-    <div class="step">
-      <div class="icon">
-        <img src="sections_17416483.png" alt="Dokumentation Icon">
-      </div>
-      <h3>4. Abschluss & Kontrolle</h3>
-      <p>Die Pläne werden final geprüft, Abweichungen werden korrigiert, und alle Dokumente werden für die spätere Nutzung archiviert.</p>
     </div>
 
   </section>
@@ -255,6 +205,8 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 <script>
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
+
+// Hauptmenü toggle
 hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
 
 // Mobile Untermenü toggle
@@ -263,4 +215,12 @@ document.querySelectorAll('#navMenu .has-submenu > a').forEach(link => {
     if(window.innerWidth <= 768){
       e.preventDefault();
       const submenu = link.nextElementSibling;
-      submenu.style.display = (submenu.style.display === '
+      submenu.style.display = (submenu.style.display === 'flex') ? 'none' : 'flex';
+      submenu.style.flexDirection = 'column';
+    }
+  });
+});
+</script>
+
+</body>
+</html>
