@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ausführungsplanung – Planung | PlanDach Höfinghoff</title>
+<title>Schadensanalyse – Planung | PlanDach Höfinghoff</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: Arial, sans-serif; overflow-x:hidden; background:#ffffff; color:#004D00; line-height:1.7; }
 
-/* Header */
+/* Header (exakt wie in ueber-mich.html) */
 header {
   width:100%;
   background:#fff;
@@ -21,44 +21,61 @@ header {
   z-index:10;
   box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
-.logo img { height:80px; width:auto; }
+.logo img { height:80px; width:auto; } /* LOGO NOCH GRÖßER */
 .hamburger { display:none; font-size:2em; cursor:pointer; }
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
-nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:5px 10px; display:block; transition: background-color 0.3s, color 0.3s; }
-nav ul li a:hover { background-color:#e6f4ea; border-radius:6px; color:#007f5f; }
-nav ul li a:active, nav ul li a.active { background-color:#cde9d8; border-radius:6px; color:#007f5f; }
+nav ul li a { 
+  text-decoration:none; 
+  color:#004d00; 
+  font-weight:500; 
+  padding:5px 10px; 
+  display:block; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-/* Untermenüs Desktop */
-nav ul li ul {
-  display:none;
-  position:absolute;
-  top:100%;
-  left:0;
-  background:#fff;
-  list-style:none;
-  padding:10px 0;
-  min-width:200px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.1);
-  z-index:10;
+/* Hover- und Klick-Effekte (exakt wie in ueber-mich.html) */
+nav ul li a:hover { 
+  background-color:#e6f4ea; 
+  border-radius:6px; 
+  color:#007f5f; 
+}
+nav ul li a:active, 
+nav ul li a.active { 
+  background-color:#cde9d8; 
+  border-radius:6px; 
+  color:#007f5f; 
+}
+
+nav ul li ul { 
+  display:none; 
+  position:absolute; 
+  top:100%; 
+  left:0; 
+  background:#fff; 
+  list-style:none; 
+  padding:10px 0; 
+  min-width:200px; 
+  box-shadow:0 4px 10px rgba(0,0,0,0.1); 
+  z-index:10; 
 }
 nav ul li:hover > ul { display:block; }
 nav ul li ul li { padding:0; }
-nav ul li ul li a { padding:8px 15px; white-space:nowrap; }
+nav ul li ul li a { padding:8px 15px; }
 nav ul li ul li ul { top:0; left:100%; }
 
-/* Hero-Bereich */
+/* Hero-Bereich (unverändert) */
 .hero {
   position: relative;
   text-align:center;
   padding:100px 20px;
+  color:white;
   overflow:hidden;
   min-height:350px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  color:white;
 }
 .hero::before {
   content:"";
@@ -71,29 +88,47 @@ nav ul li ul li ul { top:0; left:100%; }
   z-index:1;
   filter: brightness(0.7);
 }
-.hero h1, .hero p { position: relative; z-index:2; max-width:900px; }
+.hero h1, .hero p {
+  position: relative;
+  z-index:2;
+  max-width:900px;
+}
 .hero h1 { font-size:2.5em; margin-bottom:15px; }
 .hero p { font-size:1.2em; }
 
-/* Steps Section */
+/* Steps Section (unverändert) */
 .steps-section {
   max-width:900px;
   margin:40px auto 40px auto;
   display:flex;
   flex-direction:column;
-  gap:40px;
+  gap:30px;
+}
+.steps-section h2 {
+  font-size:1.8em;
+  font-weight:bold;
+  margin-bottom:20px;
   text-align:center;
 }
-.steps-section h2 { font-size:1.8em; font-weight:bold; margin-bottom:30px; }
-.step { display:flex; flex-direction:column; align-items:center; gap:15px; }
-.step .icon { width:48px; height:48px; }
+.step {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  padding:20px;
+  border-radius:8px;
+}
+.step .icon img {
+  width:48px;
+  height:48px;
+}
 .step h3 { font-size:1.2em; font-weight:bold; }
-.step p { font-size:1rem; color:#004D00; line-height:1.4; max-width:600px; }
+.step p { font-size:1rem; max-width:650px; text-align:center; }
 
-/* Footer */
+/* Footer (unverändert) */
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
 
-/* Responsive */
+/* Responsive (exakt wie in ueber-mich.html) */
 @media (max-width:768px) {
   .hamburger { display:block; }
   nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:60px; left:0; width:100%; }
@@ -103,8 +138,8 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
   nav ul li ul li ul { left:0; }
   .hero h1 { font-size:1.8rem; }
   .hero p { font-size:1rem; }
-  .steps-section { gap:25px; }
-  .step .icon { width:40px; height:40px; }
+  .steps-section { gap:20px; }
+  .step .icon img { width:40px; height:40px; }
   .step p { font-size:0.95rem; max-width:100%; }
 }
 </style>
@@ -119,7 +154,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
   <nav>
     <ul id="navMenu">
       <li><a href="index.html">Startseite</a></li>
-      <li><a href="ueber-mich.html">Über mich</a></li>
+      <li><a href="ueber-mich.html" class="active">Über mich</a></li>
       <li class="has-submenu">
         <a href="#">Leistungen</a>
         <ul>
@@ -164,37 +199,32 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 
 <main>
   <section class="hero">
-    <h1>Ausführungsplanung</h1>
-    <p>Wir erstellen detaillierte Pläne, die direkt von Handwerkern umgesetzt werden können.</p>
+    <h1>Schadensanalyse</h1>
+    <p>Professionelle Untersuchung von Bauschäden zur Ermittlung von Ursachen und geeigneten Sanierungsmaßnahmen.</p>
   </section>
 
   <section class="steps-section">
-    <h2>Schritte der Ausführungsplanung</h2>
-
+    <h2>Unser Vorgehen</h2>
     <div class="step">
-      <div class="icon">
-        <img src="best_18289742.png" alt="Planung Icon" style="width:48px; height:48px;">
-      </div>
-      <h3>1. Planung & Arbeitsabläufe</h3>
-      <p>Detaillierte Pläne, Grundrisse, Schnitte, Materialien, Maße und Montageanleitungen, um die Umsetzung auf der Baustelle reibungslos zu gestalten.</p>
+      <div class="icon"><img src="outcomes_18289971.png" alt="Unterlagen prüfen Icon"></div>
+      <h3>1. Unterlagen prüfen</h3>
+      <p>Sichtung von Plänen, Dokumentationen und bisherigen Gutachten, um den Schadenskontext zu verstehen.</p>
     </div>
-
     <div class="step">
-      <div class="icon">
-        <img src="positive-thinking_18128003.png" alt="Ressourcen & Sicherheit Icon" style="width:48px; height:48px;">
-      </div>
-      <h3>2. Ressourcen & Sicherheit</h3>
-      <p>Materiallisten, Mengen, Lieferzeiten, Zeitplanung sowie Normen, Sicherheitsanforderungen, Statik, Abdichtungen und Dämmung werden berücksichtigt.</p>
+      <div class="icon"><img src="karte1.jpeg" alt="Vor-Ort-Begutachtung Icon"></div>
+      <h3>2. Vor-Ort-Begutachtung</h3>
+      <p>Analyse der betroffenen Bereiche und detaillierte Aufnahme von Schadensbildern und Defekten.</p>
     </div>
-
     <div class="step">
-      <div class="icon">
-        <img src="evaluate_18289840.png" alt="Dokumentation Icon" style="width:48px; height:48px;">
-      </div>
-      <h3>3. Dokumentation & Übergabe</h3>
-      <p>Alle Ergebnisse werden in einem professionellen, rechtssicheren Ausführungsplan dokumentiert und an Bauherren sowie ausführende Gewerke übergeben.</p>
+      <div class="icon"><img src="layoff_17648756.png" alt="Ursachenanalyse Icon"></div>
+      <h3>3. Ursachenanalyse</h3>
+      <p>Ermittlung möglicher Ursachen wie Materialfehler, Ausführungsfehler oder natürliche Alterung.</p>
     </div>
-
+    <div class="step">
+      <div class="icon"><img src="implementation_18289862.png" alt="Maßnahmenempfehlung Icon"></div>
+      <h3>4. Maßnahmenempfehlung</h3>
+      <p>Erarbeitung konkreter, wirtschaftlicher Sanierungsvorschläge zur dauerhaften Schadensbehebung.</p>
+    </div>
   </section>
 </main>
 
@@ -205,22 +235,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 <script>
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
-
-// Hauptmenü toggle
 hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
-
-// Mobile Untermenü toggle
-document.querySelectorAll('#navMenu .has-submenu > a').forEach(link => {
-  link.addEventListener('click', e => {
-    if(window.innerWidth <= 768){
-      e.preventDefault();
-      const submenu = link.nextElementSibling;
-      submenu.style.display = (submenu.style.display === 'flex') ? 'none' : 'flex';
-      submenu.style.flexDirection = 'column';
-    }
-  });
-});
 </script>
-
 </body>
 </html>
