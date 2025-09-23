@@ -8,7 +8,7 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: Arial, sans-serif; overflow-x:hidden; background-color:#fff; }
 
-/* Header */
+/* Header / Menü (1:1 wie in ueber-mich.html; Startseite aktiv) */
 header {
   width:100%;
   background:#fff;
@@ -21,16 +21,51 @@ header {
   z-index:10;
   box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
-.logo img { height:90px; width:auto; display:block; }
+.logo img { height:80px; width:auto; display:block; } /* Menü-Höhe wie ueber-mich */
 .hamburger { display:none; font-size:2em; cursor:pointer; color:#004d00; }
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
-nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:5px 10px; display:block; }
-nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#fff; list-style:none; padding:10px 0; min-width:200px; box-shadow:0 4px 10px rgba(0,0,0,0.1); z-index:10; }
+nav ul li a { 
+  text-decoration:none; 
+  color:#004d00; 
+  font-weight:500; 
+  padding:5px 10px; 
+  display:block; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover- und Aktiv-Effekte (wie ueber-mich.html) */
+nav ul li a:hover { 
+  background-color:#e6f4ea; 
+  border-radius:6px; 
+  color:#007f5f; 
+}
+nav ul li a:active, 
+nav ul li a.active { 
+  background-color:#cde9d8; 
+  border-radius:6px; 
+  color:#007f5f; 
+}
+
+/* Submenus (Desktop) */
+nav ul li ul { 
+  display:none; 
+  position:absolute; 
+  top:100%; 
+  left:0; 
+  background:#fff; 
+  list-style:none; 
+  padding:10px 0; 
+  min-width:200px; 
+  box-shadow:0 4px 10px rgba(0,0,0,0.1); 
+  z-index:10; 
+}
 nav ul li:hover > ul { display:block; }
 nav ul li ul li { padding:0; }
 nav ul li ul li a { padding:8px 15px; }
 nav ul li ul li ul { top:0; left:100%; }
+
+/* Rest der Seite-Styles (unverändert von deinem Code) */
 
 /* Hero */
 .hero {
@@ -262,7 +297,7 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
     display:none;
     background:#fff;
     position:absolute;
-    top:90px;
+    top:90px; /* belassen wie in deinem Original-Code für Abstand unter fixed header */
     left:0;
     width:100%;
   }
@@ -280,23 +315,47 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 <body>
 <header>
   <div class="logo">
-    <a href="index.html"><img src="bumbum1.jpeg" alt="PlanDach Höfinghoff Logo"></a>
+    <!-- Ich habe die Logodatei belassen wie in deinem letzten Code -->
+    <a href="index.html"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></a>
   </div>
   <div class="hamburger" id="hamburger">☰</div>
   <nav>
     <ul id="navMenu">
+      <!-- Startseite aktiv gelassen -->
       <li><a href="index.html" class="active">Startseite</a></li>
       <li><a href="ueber-mich.html">Über mich</a></li>
       <li class="has-submenu">
         <a href="#">Leistungen</a>
         <ul>
           <li><a href="gutachten.html">Gutachten</a></li>
-          <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
-          <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
-          <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
-          <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
-          <li><a href="bau-koordination.html">Bauüberwachung</a></li>
+          <li class="has-submenu">
+            <a href="#">Planung</a>
+            <ul>
+              <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
+              <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
+              <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
+              <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#">Bauüberwachung</a>
+            <ul>
+              <li><a href="bau-koordination.html">Koordination</a></li>
+              <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
+              <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
+              <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#">Ausschreibung</a>
+            <ul>
+              <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
+              <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
+              <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
+            </ul>
+          </li>
           <li><a href="dachwartung.html">Dachwartung</a></li>
+          <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
           <li><a href="leckageortung.html">Leckageortung</a></li>
         </ul>
       </li>
