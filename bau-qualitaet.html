@@ -104,13 +104,16 @@ nav ul li ul li ul { top:0; left:100%; }
 .step .icon { 
   width:48px; 
   height:48px; 
-  font-size:2em; 
   display:flex;
   justify-content:center;
   align-items:center;
   border:1px solid #ccc;
   border-radius:8px;
   background:#f0f0f0;
+}
+.step .icon img {
+  max-width:28px;
+  max-height:28px;
 }
 .step h3 { font-size:1.2em; font-weight:bold; }
 .step p { font-size:1rem; color:#004D00; line-height:1.4; max-width:600px; }
@@ -129,7 +132,8 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
   .hero { padding:70px 16px 18px 16px; }
   .hero h1 { font-size:1.8rem; }
   .hero p { font-size:1rem; }
-  .step .icon { width:40px; height:40px; font-size:1.5em; }
+  .step .icon { width:40px; height:40px; }
+  .step .icon img { max-width:24px; max-height:24px; }
   .step p { font-size:0.95rem; max-width:100%; }
 }
 </style>
@@ -162,7 +166,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
             <a href="#">Bauüberwachung</a>
             <ul>
               <li><a href="bau-koordination.html">Koordination</a></li>
-              <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
+              <li><a href="bau-qualitaet.html" class="active">Qualitätskontrolle</a></li>
               <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
               <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
             </ul>
@@ -197,25 +201,25 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
     <h2>Unsere Leistungen</h2>
 
     <div class="step">
-      <div class="icon">🔍</div>
+      <div class="icon"><img src="inspections_17416345.png" alt="Analyse Icon"></div>
       <h3>1. Analyse & Bestandsaufnahme</h3>
       <p>Wir erfassen alle Gegebenheiten Ihres Daches – von Schäden über Materialzustand bis zu Konstruktionsdetails – für volle Transparenz.</p>
     </div>
 
     <div class="step">
-      <div class="icon">🛠️</div>
+      <div class="icon"><img src="attention-detail_18290874.png" alt="Umsetzung Icon"></div>
       <h3>2. Umsetzung & Sanierung</h3>
       <p>Reparaturen, Modernisierungen oder Optimierungen werden professionell begleitet – effizient, sicher und hochwertig.</p>
     </div>
 
     <div class="step">
-      <div class="icon">📐</div>
+      <div class="icon"><img src="audits_18091859.png" alt="Planung Icon"></div>
       <h3>3. Planung & Beratung</h3>
       <p>Wir erstellen konkrete Handlungsempfehlungen, planen Maßnahmen detailliert und berücksichtigen technische wie wirtschaftliche Aspekte.</p>
     </div>
 
     <div class="step">
-      <div class="icon">📄</div>
+      <div class="icon"><img src="validation_18289678.png" alt="Dokumentation Icon"></div>
       <h3>4. Dokumentation & Qualitätssicherung</h3>
       <p>Alle Schritte werden nachvollziehbar dokumentiert, damit Entscheidungen fundiert getroffen und die Umsetzung präzise kontrolliert werden kann.</p>
     </div>
