@@ -103,7 +103,12 @@ nav ul li ul li ul { top:0; left:100%; }
   align-items:center;
   gap:15px;
 }
-.step h3 { font-size:1.2em; font-weight:bold; }
+.step .icon img {
+  width:48px;
+  height:48px;
+  display:block;
+}
+.step h3 { font-size:1.2em; font-weight:bold; color:#004D00; }
 .step p { font-size:1rem; color:#004D00; line-height:1.4; max-width:600px; }
 
 /* Footer */
@@ -121,6 +126,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
   .hero h1 { font-size:1.5rem; }
   .hero p { font-size:0.95rem; }
   .steps-section { gap:25px; }
+  .step .icon img { width:40px; height:40px; }
   .step p { font-size:0.95rem; max-width:100%; }
 }
 </style>
@@ -189,17 +195,20 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
     <h2>Unsere Leistungen bei der Abnahmebegleitung</h2>
 
     <div class="step">
-      <h3>📑 Prüfung der Unterlagen</h3>
+      <div class="icon"><img src="platzhalter1.png" alt="Prüfung der Unterlagen"></div>
+      <h3>Prüfung der Unterlagen</h3>
       <p>Wir prüfen Verträge und Bauunterlagen detailliert, damit alle vereinbarten Leistungen nachvollziehbar dokumentiert sind.</p>
     </div>
 
     <div class="step">
-      <h3>🏗️ Abnahme vor Ort</h3>
+      <div class="icon"><img src="platzhalter2.png" alt="Abnahme vor Ort"></div>
+      <h3>Abnahme vor Ort</h3>
       <p>Begleitung direkt auf der Baustelle – wir identifizieren Mängel und Abweichungen, bevor sie zum Problem werden.</p>
     </div>
 
     <div class="step">
-      <h3>📝 Abnahmeprotokoll & Nachverfolgung</h3>
+      <div class="icon"><img src="platzhalter3.png" alt="Abnahmeprotokoll & Nachverfolgung"></div>
+      <h3>Abnahmeprotokoll & Nachverfolgung</h3>
       <p>Erstellung eines präzisen Protokolls mit Fotos und Beschreibung der Mängel sowie Unterstützung beim Mängelmanagement.</p>
     </div>
 
