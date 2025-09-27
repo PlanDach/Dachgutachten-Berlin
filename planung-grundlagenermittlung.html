@@ -63,7 +63,13 @@ nav ul li ul {
 nav ul li:hover > ul { display:block; }
 nav ul li ul li { padding:0; }
 nav ul li ul li a { padding:8px 15px; white-space:nowrap; }
-nav ul li ul li ul { top:0; left:100%; }
+
+/* Aktiver Link für Grundlagenermittlung */
+nav ul li ul li ul li a.active {
+  background-color:#cde9d8;
+  border-radius:6px;
+  color:#007f5f;
+}
 
 /* Hero */
 .hero { 
@@ -150,7 +156,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
           <li class="has-submenu">
             <a href="#">Planung</a>
             <ul>
-              <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
+              <li><a href="planung-grundlagenermittlung.html" class="active">Grundlagenermittlung</a></li>
               <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
               <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
               <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
