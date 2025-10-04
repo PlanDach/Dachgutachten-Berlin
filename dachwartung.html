@@ -25,18 +25,16 @@ header {
 .hamburger { display:none; font-size:2em; cursor:pointer; user-select:none; }
 
 /* Menü (angepasst 1:1 wie in ueber-mich.html) */
-nav ul { list-style:none; display:flex; gap:20px; } /* keine zusätzliche Zentrierung, damit Höhe identisch bleibt */
+nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
 nav ul li a { 
   text-decoration:none; 
   color:#004d00; 
   font-weight:500; 
-  padding:5px 10px; /* exakt wie gemerkt */ 
+  padding:5px 10px; 
   display:block; 
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-/* Hover- und Active-Effekte (exakt wie gemerkt) */
 nav ul li a:hover { 
   background-color:#e6f4ea; 
   border-radius:6px; 
@@ -57,8 +55,8 @@ nav ul li ul {
   left:0;
   background:#fff;
   list-style:none;
-  padding:10px 0; /* exakt wie gemerkt */
-  min-width:200px; /* exakt wie gemerkt */
+  padding:10px 0; 
+  min-width:200px; 
   box-shadow:0 4px 10px rgba(0,0,0,0.1);
   z-index:20;
   border-radius:6px;
@@ -67,10 +65,8 @@ nav ul li:hover > ul { display:block; }
 nav ul li ul li a { padding:8px 15px; color:#004d00; }
 nav ul li ul li ul { top:0; left:100%; }
 
-/* Main padding for fixed header */
 main { padding-top:100px; }
 
-/* Hero */
 .hero {
   position: relative;
   text-align:center;
@@ -103,23 +99,18 @@ main { padding-top:100px; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
 .hero p { font-size:1.2em; }
 
-/* Content */
 .content-wrapper {
   max-width:1200px;
   margin:40px auto;
   padding:0 20px;
 }
-.form-section {
-  padding:25px 20px;
-  margin-bottom:40px;
-}
+.form-section { padding:25px 20px; margin-bottom:40px; }
 .form-section h2 { color:#004d00; margin-bottom:12px; }
 .form-section p, .form-section ul { color:#004d00; line-height:1.6; }
 .form-section ul { padding-left:20px; }
 .form-section ul li strong { font-weight:bold; display:inline; }
 .form-section ul li { margin-bottom:1em; }
 
-/* Highlight-Box (Ihr Vorteil) */
 .highlight-wrapper { max-width: 95%; margin: 30px auto; }
 .highlight-box {
   background-color:#f2f2f2;
@@ -138,25 +129,12 @@ main { padding-top:100px; }
   margin:0 auto 40px auto;
 }
 .image-box { text-align:center; }
-.image-box img {
-  width:100%;
-  height:auto;
-  display:block;
-  border-radius:12px; 
-  box-shadow:0 2px 6px rgba(0,0,0,0.1);
-}
-.image-comment {
-  font-size:0.95rem;
-  color:#004d00;
-  text-align:center;
-  margin-top:8px;
-}
+.image-box img { width:100%; height:auto; display:block; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+.image-comment { font-size:0.95rem; color:#004d00; text-align:center; margin-top:8px; }
 
-/* Footer */
 footer { background:#f8f8f8; padding:30px 20px; text-align:center; font-size:14px; color:#333; }
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
-/* Responsive */
 @media (max-width:992px) { .image-section { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width:600px) { .image-section { grid-template-columns: 1fr; } }
 
@@ -167,7 +145,7 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
     display:none;
     background:#fff;
     position:absolute;
-    top:60px; /* exakt wie in ueber-mich.html */
+    top:60px;
     left:0;
     width:100%;
     padding:10px 0;
@@ -177,8 +155,7 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
   nav ul.show { display:flex; }
 
   nav ul li { width:100%; }
-  nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; } /* exakt wie gemerkt */
-
+  nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
   nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
   nav ul li ul.active { display:flex; }
   nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
@@ -324,12 +301,15 @@ hamburger.addEventListener('click', () => {
   navMenu.classList.toggle('show');
 });
 
+// Submenu Toggle auf Mobilgeräten mit Schließen bei erneutem Klick
 document.querySelectorAll('.has-submenu > a').forEach(link => {
   link.addEventListener('click', e => {
     if (window.innerWidth <= 768) {
       e.preventDefault();
       const submenu = link.nextElementSibling;
-      if (submenu) submenu.classList.toggle('active');
+      if (submenu) {
+        submenu.classList.toggle('active'); // Toggle ein-/aus
+      }
     }
   });
 });
