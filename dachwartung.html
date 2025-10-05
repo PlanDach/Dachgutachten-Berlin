@@ -322,16 +322,24 @@ hamburger.addEventListener('click', () => {
  navMenu.classList.toggle('show');
 });
 
-// Mobile Submenu Toggle fix
+// Mobile Submenu Toggle richtig
 document.querySelectorAll('.has-submenu > a').forEach(link => {
  link.addEventListener('click', e => {
    if (window.innerWidth <= 768) {
      e.preventDefault();
      const submenu = link.nextElementSibling;
-     if (submenu) {
-       const isActive = submenu.classList.contains('active');
-       submenu.classList.toggle('active', !isActive);
-     }
+     if (!submenu) return;
+
+     const isActive = submenu.classList.contains('active');
+
+     // Alle Submenus auf derselben Ebene schließen
+     const parent = link.parentElement.parentElement;
+     parent.querySelectorAll('.submenu.active').forEach(sm => {
+       if (sm !== submenu) sm.classList.remove('active');
+     });
+
+     // Aktuelles toggeln
+     submenu.classList.toggle('active', !isActive);
    }
  });
 });
