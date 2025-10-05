@@ -318,42 +318,41 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 
+// Hamburger Toggle
 hamburger.addEventListener('click', () => {
- navMenu.classList.toggle('show');
+  navMenu.classList.toggle('show');
 });
 
-// Mobile Submenu Toggle – öffnet und schließt korrekt beim Klick
+// Mobile Submenu Toggle (jetzt schließt es beim 2. Klick korrekt)
 document.querySelectorAll('.has-submenu > a').forEach(link => {
- link.addEventListener('click', e => {
-   if (window.innerWidth <= 768) {
-     e.preventDefault();
-     const submenu = link.nextElementSibling;
-     if (!submenu) return;
+  link.addEventListener('click', e => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      const submenu = link.nextElementSibling;
+      if (!submenu) return;
 
-     const isActive = submenu.classList.contains('active');
+      const isActive = submenu.classList.contains('active');
 
-     // Alle Submenus auf derselben Ebene schließen
-     const parent = link.parentElement.parentElement;
-     parent.querySelectorAll('.submenu.active').forEach(sm => {
-       if (sm !== submenu) sm.classList.remove('active');
-     });
+      // Alle Submenus auf derselben Ebene schließen
+      const parent = link.closest('ul');
+      parent.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
 
-     // Aktuelles Submenu öffnen oder schließen
-     if(isActive){
-       submenu.classList.remove('active');
-     } else {
-       submenu.classList.add('active');
-     }
-   }
- });
+      // Wenn das aktuelle bereits aktiv war → schließen
+      if (isActive) {
+        submenu.classList.remove('active');
+      } else {
+        submenu.classList.add('active');
+      }
+    }
+  });
 });
 
 // Menü zurücksetzen beim Resize
 window.addEventListener('resize', () => {
- if (window.innerWidth > 768) {
-   navMenu.classList.remove('show');
-   document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
- }
+  if (window.innerWidth > 768) {
+    navMenu.classList.remove('show');
+    document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
+  }
 });
 </script>
 </body>
