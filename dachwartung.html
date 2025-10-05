@@ -338,8 +338,12 @@ document.querySelectorAll('.has-submenu > a').forEach(link => {
        if (sm !== submenu) sm.classList.remove('active');
      });
 
-     // Aktuelles Submenu toggeln (öffnet, wenn geschlossen; schließt, wenn offen)
-     submenu.classList.toggle('active', !isActive);
+     // Aktuelles Submenu toggeln
+     if(isActive){
+       submenu.classList.remove('active'); // beim zweiten Klick schließen
+     } else {
+       submenu.classList.add('active'); // beim ersten Klick öffnen
+     }
    }
  });
 });
