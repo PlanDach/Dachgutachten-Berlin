@@ -322,7 +322,7 @@ hamburger.addEventListener('click', () => {
  navMenu.classList.toggle('show');
 });
 
-// Mobile Submenu Toggle richtig
+// Mobile Submenu Toggle mit Schließen beim zweiten Klick
 document.querySelectorAll('.has-submenu > a').forEach(link => {
  link.addEventListener('click', e => {
    if (window.innerWidth <= 768) {
@@ -338,7 +338,7 @@ document.querySelectorAll('.has-submenu > a').forEach(link => {
        if (sm !== submenu) sm.classList.remove('active');
      });
 
-     // Aktuelles toggeln
+     // Aktuelles Submenu toggeln (öffnet, wenn geschlossen; schließt, wenn offen)
      submenu.classList.toggle('active', !isActive);
    }
  });
