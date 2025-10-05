@@ -24,7 +24,7 @@ header {
 .logo img { height:80px; width:auto; display:block; }
 .hamburger { display:none; font-size:2em; cursor:pointer; user-select:none; }
 
-/* Menü (angepasst 1:1 wie in ueber-mich.html) */
+/* Menü */
 nav ul { list-style:none; display:flex; gap:20px; } 
 nav ul li { position:relative; }
 nav ul li a { 
@@ -35,8 +35,6 @@ nav ul li a {
  display:block; 
  transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-/* Hover- und Active-Effekte (exakt wie gemerkt) */
 nav ul li a:hover { 
  background-color:#e6f4ea; 
  border-radius:6px; 
@@ -119,7 +117,7 @@ main { padding-top:100px; }
 .form-section ul li strong { font-weight:bold; display:inline; }
 .form-section ul li { margin-bottom:1em; }
 
-/* Highlight-Box (Ihr Vorteil) */
+/* Highlight-Box */
 .highlight-wrapper { max-width: 95%; margin: 30px auto; }
 .highlight-box {
  background-color:#f2f2f2;
@@ -324,14 +322,15 @@ hamburger.addEventListener('click', () => {
  navMenu.classList.toggle('show');
 });
 
+// Mobile Submenu Toggle fix
 document.querySelectorAll('.has-submenu > a').forEach(link => {
  link.addEventListener('click', e => {
    if (window.innerWidth <= 768) {
      e.preventDefault();
      const submenu = link.nextElementSibling;
      if (submenu) {
-       // Toggle: wenn aktiv -> schließen, sonst öffnen
-       submenu.classList.toggle('active');
+       const isActive = submenu.classList.contains('active');
+       submenu.classList.toggle('active', !isActive);
      }
    }
  });
