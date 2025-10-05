@@ -25,13 +25,13 @@ header {
 .hamburger { display:none; font-size:2em; cursor:pointer; user-select:none; }
 
 /* Menü (angepasst 1:1 wie in ueber-mich.html) */
-nav ul { list-style:none; display:flex; gap:20px; } /* keine zusätzliche Zentrierung, damit Höhe identisch bleibt */
+nav ul { list-style:none; display:flex; gap:20px; } 
 nav ul li { position:relative; }
 nav ul li a { 
  text-decoration:none; 
  color:#004d00; 
  font-weight:500; 
- padding:5px 10px; /* exakt wie gemerkt */ 
+ padding:5px 10px; 
  display:block; 
  transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -57,8 +57,8 @@ nav ul li ul {
  left:0;
  background:#fff;
  list-style:none;
- padding:10px 0; /* exakt wie gemerkt */
- min-width:200px; /* exakt wie gemerkt */
+ padding:10px 0; 
+ min-width:200px; 
  box-shadow:0 4px 10px rgba(0,0,0,0.1);
  z-index:20;
  border-radius:6px;
@@ -167,7 +167,7 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
    display:none;
    background:#fff;
    position:absolute;
-   top:60px; /* exakt wie in ueber-mich.html */
+   top:60px; 
    left:0;
    width:100%;
    padding:10px 0;
@@ -177,7 +177,7 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
  nav ul.show { display:flex; }
 
  nav ul li { width:100%; }
- nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; } /* exakt wie gemerkt */
+ nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; } 
 
  nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
  nav ul li ul.active { display:flex; }
@@ -329,7 +329,10 @@ document.querySelectorAll('.has-submenu > a').forEach(link => {
    if (window.innerWidth <= 768) {
      e.preventDefault();
      const submenu = link.nextElementSibling;
-     if (submenu) submenu.classList.toggle('active');
+     if (submenu) {
+       // Toggle: wenn aktiv -> schließen, sonst öffnen
+       submenu.classList.toggle('active');
+     }
    }
  });
 });
