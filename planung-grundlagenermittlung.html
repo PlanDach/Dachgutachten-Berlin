@@ -113,14 +113,27 @@ nav ul li ul li ul li a.active {
   align-items:center;
   gap:15px;
   opacity:0;
-  transform:translateY(50px);
+  transform:translateY(20px);
   transition:opacity 0.8s ease, transform 0.8s ease;
 }
 .step.visible {
   opacity:1;
   transform:translateY(0);
 }
-.step .icon { width:48px; height:48px; }
+.step .icon {
+  width:48px;
+  height:48px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.step .icon img {
+  width:100%;
+  height:100%;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.step:hover .icon img {
+  transform:scale(1.1);
+  filter:drop-shadow(0 0 8px rgba(0,127,95,0.4));
+}
 .step h3 { font-size:1.2em; font-weight:bold; }
 .step p { font-size:1rem; color:#004D00; line-height:1.4; max-width:600px; }
 
@@ -268,18 +281,17 @@ document.querySelectorAll('#navMenu .has-submenu > a').forEach(link => {
   });
 });
 
-// Scroll Reveal Effekt (Apple-like)
+// Scroll-Animation für Steps (auch für Mobile)
 const steps = document.querySelectorAll('.step');
-const revealOnScroll = () => {
-  steps.forEach(step => {
-    const rect = step.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      step.classList.add('visible');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
     }
   });
-};
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
+}, { threshold: 0.2 });
+
+steps.forEach(step => observer.observe(step));
 </script>
 
 </body>
