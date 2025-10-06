@@ -24,19 +24,17 @@ box-shadow:0 2px 5px rgba(0,0,0,0.1);
 .logo img { height:80px; width:auto; display:block; }
 .hamburger { display:none; font-size:2em; cursor:pointer; user-select:none; }
 
-/* Menü (angepasst 1:1 wie in ueber-mich.html) */
-nav ul { list-style:none; display:flex; gap:20px; } 
+/* Menü */
+nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
 nav ul li a { 
 text-decoration:none; 
 color:#004d00; 
 font-weight:500; 
-padding:5px 10px; 
+padding:5px 10px;
 display:block; 
 transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-/* Hover- und Active-Effekte */
 nav ul li a:hover { 
 background-color:#e6f4ea; 
 border-radius:6px; 
@@ -324,24 +322,28 @@ hamburger.addEventListener('click', () => {
   navMenu.classList.toggle('show');
 });
 
+// Mobile submenu toggle with proper second-click close
 document.querySelectorAll('.has-submenu > a').forEach(link => {
   link.addEventListener('click', e => {
     if (window.innerWidth <= 768) {
       e.preventDefault();
       const submenu = link.nextElementSibling;
+      if (!submenu) return;
 
-      // Schließe alle anderen Submenus auf gleicher Ebene
-      const parent = link.closest('ul');
-      parent.querySelectorAll('.submenu.active').forEach(sm => {
-        if (sm !== submenu) sm.classList.remove('active');
-      });
-
-      // Öffne oder schließe das aktuelle Menü
-      submenu.classList.toggle('active');
+      // Toggle active class
+      if (submenu.classList.contains('active')) {
+        submenu.classList.remove('active');
+      } else {
+        // Optional: close other open submenus at the same level
+        const parentMenu = link.closest('ul');
+        parentMenu.querySelectorAll('.submenu.active').forEach(sm => sm !== submenu && sm.classList.remove('active'));
+        submenu.classList.add('active');
+      }
     }
   });
 });
 
+// Reset on window resize
 window.addEventListener('resize', () => {
   if (window.innerWidth > 768) {
     navMenu.classList.remove('show');
