@@ -198,9 +198,9 @@ nav ul li ul li ul { left:0; }
   <ul id="navMenu">
     <li><a href="index.html">Startseite</a></li>
     <li><a href="ueber-mich.html">Über mich</a></li>
-    <li class="has-submenu" id="leistungenItem">
-      <a href="#" id="leistungenLink">Leistungen</a>
-      <ul class="submenu" id="leistungenSubmenu">
+    <li class="has-submenu">
+      <a href="#" class="leistungen-link">Leistungen</a>
+      <ul class="submenu">
         <li><a href="gutachten.html">Gutachten</a></li>
         <li class="has-submenu">
           <a href="#">Planung</a>
@@ -319,37 +319,27 @@ nav ul li ul li ul { left:0; }
 <script>
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
-const leistungenLink = document.getElementById('leistungenLink');
-const leistungenSubmenu = document.getElementById('leistungenSubmenu');
 
 hamburger.addEventListener('click', () => {
   navMenu.classList.toggle('show');
 });
 
-// Spezieller Handler für Leistungen in Mobile
-leistungenLink.addEventListener('click', e => {
-  if (window.innerWidth <= 768) {
-    e.preventDefault();
-    leistungenSubmenu.classList.toggle('active');
-    // Wenn Leistungen geschlossen wird, alle Untermenüs auch schließen
-    if (!leistungenSubmenu.classList.contains('active')) {
-      leistungenSubmenu.querySelectorAll('.submenu.active').forEach(sub => {
-        sub.classList.remove('active');
-      });
-    }
-  }
-});
-
-// Handler für Planung, Bauüberwachung, Ausschreibung
+// Alle Submenu-Links behandeln
 document.querySelectorAll('.has-submenu > a').forEach(link => {
-  if (link.id === 'leistungenLink') return; // Skip Leistungen, already handled
-  
   link.addEventListener('click', e => {
     if (window.innerWidth <= 768) {
       e.preventDefault();
       const submenu = link.nextElementSibling;
       if (submenu) {
+        const isActive = submenu.classList.contains('active');
         submenu.classList.toggle('active');
+        
+        // Wenn das Menü geschlossen wird (war active, jetzt nicht mehr), alle verschachtelten Submenüs auch schließen
+        if (isActive) {
+          submenu.querySelectorAll('.submenu.active').forEach(sub => {
+            sub.classList.remove('active');
+          });
+        }
       }
     }
   });
