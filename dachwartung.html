@@ -329,9 +329,28 @@ link.addEventListener('click', e => {
   if (window.innerWidth <= 768) {
     e.preventDefault();
     const parentLi = link.parentElement;
-    const submenu = parentLi.querySelector(':scope > .submenu');
+    const submenu = link.nextElementSibling;
+    
     if (submenu) {
-      submenu.classList.toggle('active');
+      const isCurrentlyOpen = submenu.classList.contains('active');
+      
+      // Schließe alle anderen Submenüs auf der gleichen Ebene
+      const siblings = Array.from(parentLi.parentElement.children);
+      siblings.forEach(sibling => {
+        if (sibling !== parentLi && sibling.classList.contains('has-submenu')) {
+          const siblingSubmenu = sibling.querySelector('.submenu');
+          if (siblingSubmenu) {
+            siblingSubmenu.classList.remove('active');
+          }
+        }
+      });
+      
+      // Toggle das aktuelle Submenü
+      if (isCurrentlyOpen) {
+        submenu.classList.remove('active');
+      } else {
+        submenu.classList.add('active');
+      }
     }
   }
 });
