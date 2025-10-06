@@ -25,18 +25,18 @@ box-shadow:0 2px 5px rgba(0,0,0,0.1);
 .hamburger { display:none; font-size:2em; cursor:pointer; user-select:none; }
 
 /* Menü (angepasst 1:1 wie in ueber-mich.html) */
-nav ul { list-style:none; display:flex; gap:20px; } /* keine zusätzliche Zentrierung, damit Höhe identisch bleibt */
+nav ul { list-style:none; display:flex; gap:20px; } 
 nav ul li { position:relative; }
 nav ul li a { 
 text-decoration:none; 
 color:#004d00; 
 font-weight:500; 
-padding:5px 10px; /* exakt wie gemerkt */ 
+padding:5px 10px; 
 display:block; 
 transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover- und Active-Effekte (exakt wie gemerkt) */
+/* Hover- und Active-Effekte */
 nav ul li a:hover { 
 background-color:#e6f4ea; 
 border-radius:6px; 
@@ -57,8 +57,8 @@ top:100%;
 left:0;
 background:#fff;
 list-style:none;
-padding:10px 0; /* exakt wie gemerkt */
-min-width:200px; /* exakt wie gemerkt */
+padding:10px 0;
+min-width:200px;
 box-shadow:0 4px 10px rgba(0,0,0,0.1);
 z-index:20;
 border-radius:6px;
@@ -119,7 +119,7 @@ margin-bottom:40px;
 .form-section ul li strong { font-weight:bold; display:inline; }
 .form-section ul li { margin-bottom:1em; }
 
-/* Highlight-Box (Ihr Vorteil) */
+/* Highlight-Box */
 .highlight-wrapper { max-width: 95%; margin: 30px auto; }
 .highlight-box {
 background-color:#f2f2f2;
@@ -167,7 +167,7 @@ nav ul {
   display:none;
   background:#fff;
   position:absolute;
-  top:60px; /* exakt wie in ueber-mich.html */
+  top:60px;
   left:0;
   width:100%;
   padding:10px 0;
@@ -177,7 +177,7 @@ nav ul {
 nav ul.show { display:flex; }
 
 nav ul li { width:100%; }
-nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; } /* exakt wie gemerkt */
+nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
 
 nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
 nav ul li ul.active { display:flex; }
@@ -199,11 +199,11 @@ nav ul li ul li ul { left:0; }
     <li><a href="index.html">Startseite</a></li>
     <li><a href="ueber-mich.html">Über mich</a></li>
     <li class="has-submenu">
-      <a href="#" class="menu-toggle">Leistungen</a>
+      <a href="#">Leistungen</a>
       <ul class="submenu">
         <li><a href="gutachten.html">Gutachten</a></li>
         <li class="has-submenu">
-          <a href="#" class="menu-toggle">Planung</a>
+          <a href="#">Planung</a>
           <ul class="submenu">
             <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
             <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
@@ -212,7 +212,7 @@ nav ul li ul li ul { left:0; }
           </ul>
         </li>
         <li class="has-submenu">
-          <a href="#" class="menu-toggle">Bauüberwachung</a>
+          <a href="#">Bauüberwachung</a>
           <ul class="submenu">
             <li><a href="bau-koordination.html">Koordination</a></li>
             <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
@@ -221,7 +221,7 @@ nav ul li ul li ul { left:0; }
           </ul>
         </li>
         <li class="has-submenu">
-          <a href="#" class="menu-toggle">Ausschreibung</a>
+          <a href="#">Ausschreibung</a>
           <ul class="submenu">
             <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
             <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
@@ -286,22 +286,22 @@ nav ul li ul li ul { left:0; }
 <aside class="image-section">
   <div class="image-box">
     <img src="IMG_2243.jpeg" alt="Dachwartung Bild 1">
-    <div class="image-comment">„Verstopfte Abläufe erhöhen die Last und können zu Schäden führen – frühzeitige Kontrolle beugt vor."</div>
+    <div class="image-comment">„Verstopfte Abläufe erhöhen die Last und können zu Schäden führen – frühzeitige Kontrolle beugt vor.“</div>
   </div>
 
   <div class="image-box">
     <img src="IMG_2461.jpeg" alt="Dachwartung Bild 2">
-    <div class="image-comment">„Undichte Anschlüsse an Lichtkuppeln werden rechtzeitig erkannt und sicher behoben."</div>
+    <div class="image-comment">„Undichte Anschlüsse an Lichtkuppeln werden rechtzeitig erkannt und sicher behoben.“</div>
   </div>
 
   <div class="image-box">
     <img src="IMG_2305.jpeg" alt="Dachwartung Bild 3">
-    <div class="image-comment">„Defekte First-Elemente gefährden die Dachfunktion – frühzeitige Instandsetzung schützt."</div>
+    <div class="image-comment">„Defekte First-Elemente gefährden die Dachfunktion – frühzeitige Instandsetzung schützt.“</div>
   </div>
 
   <div class="image-box">
     <img src="IMG_2145.jpeg" alt="Dachwartung Bild 4">
-    <div class="image-comment">„Regelmäßige Wartung schützt langfristig die Bausubstanz und spart Kosten."</div>
+    <div class="image-comment">„Regelmäßige Wartung schützt langfristig die Bausubstanz und spart Kosten.“</div>
   </div>
 </aside>
 
@@ -324,19 +324,20 @@ hamburger.addEventListener('click', () => {
   navMenu.classList.toggle('show');
 });
 
-// Event-Listener für alle Menu-Toggle Links
-document.querySelectorAll('.menu-toggle').forEach(link => {
-  link.addEventListener('click', function(e) {
+document.querySelectorAll('.has-submenu > a').forEach(link => {
+  link.addEventListener('click', e => {
     if (window.innerWidth <= 768) {
       e.preventDefault();
-      e.stopPropagation();
-      
-      const submenu = this.nextElementSibling;
-      
-      if (submenu && submenu.classList.contains('submenu')) {
-        // Toggle das Submenu
-        submenu.classList.toggle('active');
-      }
+      const submenu = link.nextElementSibling;
+
+      // Schließe alle anderen Submenus auf gleicher Ebene
+      const parent = link.closest('ul');
+      parent.querySelectorAll('.submenu.active').forEach(sm => {
+        if (sm !== submenu) sm.classList.remove('active');
+      });
+
+      // Öffne oder schließe das aktuelle Menü
+      submenu.classList.toggle('active');
     }
   });
 });
