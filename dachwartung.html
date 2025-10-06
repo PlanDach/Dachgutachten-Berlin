@@ -25,7 +25,7 @@ box-shadow:0 2px 5px rgba(0,0,0,0.1);
 .hamburger { display:none; font-size:2em; cursor:pointer; user-select:none; }
 
 /* Menü (angepasst 1:1 wie in ueber-mich.html) */
-nav ul { list-style:none; display:flex; gap:20px; }
+nav ul { list-style:none; display:flex; gap:20px; } 
 nav ul li { position:relative; }
 nav ul li a { 
 text-decoration:none; 
@@ -324,22 +324,28 @@ hamburger.addEventListener('click', () => {
 navMenu.classList.toggle('show');
 });
 
+// Toggle Submenus Mobile
 document.querySelectorAll('.has-submenu > a').forEach(link => {
-link.addEventListener('click', e => {
-  if (window.innerWidth <= 768) {
-    e.preventDefault();
-    const submenu = link.nextElementSibling;
+  let clickedOnce = false; // Track second click
+  link.addEventListener('click', e => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      const submenu = link.nextElementSibling;
+      if (!submenu) return;
 
-    // Wenn Untermenü schon aktiv ist, schließen alle Untermenüs
-    if (submenu && submenu.classList.contains('active')) {
-      document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
-    } else if (submenu) {
-      submenu.classList.add('active');
+      if (clickedOnce) {
+        // Schließe alle Untermenüs
+        document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
+        clickedOnce = false;
+      } else {
+        submenu.classList.toggle('active');
+        clickedOnce = true;
+      }
     }
-  }
-});
+  });
 });
 
+// Reset on resize
 window.addEventListener('resize', () => {
 if (window.innerWidth > 768) {
   navMenu.classList.remove('show');
