@@ -286,22 +286,22 @@ nav ul li ul li ul { left:0; }
 <aside class="image-section">
   <div class="image-box">
     <img src="IMG_2243.jpeg" alt="Dachwartung Bild 1">
-    <div class="image-comment">„Verstopfte Abläufe erhöhen die Last und können zu Schäden führen – frühzeitige Kontrolle beugt vor.“</div>
+    <div class="image-comment">„Verstopfte Abläufe erhöhen die Last und können zu Schäden führen – frühzeitige Kontrolle beugt vor."</div>
   </div>
 
   <div class="image-box">
     <img src="IMG_2461.jpeg" alt="Dachwartung Bild 2">
-    <div class="image-comment">„Undichte Anschlüsse an Lichtkuppeln werden rechtzeitig erkannt und sicher behoben.“</div>
+    <div class="image-comment">„Undichte Anschlüsse an Lichtkuppeln werden rechtzeitig erkannt und sicher behoben."</div>
   </div>
 
   <div class="image-box">
     <img src="IMG_2305.jpeg" alt="Dachwartung Bild 3">
-    <div class="image-comment">„Defekte First-Elemente gefährden die Dachfunktion – frühzeitige Instandsetzung schützt.“</div>
+    <div class="image-comment">„Defekte First-Elemente gefährden die Dachfunktion – frühzeitige Instandsetzung schützt."</div>
   </div>
 
   <div class="image-box">
     <img src="IMG_2145.jpeg" alt="Dachwartung Bild 4">
-    <div class="image-comment">„Regelmäßige Wartung schützt langfristig die Bausubstanz und spart Kosten.“</div>
+    <div class="image-comment">„Regelmäßige Wartung schützt langfristig die Bausubstanz und spart Kosten."</div>
   </div>
 </aside>
 
@@ -329,7 +329,17 @@ link.addEventListener('click', e => {
   if (window.innerWidth <= 768) {
     e.preventDefault();
     const submenu = link.nextElementSibling;
-    if (submenu) submenu.classList.toggle('active');
+    if (submenu) {
+      // Schließe erst alle anderen Submenüs auf gleicher Ebene
+      const parent = link.parentElement.parentElement;
+      parent.querySelectorAll(':scope > .has-submenu > .submenu.active').forEach(otherSubmenu => {
+        if (otherSubmenu !== submenu) {
+          otherSubmenu.classList.remove('active');
+        }
+      });
+      // Toggle das aktuelle Submenu
+      submenu.classList.toggle('active');
+    }
   }
 });
 });
