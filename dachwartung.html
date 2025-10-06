@@ -323,7 +323,7 @@ hamburger.addEventListener('click', () => {
   navMenu.classList.toggle('show');
 });
 
-// Mobile Submenu Toggle – echtes Öffnen/Schließen beim 2. Klick
+// Mobile Submenu Toggle – nur eins gleichzeitig offen + zweiter Klick schließt
 document.querySelectorAll('.has-submenu > a').forEach(link => {
   link.addEventListener('click', e => {
     if (window.innerWidth <= 768) {
@@ -331,17 +331,15 @@ document.querySelectorAll('.has-submenu > a').forEach(link => {
       const submenu = link.nextElementSibling;
       if (!submenu) return;
 
-      // Toggle-Zustand prüfen
-      const isActive = submenu.classList.contains('active');
-
-      // Nur andere Submenus auf derselben Ebene schließen
       const parentUl = link.closest('ul');
-      parentUl.querySelectorAll(':scope > .has-submenu > .submenu.active').forEach(other => {
+
+      // Alle anderen Submenus in dieser Ebene schließen
+      parentUl.querySelectorAll(':scope > .has-submenu > ul.active').forEach(other => {
         if (other !== submenu) other.classList.remove('active');
       });
 
       // Aktuelles Submenu togglen
-      submenu.classList.toggle('active', !isActive);
+      submenu.classList.toggle('active');
     }
   });
 });
