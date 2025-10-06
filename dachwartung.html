@@ -199,11 +199,11 @@ nav ul li ul li ul { left:0; }
     <li><a href="index.html">Startseite</a></li>
     <li><a href="ueber-mich.html">Über mich</a></li>
     <li class="has-submenu">
-      <a href="#">Leistungen</a>
+      <a href="#" class="submenu-toggle">Leistungen</a>
       <ul class="submenu">
         <li><a href="gutachten.html">Gutachten</a></li>
         <li class="has-submenu">
-          <a href="#">Planung</a>
+          <a href="#" class="submenu-toggle">Planung</a>
           <ul class="submenu">
             <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
             <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
@@ -212,7 +212,7 @@ nav ul li ul li ul { left:0; }
           </ul>
         </li>
         <li class="has-submenu">
-          <a href="#">Bauüberwachung</a>
+          <a href="#" class="submenu-toggle">Bauüberwachung</a>
           <ul class="submenu">
             <li><a href="bau-koordination.html">Koordination</a></li>
             <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
@@ -221,7 +221,7 @@ nav ul li ul li ul { left:0; }
           </ul>
         </li>
         <li class="has-submenu">
-          <a href="#">Ausschreibung</a>
+          <a href="#" class="submenu-toggle">Ausschreibung</a>
           <ul class="submenu">
             <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
             <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
@@ -324,7 +324,7 @@ hamburger.addEventListener('click', () => {
 navMenu.classList.toggle('show');
 });
 
-document.querySelectorAll('.has-submenu > a').forEach(link => {
+document.querySelectorAll('.submenu-toggle').forEach(link => {
 link.addEventListener('click', e => {
   if (window.innerWidth <= 768) {
     e.preventDefault();
