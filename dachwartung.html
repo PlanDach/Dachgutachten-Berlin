@@ -25,18 +25,18 @@ box-shadow:0 2px 5px rgba(0,0,0,0.1);
 .hamburger { display:none; font-size:2em; cursor:pointer; user-select:none; }
 
 /* Menü (angepasst 1:1 wie in ueber-mich.html) */
-nav ul { list-style:none; display:flex; gap:20px; } 
+nav ul { list-style:none; display:flex; gap:20px; } /* keine zusätzliche Zentrierung, damit Höhe identisch bleibt */
 nav ul li { position:relative; }
 nav ul li a { 
 text-decoration:none; 
 color:#004d00; 
 font-weight:500; 
-padding:5px 10px; 
+padding:5px 10px; /* exakt wie gemerkt */ 
 display:block; 
 transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover- und Active-Effekte */
+/* Hover- und Active-Effekte (exakt wie gemerkt) */
 nav ul li a:hover { 
 background-color:#e6f4ea; 
 border-radius:6px; 
@@ -57,8 +57,8 @@ top:100%;
 left:0;
 background:#fff;
 list-style:none;
-padding:10px 0;
-min-width:200px;
+padding:10px 0; /* exakt wie gemerkt */
+min-width:200px; /* exakt wie gemerkt */
 box-shadow:0 4px 10px rgba(0,0,0,0.1);
 z-index:20;
 border-radius:6px;
@@ -119,7 +119,7 @@ margin-bottom:40px;
 .form-section ul li strong { font-weight:bold; display:inline; }
 .form-section ul li { margin-bottom:1em; }
 
-/* Highlight-Box */
+/* Highlight-Box (Ihr Vorteil) */
 .highlight-wrapper { max-width: 95%; margin: 30px auto; }
 .highlight-box {
 background-color:#f2f2f2;
@@ -163,21 +163,21 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 @media (max-width:768px) {
 .hamburger { display:block; }
 nav ul {
-  flex-direction:column;
-  display:none;
-  background:#fff;
-  position:absolute;
-  top:60px;
-  left:0;
-  width:100%;
-  padding:10px 0;
-  gap:0;
-  text-align:center;
+  flex-direction:column;
+  display:none;
+  background:#fff;
+  position:absolute;
+  top:60px; /* exakt wie in ueber-mich.html */
+  left:0;
+  width:100%;
+  padding:10px 0;
+  gap:0;
+  text-align:center;
 }
 nav ul.show { display:flex; }
 
 nav ul li { width:100%; }
-nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
+nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; } /* exakt wie gemerkt */
 
 nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
 nav ul li ul.active { display:flex; }
@@ -195,114 +195,114 @@ nav ul li ul li ul { left:0; }
 <div class="logo"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></div>
 <div class="hamburger" id="hamburger">☰</div>
 <nav>
-  <ul id="navMenu">
-    <li><a href="index.html">Startseite</a></li>
-    <li><a href="ueber-mich.html">Über mich</a></li>
-    <li class="has-submenu">
-      <a href="#">Leistungen</a>
-      <ul class="submenu">
-        <li><a href="gutachten.html">Gutachten</a></li>
-        <li class="has-submenu">
-          <a href="#">Planung</a>
-          <ul class="submenu">
-            <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
-            <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
-            <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
-            <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
-          </ul>
-        </li>
-        <li class="has-submenu">
-          <a href="#">Bauüberwachung</a>
-          <ul class="submenu">
-            <li><a href="bau-koordination.html">Koordination</a></li>
-            <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
-            <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
-            <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
-          </ul>
-        </li>
-        <li class="has-submenu">
-          <a href="#">Ausschreibung</a>
-          <ul class="submenu">
-            <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
-            <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
-            <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
-          </ul>
-        </li>
-        <li><a href="dachwartung.html" class="active">Dachwartung</a></li>
-        <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
-        <li><a href="leckageortung.html">Leckageortung</a></li>
-      </ul>
-    </li>
-    <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
-    <li><a href="kontakt.html">Kontakt</a></li>
-    <li><a href="impressum.html">Impressum</a></li>
-  </ul>
+  <ul id="navMenu">
+    <li><a href="index.html">Startseite</a></li>
+    <li><a href="ueber-mich.html">Über mich</a></li>
+    <li class="has-submenu">
+      <a href="#">Leistungen</a>
+      <ul class="submenu">
+        <li><a href="gutachten.html">Gutachten</a></li>
+        <li class="has-submenu">
+          <a href="#">Planung</a>
+          <ul class="submenu">
+            <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
+            <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
+            <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
+            <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
+          </ul>
+        </li>
+        <li class="has-submenu">
+          <a href="#">Bauüberwachung</a>
+          <ul class="submenu">
+            <li><a href="bau-koordination.html">Koordination</a></li>
+            <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
+            <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
+            <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
+          </ul>
+        </li>
+        <li class="has-submenu">
+          <a href="#">Ausschreibung</a>
+          <ul class="submenu">
+            <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
+            <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
+            <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
+          </ul>
+        </li>
+        <li><a href="dachwartung.html" class="active">Dachwartung</a></li>
+        <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+        <li><a href="leckageortung.html">Leckageortung</a></li>
+      </ul>
+    </li>
+    <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+    <li><a href="impressum.html">Impressum</a></li>
+  </ul>
 </nav>
 </header>
 
 <main>
 <section class="hero">
-  <h1>Dachwartung</h1>
-  <p>Regelmäßige Kontrolle und Wartung Ihres Daches für dauerhafte Sicherheit und Werterhalt Ihrer Immobilie.</p>
+  <h1>Dachwartung</h1>
+  <p>Regelmäßige Kontrolle und Wartung Ihres Daches für dauerhafte Sicherheit und Werterhalt Ihrer Immobilie.</p>
 </section>
 
 <div class="content-wrapper">
-  <section class="form-section">
-    <h2>Unsere Leistungen im Bereich Dachwartung</h2>
-    <br>
-    <ul>
-      <li><strong>Inspektion von Dächern und Dachflächen:</strong> Sorgfältige Prüfung aller Dachbereiche auf Schäden, Materialermüdung oder undichte Stellen, um Folgeschäden frühzeitig zu verhindern.</li>
-      <li><strong>Reinigung von Dachrinnen, Fallrohren und Entwässerungssystemen:</strong> Entfernung von Laub, Schmutz und Ablagerungen, um Stauwasser, Durchfeuchtung und Belastung der Dachkonstruktion zu vermeiden.</li>
-      <li><strong>Prüfung von Abdichtungen und Anschlüssen:</strong> Fachgerechte Kontrolle von Übergängen, Einfassungen, Lichtkuppeln und Schornsteinen, um Undichtigkeiten und Feuchtigkeitsschäden zu vermeiden.</li>
-      <li><strong>Erstellung von Wartungsprotokollen:</strong> Dokumentation der Inspektionsergebnisse, inkl. fotografischer Aufnahmen und Empfehlungen für Reparaturen oder Instandsetzungen.</li>
-      <li><strong>Empfehlungen für Reparaturen oder Sanierungen:</strong> Präzise Handlungsempfehlungen für sofortige Maßnahmen oder langfristige Sanierungsplanung, basierend auf aktuellem Zustand und Materialanalyse.</li>
-      <li><strong>Vorbeugende Sicherheitsprüfung:</strong> Überprüfung der Tragfähigkeit, Dachlasten und Gefährdungspotenziale, um mögliche Risiken für Bewohner und Immobilie rechtzeitig zu erkennen.</li>
-    </ul>
+  <section class="form-section">
+    <h2>Unsere Leistungen im Bereich Dachwartung</h2>
+    <br>
+    <ul>
+      <li><strong>Inspektion von Dächern und Dachflächen:</strong> Sorgfältige Prüfung aller Dachbereiche auf Schäden, Materialermüdung oder undichte Stellen, um Folgeschäden frühzeitig zu verhindern.</li>
+      <li><strong>Reinigung von Dachrinnen, Fallrohren und Entwässerungssystemen:</strong> Entfernung von Laub, Schmutz und Ablagerungen, um Stauwasser, Durchfeuchtung und Belastung der Dachkonstruktion zu vermeiden.</li>
+      <li><strong>Prüfung von Abdichtungen und Anschlüssen:</strong> Fachgerechte Kontrolle von Übergängen, Einfassungen, Lichtkuppeln und Schornsteinen, um Undichtigkeiten und Feuchtigkeitsschäden zu vermeiden.</li>
+      <li><strong>Erstellung von Wartungsprotokollen:</strong> Dokumentation der Inspektionsergebnisse, inkl. fotografischer Aufnahmen und Empfehlungen für Reparaturen oder Instandsetzungen.</li>
+      <li><strong>Empfehlungen für Reparaturen oder Sanierungen:</strong> Präzise Handlungsempfehlungen für sofortige Maßnahmen oder langfristige Sanierungsplanung, basierend auf aktuellem Zustand und Materialanalyse.</li>
+      <li><strong>Vorbeugende Sicherheitsprüfung:</strong> Überprüfung der Tragfähigkeit, Dachlasten und Gefährdungspotenziale, um mögliche Risiken für Bewohner und Immobilie rechtzeitig zu erkennen.</li>
+    </ul>
 
-    <br>
+    <br>
 
-    <div class="highlight-wrapper">
-      <div class="highlight-box">
-        <h2>Ihr Vorteil</h2>
-        <ul>
-          <li>die Lebensdauer Ihres Daches</li>
-          <li>die Werterhaltung Ihrer Immobilie</li>
-          <li>die frühzeitige Erkennung von Schäden, bevor teure Reparaturen notwendig werden</li>
-          <li>die Minimierung von Unfall- und Haftungsrisiken durch vorbeugende Sicherheitskontrollen</li>
-        </ul>
-      </div>
-    </div>
+    <div class="highlight-wrapper">
+      <div class="highlight-box">
+        <h2>Ihr Vorteil</h2>
+        <ul>
+          <li>die Lebensdauer Ihres Daches</li>
+          <li>die Werterhaltung Ihrer Immobilie</li>
+          <li>die frühzeitige Erkennung von Schäden, bevor teure Reparaturen notwendig werden</li>
+          <li>die Minimierung von Unfall- und Haftungsrisiken durch vorbeugende Sicherheitskontrollen</li>
+        </ul>
+      </div>
+    </div>
 
-    <br><br>
+    <br><br>
 
-    <p>Bei Fragen oder individuellen Problemen rund um Ihr Dach stehen wir Ihnen jederzeit kompetent zur Verfügung – sprechen Sie uns gerne an.</p>
+    <p>Bei Fragen oder individuellen Problemen rund um Ihr Dach stehen wir Ihnen jederzeit kompetent zur Verfügung – sprechen Sie uns gerne an.</p>
 
-    <br>
-  </section>
+    <br>
+  </section>
 </div>
 
 <br>
 
 <aside class="image-section">
-  <div class="image-box">
-    <img src="IMG_2243.jpeg" alt="Dachwartung Bild 1">
-    <div class="image-comment">„Verstopfte Abläufe erhöhen die Last und können zu Schäden führen – frühzeitige Kontrolle beugt vor.“</div>
-  </div>
+  <div class="image-box">
+    <img src="IMG_2243.jpeg" alt="Dachwartung Bild 1">
+    <div class="image-comment">„Verstopfte Abläufe erhöhen die Last und können zu Schäden führen – frühzeitige Kontrolle beugt vor.“</div>
+  </div>
 
-  <div class="image-box">
-    <img src="IMG_2461.jpeg" alt="Dachwartung Bild 2">
-    <div class="image-comment">„Undichte Anschlüsse an Lichtkuppeln werden rechtzeitig erkannt und sicher behoben.“</div>
-  </div>
+  <div class="image-box">
+    <img src="IMG_2461.jpeg" alt="Dachwartung Bild 2">
+    <div class="image-comment">„Undichte Anschlüsse an Lichtkuppeln werden rechtzeitig erkannt und sicher behoben.“</div>
+  </div>
 
-  <div class="image-box">
-    <img src="IMG_2305.jpeg" alt="Dachwartung Bild 3">
-    <div class="image-comment">„Defekte First-Elemente gefährden die Dachfunktion – frühzeitige Instandsetzung schützt.“</div>
-  </div>
+  <div class="image-box">
+    <img src="IMG_2305.jpeg" alt="Dachwartung Bild 3">
+    <div class="image-comment">„Defekte First-Elemente gefährden die Dachfunktion – frühzeitige Instandsetzung schützt.“</div>
+  </div>
 
-  <div class="image-box">
-    <img src="IMG_2145.jpeg" alt="Dachwartung Bild 4">
-    <div class="image-comment">„Regelmäßige Wartung schützt langfristig die Bausubstanz und spart Kosten.“</div>
-  </div>
+  <div class="image-box">
+    <img src="IMG_2145.jpeg" alt="Dachwartung Bild 4">
+    <div class="image-comment">„Regelmäßige Wartung schützt langfristig die Bausubstanz und spart Kosten.“</div>
+  </div>
 </aside>
 
 <br>
@@ -310,9 +310,9 @@ nav ul li ul li ul { left:0; }
 
 <footer>
 <div style="max-width:1000px; margin:0 auto;">
-  <p>© 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
-  <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="kontakt.html">Kontakt</a></p>
-  <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: 030 12345678 | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
+  <p>© 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
+  <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="kontakt.html">Kontakt</a></p>
+  <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: 030 12345678 | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
 </div>
 </footer>
 
@@ -324,32 +324,20 @@ hamburger.addEventListener('click', () => {
 navMenu.classList.toggle('show');
 });
 
-// Toggle Submenus Mobile
 document.querySelectorAll('.has-submenu > a').forEach(link => {
-  let clickedOnce = false; // Track second click
-  link.addEventListener('click', e => {
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      const submenu = link.nextElementSibling;
-      if (!submenu) return;
-
-      if (clickedOnce) {
-        // Schließe alle Untermenüs
-        document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
-        clickedOnce = false;
-      } else {
-        submenu.classList.toggle('active');
-        clickedOnce = true;
-      }
-    }
-  });
+link.addEventListener('click', e => {
+  if (window.innerWidth <= 768) {
+    e.preventDefault();
+    const submenu = link.nextElementSibling;
+    if (submenu) submenu.classList.toggle('active');
+  }
+});
 });
 
-// Reset on resize
 window.addEventListener('resize', () => {
 if (window.innerWidth > 768) {
-  navMenu.classList.remove('show');
-  document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
+  navMenu.classList.remove('show');
+  document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
 }
 });
 </script>
