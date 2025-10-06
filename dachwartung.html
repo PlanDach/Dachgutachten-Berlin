@@ -199,11 +199,11 @@ nav ul li ul li ul { left:0; }
     <li><a href="index.html">Startseite</a></li>
     <li><a href="ueber-mich.html">Über mich</a></li>
     <li class="has-submenu">
-      <a href="#" class="leistungen-link">Leistungen</a>
-      <ul class="submenu">
+      <a href="#" id="mainLeistungenLink">Leistungen</a>
+      <ul class="submenu" id="mainLeistungenMenu">
         <li><a href="gutachten.html">Gutachten</a></li>
         <li class="has-submenu">
-          <a href="#">Planung</a>
+          <a href="#" class="sub-toggle">Planung</a>
           <ul class="submenu">
             <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
             <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
@@ -212,7 +212,7 @@ nav ul li ul li ul { left:0; }
           </ul>
         </li>
         <li class="has-submenu">
-          <a href="#">Bauüberwachung</a>
+          <a href="#" class="sub-toggle">Bauüberwachung</a>
           <ul class="submenu">
             <li><a href="bau-koordination.html">Koordination</a></li>
             <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
@@ -221,7 +221,7 @@ nav ul li ul li ul { left:0; }
           </ul>
         </li>
         <li class="has-submenu">
-          <a href="#">Ausschreibung</a>
+          <a href="#" class="sub-toggle">Ausschreibung</a>
           <ul class="submenu">
             <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
             <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
@@ -319,36 +319,52 @@ nav ul li ul li ul { left:0; }
 <script>
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
+const mainLeistungenLink = document.getElementById('mainLeistungenLink');
+const mainLeistungenMenu = document.getElementById('mainLeistungenMenu');
 
+// Hamburger Menu Toggle
 hamburger.addEventListener('click', () => {
   navMenu.classList.toggle('show');
 });
 
-// Alle Submenu-Links behandeln
-document.querySelectorAll('.has-submenu > a').forEach(link => {
-  link.addEventListener('click', e => {
+// HAUPTMENÜ "LEISTUNGEN" - Spezielles Handling
+mainLeistungenLink.addEventListener('click', (e) => {
+  if (window.innerWidth <= 768) {
+    e.preventDefault();
+    
+    // Toggle das Hauptmenü
+    const isOpen = mainLeistungenMenu.classList.contains('active');
+    
+    if (isOpen) {
+      // SCHLIESSEN: Hauptmenü UND alle Untermenüs schließen
+      mainLeistungenMenu.classList.remove('active');
+      const allSubmenus = mainLeistungenMenu.querySelectorAll('.submenu');
+      allSubmenus.forEach(sub => sub.classList.remove('active'));
+    } else {
+      // ÖFFNEN: Nur Hauptmenü öffnen
+      mainLeistungenMenu.classList.add('active');
+    }
+  }
+});
+
+// UNTERMENÜS (Planung, Bauüberwachung, Ausschreibung)
+document.querySelectorAll('.sub-toggle').forEach(link => {
+  link.addEventListener('click', (e) => {
     if (window.innerWidth <= 768) {
       e.preventDefault();
       const submenu = link.nextElementSibling;
       if (submenu) {
-        const isActive = submenu.classList.contains('active');
         submenu.classList.toggle('active');
-        
-        // Wenn das Menü geschlossen wird (war active, jetzt nicht mehr), alle verschachtelten Submenüs auch schließen
-        if (isActive) {
-          submenu.querySelectorAll('.submenu.active').forEach(sub => {
-            sub.classList.remove('active');
-          });
-        }
       }
     }
   });
 });
 
+// Resize Handler
 window.addEventListener('resize', () => {
   if (window.innerWidth > 768) {
     navMenu.classList.remove('show');
-    document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
+    document.querySelectorAll('.submenu').forEach(sm => sm.classList.remove('active'));
   }
 });
 </script>
