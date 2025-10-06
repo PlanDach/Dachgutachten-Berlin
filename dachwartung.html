@@ -198,8 +198,8 @@ nav ul li ul li ul { left:0; }
   <ul id="navMenu">
     <li><a href="index.html">Startseite</a></li>
     <li><a href="ueber-mich.html">Über mich</a></li>
-    <li class="has-submenu">
-      <a href="#">Leistungen</a>
+    <li class="has-submenu" id="leistungenMenu">
+      <a href="#" id="leistungenLink">Leistungen</a>
       <ul class="submenu">
         <li><a href="gutachten.html">Gutachten</a></li>
         <li class="has-submenu">
@@ -319,27 +319,41 @@ nav ul li ul li ul { left:0; }
 <script>
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
+const leistungenLink = document.getElementById('leistungenLink');
+const leistungenMenu = document.getElementById('leistungenMenu');
 
 hamburger.addEventListener('click', () => {
 navMenu.classList.toggle('show');
 });
 
-document.querySelectorAll('.has-submenu > a').forEach(link => {
-link.addEventListener('click', e => {
+// Spezielles Handling für "Leistungen" in Mobile
+leistungenLink.addEventListener('click', e => {
   if (window.innerWidth <= 768) {
     e.preventDefault();
-    const submenu = link.nextElementSibling;
-    if (submenu) {
-      const isCurrentlyActive = submenu.classList.contains('active');
-      submenu.classList.toggle('active');
-      
-      // Wenn das Hauptmenü "Leistungen" geschlossen wird, alle Untermenüs schließen
-      if (isCurrentlyActive && link.textContent.trim() === 'Leistungen') {
-        submenu.querySelectorAll('.submenu.active').forEach(sub => sub.classList.remove('active'));
-      }
+    const mainSubmenu = leistungenLink.nextElementSibling;
+    
+    if (mainSubmenu.classList.contains('active')) {
+      // Schließen: alle Untermenüs schließen
+      mainSubmenu.classList.remove('active');
+      mainSubmenu.querySelectorAll('.submenu.active').forEach(sub => sub.classList.remove('active'));
+    } else {
+      // Öffnen
+      mainSubmenu.classList.add('active');
     }
   }
 });
+
+// Handling für andere Submenüs (Planung, Bauüberwachung, Ausschreibung)
+document.querySelectorAll('.has-submenu > a').forEach(link => {
+  if (link.id === 'leistungenLink') return; // Skip, schon behandelt
+  
+  link.addEventListener('click', e => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      const submenu = link.nextElementSibling;
+      if (submenu) submenu.classList.toggle('active');
+    }
+  });
 });
 
 window.addEventListener('resize', () => {
