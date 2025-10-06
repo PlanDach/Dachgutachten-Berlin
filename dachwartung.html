@@ -329,15 +329,7 @@ link.addEventListener('click', e => {
   if (window.innerWidth <= 768) {
     e.preventDefault();
     const submenu = link.nextElementSibling;
-    if (submenu) {
-      // Schließe erst alle anderen Submenüs auf gleicher Ebene
-      const parent = link.parentElement.parentElement;
-      parent.querySelectorAll(':scope > .has-submenu > .submenu.active').forEach(otherSubmenu => {
-        if (otherSubmenu !== submenu) {
-          otherSubmenu.classList.remove('active');
-        }
-      });
-      // Toggle das aktuelle Submenu
+    if (submenu && submenu.classList.contains('submenu')) {
       submenu.classList.toggle('active');
     }
   }
