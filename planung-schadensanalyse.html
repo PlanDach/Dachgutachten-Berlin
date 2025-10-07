@@ -117,10 +117,22 @@ nav ul li ul li ul { top:0; left:100%; }
   gap:12px;
   padding:20px;
   border-radius:8px;
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity 0.8s ease, transform 0.8s ease;
+}
+.step.visible {
+  opacity:1;
+  transform:translateY(0);
 }
 .step .icon img {
   width:48px;
   height:48px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.step:hover .icon img {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(0,127,95,0.4));
 }
 .step h3 { font-size:1.2em; font-weight:bold; }
 .step p { font-size:1rem; max-width:650px; text-align:center; }
@@ -236,6 +248,18 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
+
+// Intersection Observer für Fade-in & Slide-up Steps
+const steps = document.querySelectorAll('.step');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+steps.forEach(step => observer.observe(step));
 </script>
 </body>
 </html>
