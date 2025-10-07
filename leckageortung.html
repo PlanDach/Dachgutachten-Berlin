@@ -24,27 +24,52 @@ header {
 .logo img { height:80px; width:auto; display:block; }
 .hamburger { display:none; font-size:2em; cursor:pointer; user-select:none; }
 
-nav ul { list-style:none; display:flex; gap:20px; align-items:center; justify-content:center; }
+/* Menü (angepasst 1:1 wie in ueber-mich.html) */
+nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
-nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:5px 10px; display:block; transition: background-color 0.3s ease, color 0.3s ease; }
-nav ul li a:hover { color:#007f5f; background-color:#e6f4ea; border-radius:6px; }
-nav ul li a:active, nav ul li a.active { color:#007f5f; background-color:#cde9d8; border-radius:6px; }
-
-nav ul li ul {
-  display:none;
-  position:absolute;
-  top:100%;
-  left:0;
-  background:#fff;
-  list-style:none;
-  padding:10px 0;
-  min-width:200px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.1);
-  z-index:10;
+nav ul li a { 
+text-decoration:none; 
+color:#004d00; 
+font-weight:500; 
+padding:5px 10px;
+display:block; 
+transition: background-color 0.3s ease, color 0.3s ease;
 }
-nav ul li:hover > ul { display:block; }
+
+/* Hover- und Active-Effekte (exakt wie gemerkt) */
+nav ul li a:hover { 
+background-color:#e6f4ea; 
+border-radius:6px; 
+color:#007f5f; 
+}
+nav ul li a:active, 
+nav ul li a.active { 
+background-color:#cde9d8; 
+border-radius:6px; 
+color:#007f5f; 
+}
+
+/* Submenus */
+nav ul li ul {
+display:none;
+position:absolute;
+top:100%;
+left:0;
+background:#fff;
+list-style:none;
+padding:10px 0;
+min-width:200px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+z-index:20;
+border-radius:6px;
+}
+
+/* Hover nur auf Desktop */
+@media (min-width:769px) {
+  nav ul li:hover > ul { display:block; }
+}
+
 nav ul li ul li a { padding:8px 15px; color:#004d00; }
-nav ul li ul li a:hover { color:#007f5f; background:#e6f4ea; }
 nav ul li ul li ul { top:0; left:100%; }
 
 /* Main padding for fixed header */
@@ -63,6 +88,7 @@ main { padding-top:100px; }
   overflow:hidden;
   padding:120px 20px;
   background: url('IMG_3971.jpeg') center center / cover no-repeat;
+  color:#fff;
 }
 .hero::before {
   content:"";
@@ -78,11 +104,10 @@ main { padding-top:100px; }
 .hero h1, .hero p {
   position: relative;
   z-index:2;
-  max-width:900px;
-  color:#fff;
+  color:#ffffff;
 }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
-.hero p { font-size:1.2em; font-weight:600; }
+.hero p { font-size:1.2em; }
 
 /* Content */
 .content-wrapper {
@@ -130,19 +155,34 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 /* Responsive */
 @media (max-width:992px) { .image-section { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width:600px) { .image-section { grid-template-columns: 1fr; } }
+
 @media (max-width:768px) {
-  .hamburger { display:block; }
-  nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:80px; left:0; width:100%; padding:10px 0; gap:0; text-align:center; }
-  nav ul.show { display:flex; }
-  nav ul li { width:100%; }
-  nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
-  nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
-  nav ul li ul.active { display:flex; }
-  nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
-  nav ul li ul li ul { left:0; }
-  .hero { padding:120px 20px; min-height:350px; }
-  .hero h1 { font-size:2.5em; }
-  .hero p { font-size:1.2em; }
+.hamburger { display:block; }
+nav ul {
+  flex-direction:column;
+  display:none;
+  background:#fff;
+  position:absolute;
+  top:60px;
+  left:0;
+  width:100%;
+  padding:10px 0;
+  gap:0;
+  text-align:center;
+}
+nav ul.show { display:flex; }
+
+nav ul li { width:100%; }
+nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
+
+nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
+nav ul li ul.active { display:flex; }
+nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
+nav ul li ul li ul { left:0; }
+
+.hero { padding:120px 20px; min-height:350px; }
+.hero h1 { font-size:2.5em; }
+.hero p { font-size:1.2em; }
 }
 </style>
 </head>
@@ -156,11 +196,11 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
       <li><a href="ueber-mich.html">Über mich</a></li>
       <li class="has-submenu">
         <a href="#">Leistungen</a>
-        <ul>
+        <ul class="submenu">
           <li><a href="gutachten.html">Gutachten</a></li>
           <li class="has-submenu">
             <a href="#">Planung</a>
-            <ul>
+            <ul class="submenu">
               <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
               <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
               <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
@@ -169,7 +209,7 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
           </li>
           <li class="has-submenu">
             <a href="#">Bauüberwachung</a>
-            <ul>
+            <ul class="submenu">
               <li><a href="bau-koordination.html">Koordination</a></li>
               <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
               <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
@@ -178,7 +218,7 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
           </li>
           <li class="has-submenu">
             <a href="#">Ausschreibung</a>
-            <ul>
+            <ul class="submenu">
               <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
               <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
               <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
@@ -271,16 +311,29 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 <script>
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
-hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
+
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+
 document.querySelectorAll('.has-submenu > a').forEach(link => {
   link.addEventListener('click', e => {
     if (window.innerWidth <= 768) {
       e.preventDefault();
       const submenu = link.nextElementSibling;
-      if (submenu) submenu.classList.toggle('active');
+      if (submenu) {
+        submenu.classList.toggle('active');
+        // Wenn geschlossen, alle Untermenüs auch schließen
+        if (!submenu.classList.contains('active')) {
+          submenu.querySelectorAll('.submenu.active').forEach(sub => {
+            sub.classList.remove('active');
+          });
+        }
+      }
     }
   });
 });
+
 window.addEventListener('resize', () => {
   if (window.innerWidth > 768) {
     navMenu.classList.remove('show');
