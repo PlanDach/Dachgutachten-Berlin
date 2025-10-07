@@ -75,7 +75,7 @@ nav ul li ul li ul { top:0; left:100%; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; }
 .hero p { font-size:1.2em; }
 
-/* Steps Section */
+/* Steps Section (mit Animation wie Grundlagenermittlung) */
 .steps-section {
   max-width:900px;
   margin:40px auto 40px auto;
@@ -85,8 +85,33 @@ nav ul li ul li ul { top:0; left:100%; }
   text-align:center;
 }
 .steps-section h2 { font-size:1.8em; font-weight:bold; margin-bottom:30px; }
-.step { display:flex; flex-direction:column; align-items:center; gap:15px; }
-.step .icon { width:48px; height:48px; }
+.step {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:15px;
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity 0.8s ease, transform 0.8s ease;
+}
+.step.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+.step .icon {
+  width:48px;
+  height:48px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.step .icon img {
+  width:100%;
+  height:100%;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.step:hover .icon img {
+  transform:scale(1.1);
+  filter:drop-shadow(0 0 8px rgba(0,127,95,0.4));
+}
 .step h3 { font-size:1.2em; font-weight:bold; }
 .step p { font-size:1rem; color:#004D00; line-height:1.4; max-width:600px; }
 
@@ -173,7 +198,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 
     <div class="step">
       <div class="icon">
-        <img src="best_18289742.png" alt="Planung Icon" style="width:48px; height:48px;">
+        <img src="best_18289742.png" alt="Planung Icon" width="48" height="48">
       </div>
       <h3>1. Planung & Arbeitsabläufe</h3>
       <p>Detaillierte Pläne, Grundrisse, Schnitte, Materialien, Maße und Montageanleitungen, um die Umsetzung auf der Baustelle reibungslos zu gestalten.</p>
@@ -181,7 +206,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 
     <div class="step">
       <div class="icon">
-        <img src="positive-thinking_18128003.png" alt="Ressourcen & Sicherheit Icon" style="width:48px; height:48px;">
+        <img src="positive-thinking_18128003.png" alt="Ressourcen & Sicherheit Icon" width="48" height="48">
       </div>
       <h3>2. Ressourcen & Sicherheit</h3>
       <p>Materiallisten, Mengen, Lieferzeiten, Zeitplanung sowie Normen, Sicherheitsanforderungen, Statik, Abdichtungen und Dämmung werden berücksichtigt.</p>
@@ -189,7 +214,7 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 
     <div class="step">
       <div class="icon">
-        <img src="evaluate_18289840.png" alt="Dokumentation Icon" style="width:48px; height:48px;">
+        <img src="evaluate_18289840.png" alt="Dokumentation Icon" width="48" height="48">
       </div>
       <h3>3. Dokumentation & Übergabe</h3>
       <p>Alle Ergebnisse werden in einem professionellen, rechtssicheren Ausführungsplan dokumentiert und an Bauherren sowie ausführende Gewerke übergeben.</p>
@@ -220,6 +245,18 @@ document.querySelectorAll('#navMenu .has-submenu > a').forEach(link => {
     }
   });
 });
+
+// Scroll-Animation für Steps (identisch zur Grundlagenermittlung)
+const steps = document.querySelectorAll('.step');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.2 });
+
+steps.forEach(step => observer.observe(step));
 </script>
 
 </body>
