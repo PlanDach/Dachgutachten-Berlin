@@ -21,21 +21,59 @@ header {
   z-index:10;
   box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
-.logo img { height:80px; width:auto; }
-.hamburger { display:none; font-size:2em; cursor:pointer; }
-nav ul { list-style:none; display:flex; gap:20px; align-items:center; }
+.logo img { height:80px; width:auto; display:block; }
+.hamburger { display:none; font-size:2em; cursor:pointer; user-select:none; }
+
+/* Menü (angepasst 1:1 wie in ueber-mich.html) */
+nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
-nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:5px 10px; display:block; transition: background-color 0.3s ease, color 0.3s ease; }
+nav ul li a { 
+text-decoration:none; 
+color:#004d00; 
+font-weight:500; 
+padding:5px 10px;
+display:block; 
+transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-/* Hover- und Klick-Effekte */
-nav ul li a:hover { background-color:#e6f4ea; border-radius:6px; color:#007f5f; }
-nav ul li a:active, nav ul li a.active { background-color:#cde9d8; border-radius:6px; color:#007f5f; }
+/* Hover- und Active-Effekte (exakt wie gemerkt) */
+nav ul li a:hover { 
+background-color:#e6f4ea; 
+border-radius:6px; 
+color:#007f5f; 
+}
+nav ul li a:active, 
+nav ul li a.active { 
+background-color:#cde9d8; 
+border-radius:6px; 
+color:#007f5f; 
+}
 
-nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#fff; list-style:none; padding:10px 0; min-width:200px; box-shadow:0 4px 10px rgba(0,0,0,0.1); z-index:10; }
-nav ul li:hover > ul { display:block; }
-nav ul li ul li { padding:0; }
-nav ul li ul li a { padding:8px 15px; white-space:nowrap; }
+/* Submenus */
+nav ul li ul {
+display:none;
+position:absolute;
+top:100%;
+left:0;
+background:#fff;
+list-style:none;
+padding:10px 0;
+min-width:200px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+z-index:20;
+border-radius:6px;
+}
+
+/* Hover nur auf Desktop */
+@media (min-width:769px) {
+  nav ul li:hover > ul { display:block; }
+}
+
+nav ul li ul li a { padding:8px 15px; color:#004d00; }
 nav ul li ul li ul { top:0; left:100%; }
+
+/* Main padding for fixed header */
+main { padding-top:100px; }
 
 /* Hero */
 .hero { 
@@ -64,7 +102,10 @@ nav ul li ul li ul { top:0; left:100%; }
 .hero h1, .hero p {
   position: relative;
   z-index:2;
+  color:#ffffff;
 }
+.hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
+.hero p { font-size:1.2em; }
 
 /* CHECK CONTAINER */
 .check-container {
@@ -199,20 +240,37 @@ footer a { color:#007f5f; text-decoration:none; margin:0 8px; }
 
 /* Responsive */
 @media (max-width:768px) {
-  .hamburger { display:block; }
-  nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:80px; left:0; width:100%; }
-  nav ul.show { display:flex; }
-  nav ul li a { font-size:1.2em; text-align:center; }
-  nav ul li ul { position:relative; top:0; left:0; box-shadow:none; }
-  nav ul li ul li ul { left:0; }
-  .hero { padding:70px 16px 18px 16px; }
-  .hero h1 { font-size:1.5rem; }
-  .hero p { font-size:0.95rem; }
-  .form-section { padding:18px; }
-  .form-section h2 { font-size:1.25rem; }
-  .form-description { font-size:0.97rem; padding:0 6px; }
-  .steps-grid { grid-template-columns:1fr; gap:28px; }
-  .step { max-width:280px; }
+.hamburger { display:block; }
+nav ul {
+  flex-direction:column;
+  display:none;
+  background:#fff;
+  position:absolute;
+  top:60px;
+  left:0;
+  width:100%;
+  padding:10px 0;
+  gap:0;
+  text-align:center;
+}
+nav ul.show { display:flex; }
+
+nav ul li { width:100%; }
+nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
+
+nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
+nav ul li ul.active { display:flex; }
+nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
+nav ul li ul li ul { left:0; }
+
+.hero { padding:70px 16px 18px 16px; }
+.hero h1 { font-size:1.5rem; }
+.hero p { font-size:0.95rem; }
+.form-section { padding:18px; }
+.form-section h2 { font-size:1.25rem; }
+.form-description { font-size:0.97rem; padding:0 6px; }
+.steps-grid { grid-template-columns:1fr; gap:28px; }
+.step { max-width:280px; }
 }
 </style>
 </head>
@@ -229,11 +287,11 @@ footer a { color:#007f5f; text-decoration:none; margin:0 8px; }
       <li><a href="ueber-mich.html">Über mich</a></li>
       <li class="has-submenu">
         <a href="#">Leistungen</a>
-        <ul>
+        <ul class="submenu">
           <li><a href="gutachten.html">Gutachten</a></li>
           <li class="has-submenu">
             <a href="#">Planung</a>
-            <ul>
+            <ul class="submenu">
               <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
               <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
               <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
@@ -242,7 +300,7 @@ footer a { color:#007f5f; text-decoration:none; margin:0 8px; }
           </li>
           <li class="has-submenu">
             <a href="#">Bauüberwachung</a>
-            <ul>
+            <ul class="submenu">
               <li><a href="bau-koordination.html">Koordination</a></li>
               <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
               <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
@@ -251,14 +309,14 @@ footer a { color:#007f5f; text-decoration:none; margin:0 8px; }
           </li>
           <li class="has-submenu">
             <a href="#">Ausschreibung</a>
-            <ul>
+            <ul class="submenu">
               <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
               <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
               <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
             </ul>
           </li>
           <li><a href="dachwartung.html">Dachwartung</a></li>
-          <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+          <li><a href="online-dachcheck.html" class="active">Online-DachCheck</a></li>
           <li><a href="leckageortung.html">Leckageortung</a></li>
         </ul>
       </li>
@@ -367,7 +425,35 @@ footer a { color:#007f5f; text-decoration:none; margin:0 8px; }
 <script>
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
-hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
+
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+
+document.querySelectorAll('.has-submenu > a').forEach(link => {
+  link.addEventListener('click', e => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      const submenu = link.nextElementSibling;
+      if (submenu) {
+        submenu.classList.toggle('active');
+        // Wenn geschlossen, alle Untermenüs auch schließen
+        if (!submenu.classList.contains('active')) {
+          submenu.querySelectorAll('.submenu.active').forEach(sub => {
+            sub.classList.remove('active');
+          });
+        }
+      }
+    }
+  });
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    navMenu.classList.remove('show');
+    document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
+  }
+});
 </script>
 </body>
 </html>
