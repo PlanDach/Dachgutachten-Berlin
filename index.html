@@ -140,37 +140,87 @@
     .intro-text h2 { font-size:2em; margin-bottom:15px; }
     .intro-text p { margin-bottom:15px; font-size:1em; }
 
-    /* Instagram Box */
+    /* Instagram Box - Apple Style Premium */
     .instagram-box {
       margin:60px auto 80px auto;
       display:flex;
       justify-content:center;
       align-items:center;
-      gap:12px;
+      gap:14px;
       color:#004d00;
-      font-weight:500;
+      font-weight:600;
       font-size:1.1em;
-      background-color:#fff;
-      padding:15px 25px;
-      border-radius:12px;
-      border:1px solid #007F5F;
-      max-width:450px;
+      background: linear-gradient(135deg, #ffffff 0%, #f9fffe 100%);
+      padding:18px 32px;
+      border-radius:16px;
+      border:1.5px solid rgba(0,127,95,0.2);
+      max-width:480px;
       text-decoration:none;
-      transition:box-shadow 0.3s ease, transform 0.2s ease;
+      position:relative;
+      overflow:hidden;
+      box-shadow: 
+        0 2px 8px rgba(0,127,95,0.08),
+        0 8px 24px rgba(0,127,95,0.06);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
+    /* Subtiler Glanz-Effekt */
+    .instagram-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+      );
+      transition: left 0.6s ease;
+    }
+
+    .instagram-box:hover::before {
+      left: 100%;
+    }
+
     .instagram-box:hover {
-      box-shadow:0 4px 12px rgba(0,127,95,0.18);
-      transform:translateY(-2px);
+      transform: translateY(-4px) scale(1.02);
+      border-color: rgba(0,127,95,0.35);
+      box-shadow: 
+        0 4px 16px rgba(0,127,95,0.12),
+        0 12px 32px rgba(0,127,95,0.1),
+        0 0 0 1px rgba(0,127,95,0.08);
     }
+
+    .instagram-box:active {
+      transform: translateY(-2px) scale(1.01);
+      transition: all 0.15s ease;
+    }
+
     .instagram-box img {
-      width:32px;
-      height:32px;
+      width:36px;
+      height:36px;
       object-fit:contain;
-      transition:transform 0.2s ease;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       display:block;
+      filter: drop-shadow(0 2px 4px rgba(0,127,95,0.15));
     }
-    .instagram-box img:hover { transform:scale(1.08); }
-    .instagram-box span { color:#004d00; }
+
+    .instagram-box:hover img { 
+      transform: scale(1.12) rotate(5deg);
+    }
+
+    .instagram-box span { 
+      color:#004d00;
+      letter-spacing: -0.01em;
+      transition: color 0.3s ease;
+    }
+
+    .instagram-box:hover span {
+      color:#007f5f;
+    }
 
     /* Work Insights */
     .work-insights {
@@ -324,6 +374,17 @@
       .hero-text h1 { font-size:1.8em; }
       .hero-text p { font-size:1em; }
       .service-grid { flex-direction:column; align-items:center; }
+      
+      /* Instagram Box Mobile */
+      .instagram-box {
+        padding:16px 28px;
+        font-size:1.05em;
+        max-width:90%;
+      }
+      .instagram-box img {
+        width:32px;
+        height:32px;
+      }
     }
     @media (max-width:600px) { .work-grid { grid-template-columns: 1fr; } }
   </style>
@@ -512,7 +573,6 @@
           const submenu = link.nextElementSibling;
           if (submenu) {
             submenu.classList.toggle('active');
-            // Wenn geschlossen, alle Untermenüs auch schließen
             if (!submenu.classList.contains('active')) {
               submenu.querySelectorAll('.submenu.active').forEach(sub => {
                 sub.classList.remove('active');
