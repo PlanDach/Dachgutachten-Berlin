@@ -72,7 +72,7 @@
     nav ul li ul li a { padding:8px 15px; color:#004d00; }
     nav ul li ul li ul { top:0; left:100%; }
 
-    /* Hero */
+    /* Hero mit Parallax */
     .hero {
       position:relative;
       width:100%;
@@ -84,15 +84,18 @@
       text-align:center;
       color:white;
       margin-top:90px;
+      overflow:hidden;
     }
     .hero-img {
       position:absolute;
       top:0; left:0;
       width:100%;
-      height:100%;
+      height:120%;
       object-fit:cover;
       opacity:0.9;
       z-index:1;
+      transform:translateY(0);
+      will-change:transform;
     }
     .hero::after {
       content:"";
@@ -100,14 +103,14 @@
       top:0; left:0;
       width:100%;
       height:100%;
-      background:rgba(0,0,0,0.35);
+      background:linear-gradient(135deg, rgba(0,77,0,0.4), rgba(0,127,95,0.3));
       z-index:2;
     }
     .hero-text { position:relative; z-index:3; max-width:800px; padding:0 20px; }
     .hero-text h1 { font-size:2.5em; margin-bottom:15px; }
     .hero-text p { font-size:1.2em; }
 
-    /* CTA Button */
+    /* CTA Button mit Pulse Animation */
     .cta-button {
       display:inline-block;
       margin-top:20px;
@@ -120,10 +123,38 @@
       border-radius:8px;
       text-decoration:none;
       transition: background-color 0.3s ease, transform 0.2s ease;
+      position:relative;
+      animation: pulse 2s infinite;
     }
+    
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(0, 127, 95, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(0, 127, 95, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(0, 127, 95, 0);
+      }
+    }
+    
     .cta-button:hover {
       background-color:#005f46;
       transform:translateY(-2px);
+      animation: none;
+    }
+
+    /* Scroll Reveal Animationen */
+    .scroll-reveal {
+      opacity:0;
+      transform:translateY(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .scroll-reveal.active {
+      opacity:1;
+      transform:translateY(0);
     }
 
     /* Intro Text */
@@ -150,7 +181,7 @@
       color:#004d00;
       font-weight:600;
       font-size:1.1em;
-      background: linear-gradient(135deg, #ffffff 0%, #f9fffe 100%);
+      background: #ffffff;
       padding:18px 32px;
       border-radius:16px;
       border:1.5px solid rgba(0,127,95,0.2);
@@ -253,7 +284,7 @@
       text-align:left;
     }
 
-    /* Services */
+    /* Services mit verstärkten Hover-Effekten */
     .services {
       width:100%;
       background-color:#fff;
@@ -278,16 +309,48 @@
       width:100%;
       box-shadow:0 4px 10px rgba(0,0,0,0.05);
       border:1px solid #004d00;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: all 0.4s ease;
+      position:relative;
+      overflow:hidden;
     }
-    .service-box:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.1); }
-    .service-box h3 { margin-bottom:10px; color:#004d00; }
-    .service-box p { font-size:0.95em; color:#333; }
+    
+    .service-box::before {
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:linear-gradient(135deg, rgba(0,127,95,0.1), rgba(0,77,0,0.05));
+      opacity:0;
+      transition:opacity 0.4s ease;
+      z-index:0;
+    }
+    
+    .service-box:hover::before {
+      opacity:1;
+    }
+    
+    .service-box:hover { 
+      transform:translateY(-10px) scale(1.03); 
+      box-shadow:0 12px 30px rgba(0,127,95,0.2);
+      border-color:#007f5f;
+    }
+    .service-box h3 { margin-bottom:10px; color:#004d00; position:relative; z-index:1; }
+    .service-box p { font-size:0.95em; color:#333; position:relative; z-index:1; }
     .service-icon {
       font-size:40px;
       color:#007f5f;
       margin-bottom:15px;
       display:block;
+      position:relative;
+      z-index:1;
+      transition: transform 0.4s ease, color 0.4s ease;
+    }
+    
+    .service-box:hover .service-icon {
+      transform:scale(1.2) rotate(5deg);
+      color:#004d00;
     }
 
     /* FAQ Sektion */
@@ -447,7 +510,7 @@
 
   <main>
     <section class="hero">
-      <img src="IMG_3945.jpeg" alt="Berlin Skyline" class="hero-img">
+      <img src="IMG_3945.jpeg" alt="Berlin Skyline" class="hero-img" id="heroImg">
       <div class="hero-text">
         <h1>Dachgutachten Berlin</h1>
         <p>Moderne Gutachten, Planung & Bauüberwachung – professionell und unabhängig.</p>
@@ -455,31 +518,31 @@
       </div>
     </section>
 
-    <section class="intro-text">
+    <section class="intro-text scroll-reveal">
       <h2>Ihr Dach. Unser Anspruch.</h2>
       <p>Willkommen bei PlanDach Höfinghoff – Ihrem Experten für Dachgutachten, Bauplanung und Bauüberwachung.</p>
       <p>Egal ob Leckageortung, Dachwartung oder Online-DachCheck – wir liefern präzise Analysen, verlässliche Gutachten und praxisnahe Lösungen.</p>
       <p>Vertrauen Sie auf Qualität, Präzision und Transparenz – für ein Dach, das langfristig schützt und überzeugt.</p>
     </section>
 
-    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="instagram-box">
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="instagram-box scroll-reveal">
       <img src="IMG_3983.webp" alt="Instagram Logo">
       <span>Folge uns auf Instagram</span>
     </a>
 
     <section class="work-insights">
-      <h2>Einblicke in unsere Arbeit</h2>
+      <h2 class="scroll-reveal">Einblicke in unsere Arbeit</h2>
       <div class="image-section">
         <div class="work-grid">
-          <div class="work-item">
+          <div class="work-item scroll-reveal">
             <img src="IMG_1164.jpeg" alt="Arbeit Beispiel 1">
             <p>Trotz Neubau: fehlende Schraube und undichte Abdichtung führten zu Wassereintritt.</p>
           </div>
-          <div class="work-item">
+          <div class="work-item scroll-reveal">
             <img src="image0.jpeg" alt="Arbeit Beispiel 2">
             <p>Neue Aufdachrinne mit korrektem Gefälle ersetzt mangelhafte Ausführung.</p>
           </div>
-          <div class="work-item">
+          <div class="work-item scroll-reveal">
             <img src="vornach1.png" alt="Vorher-Nachher Dachsanierung">
             <p>Vorher: beschädigtes Flachdach – Nachher: fachgerecht saniert und dauerhaft dicht.</p>
           </div>
@@ -488,24 +551,24 @@
     </section>
 
     <section class="services">
-      <h2>Unsere Leistungen</h2>
+      <h2 class="scroll-reveal">Unsere Leistungen</h2>
       <div class="service-grid">
-        <div class="service-box">
+        <div class="service-box scroll-reveal">
           <div class="service-icon"><i class="fas fa-file-alt"></i></div>
           <h3>Gutachten</h3>
           <p>Unabhängige Dachgutachten.</p>
         </div>
-        <div class="service-box">
+        <div class="service-box scroll-reveal">
           <div class="service-icon"><i class="fas fa-pencil-ruler"></i></div>
           <h3>Planung</h3>
           <p>Professionelle Planung und Projektmanagement.</p>
         </div>
-        <div class="service-box">
+        <div class="service-box scroll-reveal">
           <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
           <h3>Bauüberwachung</h3>
           <p>Koordination, Qualitätskontrolle, Abnahme.</p>
         </div>
-        <div class="service-box">
+        <div class="service-box scroll-reveal">
           <div class="service-icon"><i class="fas fa-laptop"></i></div>
           <h3>Online-DachCheck</h3>
           <p>Bequem online prüfen lassen.</p>
@@ -514,34 +577,34 @@
     </section>
 
     <section class="faq-section">
-      <h2>Häufig gestellte Fragen</h2>
+      <h2 class="scroll-reveal">Häufig gestellte Fragen</h2>
 
-      <div class="faq-box">
+      <div class="faq-box scroll-reveal">
         <div class="faq-question"><span>Bieten Sie auch bundesweite Gutachten an?</span><span class="faq-icon">▼</span></div>
         <div class="faq-answer">Ja, ich erstelle unabhängige Gutachten deutschlandweit – vor Ort und digital über den Online-DachCheck.</div>
       </div>
 
-      <div class="faq-box">
+      <div class="faq-box scroll-reveal">
         <div class="faq-question"><span>Wie funktioniert der Online-DachCheck?</span><span class="faq-icon">▼</span></div>
         <div class="faq-answer">Sie senden mir Bilder und Infos zu Ihrem Dach. Ich prüfe diese und gebe eine fachliche Einschätzung mit Empfehlungen.</div>
       </div>
 
-      <div class="faq-box">
+      <div class="faq-box scroll-reveal">
         <div class="faq-question"><span>Übernehmen Sie auch Bauüberwachungen?</span><span class="faq-icon">▼</span></div>
         <div class="faq-answer">Ja, ich biete Bauüberwachung und Baubegleitung an, um die fachgerechte Ausführung sicherzustellen.</div>
       </div>
 
-      <div class="faq-box">
+      <div class="faq-box scroll-reveal">
         <div class="faq-question"><span>Kann ich einen Wartungsvertrag abschließen?</span><span class="faq-icon">▼</span></div>
         <div class="faq-answer">Ja, ich biete regelmäßige Dachwartungen an, individuell abgestimmt auf Ihr Gebäude.</div>
       </div>
 
-      <div class="faq-box">
+      <div class="faq-box scroll-reveal">
         <div class="faq-question"><span>Was kostet ein Gutachten?</span><span class="faq-icon">▼</span></div>
         <div class="faq-answer">Die Kosten richten sich nach Art und Umfang. Nach einem Erstgespräch erhalten Sie ein transparentes Angebot.</div>
       </div>
 
-      <div class="faq-box">
+      <div class="faq-box scroll-reveal">
         <div class="faq-question"><span>Kann ich kurzfristig einen Termin bekommen?</span><span class="faq-icon">▼</span></div>
         <div class="faq-answer">In dringenden Fällen ermögliche ich schnellstmögliche Termine – am besten telefonisch Kontakt aufnehmen.</div>
       </div>
@@ -593,6 +656,28 @@
     document.querySelectorAll('.faq-box').forEach(box => {
       box.addEventListener('click', () => { box.classList.toggle('open'); });
     });
-  </script>
-</body>
-</html>
+
+    // PARALLAX EFFEKT für Hero-Bild
+    const heroImg = document.getElementById('heroImg');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      heroImg.style.transform = `translateY(${scrolled * 0.5}px)`;
+    });
+
+    // SCROLL REVEAL ANIMATIONEN
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    
+    const revealOnScroll = () => {
+      const windowHeight = window.innerHeight;
+      
+      revealElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const revealPoint = 100;
+        
+        if (elementTop < windowHeight - revealPoint) {
+          element.classList.add('active');
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', revealOnS
