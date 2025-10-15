@@ -24,51 +24,40 @@ header {
 .logo img { height:80px; width:auto; display:block; }
 .hamburger { display:none; font-size:2em; cursor:pointer; user-select:none; }
 
-/* Menü (angepasst 1:1 wie in ueber-mich.html) */
+/* Menü */
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
 nav ul li a { 
-text-decoration:none; 
-color:#004d00; 
-font-weight:500; 
-padding:5px 10px;
-display:block; 
-transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration:none; 
+  color:#004d00; 
+  font-weight:500; 
+  padding:5px 10px;
+  display:block; 
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-/* Hover- und Active-Effekte (exakt wie gemerkt) */
-nav ul li a:hover { 
-background-color:#e6f4ea; 
-border-radius:6px; 
-color:#007f5f; 
-}
+nav ul li a:hover { background-color:#e6f4ea; border-radius:6px; color:#007f5f; }
 nav ul li a:active, 
-nav ul li a.active { 
-background-color:#cde9d8; 
-border-radius:6px; 
-color:#007f5f; 
-}
+nav ul li a.active { background-color:#cde9d8; border-radius:6px; color:#007f5f; }
 
 /* Submenus */
 nav ul li ul {
-display:none;
-position:absolute;
-top:100%;
-left:0;
-background:#fff;
-list-style:none;
-padding:10px 0;
-min-width:200px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-z-index:20;
-border-radius:6px;
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#fff;
+  list-style:none;
+  padding:10px 0;
+  min-width:200px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  z-index:20;
+  border-radius:6px;
 }
 
 /* Hover nur auf Desktop */
 @media (min-width:769px) {
   nav ul li:hover > ul { display:block; }
 }
-
 nav ul li ul li a { padding:8px 15px; color:#004d00; }
 nav ul li ul li ul { top:0; left:100%; }
 
@@ -107,24 +96,38 @@ main { padding-top:100px; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
 .hero p { font-size:1.2em; }
 
-/* Main content */
-.content-section { background:#ffffff; padding:40px 20px; }
-.text-box {
-  padding: 40px;
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
+/* Über mich Layout */
+.content-section { background:#ffffff; padding:60px 20px; display:flex; justify-content:center; }
+.about-container {
+  display:flex;
+  flex-wrap:wrap;
+  max-width:1100px;
+  align-items:center;
+  gap:40px;
 }
-.text-box h2 { margin-top:0; color:#004d00; }
-.text-box p { color:#004d00; line-height:1.6; }
+.about-text {
+  flex:1 1 500px;
+  color:#004d00;
+}
+.about-text h2 { margin-top:0; color:#004d00; }
+.about-text p { line-height:1.6; margin-bottom:15px; }
+.about-image {
+  flex:1 1 400px;
+  text-align:center;
+}
+.about-image img {
+  width:100%;
+  max-width:400px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
 
-/* Signatur unter dem letzten Absatz */
+/* Signatur */
 .signature {
-  display: block;
-  margin: 20px auto 0 auto;
-  width: 300px;
-  height: auto;
+  display:block;
+  margin:20px 0 0 0;
+  width:300px;
+  height:auto;
 }
 
 /* Footer */
@@ -133,37 +136,29 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
 /* Responsive */
 @media (max-width:768px) {
-.hamburger { display:block; }
-nav ul {
-  flex-direction:column;
-  display:none;
-  background:#fff;
-  position:absolute;
-  top:60px;
-  left:0;
-  width:100%;
-  padding:10px 0;
-  gap:0;
-  text-align:center;
-}
-nav ul.show { display:flex; }
+  .hamburger { display:block; }
+  nav ul {
+    flex-direction:column;
+    display:none;
+    background:#fff;
+    position:absolute;
+    top:60px;
+    left:0;
+    width:100%;
+    padding:10px 0;
+    gap:0;
+    text-align:center;
+  }
+  nav ul.show { display:flex; }
+  nav ul li { width:100%; }
+  nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
+  nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
+  nav ul li ul.active { display:flex; }
 
-nav ul li { width:100%; }
-nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
-
-nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
-nav ul li ul.active { display:flex; }
-nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
-nav ul li ul li ul { left:0; }
-
-.hero { padding:120px 20px; min-height:350px; }
-.hero h1 { font-size:2.5em; }
-.hero p { font-size:1.2em; }
-
-.text-box { padding:20px; }
-.text-box h2 { font-size:1.5rem; }
-.text-box p { font-size:1rem; }
-.signature { width: 220px; margin-top:15px; }
+  .hero { padding:100px 20px; }
+  .about-container { flex-direction:column; text-align:center; }
+  .about-image img { max-width:300px; margin-bottom:20px; }
+  .signature { width:220px; margin:15px auto 0 auto; }
 }
 </style>
 </head>
@@ -226,16 +221,19 @@ nav ul li ul li ul { left:0; }
   </section>
 
   <section class="content-section">
-    <div class="text-box">
-      <h2>Geschäftsführer – Philipp Höfinghoff</h2>
-      <br>
-      <p>Ich bin Philipp Höfinghoff, geboren in Nordrhein-Westfalen und heute in Berlin ansässig. Als Dachdeckermeister mit über zehn Jahren Berufserfahrung habe ich ein tiefes Verständnis für die Herausforderungen und Feinheiten des Dachdeckerhandwerks entwickelt.</p>
-      <p>Mit PlanDach Höfinghoff verfolge ich eine klare Mission: höchste Qualität, Transparenz und Innovation in die Dachdecker- und Spenglerbranche zu bringen. Ich biete unabhängige Gutachten, professionelle Planung und individuelle Beratung – immer mit dem Anspruch, für meine Kunden langfristige Sicherheit und Wertsteigerung ihrer Immobilien zu gewährleisten.</p>
-      <p>Mein Ansatz verbindet traditionelles Handwerk mit modernem Projektmanagement und digitalen Services. Mit unserem <strong>Online-DachCheck</strong> ermögliche ich schnelle, präzise Bewertungen – egal, ob vor Ort in Berlin oder deutschlandweit online. So profitieren meine Kunden von effizienten Prozessen, klarer Kommunikation und maßgeschneiderten Lösungen.</p>
-      <p>Ich möchte mehr als nur Dächer sichern – ich möchte Standards setzen, Vertrauen schaffen und jedem Kunden das gute Gefühl geben, dass sein Projekt in den besten Händen ist. Dabei ist mein Anspruch einfach: Jedes Projekt soll so umgesetzt werden, wie ich es selbst für mein eigenes Haus erwarten würde.</p>
-
-      <!-- Signatur unter dem letzten Absatz -->
-      <img src="7D3B4BA8-E56B-43F3-8FB0-3C7852010212.png" alt="Signatur Philipp Höfinghoff" class="signature">
+    <div class="about-container">
+      <div class="about-text">
+        <h2>Geschäftsführer – Philipp Höfinghoff</h2>
+        <br>
+        <p>Ich bin Philipp Höfinghoff, geboren in Nordrhein-Westfalen und heute in Berlin ansässig. Als Dachdeckermeister mit über zehn Jahren Berufserfahrung habe ich ein tiefes Verständnis für die Herausforderungen und Feinheiten des Dachdeckerhandwerks entwickelt.</p>
+        <p>Mit PlanDach Höfinghoff verfolge ich eine klare Mission: höchste Qualität, Transparenz und Innovation in die Dachdecker- und Spenglerbranche zu bringen. Ich biete unabhängige Gutachten, professionelle Planung und individuelle Beratung – immer mit dem Anspruch, für meine Kunden langfristige Sicherheit und Wertsteigerung ihrer Immobilien zu gewährleisten.</p>
+        <p>Mein Ansatz verbindet traditionelles Handwerk mit modernem Projektmanagement und digitalen Services. Mit unserem <strong>Online-DachCheck</strong> ermögliche ich schnelle, präzise Bewertungen – egal, ob vor Ort in Berlin oder deutschlandweit online. So profitieren meine Kunden von effizienten Prozessen, klarer Kommunikation und maßgeschneiderten Lösungen.</p>
+        <p>Ich möchte mehr als nur Dächer sichern – ich möchte Standards setzen, Vertrauen schaffen und jedem Kunden das gute Gefühl geben, dass sein Projekt in den besten Händen ist. Dabei ist mein Anspruch einfach: Jedes Projekt soll so umgesetzt werden, wie ich es selbst für mein eigenes Haus erwarten würde.</p>
+        <img src="7D3B4BA8-E56B-43F3-8FB0-3C7852010212.png" alt="Signatur Philipp Höfinghoff" class="signature">
+      </div>
+      <div class="about-image">
+        <img src="portrait.jpg" alt="Philipp Höfinghoff Porträt">
+      </div>
     </div>
   </section>
 </main>
@@ -263,7 +261,6 @@ document.querySelectorAll('.has-submenu > a').forEach(link => {
       const submenu = link.nextElementSibling;
       if (submenu) {
         submenu.classList.toggle('active');
-        // Wenn geschlossen, alle Untermenüs auch schließen
         if (!submenu.classList.contains('active')) {
           submenu.querySelectorAll('.submenu.active').forEach(sub => {
             sub.classList.remove('active');
