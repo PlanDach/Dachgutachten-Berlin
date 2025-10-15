@@ -28,40 +28,40 @@ header {
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
 nav ul li a { 
-text-decoration:none; 
-color:#004d00; 
-font-weight:500; 
-padding:5px 10px;
-display:block; 
-transition: background-color 0.3s ease, color 0.3s ease;
+ text-decoration:none; 
+ color:#004d00; 
+ font-weight:500; 
+ padding:5px 10px;
+ display:block; 
+ transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Hover- und Active-Effekte (exakt wie gemerkt) */
 nav ul li a:hover { 
-background-color:#e6f4ea; 
-border-radius:6px; 
-color:#007f5f; 
+ background-color:#e6f4ea; 
+ border-radius:6px; 
+ color:#007f5f; 
 }
 nav ul li a:active, 
 nav ul li a.active { 
-background-color:#cde9d8; 
-border-radius:6px; 
-color:#007f5f; 
+ background-color:#cde9d8; 
+ border-radius:6px; 
+ color:#007f5f; 
 }
 
 /* Submenus */
 nav ul li ul {
-display:none;
-position:absolute;
-top:100%;
-left:0;
-background:#fff;
-list-style:none;
-padding:10px 0;
-min-width:200px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-z-index:20;
-border-radius:6px;
+ display:none;
+ position:absolute;
+ top:100%;
+ left:0;
+ background:#fff;
+ list-style:none;
+ padding:10px 0;
+ min-width:200px;
+ box-shadow:0 4px 10px rgba(0,0,0,0.1);
+ z-index:20;
+ border-radius:6px;
 }
 
 /* Hover nur auf Desktop */
@@ -119,6 +119,15 @@ main { padding-top:100px; }
 .text-box h2 { margin-top:0; color:#004d00; }
 .text-box p { color:#004d00; line-height:1.6; }
 
+/* Neues Platzhalterbild */
+.profile-image {
+ width: 100%;
+ max-width: 400px;
+ height: auto;
+ border-radius: 12px;
+ margin-bottom: 30px;
+}
+
 /* Signatur unter dem letzten Absatz */
 .signature {
  display: block;
@@ -164,6 +173,7 @@ nav ul li ul li ul { left:0; }
 .text-box h2 { font-size:1.5rem; }
 .text-box p { font-size:1rem; }
 .signature { width: 220px; margin-top:15px; }
+.profile-image { width:100%; max-width:100%; border-radius:12px; }
 }
 </style>
 </head>
@@ -227,6 +237,9 @@ nav ul li ul li ul { left:0; }
 
  <section class="content-section">
    <div class="text-box">
+     <!-- NEUES BILD ÜBER DEM TEXT -->
+     <img src="platzhalterbild.jpg" alt="Philipp Höfinghoff Portrait" class="profile-image">
+
      <h2>Geschäftsführer – Philipp Höfinghoff</h2>
      <br>
      <p>Ich bin Philipp Höfinghoff, geboren in Nordrhein-Westfalen und heute in Berlin ansässig. Als Dachdeckermeister mit über zehn Jahren Berufserfahrung habe ich ein tiefes Verständnis für die Herausforderungen und Feinheiten des Dachdeckerhandwerks entwickelt.</p>
