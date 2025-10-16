@@ -96,7 +96,7 @@ opacity:0.9;
 z-index:1;
 }
 .hero::after {
-content:””;
+content:"";
 position:absolute;
 top:0; left:0;
 width:100%;
@@ -167,7 +167,7 @@ transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
 /* Subtiler Glanz-Effekt */
 .instagram-box::before {
-content: “”;
+content: "";
 position: absolute;
 top: 0;
 left: -100%;
@@ -223,35 +223,75 @@ transition: color 0.3s ease;
 color:#007f5f;
 }
 
-/* Work Insights */
+/* Work Insights - Apple/Architekturbüro Style */
 .work-insights {
-padding:80px 20px 100px 20px;
+padding:100px 20px 120px 20px;
 text-align:center;
-background:#fff;
+background:#fafafa;
 }
+
 .work-insights h2 {
-font-size:2em;
+font-size:2.2em;
 color:#004d00;
-margin-bottom:50px;
+margin-bottom:70px;
+font-weight:600;
+letter-spacing:-0.02em;
 }
-.image-section { max-width:95%; margin:0 auto 40px auto; }
+
+.image-section { 
+max-width:1400px; 
+margin:0 auto; 
+}
+
 .work-grid {
 display:grid;
 grid-template-columns: repeat(3, 1fr);
-gap:20px;
+gap:24px;
 }
-.work-item img {
+
+.work-item {
+background:#fff;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 2px 12px rgba(0,0,0,0.06);
+transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.work-item:hover {
+transform:translateY(-8px);
+box-shadow:0 12px 32px rgba(0,0,0,0.12);
+}
+
+.work-item-image {
 width:100%;
-height:350px;
-object-fit:cover;
-border-radius:12px;
-display:block;
+height:0;
+padding-bottom:75%; /* 4:3 Seitenverhältnis */
+position:relative;
+overflow:hidden;
+background:#f5f5f5;
 }
+
+.work-item img {
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.work-item:hover img {
+transform:scale(1.05);
+}
+
 .work-item p {
-margin-top:10px;
+padding:20px 24px 24px 24px;
 font-size:0.95em;
 color:#004d00;
 text-align:left;
+line-height:1.5;
 }
 
 /* Services */
@@ -364,7 +404,13 @@ transform: translateY(0);
 }
 
 /* Responsive */
-@media (max-width:992px) { .work-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width:992px) { 
+.work-grid { 
+grid-template-columns: repeat(2, 1fr); 
+gap:20px;
+}
+}
+
 @media (max-width:768px) {
 .hamburger { display:block; }
 nav ul {
@@ -381,7 +427,6 @@ text-align:center;
 }
 nav ul.show { display:flex; }
 
-```
 nav ul li { width:100%; }
 nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
 
@@ -405,10 +450,33 @@ nav ul li ul li ul { left:0; }
   width:32px;
   height:32px;
 }
-```
 
+/* Work Insights Mobile */
+.work-insights {
+padding:80px 16px 100px 16px;
 }
-@media (max-width:600px) { .work-grid { grid-template-columns: 1fr; } }
+
+.work-insights h2 {
+font-size:1.8em;
+margin-bottom:50px;
+}
+
+.image-section {
+max-width:100%;
+}
+}
+
+@media (max-width:600px) { 
+.work-grid { 
+grid-template-columns: 1fr; 
+gap:20px;
+}
+
+.work-item p {
+padding:18px 20px 20px 20px;
+font-size:0.9em;
+}
+}
 </style>
 
 <!-- Font Awesome für Icons -->
@@ -495,15 +563,21 @@ nav ul li ul li ul { left:0; }
     <div class="image-section">
       <div class="work-grid">
         <div class="work-item scroll-animate">
-          <img src="IMG_1164.jpeg" alt="Arbeit Beispiel 1">
+          <div class="work-item-image">
+            <img src="IMG_1164.jpeg" alt="Arbeit Beispiel 1">
+          </div>
           <p>Trotz Neubau: fehlende Schraube und undichte Abdichtung führten zu Wassereintritt.</p>
         </div>
         <div class="work-item scroll-animate">
-          <img src="image0.jpeg" alt="Arbeit Beispiel 2">
+          <div class="work-item-image">
+            <img src="image0.jpeg" alt="Arbeit Beispiel 2">
+          </div>
           <p>Neue Aufdachrinne mit korrektem Gefälle ersetzt mangelhafte Ausführung.</p>
         </div>
         <div class="work-item scroll-animate">
-          <img src="vornach1.png" alt="Vorher-Nachher Dachsanierung">
+          <div class="work-item-image">
+            <img src="vornach1.png" alt="Vorher-Nachher Dachsanierung">
+          </div>
           <p>Vorher: beschädigtes Flachdach – Nachher: fachgerecht saniert und dauerhaft dicht.</p>
         </div>
       </div>
