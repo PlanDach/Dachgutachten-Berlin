@@ -108,7 +108,7 @@ color:#ffffff;
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
 .hero p { font-size:1.2em; }
 
-/* ÄNDERUNG HIER: Zweispalten-Layout für Bild + Text */
+/* Main content - HIER DIE ÄNDERUNGEN */
 .content-section {
 background:#ffffff;
 padding:80px 40px;
@@ -123,7 +123,6 @@ gap:80px;
 align-items:center;
 }
 
-/* Linke Spalte - Bild */
 .image-column {
 display:flex;
 justify-content:center;
@@ -131,14 +130,13 @@ align-items:center;
 }
 
 .profile-image {
-width:100%;
-max-width:400px;
-height:auto;
-border-radius:12px;
+width: 100%;
+max-width: 400px;
+height: auto;
+border-radius: 12px;
 box-shadow:0 8px 24px rgba(0,0,0,0.12);
 }
 
-/* Rechte Spalte - Text */
 .text-column {
 display:flex;
 flex-direction:column;
@@ -174,12 +172,12 @@ margin-bottom:32px;
 color:#004d00;
 }
 
-/* Signatur */
+/* Signatur unter dem letzten Absatz */
 .signature {
-display:block;
-width:280px;
-height:auto;
-margin-top:8px;
+display: block;
+margin: 8px 0 0 0;
+width: 280px;
+height: auto;
 }
 
 /* Footer */
@@ -215,7 +213,6 @@ nav ul li ul li ul { left:0; }
 .hero h1 { font-size:2.5em; }
 .hero p { font-size:1.2em; }
 
-/* Mobile: Einspaltig */
 .content-section { padding:40px 20px; }
 
 .about-container {
@@ -241,106 +238,102 @@ margin-bottom:24px;
 font-size:1rem;
 }
 
-.signature {
-width:220px;
-}
+.signature { width: 220px; margin-top:15px; }
 }
 </style>
 
 </head>
 <body>
 <header>
- <div class="logo">
-   <img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo">
- </div>
- <div class="hamburger" id="hamburger">☰</div>
- <nav>
-   <ul id="navMenu">
-     <li><a href="index.html">Startseite</a></li>
-     <li><a href="ueber-mich.html" class="active">Über mich</a></li>
-     <li class="has-submenu">
-       <a href="#">Leistungen</a>
-       <ul class="submenu">
-         <li><a href="gutachten.html">Gutachten</a></li>
-         <li class="has-submenu">
-           <a href="#">Planung</a>
-           <ul class="submenu">
-             <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
-             <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
-             <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
-             <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
-           </ul>
-         </li>
-         <li class="has-submenu">
-           <a href="#">Bauüberwachung</a>
-           <ul class="submenu">
-             <li><a href="bau-koordination.html">Koordination</a></li>
-             <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
-             <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
-             <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
-           </ul>
-         </li>
-         <li class="has-submenu">
-           <a href="#">Ausschreibung</a>
-           <ul class="submenu">
-             <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
-             <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
-             <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
-           </ul>
-         </li>
-         <li><a href="dachwartung.html">Dachwartung</a></li>
-         <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
-         <li><a href="leckageortung.html">Leckageortung</a></li>
-       </ul>
-     </li>
-     <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
-     <li><a href="kontakt.html">Kontakt</a></li>
-     <li><a href="impressum.html">Impressum</a></li>
-   </ul>
- </nav>
+<div class="logo">
+  <img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo">
+</div>
+<div class="hamburger" id="hamburger">☰</div>
+<nav>
+  <ul id="navMenu">
+    <li><a href="index.html">Startseite</a></li>
+    <li><a href="ueber-mich.html" class="active">Über mich</a></li>
+    <li class="has-submenu">
+      <a href="#">Leistungen</a>
+      <ul class="submenu">
+        <li><a href="gutachten.html">Gutachten</a></li>
+        <li class="has-submenu">
+          <a href="#">Planung</a>
+          <ul class="submenu">
+            <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
+            <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
+            <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
+            <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
+          </ul>
+        </li>
+        <li class="has-submenu">
+          <a href="#">Bauüberwachung</a>
+          <ul class="submenu">
+            <li><a href="bau-koordination.html">Koordination</a></li>
+            <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
+            <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
+            <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
+          </ul>
+        </li>
+        <li class="has-submenu">
+          <a href="#">Ausschreibung</a>
+          <ul class="submenu">
+            <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
+            <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
+            <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
+          </ul>
+        </li>
+        <li><a href="dachwartung.html">Dachwartung</a></li>
+        <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+        <li><a href="leckageortung.html">Leckageortung</a></li>
+      </ul>
+    </li>
+    <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+    <li><a href="impressum.html">Impressum</a></li>
+  </ul>
+</nav>
 </header>
 
 <main>
- <section class="hero">
-   <h1>Über mich</h1>
-   <p>Lerne mich und meine Arbeit kennen – erfahren, professionell, transparent.</p>
- </section>
+<section class="hero">
+  <h1>Über mich</h1>
+  <p>Lerne mich und meine Arbeit kennen – erfahren, professionell, transparent.</p>
+</section>
 
- <section class="content-section">
-   <div class="about-container">
-     <!-- Linke Spalte: Bild -->
-     <div class="image-column">
-       <img src="E928D746-D19B-4518-A21D-B6111AC3F50F.jpeg" alt="Philipp Höfinghoff Portrait" class="profile-image">
-     </div>
+<section class="content-section">
+  <div class="about-container">
+    <div class="image-column">
+      <img src="E928D746-D19B-4518-A21D-B6111AC3F50F.jpeg" alt="Philipp Höfinghoff Portrait" class="profile-image">
+    </div>
 
 ```
- <!-- Rechte Spalte: Text -->
- <div class="text-column">
-   <h2>Philipp Höfinghoff</h2>
-   <p class="subtitle">Geschäftsführer & Dachdeckermeister</p>
-   
-   <p>Ich bin in Nordrhein-Westfalen geboren und heute in Berlin ansässig. Als Dachdeckermeister mit über zehn Jahren Berufserfahrung habe ich ein tiefes Verständnis für die Herausforderungen und Feinheiten des Dachdeckerhandwerks entwickelt.</p>
-   
-   <p>Mit PlanDach Höfinghoff verfolge ich eine klare Mission: höchste Qualität, Transparenz und Innovation in die Dachdecker- und Spenglerbranche zu bringen. Ich biete unabhängige Gutachten, professionelle Planung und individuelle Beratung – immer mit dem Anspruch, für meine Kunden langfristige Sicherheit und Wertsteigerung ihrer Immobilien zu gewährleisten.</p>
-   
-   <p>Mein Ansatz verbindet traditionelles Handwerk mit modernem Projektmanagement und digitalen Services. Mit unserem <strong>Online-DachCheck</strong> ermögliche ich schnelle, präzise Bewertungen – egal, ob vor Ort in Berlin oder deutschlandweit online. So profitieren meine Kunden von effizienten Prozessen, klarer Kommunikation und maßgeschneiderten Lösungen.</p>
-   
-   <p>Ich möchte mehr als nur Dächer sichern – ich möchte Standards setzen, Vertrauen schaffen und jedem Kunden das gute Gefühl geben, dass sein Projekt in den besten Händen ist. Dabei ist mein Anspruch einfach: Jedes Projekt soll so umgesetzt werden, wie ich es selbst für mein eigenes Haus erwarten würde.</p>
-   
-   <img src="7D3B4BA8-E56B-43F3-8FB0-3C7852010212.png" alt="Signatur Philipp Höfinghoff" class="signature">
- </div>
+<div class="text-column">
+  <h2>Philipp Höfinghoff</h2>
+  <p class="subtitle">Geschäftsführer & Dachdeckermeister</p>
+  
+  <p>Ich bin in Nordrhein-Westfalen geboren und heute in Berlin ansässig. Als Dachdeckermeister mit über zehn Jahren Berufserfahrung habe ich ein tiefes Verständnis für die Herausforderungen und Feinheiten des Dachdeckerhandwerks entwickelt.</p>
+  
+  <p>Mit PlanDach Höfinghoff verfolge ich eine klare Mission: höchste Qualität, Transparenz und Innovation in die Dachdecker- und Spenglerbranche zu bringen. Ich biete unabhängige Gutachten, professionelle Planung und individuelle Beratung – immer mit dem Anspruch, für meine Kunden langfristige Sicherheit und Wertsteigerung ihrer Immobilien zu gewährleisten.</p>
+  
+  <p>Mein Ansatz verbindet traditionelles Handwerk mit modernem Projektmanagement und digitalen Services. Mit unserem <strong>Online-DachCheck</strong> ermögliche ich schnelle, präzise Bewertungen – egal, ob vor Ort in Berlin oder deutschlandweit online. So profitieren meine Kunden von effizienten Prozessen, klarer Kommunikation und maßgeschneiderten Lösungen.</p>
+  
+  <p>Ich möchte mehr als nur Dächer sichern – ich möchte Standards setzen, Vertrauen schaffen und jedem Kunden das gute Gefühl geben, dass sein Projekt in den besten Händen ist. Dabei ist mein Anspruch einfach: Jedes Projekt soll so umgesetzt werden, wie ich es selbst für mein eigenes Haus erwarten würde.</p>
+  
+  <img src="7D3B4BA8-E56B-43F3-8FB0-3C7852010212.png" alt="Signatur Philipp Höfinghoff" class="signature">
+</div>
 ```
 
-   </div>
- </section>
+  </div>
+</section>
 </main>
 
 <footer>
- <div style="max-width:1000px; margin:0 auto;">
-   <p>© 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
-   <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="kontakt.html">Kontakt</a></p>
-   <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: 030 12345678 | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
- </div>
+<div style="max-width:1000px; margin:0 auto;">
+  <p>© 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
+  <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="kontakt.html">Kontakt</a></p>
+  <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: 030 12345678 | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
+</div>
 </footer>
 
 <script>
@@ -348,31 +341,31 @@ const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 
 hamburger.addEventListener('click', () => {
- navMenu.classList.toggle('show');
+navMenu.classList.toggle('show');
 });
 
 document.querySelectorAll('.has-submenu > a').forEach(link => {
- link.addEventListener('click', e => {
-   if (window.innerWidth <= 768) {
-     e.preventDefault();
-     const submenu = link.nextElementSibling;
-     if (submenu) {
-       submenu.classList.toggle('active');
-       if (!submenu.classList.contains('active')) {
-         submenu.querySelectorAll('.submenu.active').forEach(sub => {
-           sub.classList.remove('active');
-         });
-       }
-     }
-   }
- });
+link.addEventListener('click', e => {
+  if (window.innerWidth <= 768) {
+    e.preventDefault();
+    const submenu = link.nextElementSibling;
+    if (submenu) {
+      submenu.classList.toggle('active');
+      if (!submenu.classList.contains('active')) {
+        submenu.querySelectorAll('.submenu.active').forEach(sub => {
+          sub.classList.remove('active');
+        });
+      }
+    }
+  }
+});
 });
 
 window.addEventListener('resize', () => {
- if (window.innerWidth > 768) {
-   navMenu.classList.remove('show');
-   document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
- }
+if (window.innerWidth > 768) {
+  navMenu.classList.remove('show');
+  document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
+}
 });
 </script>
 
