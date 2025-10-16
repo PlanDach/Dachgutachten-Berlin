@@ -25,7 +25,7 @@ box-shadow:0 2px 5px rgba(0,0,0,0.1);
 .logo img { height:80px; width:auto; display:block; }
 .hamburger { display:none; font-size:2em; cursor:pointer; user-select:none; }
 
-/* Menü (unverändert) */
+/* Menü (angepasst 1:1 wie in ueber-mich.html) */
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
 nav ul li a {
@@ -37,6 +37,7 @@ display:block;
 transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Hover- und Active-Effekte (exakt wie gemerkt) */
 nav ul li a:hover {
 background-color:#e6f4ea;
 border-radius:6px;
@@ -64,6 +65,7 @@ z-index:20;
 border-radius:6px;
 }
 
+/* Hover nur auf Desktop */
 @media (min-width:769px) {
 nav ul li:hover > ul { display:block; }
 }
@@ -71,7 +73,7 @@ nav ul li:hover > ul { display:block; }
 nav ul li ul li a { padding:8px 15px; color:#004d00; }
 nav ul li ul li ul { top:0; left:100%; }
 
-/* Main padding */
+/* Main padding for fixed header */
 main { padding-top:100px; }
 
 /* Hero */
@@ -164,12 +166,12 @@ font-size:1.05rem;
 margin-bottom:20px;
 }
 
-.text-column p strong {
-color:#004d00;
-}
-
 .text-column p:last-of-type {
 margin-bottom:32px;
+}
+
+.text-column p strong {
+color:#004d00;
 }
 
 /* Signatur */
@@ -180,7 +182,7 @@ height:auto;
 margin-top:8px;
 }
 
-/* Footer (unverändert) */
+/* Footer */
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
