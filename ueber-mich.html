@@ -84,23 +84,10 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-background: url(‘IMG_2145.jpeg’) center center / cover no-repeat;
+background: linear-gradient(rgba(0,77,0,0.7), rgba(0,77,0,0.7)), url(‘IMG_2145.jpeg’) center center / cover no-repeat;
 color:#ffffff;
 }
-.hero::before {
-content:””;
-position:absolute;
-top:0; left:0;
-width:100%;
-height:100%;
-background: inherit;
-opacity:0.5;
-z-index:1;
-filter: brightness(0.7);
-}
 .hero h1, .hero p {
-position: relative;
-z-index:2;
 color:#ffffff;
 }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
