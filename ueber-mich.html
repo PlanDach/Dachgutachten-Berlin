@@ -116,16 +116,22 @@ main { padding-top:100px; }
  margin: 0 auto;
  text-align: center;
 }
-.text-box h2 { margin-top:0; color:#004d00; }
+.text-box h2 { 
+ margin-top:0; 
+ color:#004d00; 
+ font-size:2rem; /* größer für mehr Präsenz */
+ font-weight:600;
+ margin-bottom:20px;
+}
 .text-box p { color:#004d00; line-height:1.6; }
 
-/* Neues Platzhalterbild */
+/* Portrait */
 .profile-image {
  width: 100%;
- max-width: 400px;
+ max-width: 320px; /* leicht verkleinert für eleganteres Layout */
  height: auto;
  border-radius: 12px;
- margin-bottom: 30px;
+ margin-bottom: 25px;
 }
 
 /* Signatur unter dem letzten Absatz */
@@ -237,17 +243,16 @@ nav ul li ul li ul { left:0; }
 
  <section class="content-section">
    <div class="text-box">
-     <!-- NEUES BILD ÜBER DEM TEXT -->
+     <!-- Überschrift jetzt ÜBER dem Bild -->
+     <h2>Geschäftsführer – Philipp Höfinghoff</h2>
+
      <img src="E928D746-D19B-4518-A21D-B6111AC3F50F.jpeg" alt="Philipp Höfinghoff Portrait" class="profile-image">
 
-     <h2>Geschäftsführer – Philipp Höfinghoff</h2>
-     <br>
      <p>Ich bin Philipp Höfinghoff, geboren in Nordrhein-Westfalen und heute in Berlin ansässig. Als Dachdeckermeister mit über zehn Jahren Berufserfahrung habe ich ein tiefes Verständnis für die Herausforderungen und Feinheiten des Dachdeckerhandwerks entwickelt.</p>
      <p>Mit PlanDach Höfinghoff verfolge ich eine klare Mission: höchste Qualität, Transparenz und Innovation in die Dachdecker- und Spenglerbranche zu bringen. Ich biete unabhängige Gutachten, professionelle Planung und individuelle Beratung – immer mit dem Anspruch, für meine Kunden langfristige Sicherheit und Wertsteigerung ihrer Immobilien zu gewährleisten.</p>
      <p>Mein Ansatz verbindet traditionelles Handwerk mit modernem Projektmanagement und digitalen Services. Mit unserem <strong>Online-DachCheck</strong> ermögliche ich schnelle, präzise Bewertungen – egal, ob vor Ort in Berlin oder deutschlandweit online. So profitieren meine Kunden von effizienten Prozessen, klarer Kommunikation und maßgeschneiderten Lösungen.</p>
      <p>Ich möchte mehr als nur Dächer sichern – ich möchte Standards setzen, Vertrauen schaffen und jedem Kunden das gute Gefühl geben, dass sein Projekt in den besten Händen ist. Dabei ist mein Anspruch einfach: Jedes Projekt soll so umgesetzt werden, wie ich es selbst für mein eigenes Haus erwarten würde.</p>
 
-     <!-- Signatur unter dem letzten Absatz -->
      <img src="7D3B4BA8-E56B-43F3-8FB0-3C7852010212.png" alt="Signatur Philipp Höfinghoff" class="signature">
    </div>
  </section>
@@ -276,7 +281,6 @@ document.querySelectorAll('.has-submenu > a').forEach(link => {
      const submenu = link.nextElementSibling;
      if (submenu) {
        submenu.classList.toggle('active');
-       // Wenn geschlossen, alle Untermenüs auch schließen
        if (!submenu.classList.contains('active')) {
          submenu.querySelectorAll('.submenu.active').forEach(sub => {
            sub.classList.remove('active');
