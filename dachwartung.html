@@ -24,7 +24,7 @@ box-shadow:0 2px 5px rgba(0,0,0,0.1);
 .logo img { height:80px; width:auto; display:block; }
 .hamburger { display:none; font-size:2em; cursor:pointer; user-select:none; }
 
-/* Menü (angepasst 1:1 wie in ueber-mich.html) */
+/* Menü */
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
 nav ul li a { 
@@ -36,7 +36,6 @@ display:block;
 transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover- und Active-Effekte (exakt wie gemerkt) */
 nav ul li a:hover { 
 background-color:#e6f4ea; 
 border-radius:6px; 
@@ -64,7 +63,6 @@ z-index:20;
 border-radius:6px;
 }
 
-/* Hover nur auf Desktop */
 @media (min-width:769px) {
   nav ul li:hover > ul { display:block; }
 }
@@ -114,47 +112,118 @@ max-width:1200px;
 margin:40px auto;
 padding:0 20px;
 }
-.form-section {
-padding:25px 20px;
-margin-bottom:40px;
-}
-.form-section h2 { color:#004d00; margin-bottom:12px; }
-.form-section p, .form-section ul { color:#004d00; line-height:1.6; }
-.form-section ul { padding-left:20px; }
-.form-section ul li strong { font-weight:bold; display:inline; }
-.form-section ul li { margin-bottom:1em; }
 
-/* Highlight-Box (Ihr Vorteil) */
-.highlight-wrapper { max-width: 95%; margin: 30px auto; }
-.highlight-box {
-background-color:#f2f2f2;
-border-radius:12px;
-padding:20px;
-box-shadow:0 1px 4px rgba(0,0,0,0.05);
+/* TEXT SECTIONS - Professionell gestaltet */
+.intro-section {
+  max-width:800px;
+  margin:60px auto 80px;
 }
-.highlight-box h2 { margin-bottom:12px; color:#004d00; }
-.highlight-box ul { padding-left:20px; margin:0; }
 
-.image-section {
-display:grid;
-grid-template-columns: repeat(4, 1fr);
-gap:20px;
-max-width:95%;
-margin:0 auto 40px auto;
+.intro-section h2 {
+  color:#004d00;
+  font-size:2em;
+  margin-bottom:30px;
+  font-weight:600;
 }
-.image-box { text-align:center; }
-.image-box img {
-width:100%;
-height:auto;
-display:block;
-border-radius:12px; 
-box-shadow:0 2px 6px rgba(0,0,0,0.1);
+
+.intro-section p {
+  font-size:1.1em;
+  line-height:1.8;
+  color:#333;
+  margin:30px 0;
 }
-.image-comment {
-font-size:0.95rem;
-color:#004d00;
-text-align:center;
-margin-top:8px;
+
+.intro-section ul {
+  list-style:none;
+  padding:0;
+  margin:40px 0;
+  line-height:2.2;
+}
+
+.intro-section ul li {
+  padding-left:30px;
+  position:relative;
+  color:#333;
+  font-size:1.05em;
+  margin-bottom:20px;
+}
+
+.intro-section ul li:before {
+  content:"·";
+  position:absolute;
+  left:10px;
+  color:#004d00;
+  font-size:1.5em;
+  line-height:1.4;
+}
+
+.intro-section ul li strong {
+  font-weight:600;
+  color:#004d00;
+}
+
+/* HIGHLIGHT BOX - Minimalistisch ohne grauen Hintergrund */
+.highlight-section {
+  max-width:800px;
+  margin:80px auto;
+  padding:40px 0 40px 30px;
+  border-left:4px solid #004d00;
+}
+
+.highlight-section h3 {
+  color:#004d00;
+  font-size:1.4em;
+  margin-bottom:20px;
+  font-weight:600;
+}
+
+.highlight-section p {
+  font-size:1.05em;
+  line-height:1.8;
+  color:#333;
+}
+
+/* BILD-GRID - 2 Spalten mit viel Weißraum */
+.image-grid {
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:40px;
+  max-width:1100px;
+  margin:80px auto;
+  padding:0 20px;
+}
+
+.image-item {
+  display:flex;
+  flex-direction:column;
+}
+
+.image-item img {
+  width:100%;
+  height:auto;
+  border-radius:8px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.08);
+  display:block;
+}
+
+.image-caption {
+  font-size:0.85rem;
+  color:#666;
+  margin-top:12px;
+  font-style:italic;
+  line-height:1.5;
+}
+
+/* Closing Text */
+.closing-section {
+  max-width:800px;
+  margin:80px auto 60px;
+}
+
+.closing-section p {
+  font-size:1.05em;
+  line-height:1.8;
+  color:#333;
 }
 
 /* Footer */
@@ -162,9 +231,6 @@ footer { background:#f8f8f8; padding:30px 20px; text-align:center; font-size:14p
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
 /* Responsive */
-@media (max-width:992px) { .image-section { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width:600px) { .image-section { grid-template-columns: 1fr; } }
-
 @media (max-width:768px) {
 .hamburger { display:block; }
 nav ul {
@@ -192,6 +258,18 @@ nav ul li ul li ul { left:0; }
 .hero { padding:120px 20px; min-height:350px; }
 .hero h1 { font-size:2.5em; }
 .hero p { font-size:1.2em; }
+
+.image-grid {
+  grid-template-columns:1fr;
+  gap:50px;
+  margin:60px auto;
+}
+
+.intro-section,
+.highlight-section,
+.closing-section {
+  padding:0 20px;
+}
 }
 </style>
 </head>
@@ -252,65 +330,67 @@ nav ul li ul li ul { left:0; }
 </section>
 
 <div class="content-wrapper">
-  <section class="form-section">
+  
+  <!-- INTRO TEXT -->
+  <section class="intro-section">
     <h2>Unsere Leistungen im Bereich Dachwartung</h2>
-    <br>
+    <p>
+      Regelmäßige Dachwartung ist der Schlüssel zur Vermeidung kostspieliger Schäden und zur Werterhaltung Ihrer Immobilie. 
+      Wir bieten professionelle Inspektion, Reinigung und Dokumentation für private und gewerbliche Objekte.
+    </p>
+    
     <ul>
-      <li><strong>Inspektion von Dächern und Dachflächen:</strong> Sorgfältige Prüfung aller Dachbereiche auf Schäden, Materialermüdung oder undichte Stellen, um Folgeschäden frühzeitig zu verhindern.</li>
-      <li><strong>Reinigung von Dachrinnen, Fallrohren und Entwässerungssystemen:</strong> Entfernung von Laub, Schmutz und Ablagerungen, um Stauwasser, Durchfeuchtung und Belastung der Dachkonstruktion zu vermeiden.</li>
-      <li><strong>Prüfung von Abdichtungen und Anschlüssen:</strong> Fachgerechte Kontrolle von Übergängen, Einfassungen, Lichtkuppeln und Schornsteinen, um Undichtigkeiten und Feuchtigkeitsschäden zu vermeiden.</li>
-      <li><strong>Erstellung von Wartungsprotokollen:</strong> Dokumentation der Inspektionsergebnisse, inkl. fotografischer Aufnahmen und Empfehlungen für Reparaturen oder Instandsetzungen.</li>
-      <li><strong>Empfehlungen für Reparaturen oder Sanierungen:</strong> Präzise Handlungsempfehlungen für sofortige Maßnahmen oder langfristige Sanierungsplanung, basierend auf aktuellem Zustand und Materialanalyse.</li>
-      <li><strong>Vorbeugende Sicherheitsprüfung:</strong> Überprüfung der Tragfähigkeit, Dachlasten und Gefährdungspotenziale, um mögliche Risiken für Bewohner und Immobilie rechtzeitig zu erkennen.</li>
+      <li><strong>Inspektion von Dächern und Dachflächen:</strong> Sorgfältige Prüfung auf Schäden, Materialermüdung oder undichte Stellen</li>
+      <li><strong>Reinigung von Entwässerungssystemen:</strong> Entfernung von Laub und Ablagerungen zur Vermeidung von Stauwasser</li>
+      <li><strong>Prüfung von Abdichtungen:</strong> Kontrolle von Übergängen, Lichtkuppeln und Anschlüssen</li>
+      <li><strong>Detaillierte Wartungsprotokolle:</strong> Fotografische Dokumentation mit konkreten Handlungsempfehlungen</li>
     </ul>
-
-    <br>
-
-    <div class="highlight-wrapper">
-      <div class="highlight-box">
-        <h2>Ihr Vorteil</h2>
-        <ul>
-          <li>die Lebensdauer Ihres Daches</li>
-          <li>die Werterhaltung Ihrer Immobilie</li>
-          <li>die frühzeitige Erkennung von Schäden, bevor teure Reparaturen notwendig werden</li>
-          <li>die Minimierung von Unfall- und Haftungsrisiken durch vorbeugende Sicherheitskontrollen</li>
-        </ul>
-      </div>
-    </div>
-
-    <br><br>
-
-    <p>Bei Fragen oder individuellen Problemen rund um Ihr Dach stehen wir Ihnen jederzeit kompetent zur Verfügung – sprechen Sie uns gerne an.</p>
-
-    <br>
   </section>
+
+  <!-- BILDER 1+2 -->
+  <div class="image-grid">
+    <div class="image-item">
+      <img src="IMG_2243.jpeg" alt="Verstopfte Abläufe">
+      <div class="image-caption">Verstopfte Abläufe erhöhen die Last und können zu Schäden führen – frühzeitige Kontrolle beugt vor</div>
+    </div>
+    <div class="image-item">
+      <img src="IMG_2461.jpeg" alt="Undichte Anschlüsse an Lichtkuppeln">
+      <div class="image-caption">Undichte Anschlüsse an Lichtkuppeln werden rechtzeitig erkannt und sicher behoben</div>
+    </div>
+  </div>
+
+  <!-- HIGHLIGHT / VORTEIL -->
+  <section class="highlight-section">
+    <h3>Ihr Vorteil</h3>
+    <p>
+      Verlängerte Lebensdauer Ihres Daches · 
+      Werterhaltung Ihrer Immobilie · 
+      Frühzeitige Schadenserkennung vor teuren Reparaturen · 
+      Minimierung von Haftungsrisiken durch vorbeugende Kontrollen
+    </p>
+  </section>
+
+  <!-- BILDER 3+4 -->
+  <div class="image-grid">
+    <div class="image-item">
+      <img src="IMG_2305.jpeg" alt="Defekte First-Elemente">
+      <div class="image-caption">Defekte First-Elemente gefährden die Dachfunktion – frühzeitige Instandsetzung schützt</div>
+    </div>
+    <div class="image-item">
+      <img src="IMG_2145.jpeg" alt="Regelmäßige Wartung">
+      <div class="image-caption">Regelmäßige Wartung schützt langfristig die Bausubstanz und spart Kosten</div>
+    </div>
+  </div>
+
+  <!-- CLOSING TEXT -->
+  <section class="closing-section">
+    <p>
+      Bei Fragen oder individuellen Problemen rund um Ihr Dach stehen wir Ihnen jederzeit kompetent zur Verfügung – 
+      sprechen Sie uns gerne an.
+    </p>
+  </section>
+
 </div>
-
-<br>
-
-<aside class="image-section">
-  <div class="image-box">
-    <img src="IMG_2243.jpeg" alt="Dachwartung Bild 1">
-    <div class="image-comment">„Verstopfte Abläufe erhöhen die Last und können zu Schäden führen – frühzeitige Kontrolle beugt vor."</div>
-  </div>
-
-  <div class="image-box">
-    <img src="IMG_2461.jpeg" alt="Dachwartung Bild 2">
-    <div class="image-comment">„Undichte Anschlüsse an Lichtkuppeln werden rechtzeitig erkannt und sicher behoben."</div>
-  </div>
-
-  <div class="image-box">
-    <img src="IMG_2305.jpeg" alt="Dachwartung Bild 3">
-    <div class="image-comment">„Defekte First-Elemente gefährden die Dachfunktion – frühzeitige Instandsetzung schützt."</div>
-  </div>
-
-  <div class="image-box">
-    <img src="IMG_2145.jpeg" alt="Dachwartung Bild 4">
-    <div class="image-comment">„Regelmäßige Wartung schützt langfristig die Bausubstanz und spart Kosten."</div>
-  </div>
-</aside>
-
-<br>
 </main>
 
 <footer>
@@ -336,7 +416,6 @@ document.querySelectorAll('.has-submenu > a').forEach(link => {
       const submenu = link.nextElementSibling;
       if (submenu) {
         submenu.classList.toggle('active');
-        // Wenn geschlossen, alle Untermenüs auch schließen
         if (!submenu.classList.contains('active')) {
           submenu.querySelectorAll('.submenu.active').forEach(sub => {
             sub.classList.remove('active');
