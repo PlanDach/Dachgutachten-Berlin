@@ -101,7 +101,7 @@ main { padding-top:100px; }
   margin:0 auto;
   display:grid;
   grid-template-columns: minmax(250px, 45%) 1fr;
-  gap:40px; /* kleiner Gap verhindert Überlauf */
+  gap:40px;
   align-items:center;
 }
 
@@ -165,6 +165,18 @@ main { padding-top:100px; }
 /* Footer */
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
+
+/* --- SCROLL ANIMATION STYLES (IDENTISCH ZU LECKAGEORTUNG/GUTACHTEN) --- */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.scroll-animate.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* Responsive */
 @media (max-width:768px) {
@@ -265,12 +277,12 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 </header>
 
 <main>
-<section class="hero">
+<section class="hero scroll-animate">
   <h1>Über mich</h1>
   <p>Lerne mich und meine Arbeit kennen – erfahren, professionell, transparent.</p>
 </section>
 
-<section class="content-section">
+<section class="content-section scroll-animate">
   <div class="about-container">
     <div class="image-column">
       <img src="E928D746-D19B-4518-A21D-B6111AC3F50F.jpeg" alt="Philipp Höfinghoff Portrait" class="profile-image">
@@ -333,6 +345,32 @@ window.addEventListener('resize', () => {
     navMenu.classList.remove('show');
     document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
   }
+});
+
+/* --- Scroll Animation (identisch zu Leckageortung/Gutachten) --- */
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -80px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('active');
+      }, index * 50);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.scroll-animate').forEach(el => {
+  observer.observe(el);
+});
+
+// First visible elements appear on load
+window.addEventListener('load', () => {
+  const firstElements = document.querySelectorAll('.hero');
+  firstElements.forEach(el => el.classList.add('active'));
 });
 </script>
 
