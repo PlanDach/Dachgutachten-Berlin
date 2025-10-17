@@ -10,173 +10,156 @@ body { font-family: Arial, sans-serif; overflow-x:hidden; background:#ffffff; }
 
 /* Header */
 header {
-width:100%;
-background:#fff;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:10px 20px;
-position:fixed;
-top:0; left:0;
-z-index:10;
-box-shadow:0 2px 5px rgba(0,0,0,0.1);
+  width:100%;
+  background:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 20px;
+  position:fixed;
+  top:0; left:0;
+  z-index:10;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 .logo img { height:80px; width:auto; display:block; }
 .hamburger { display:none; font-size:2em; cursor:pointer; user-select:none; }
 
-/* Menü (angepasst 1:1 wie in ueber-mich.html) */
+/* Menü */
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
 nav ul li a {
-text-decoration:none;
-color:#004d00;
-font-weight:500;
-padding:5px 10px;
-display:block;
-transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration:none;
+  color:#004d00;
+  font-weight:500;
+  padding:5px 10px;
+  display:block;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-/* Hover- und Active-Effekte */
-nav ul li a:hover {
-background-color:#e6f4ea;
-border-radius:6px;
-color:#007f5f;
-}
+nav ul li a:hover { background-color:#e6f4ea; border-radius:6px; color:#007f5f; }
 nav ul li a:active,
-nav ul li a.active {
-background-color:#cde9d8;
-border-radius:6px;
-color:#007f5f;
-}
+nav ul li a.active { background-color:#cde9d8; border-radius:6px; color:#007f5f; }
 
 /* Submenus */
 nav ul li ul {
-display:none;
-position:absolute;
-top:100%;
-left:0;
-background:#fff;
-list-style:none;
-padding:10px 0;
-min-width:200px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-z-index:20;
-border-radius:6px;
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#fff;
+  list-style:none;
+  padding:10px 0;
+  min-width:200px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  z-index:20;
+  border-radius:6px;
 }
-
-/* Hover nur auf Desktop */
 @media (min-width:769px) {
-nav ul li:hover > ul { display:block; }
+  nav ul li:hover > ul { display:block; }
 }
-
 nav ul li ul li a { padding:8px 15px; color:#004d00; }
 nav ul li ul li ul { top:0; left:100%; }
 
 /* Main padding for fixed header */
 main { padding-top:100px; }
 
-/* Hero - exakt übernommen */
+/* Hero */
 .hero {
-position: relative;
-text-align:center;
-padding:120px 20px;
-min-height:350px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-background: url('IMG_2145.jpeg') center center / cover no-repeat;
-color:#ffffff;
+  position: relative;
+  text-align:center;
+  padding:120px 20px;
+  min-height:350px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background: url('IMG_2145.jpeg') center center / cover no-repeat;
+  color:#ffffff;
 }
 .hero::before {
-content:"";
-position:absolute;
-top:0; left:0;
-width:100%;
-height:100%;
-background: inherit;
-opacity:0.5;
-z-index:1;
-filter: brightness(0.7);
+  content:"";
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background: inherit;
+  opacity:0.5;
+  z-index:1;
+  filter: brightness(0.7);
 }
-.hero h1, .hero p {
-position: relative;
-z-index:2;
-color:#ffffff;
-}
+.hero h1, .hero p { position: relative; z-index:2; color:#ffffff; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
 .hero p { font-size:1.2em; }
 
 /* Main content */
 .content-section {
-background:#ffffff;
-padding:80px 40px;
+  background:#ffffff;
+  padding:80px 40px;
 }
 
 .about-container {
-max-width:1200px;
-margin:0 auto;
-display:grid;
-grid-template-columns:45% 55%;
-gap:80px;
-align-items:center;
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns: minmax(250px, 45%) 1fr;
+  gap:40px; /* kleiner Gap verhindert Überlauf */
+  align-items:center;
 }
 
 .image-column {
-display:flex;
-justify-content:center;
-align-items:center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
 .profile-image {
-width: 100%;
-max-width: 400px;
-height: auto;
-border-radius: 12px;
-box-shadow:0 8px 24px rgba(0,0,0,0.12);
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.12);
 }
 
 .text-column {
-display:flex;
-flex-direction:column;
+  display:flex;
+  flex-direction:column;
 }
 
 .text-column h2 {
-margin:0 0 8px 0;
-color:#004d00;
-font-size:2.2rem;
-font-weight:600;
-line-height:1.2;
+  margin:0 0 8px 0;
+  color:#004d00;
+  font-size:2.2rem;
+  font-weight:600;
+  line-height:1.2;
 }
 
 .text-column .subtitle {
-font-size:1.1rem;
-color:#333;
-margin-bottom:32px;
-font-weight:400;
+  font-size:1.1rem;
+  color:#333;
+  margin-bottom:32px;
+  font-weight:400;
 }
 
 .text-column p {
-color:#333;
-line-height:1.7;
-font-size:1.05rem;
-margin-bottom:20px;
+  color:#333;
+  line-height:1.7;
+  font-size:1.05rem;
+  margin-bottom:20px;
 }
 
 .text-column p:last-of-type {
-margin-bottom:32px;
+  margin-bottom:32px;
 }
 
 .text-column p strong {
-color:#004d00;
+  color:#004d00;
 }
 
-/* Signatur unter dem letzten Absatz */
+/* Signatur */
 .signature {
-display: block;
-margin: 8px 0 0 0;
-width: 280px;
-height: auto;
+  display: block;
+  margin: 8px 0 0 0;
+  width: 280px;
+  height: auto;
 }
 
 /* Footer */
@@ -185,62 +168,49 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
 /* Responsive */
 @media (max-width:768px) {
-.hamburger { display:block; }
-nav ul {
-flex-direction:column;
-display:none;
-background:#fff;
-position:absolute;
-top:60px;
-left:0;
-width:100%;
-padding:10px 0;
-gap:0;
-text-align:center;
-}
-nav ul.show { display:flex; }
+  .hamburger { display:block; }
+  nav ul {
+    flex-direction:column;
+    display:none;
+    background:#fff;
+    position:absolute;
+    top:60px;
+    left:0;
+    width:100%;
+    padding:10px 0;
+    gap:0;
+    text-align:center;
+  }
+  nav ul.show { display:flex; }
 
-nav ul li { width:100%; }
-nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
+  nav ul li { width:100%; }
+  nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
 
-nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
-nav ul li ul.active { display:flex; }
-nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
-nav ul li ul li ul { left:0; }
+  nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
+  nav ul li ul.active { display:flex; }
+  nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
+  nav ul li ul li ul { left:0; }
 
-.hero { padding:120px 20px; min-height:350px; }
-.hero h1 { font-size:2.5em; }
-.hero p { font-size:1.2em; }
+  .hero { padding:120px 20px; min-height:350px; }
+  .hero h1 { font-size:2.5em; }
+  .hero p { font-size:1.2em; }
 
-.content-section { padding:40px 20px; }
+  .content-section { padding:40px 20px; }
 
-.about-container {
-grid-template-columns:1fr;
-gap:40px;
-}
+  .about-container {
+    grid-template-columns:1fr;
+    gap:40px;
+  }
 
-.profile-image {
-max-width:100%;
-}
+  .profile-image { max-width:100%; }
 
-.text-column h2 {
-font-size:1.8rem;
-margin-bottom:6px;
-}
+  .text-column h2 { font-size:1.8rem; margin-bottom:6px; }
+  .text-column .subtitle { font-size:1rem; margin-bottom:24px; }
+  .text-column p { font-size:1rem; }
 
-.text-column .subtitle {
-font-size:1rem;
-margin-bottom:24px;
-}
-
-.text-column p {
-font-size:1rem;
-}
-
-.signature { width: 220px; margin-top:15px; }
+  .signature { width: 220px; margin-top:15px; }
 }
 </style>
-
 </head>
 <body>
 <header>
@@ -306,20 +276,20 @@ font-size:1rem;
       <img src="E928D746-D19B-4518-A21D-B6111AC3F50F.jpeg" alt="Philipp Höfinghoff Portrait" class="profile-image">
     </div>
 
-<div class="text-column">
-  <h2>Philipp Höfinghoff</h2>
-  <p class="subtitle">Geschäftsführer & Dachdeckermeister</p>
-  
-  <p>Ich bin in Nordrhein-Westfalen geboren und heute in Berlin ansässig. Als Dachdeckermeister mit über zehn Jahren Berufserfahrung habe ich ein tiefes Verständnis für die Herausforderungen und Feinheiten des Dachdeckerhandwerks entwickelt.</p>
-  
-  <p>Mit PlanDach Höfinghoff verfolge ich eine klare Mission: höchste Qualität, Transparenz und Innovation in die Dachdecker- und Spenglerbranche zu bringen. Ich biete unabhängige Gutachten, professionelle Planung und individuelle Beratung – immer mit dem Anspruch, für meine Kunden langfristige Sicherheit und Wertsteigerung ihrer Immobilien zu gewährleisten.</p>
-  
-  <p>Mein Ansatz verbindet traditionelles Handwerk mit modernem Projektmanagement und digitalen Services. Mit unserem <strong>Online-DachCheck</strong> ermögliche ich schnelle, präzise Bewertungen – egal, ob vor Ort in Berlin oder deutschlandweit online. So profitieren meine Kunden von effizienten Prozessen, klarer Kommunikation und maßgeschneiderten Lösungen.</p>
-  
-  <p>Ich möchte mehr als nur Dächer sichern – ich möchte Standards setzen, Vertrauen schaffen und jedem Kunden das gute Gefühl geben, dass sein Projekt in den besten Händen ist. Dabei ist mein Anspruch einfach: Jedes Projekt soll so umgesetzt werden, wie ich es selbst für mein eigenes Haus erwarten würde.</p>
-  
-  <img src="7D3B4BA8-E56B-43F3-8FB0-3C7852010212.png" alt="Signatur Philipp Höfinghoff" class="signature">
-</div>
+    <div class="text-column">
+      <h2>Philipp Höfinghoff</h2>
+      <p class="subtitle">Geschäftsführer & Dachdeckermeister</p>
+
+      <p>Ich bin in Nordrhein-Westfalen geboren und heute in Berlin ansässig. Als Dachdeckermeister mit über zehn Jahren Berufserfahrung habe ich ein tiefes Verständnis für die Herausforderungen und Feinheiten des Dachdeckerhandwerks entwickelt.</p>
+
+      <p>Mit PlanDach Höfinghoff verfolge ich eine klare Mission: höchste Qualität, Transparenz und Innovation in die Dachdecker- und Spenglerbranche zu bringen. Ich biete unabhängige Gutachten, professionelle Planung und individuelle Beratung – immer mit dem Anspruch, für meine Kunden langfristige Sicherheit und Wertsteigerung ihrer Immobilien zu gewährleisten.</p>
+
+      <p>Mein Ansatz verbindet traditionelles Handwerk mit modernem Projektmanagement und digitalen Services. Mit unserem <strong>Online-DachCheck</strong> ermögliche ich schnelle, präzise Bewertungen – egal, ob vor Ort in Berlin oder deutschlandweit online. So profitieren meine Kunden von effizienten Prozessen, klarer Kommunikation und maßgeschneiderten Lösungen.</p>
+
+      <p>Ich möchte mehr als nur Dächer sichern – ich möchte Standards setzen, Vertrauen schaffen und jedem Kunden das gute Gefühl geben, dass sein Projekt in den besten Händen ist. Dabei ist mein Anspruch einfach: Jedes Projekt soll so umgesetzt werden, wie ich es selbst für mein eigenes Haus erwarten würde.</p>
+
+      <img src="7D3B4BA8-E56B-43F3-8FB0-3C7852010212.png" alt="Signatur Philipp Höfinghoff" class="signature">
+    </div>
 
   </div>
 </section>
@@ -338,31 +308,31 @@ const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 
 hamburger.addEventListener('click', () => {
-navMenu.classList.toggle('show');
+  navMenu.classList.toggle('show');
 });
 
 document.querySelectorAll('.has-submenu > a').forEach(link => {
-link.addEventListener('click', e => {
-  if (window.innerWidth <= 768) {
-    e.preventDefault();
-    const submenu = link.nextElementSibling;
-    if (submenu) {
-      submenu.classList.toggle('active');
-      if (!submenu.classList.contains('active')) {
-        submenu.querySelectorAll('.submenu.active').forEach(sub => {
-          sub.classList.remove('active');
-        });
+  link.addEventListener('click', e => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      const submenu = link.nextElementSibling;
+      if (submenu) {
+        submenu.classList.toggle('active');
+        if (!submenu.classList.contains('active')) {
+          submenu.querySelectorAll('.submenu.active').forEach(sub => {
+            sub.classList.remove('active');
+          });
+        }
       }
     }
-  }
-});
+  });
 });
 
 window.addEventListener('resize', () => {
-if (window.innerWidth > 768) {
-  navMenu.classList.remove('show');
-  document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
-}
+  if (window.innerWidth > 768) {
+    navMenu.classList.remove('show');
+    document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
+  }
 });
 </script>
 
