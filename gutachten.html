@@ -114,7 +114,7 @@ main { padding-top:100px; }
   padding:0 20px;
 }
 
-/* TEXT SECTIONS - Professionell gestaltet */
+/* TEXT SECTIONS */
 .intro-section {
   max-width:800px;
   margin:60px auto 80px;
@@ -157,7 +157,7 @@ main { padding-top:100px; }
   line-height:1.4;
 }
 
-/* HIGHLIGHT BOX - Minimalistisch ohne grauen Hintergrund */
+/* HIGHLIGHT BOX */
 .highlight-section {
   max-width:800px;
   margin:80px auto;
@@ -178,7 +178,7 @@ main { padding-top:100px; }
   color:#333;
 }
 
-/* BILD-GRID - 2 Spalten mit viel Weißraum */
+/* BILD-GRID */
 .image-grid {
   display:grid;
   grid-template-columns:repeat(2, 1fr);
@@ -223,6 +223,17 @@ main { padding-top:100px; }
 
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
+
+/* --- SCROLL ANIMATION --- */
+.fade-in {
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.9s ease-out;
+}
+.fade-in.visible {
+  opacity:1;
+  transform:translateY(0);
+}
 
 /* Responsive */
 @media (max-width:768px) {
@@ -318,15 +329,13 @@ nav ul li ul li ul { left:0; }
 </header>
 
 <main>
-  <section class="hero">
+  <section class="hero fade-in">
     <h1>Gutachten</h1>
     <p>Professionelle Dachgutachten für private und gewerbliche Kunden in Berlin und Umgebung.</p>
   </section>
 
   <div class="content-wrapper">
-    
-    <!-- INTRO TEXT -->
-    <section class="intro-section">
+    <section class="intro-section fade-in">
       <h2>Unsere Leistungen im Bereich Gutachten</h2>
       <p>
         Wir erstellen unabhängige, objektive Dachgutachten für private und gewerbliche Objekte. 
@@ -342,8 +351,7 @@ nav ul li ul li ul { left:0; }
       </ul>
     </section>
 
-    <!-- BILDER 1+2 -->
-    <div class="image-grid">
+    <div class="image-grid fade-in">
       <div class="image-item">
         <img src="IMG_2299.jpeg" alt="Fehlender Anschluss an Unterspannbahn">
         <div class="image-caption">Fehlender Anschluss an Unterspannbahn</div>
@@ -354,8 +362,7 @@ nav ul li ul li ul { left:0; }
       </div>
     </div>
 
-    <!-- HIGHLIGHT / VORTEIL -->
-    <section class="highlight-section">
+    <section class="highlight-section fade-in">
       <h3>Ihr Vorteil</h3>
       <p>
         Klare Entscheidungsgrundlagen für Reparatur- und Sanierungsentscheidungen · 
@@ -364,8 +371,7 @@ nav ul li ul li ul { left:0; }
       </p>
     </section>
 
-    <!-- BILDER 3+4 -->
-    <div class="image-grid">
+    <div class="image-grid fade-in">
       <div class="image-item">
         <img src="IMG_2346.jpeg" alt="Defektes Dachflächenfenster">
         <div class="image-caption">Typischer Versicherungsfall eines defekten Dachflächenfensters</div>
@@ -376,14 +382,12 @@ nav ul li ul li ul { left:0; }
       </div>
     </div>
 
-    <!-- CLOSING TEXT -->
-    <section class="closing-section">
+    <section class="closing-section fade-in">
       <p>
         Zögern Sie nicht, uns bei Fragen oder individuellen Problemen rund um Ihr Dach 
         oder Ihre PV-Anlage anzusprechen – wir stehen Ihnen jederzeit kompetent zur Verfügung.
       </p>
     </section>
-
   </div>
 </main>
 
@@ -396,6 +400,7 @@ nav ul li ul li ul { left:0; }
 </footer>
 
 <script>
+/* --- Navigation --- */
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 
@@ -411,9 +416,7 @@ document.querySelectorAll('.has-submenu > a').forEach(link => {
       if (submenu) {
         submenu.classList.toggle('active');
         if (!submenu.classList.contains('active')) {
-          submenu.querySelectorAll('.submenu.active').forEach(sub => {
-            sub.classList.remove('active');
-          });
+          submenu.querySelectorAll('.submenu.active').forEach(sub => sub.classList.remove('active'));
         }
       }
     }
@@ -426,6 +429,15 @@ window.addEventListener('resize', () => {
     document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
   }
 });
+
+/* --- SCROLL ANIMATION --- */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
