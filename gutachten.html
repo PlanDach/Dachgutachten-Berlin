@@ -224,15 +224,16 @@ main { padding-top:100px; }
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
-/* --- SCROLL ANIMATION --- */
-.fade-in {
-  opacity:0;
-  transform:translateY(40px);
-  transition:all 0.9s ease-out;
+/* --- SCROLL ANIMATION STYLES (IDENTISCH ZU LECKAGEORTUNG) --- */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.fade-in.visible {
-  opacity:1;
-  transform:translateY(0);
+.scroll-animate.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Responsive */
@@ -329,13 +330,13 @@ nav ul li ul li ul { left:0; }
 </header>
 
 <main>
-  <section class="hero fade-in">
+  <section class="hero scroll-animate">
     <h1>Gutachten</h1>
     <p>Professionelle Dachgutachten für private und gewerbliche Kunden in Berlin und Umgebung.</p>
   </section>
 
   <div class="content-wrapper">
-    <section class="intro-section fade-in">
+    <section class="intro-section scroll-animate">
       <h2>Unsere Leistungen im Bereich Gutachten</h2>
       <p>
         Wir erstellen unabhängige, objektive Dachgutachten für private und gewerbliche Objekte. 
@@ -351,7 +352,7 @@ nav ul li ul li ul { left:0; }
       </ul>
     </section>
 
-    <div class="image-grid fade-in">
+    <div class="image-grid scroll-animate">
       <div class="image-item">
         <img src="IMG_2299.jpeg" alt="Fehlender Anschluss an Unterspannbahn">
         <div class="image-caption">Fehlender Anschluss an Unterspannbahn</div>
@@ -362,7 +363,7 @@ nav ul li ul li ul { left:0; }
       </div>
     </div>
 
-    <section class="highlight-section fade-in">
+    <section class="highlight-section scroll-animate">
       <h3>Ihr Vorteil</h3>
       <p>
         Klare Entscheidungsgrundlagen für Reparatur- und Sanierungsentscheidungen · 
@@ -371,7 +372,7 @@ nav ul li ul li ul { left:0; }
       </p>
     </section>
 
-    <div class="image-grid fade-in">
+    <div class="image-grid scroll-animate">
       <div class="image-item">
         <img src="IMG_2346.jpeg" alt="Defektes Dachflächenfenster">
         <div class="image-caption">Typischer Versicherungsfall eines defekten Dachflächenfensters</div>
@@ -382,7 +383,7 @@ nav ul li ul li ul { left:0; }
       </div>
     </div>
 
-    <section class="closing-section fade-in">
+    <section class="closing-section scroll-animate">
       <p>
         Zögern Sie nicht, uns bei Fragen oder individuellen Problemen rund um Ihr Dach 
         oder Ihre PV-Anlage anzusprechen – wir stehen Ihnen jederzeit kompetent zur Verfügung.
@@ -416,7 +417,9 @@ document.querySelectorAll('.has-submenu > a').forEach(link => {
       if (submenu) {
         submenu.classList.toggle('active');
         if (!submenu.classList.contains('active')) {
-          submenu.querySelectorAll('.submenu.active').forEach(sub => sub.classList.remove('active'));
+          submenu.querySelectorAll('.submenu.active').forEach(sub => {
+            sub.classList.remove('active');
+          });
         }
       }
     }
@@ -430,14 +433,32 @@ window.addEventListener('resize', () => {
   }
 });
 
-/* --- SCROLL ANIMATION --- */
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.2 });
+/* --- Scroll Animation (identisch zu Leckageortung) --- */
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -80px 0px'
+};
 
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      // Staggered animation for elements
+      setTimeout(() => {
+        entry.target.classList.add('active');
+      }, index * 50); // 50ms stagger
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.scroll-animate').forEach(el => {
+  observer.observe(el);
+});
+
+// First visible elements appear on load
+window.addEventListener('load', () => {
+  const firstElements = document.querySelectorAll('.hero, .intro-section');
+  firstElements.forEach(el => el.classList.add('active'));
+});
 </script>
 </body>
 </html>
