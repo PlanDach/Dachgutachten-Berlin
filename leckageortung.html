@@ -224,6 +224,18 @@ main { padding-top:100px; }
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
+/* --- SCROLL ANIMATION STYLES (IDENTISCH ZU DEINEN ANDEREN SEITEN) --- */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.scroll-animate.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Responsive */
 @media (max-width:768px) {
 .hamburger { display:block; }
@@ -318,7 +330,7 @@ nav ul li ul li ul { left:0; }
 </header>
 
 <main>
-<section class="hero">
+<section class="hero scroll-animate">
   <h1>Leckageortung</h1>
   <p>Schnelle und präzise Ortung von Feuchtigkeit und Leckagen in Dach- und Gebäudestrukturen.</p>
 </section>
@@ -326,7 +338,7 @@ nav ul li ul li ul { left:0; }
 <div class="content-wrapper">
   
   <!-- INTRO TEXT -->
-  <section class="intro-section">
+  <section class="intro-section scroll-animate">
     <p>
       Mit modernster Messtechnik und fundierter Erfahrung identifizieren wir Leckagen zuverlässig, 
       ohne unnötige Schäden an Ihrem Gebäude zu verursachen.
@@ -343,7 +355,7 @@ nav ul li ul li ul { left:0; }
   </section>
 
   <!-- BILDER 1+2 -->
-  <div class="image-grid">
+  <div class="image-grid scroll-animate">
     <div class="image-item">
       <img src="IMG_2467.jpeg" alt="Kleine Leckage mit großer Wirkung">
       <div class="image-caption">Kleine Leckage – große Wirkung</div>
@@ -355,7 +367,7 @@ nav ul li ul li ul { left:0; }
   </div>
 
   <!-- HIGHLIGHT / VORTEIL -->
-  <section class="highlight-section">
+  <section class="highlight-section scroll-animate">
     <h3>Ihr Vorteil</h3>
     <p>
       Schnelle und genaue Leckageortung · 
@@ -366,7 +378,7 @@ nav ul li ul li ul { left:0; }
   </section>
 
   <!-- BILDER 3+4 -->
-  <div class="image-grid">
+  <div class="image-grid scroll-animate">
     <div class="image-item">
       <img src="IMG_3969.png" alt="Leckage auf Industrieanlage">
       <div class="image-caption">Eine von vielen Leckagen auf einer Industrieanlage</div>
@@ -378,7 +390,7 @@ nav ul li ul li ul { left:0; }
   </div>
 
   <!-- CLOSING TEXT -->
-  <section class="closing-section">
+  <section class="closing-section scroll-animate">
     <p>
       Bei Fragen oder individuellen Problemen rund um Ihr Dach stehen wir Ihnen jederzeit kompetent zur Verfügung – 
       sprechen Sie uns gerne an.
@@ -426,6 +438,33 @@ window.addEventListener('resize', () => {
     navMenu.classList.remove('show');
     document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
   }
+});
+
+/* --- Scroll Animation (identisch zu deinen anderen Seiten) --- */
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -80px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      // Staggered animation for elements
+      setTimeout(() => {
+        entry.target.classList.add('active');
+      }, index * 50); // 50ms stagger
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.scroll-animate').forEach(el => {
+  observer.observe(el);
+});
+
+// First visible elements appear on load
+window.addEventListener('load', () => {
+  const firstElements = document.querySelectorAll('.hero, .intro-section');
+  firstElements.forEach(el => el.classList.add('active'));
 });
 </script>
 </body>
