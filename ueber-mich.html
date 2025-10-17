@@ -117,11 +117,25 @@ main { padding-top:100px; }
   height: auto;
   border-radius: 12px;
   box-shadow:0 8px 24px rgba(0,0,0,0.12);
+  opacity: 1; /* Sofort sichtbar */
+  transform: none;
 }
 
 .text-column {
   display:flex;
   flex-direction:column;
+}
+
+/* Nur der Text soll animiert reinfliegen */
+.text-column.scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.text-column.scroll-animate.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .text-column h2 {
@@ -165,18 +179,6 @@ main { padding-top:100px; }
 /* Footer */
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
-
-/* --- SCROLL ANIMATION STYLES (IDENTISCH ZU LECKAGEORTUNG/GUTACHTEN) --- */
-.scroll-animate {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.scroll-animate.active {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /* Responsive */
 @media (max-width:768px) {
@@ -282,13 +284,13 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
   <p>Lerne mich und meine Arbeit kennen – erfahren, professionell, transparent.</p>
 </section>
 
-<section class="content-section scroll-animate">
+<section class="content-section">
   <div class="about-container">
     <div class="image-column">
       <img src="E928D746-D19B-4518-A21D-B6111AC3F50F.jpeg" alt="Philipp Höfinghoff Portrait" class="profile-image">
     </div>
 
-    <div class="text-column">
+    <div class="text-column scroll-animate">
       <h2>Philipp Höfinghoff</h2>
       <p class="subtitle">Geschäftsführer & Dachdeckermeister</p>
 
@@ -347,30 +349,19 @@ window.addEventListener('resize', () => {
   }
 });
 
-/* --- Scroll Animation (identisch zu Leckageortung/Gutachten) --- */
-const observerOptions = {
-  threshold: 0.15,
-  rootMargin: '0px 0px -80px 0px'
-};
-
+/* Scroll Animation */
+const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -80px 0px' };
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, index) => {
     if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.classList.add('active');
-      }, index * 50);
+      setTimeout(() => entry.target.classList.add('active'), index * 50);
     }
   });
 }, observerOptions);
+document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
 
-document.querySelectorAll('.scroll-animate').forEach(el => {
-  observer.observe(el);
-});
-
-// First visible elements appear on load
 window.addEventListener('load', () => {
-  const firstElements = document.querySelectorAll('.hero');
-  firstElements.forEach(el => el.classList.add('active'));
+  document.querySelectorAll('.hero').forEach(el => el.classList.add('active'));
 });
 </script>
 
