@@ -24,7 +24,7 @@ header {
 .logo img { height:80px; width:auto; display:block; }
 .hamburger { display:none; font-size:2em; cursor:pointer; user-select:none; }
 
-/* Menü (angepasst 1:1 wie in ueber-mich.html) */
+/* Menü */
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
 nav ul li a { 
@@ -36,7 +36,6 @@ display:block;
 transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover- und Active-Effekte (exakt wie gemerkt) */
 nav ul li a:hover { 
 background-color:#e6f4ea; 
 border-radius:6px; 
@@ -64,7 +63,6 @@ z-index:20;
 border-radius:6px;
 }
 
-/* Hover nur auf Desktop */
 @media (min-width:769px) {
   nav ul li:hover > ul { display:block; }
 }
@@ -116,46 +114,117 @@ main { padding-top:100px; }
   padding:0 20px;
 }
 
-.form-section {
-  padding:25px 0;
-  margin-bottom:40px;
+/* TEXT SECTIONS - Professionell gestaltet */
+.intro-section {
+  max-width:800px;
+  margin:60px auto 80px;
 }
-.form-section h2 { color:#004d00; margin-bottom:12px; }
-.form-section p, 
-.form-section ul { color:#004d00; line-height:1.6; }
-.form-section ul { padding-left:20px; }
-.form-section ul li { margin-bottom:1em; }
 
-.highlight-wrapper { max-width: 95%; margin: 30px auto; }
-.highlight-box { background-color:#f2f2f2; border-radius:12px; padding:20px; box-shadow:0 1px 4px rgba(0,0,0,0.05); }
-.highlight-box h2 { margin-bottom:12px; color:#004d00; }
-.highlight-box ul { padding-left:20px; margin:0; }
-
-.image-section {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap:20px;
-  max-width:95%;
-  margin:0 auto 40px auto;
+.intro-section h2 {
+  color:#004d00;
+  font-size:2em;
+  margin-bottom:30px;
+  font-weight:600;
 }
-.image-box { text-align:center; }
-.image-box img {
+
+.intro-section p {
+  font-size:1.1em;
+  line-height:1.8;
+  color:#333;
+  margin:30px 0;
+}
+
+.intro-section ul {
+  list-style:none;
+  padding:0;
+  margin:40px 0;
+  line-height:2.2;
+}
+
+.intro-section ul li {
+  padding-left:30px;
+  position:relative;
+  color:#333;
+  font-size:1.05em;
+}
+
+.intro-section ul li:before {
+  content:"·";
+  position:absolute;
+  left:10px;
+  color:#004d00;
+  font-size:1.5em;
+  line-height:1.4;
+}
+
+/* HIGHLIGHT BOX - Minimalistisch ohne grauen Hintergrund */
+.highlight-section {
+  max-width:800px;
+  margin:80px auto;
+  padding:40px 0 40px 30px;
+  border-left:4px solid #004d00;
+}
+
+.highlight-section h3 {
+  color:#004d00;
+  font-size:1.4em;
+  margin-bottom:20px;
+  font-weight:600;
+}
+
+.highlight-section p {
+  font-size:1.05em;
+  line-height:1.8;
+  color:#333;
+}
+
+/* BILD-GRID - 2 Spalten mit viel Weißraum */
+.image-grid {
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:40px;
+  max-width:1100px;
+  margin:80px auto;
+  padding:0 20px;
+}
+
+.image-item {
+  display:flex;
+  flex-direction:column;
+}
+
+.image-item img {
   width:100%;
-  height:300px;
-  object-fit: cover;
-  border-radius:12px;
-  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  height:auto;
+  border-radius:8px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.08);
   display:block;
 }
-.image-comment { font-size:0.95rem; color:#004d00; text-align:center; margin-top:8px; }
+
+.image-caption {
+  font-size:0.85rem;
+  color:#666;
+  margin-top:12px;
+  font-style:italic;
+  line-height:1.5;
+}
+
+/* Closing Text */
+.closing-section {
+  max-width:800px;
+  margin:80px auto 60px;
+}
+
+.closing-section p {
+  font-size:1.05em;
+  line-height:1.8;
+  color:#333;
+}
 
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
 /* Responsive */
-@media (max-width:992px) { .image-section { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width:600px) { .image-section { grid-template-columns: 1fr; } }
-
 @media (max-width:768px) {
 .hamburger { display:block; }
 nav ul {
@@ -183,6 +252,18 @@ nav ul li ul li ul { left:0; }
 .hero { padding:120px 20px; min-height:350px; }
 .hero h1 { font-size:2.5em; }
 .hero p { font-size:1.2em; }
+
+.image-grid {
+  grid-template-columns:1fr;
+  gap:50px;
+  margin:60px auto;
+}
+
+.intro-section,
+.highlight-section,
+.closing-section {
+  padding:0 20px;
+}
 }
 </style>
 </head>
@@ -243,61 +324,68 @@ nav ul li ul li ul { left:0; }
 </section>
 
 <div class="content-wrapper">
-  <section class="form-section">
-    <p>Mit modernster Messtechnik und fundierter Erfahrung identifizieren wir Leckagen zuverlässig, ohne unnötige Schäden an Ihrem Gebäude zu verursachen.</p>
-
-    <br><br>
+  
+  <!-- INTRO TEXT -->
+  <section class="intro-section">
+    <p>
+      Mit modernster Messtechnik und fundierter Erfahrung identifizieren wir Leckagen zuverlässig, 
+      ohne unnötige Schäden an Ihrem Gebäude zu verursachen.
+    </p>
 
     <h2>Unsere Leistungen</h2>
-    <br>
+    
     <ul>
       <li>Thermografie zur Identifikation feuchter Stellen</li>
-      <li>Feuchtigkeitsmessungen und Leckageortung</li>
-      <li>Präzise Dokumentation der Fundstellen</li>
-      <li>Empfehlungen für Reparatur- oder Sanierungsmaßnahmen</li>
+      <li>Feuchtigkeitsmessungen und präzise Leckageortung</li>
+      <li>Detaillierte Dokumentation der Fundstellen</li>
+      <li>Konkrete Empfehlungen für Reparatur- oder Sanierungsmaßnahmen</li>
     </ul>
-
-    <br>
-
-    <div class="highlight-wrapper">
-      <div class="highlight-box">
-        <h2>Ihr Vorteil</h2>
-        <ul>
-          <li>Schnelle und genaue Leckageortung</li>
-          <li>Zeit- und Kostenersparnis</li>
-          <li>Verhinderung von Folgeschäden</li>
-          <li>Belastbare Entscheidungsgrundlage für Maßnahmen</li>
-        </ul>
-      </div>
-    </div>
-
-    <br><br>
-
-    <p>Bei Fragen oder individuellen Problemen rund um Ihr Dach stehen wir Ihnen jederzeit kompetent zur Verfügung – sprechen Sie uns gerne an.</p>
-
-    <br>
   </section>
+
+  <!-- BILDER 1+2 -->
+  <div class="image-grid">
+    <div class="image-item">
+      <img src="IMG_2467.jpeg" alt="Kleine Leckage mit großer Wirkung">
+      <div class="image-caption">Kleine Leckage – große Wirkung</div>
+    </div>
+    <div class="image-item">
+      <img src="IMG_2479.jpeg" alt="Undichtigkeit im Fugenbereich">
+      <div class="image-caption">Undichtigkeit im Fugenbereich eines Parkdachs</div>
+    </div>
+  </div>
+
+  <!-- HIGHLIGHT / VORTEIL -->
+  <section class="highlight-section">
+    <h3>Ihr Vorteil</h3>
+    <p>
+      Schnelle und genaue Leckageortung · 
+      Zeit- und Kostenersparnis · 
+      Verhinderung von Folgeschäden · 
+      Belastbare Entscheidungsgrundlage für Maßnahmen
+    </p>
+  </section>
+
+  <!-- BILDER 3+4 -->
+  <div class="image-grid">
+    <div class="image-item">
+      <img src="IMG_3969.png" alt="Leckage auf Industrieanlage">
+      <div class="image-caption">Eine von vielen Leckagen auf einer Industrieanlage</div>
+    </div>
+    <div class="image-item">
+      <img src="IMG_2147.jpeg" alt="Kaum sichtbare Leckage">
+      <div class="image-caption">Manche Leckagen sind kaum sichtbar</div>
+    </div>
+  </div>
+
+  <!-- CLOSING TEXT -->
+  <section class="closing-section">
+    <p>
+      Bei Fragen oder individuellen Problemen rund um Ihr Dach stehen wir Ihnen jederzeit kompetent zur Verfügung – 
+      sprechen Sie uns gerne an.
+    </p>
+  </section>
+
 </div>
-
-<aside class="image-section">
-  <div class="image-box">
-    <img src="IMG_2467.jpeg" alt="Leckage Beispiel 1">
-    <div class="image-comment">kleine Leckage - große Wirkung</div>
-  </div>
-  <div class="image-box">
-    <img src="IMG_2479.jpeg" alt="Leckage Beispiel 2">
-    <div class="image-comment">Undichtigkeit im Fugenbereich eines Parkdach</div>
-  </div>
-  <div class="image-box">
-    <img src="IMG_3969.png" alt="Leckage Beispiel 3">
-    <div class="image-comment">Eine von vielen Leckagen auf einer Industrieanlage</div>
-  </div>
-  <div class="image-box">
-    <img src="IMG_2147.jpeg" alt="Leckage Beispiel 4">
-    <div class="image-comment">Manche Leckagen sind kaum sichtbar</div>
-  </div>
-</aside>
-
 </main>
 
 <footer>
@@ -323,7 +411,6 @@ document.querySelectorAll('.has-submenu > a').forEach(link => {
       const submenu = link.nextElementSibling;
       if (submenu) {
         submenu.classList.toggle('active');
-        // Wenn geschlossen, alle Untermenüs auch schließen
         if (!submenu.classList.contains('active')) {
           submenu.querySelectorAll('.submenu.active').forEach(sub => {
             sub.classList.remove('active');
