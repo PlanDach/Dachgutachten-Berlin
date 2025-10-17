@@ -230,6 +230,24 @@ padding:0 20px;
 footer { background:#f8f8f8; padding:30px 20px; text-align:center; font-size:14px; color:#333; }
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
+/* --- SCROLL ANIMATION (identisch zu deinen anderen Seiten) --- */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.scroll-animate.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ensure the first visible elements appear immediately if JS sets them */
+.hero.scroll-animate,
+.intro-section.scroll-animate {
+  /* remain hidden by default; will be activated on load by script */
+}
+
 /* Responsive */
 @media (max-width:768px) {
 .hamburger { display:block; }
@@ -324,7 +342,7 @@ nav ul li ul li ul { left:0; }
 </header>
 
 <main>
-<section class="hero">
+<section class="hero scroll-animate">
   <div style="position:relative; z-index:2;">
     <h1>Dachwartung</h1>
     <p>Regelmäßige Kontrolle und Wartung Ihres Daches für dauerhafte Sicherheit und Werterhalt Ihrer Immobilie.</p>
@@ -334,7 +352,7 @@ nav ul li ul li ul { left:0; }
 <div class="content-wrapper">
   
   <!-- INTRO TEXT -->
-  <section class="intro-section">
+  <section class="intro-section scroll-animate">
     <h2>Unsere Leistungen im Bereich Dachwartung</h2>
     <p>
       Regelmäßige Dachwartung ist der Schlüssel zur Vermeidung kostspieliger Schäden und zur Werterhaltung Ihrer Immobilie. 
@@ -350,7 +368,7 @@ nav ul li ul li ul { left:0; }
   </section>
 
   <!-- BILDER 1+2 -->
-  <div class="image-grid">
+  <div class="image-grid scroll-animate">
     <div class="image-item">
       <img src="IMG_2243.jpeg" alt="Verstopfte Abläufe">
       <div class="image-caption">Verstopfte Abläufe erhöhen die Last und können zu Schäden führen – frühzeitige Kontrolle beugt vor</div>
@@ -362,7 +380,7 @@ nav ul li ul li ul { left:0; }
   </div>
 
   <!-- HIGHLIGHT / VORTEIL -->
-  <section class="highlight-section">
+  <section class="highlight-section scroll-animate">
     <h3>Ihr Vorteil</h3>
     <p>
       Verlängerte Lebensdauer Ihres Daches · 
@@ -373,7 +391,7 @@ nav ul li ul li ul { left:0; }
   </section>
 
   <!-- BILDER 3+4 -->
-  <div class="image-grid">
+  <div class="image-grid scroll-animate">
     <div class="image-item">
       <img src="IMG_2305.jpeg" alt="Defekte First-Elemente">
       <div class="image-caption">Defekte First-Elemente gefährden die Dachfunktion – frühzeitige Instandsetzung schützt</div>
@@ -385,7 +403,7 @@ nav ul li ul li ul { left:0; }
   </div>
 
   <!-- CLOSING TEXT -->
-  <section class="closing-section">
+  <section class="closing-section scroll-animate">
     <p>
       Bei Fragen oder individuellen Problemen rund um Ihr Dach stehen wir Ihnen jederzeit kompetent zur Verfügung – 
       sprechen Sie uns gerne an.
@@ -433,6 +451,35 @@ window.addEventListener('resize', () => {
     navMenu.classList.remove('show');
     document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
   }
+});
+
+/* --- Scroll Animation: exakt wie bei deinen anderen Seiten --- */
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -80px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      // Staggered animation
+      setTimeout(() => {
+        entry.target.classList.add('active');
+      }, index * 50);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.scroll-animate').forEach(el => {
+  observer.observe(el);
+});
+
+// Erste sichtbare Elemente sofort aktivieren (beim Laden)
+window.addEventListener('load', () => {
+  const firstElements = document.querySelectorAll('.hero, .intro-section');
+  firstElements.forEach(el => {
+    el.classList.add('active');
+  });
 });
 </script>
 </body>
