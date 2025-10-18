@@ -6,9 +6,9 @@
 <title>Schadensanalyse – Planung | PlanDach Höfinghoff</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: Arial, sans-serif; overflow-x:hidden; background:#ffffff; color:#004D00; line-height:1.7; }
+body { font-family: Arial, sans-serif; overflow-x:hidden; background:#ffffff; color:#333; }
 
-/* Header (exakt wie in ueber-mich.html) */
+/* Header */
 header {
   width:100%;
   background:#fff;
@@ -34,7 +34,6 @@ nav ul li a {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover- und Klick-Effekte */
 nav ul li a:hover { 
   background-color:#e6f4ea; 
   border-radius:6px; 
@@ -47,6 +46,7 @@ nav ul li a.active {
   color:#007f5f; 
 }
 
+/* Untermenüs Desktop */
 nav ul li ul { 
   display:none; 
   position:absolute; 
@@ -61,98 +61,187 @@ nav ul li ul {
 }
 nav ul li:hover > ul { display:block; }
 nav ul li ul li { padding:0; }
-nav ul li ul li a { padding:8px 15px; }
+nav ul li ul li a { padding:8px 15px; white-space:nowrap; }
 nav ul li ul li ul { top:0; left:100%; }
 
-/* Hero-Bereich */
-.hero {
-  position: relative;
-  text-align:center;
-  padding:100px 20px;
-  color:white;
-  overflow:hidden;
-  min-height:350px;
+nav ul li ul li ul li a.active {
+  background-color:#cde9d8;
+  border-radius:6px;
+  color:#007f5f;
+}
+
+/* Hero */
+.hero { 
+  position:relative;
+  text-align:center; 
+  padding:140px 20px 80px 20px; 
+  min-height:400px; 
+  background: url('IMG_3949.jpeg') center center / cover no-repeat;
+  color:#ffffff;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
 }
-.hero::before {
+.hero::after {
   content:"";
   position:absolute;
-  top:0; left:0;
-  width:100%;
-  height:100%;
-  background: url('IMG_3949.jpeg') center center / cover no-repeat;
-  opacity:0.5;
-  z-index:1;
+  top:0; left:0; right:0; bottom:0;
+  background:rgba(0,0,0,0.5);
   filter: brightness(0.7);
+  z-index:1;
 }
-.hero h1, .hero p {
-  position: relative;
-  z-index:2;
-  max-width:900px;
-}
-.hero h1 { font-size:2.5em; margin-bottom:15px; }
-.hero p { font-size:1.2em; }
+.hero h1, .hero p { position:relative; z-index:2; }
+.hero h1 { font-size:2.8em; margin-bottom:20px; font-weight:700; }
+.hero p { font-size:1.3em; max-width:700px; line-height:1.5; }
 
 /* Steps Section */
 .steps-section {
-  max-width:900px;
-  margin:40px auto 40px auto;
-  display:flex;
-  flex-direction:column;
-  gap:30px;
+  max-width:1100px;
+  margin:80px auto;
+  padding:0 20px;
 }
-.steps-section h2 {
-  font-size:1.8em;
-  font-weight:bold;
-  margin-bottom:20px;
+
+.steps-section > h2 {
+  font-size:2em;
+  font-weight:600;
   text-align:center;
+  margin-bottom:60px;
+  color:#004d00;
 }
+
+.steps-grid {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:50px;
+}
+
 .step {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:12px;
-  padding:20px;
-  border-radius:8px;
+  display:grid;
+  grid-template-columns:80px 1fr;
+  gap:30px;
+  align-items:start;
   opacity:0;
   transform:translateY(20px);
-  transition:opacity 0.8s ease, transform 0.8s ease;
+  transition:opacity 0.6s ease, transform 0.6s ease;
 }
+
 .step.visible {
   opacity:1;
   transform:translateY(0);
 }
+
+.step .icon {
+  width:80px;
+  height:80px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
 .step .icon img {
-  width:48px;
-  height:48px;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  width:80px;
+  height:80px;
+  transition: transform 0.3s ease;
 }
+
 .step:hover .icon img {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 8px rgba(0,127,95,0.4));
+  transform:scale(1.05);
 }
-.step h3 { font-size:1.2em; font-weight:bold; }
-.step p { font-size:1rem; max-width:650px; text-align:center; }
+
+.step-content h3 { 
+  font-size:1.4em; 
+  font-weight:600; 
+  color:#004d00;
+  margin-bottom:12px;
+  line-height:1.3;
+}
+
+.step-content p { 
+  font-size:1.05rem; 
+  color:#333; 
+  line-height:1.8;
+  margin:0;
+}
+
+/* Tablet/Desktop: 2 Spalten */
+@media (min-width:900px) {
+  .steps-grid {
+    grid-template-columns:repeat(2, 1fr);
+    gap:60px 50px;
+  }
+}
 
 /* Footer */
-footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
+footer { 
+  background:#f8f8f8; 
+  padding:40px 20px; 
+  text-align:center; 
+  font-size:14px; 
+  color:#333; 
+  margin-top:80px;
+}
 
 /* Responsive */
 @media (max-width:768px) {
   .hamburger { display:block; }
-  nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:60px; left:0; width:100%; }
+  nav ul { 
+    flex-direction:column; 
+    display:none; 
+    background:#fff; 
+    position:absolute; 
+    top:60px; 
+    left:0; 
+    width:100%; 
+  }
   nav ul.show { display:flex; }
   nav ul li a { font-size:1.2em; text-align:center; }
   nav ul li ul { position:relative; top:0; left:0; box-shadow:none; }
   nav ul li ul li ul { left:0; }
-  .hero h1 { font-size:1.8rem; }
-  .hero p { font-size:1rem; }
-  .steps-section { gap:20px; }
-  .step .icon img { width:40px; height:40px; }
-  .step p { font-size:0.95rem; max-width:100%; }
+  
+  .hero { 
+    padding:100px 20px 60px 20px; 
+    min-height:320px;
+  }
+  .hero h1 { font-size:2em; }
+  .hero p { font-size:1.1em; }
+  
+  .steps-section { 
+    margin:50px auto; 
+  }
+  
+  .steps-section > h2 { 
+    font-size:1.7em; 
+    margin-bottom:40px; 
+  }
+  
+  .steps-grid {
+    gap:40px;
+  }
+  
+  .step {
+    grid-template-columns:70px 1fr;
+    gap:20px;
+  }
+  
+  .step .icon {
+    width:70px;
+    height:70px;
+  }
+  
+  .step .icon img {
+    width:70px;
+    height:70px;
+  }
+  
+  .step-content h3 { 
+    font-size:1.2em; 
+  }
+  
+  .step-content p { 
+    font-size:1rem; 
+    line-height:1.7;
+  }
 }
 </style>
 </head>
@@ -217,26 +306,51 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 
   <section class="steps-section">
     <h2>Unser Vorgehen</h2>
-    <div class="step">
-      <div class="icon"><img src="outcomes_18289971.png" alt="Unterlagen prüfen Icon"></div>
-      <h3>1. Unterlagen prüfen</h3>
-      <p>Sichtung von Plänen, Dokumentationen und bisherigen Gutachten, um den Schadenskontext zu verstehen.</p>
+
+    <div class="steps-grid">
+      
+      <div class="step">
+        <div class="icon">
+          <img src="outcomes_18289971.png" alt="Unterlagen prüfen" width="80" height="80">
+        </div>
+        <div class="step-content">
+          <h3>1. Unterlagen prüfen</h3>
+          <p>Sichtung von Plänen, Dokumentationen und bisherigen Gutachten, um den Schadenskontext zu verstehen.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="icon">
+          <img src="karte1.jpeg" alt="Vor-Ort-Begutachtung" width="80" height="80">
+        </div>
+        <div class="step-content">
+          <h3>2. Vor-Ort-Begutachtung</h3>
+          <p>Analyse der betroffenen Bereiche und detaillierte Aufnahme von Schadensbildern und Defekten.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="icon">
+          <img src="layoff_17648756.png" alt="Ursachenanalyse" width="80" height="80">
+        </div>
+        <div class="step-content">
+          <h3>3. Ursachenanalyse</h3>
+          <p>Ermittlung möglicher Ursachen wie Materialfehler, Ausführungsfehler oder natürliche Alterung.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="icon">
+          <img src="implementation_18289862.png" alt="Maßnahmenempfehlung" width="80" height="80">
+        </div>
+        <div class="step-content">
+          <h3>4. Maßnahmenempfehlung</h3>
+          <p>Erarbeitung konkreter, wirtschaftlicher Sanierungsvorschläge zur dauerhaften Schadensbehebung.</p>
+        </div>
+      </div>
+
     </div>
-    <div class="step">
-      <div class="icon"><img src="karte1.jpeg" alt="Vor-Ort-Begutachtung Icon"></div>
-      <h3>2. Vor-Ort-Begutachtung</h3>
-      <p>Analyse der betroffenen Bereiche und detaillierte Aufnahme von Schadensbildern und Defekten.</p>
-    </div>
-    <div class="step">
-      <div class="icon"><img src="layoff_17648756.png" alt="Ursachenanalyse Icon"></div>
-      <h3>3. Ursachenanalyse</h3>
-      <p>Ermittlung möglicher Ursachen wie Materialfehler, Ausführungsfehler oder natürliche Alterung.</p>
-    </div>
-    <div class="step">
-      <div class="icon"><img src="implementation_18289862.png" alt="Maßnahmenempfehlung Icon"></div>
-      <h3>4. Maßnahmenempfehlung</h3>
-      <p>Erarbeitung konkreter, wirtschaftlicher Sanierungsvorschläge zur dauerhaften Schadensbehebung.</p>
-    </div>
+
   </section>
 </main>
 
@@ -249,17 +363,29 @@ const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
 
-// Intersection Observer für Fade-in & Slide-up Steps
+// Mobile Untermenü toggle
+document.querySelectorAll('#navMenu .has-submenu > a').forEach(link => {
+  link.addEventListener('click', e => {
+    if(window.innerWidth <= 768){
+      e.preventDefault();
+      const submenu = link.nextElementSibling;
+      submenu.style.display = (submenu.style.display === 'flex') ? 'none' : 'flex';
+      submenu.style.flexDirection = 'column';
+    }
+  });
+});
+
+// Scroll-Animation
 const steps = document.querySelectorAll('.step');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
     }
   });
 }, { threshold: 0.2 });
+
 steps.forEach(step => observer.observe(step));
 </script>
+
 </body>
-</html>
