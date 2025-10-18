@@ -24,7 +24,7 @@ header {
 .logo img { height:80px; width:auto; display:block; }
 .hamburger { display:none; font-size:2em; cursor:pointer; user-select:none; }
 
-/* Menü (angepasst 1:1 wie in ueber-mich.html) */
+/* Menü */
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
 nav ul li a { 
@@ -36,7 +36,6 @@ display:block;
 transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover- und Active-Effekte (exakt wie gemerkt) */
 nav ul li a:hover { 
 background-color:#e6f4ea; 
 border-radius:6px; 
@@ -64,7 +63,6 @@ z-index:20;
 border-radius:6px;
 }
 
-/* Hover nur auf Desktop */
 @media (min-width:769px) {
   nav ul li:hover > ul { display:block; }
 }
@@ -107,19 +105,73 @@ main { padding-top:100px; }
 .hero p { font-size:1.2em; }
 
 /* Content Section */
-.form-section {
-  max-width:800px;
+.impressum-content {
+  max-width:900px;
   margin:40px auto;
-  padding:0;
-  border-radius:0;
-  box-shadow:none;
-  text-align:center;
+  padding:40px 20px;
+  line-height:1.8;
+  color:#333;
 }
-.form-section h2 { color:#004d00; margin-top:20px; }
-.form-section p { color:#004d00; line-height:1.6; }
+
+.impressum-content h2 { 
+  color:#004d00; 
+  margin-top:40px; 
+  margin-bottom:15px;
+  font-size:1.5em;
+  border-bottom:2px solid #e6f4ea;
+  padding-bottom:8px;
+}
+
+.impressum-content h2:first-of-type {
+  margin-top:0;
+}
+
+.impressum-content p { 
+  margin-bottom:20px;
+  line-height:1.8;
+}
+
+.impressum-content strong {
+  color:#004d00;
+  font-weight:600;
+}
+
+.impressum-content a {
+  color:#007f5f;
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+  transition: border-bottom 0.3s ease;
+}
+
+.impressum-content a:hover {
+  border-bottom:1px solid #007f5f;
+}
+
+.contact-box {
+  background:#f8fdf9;
+  padding:20px;
+  border-radius:8px;
+  border-left:4px solid #007f5f;
+  margin:20px 0;
+}
+
+.info-box {
+  background:#f0f0f0;
+  padding:15px 20px;
+  border-radius:6px;
+  margin:15px 0;
+  font-size:0.95em;
+}
 
 /* Footer */
-footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
+footer { 
+  background:#f8f8f8; 
+  padding:40px 20px; 
+  text-align:center; 
+  font-size:14px; 
+  color:#333; 
+  margin-top:60px;
+}
 
 /* Responsive */
 @media (max-width:768px) {
@@ -146,9 +198,10 @@ nav ul li ul.active { display:flex; }
 nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
 nav ul li ul li ul { left:0; }
 
-.form-section h2 { font-size:1.5rem; }
-.hero h1 { font-size:2.5rem; }
-.hero p { font-size:1.2em; }
+.hero h1 { font-size:2em; }
+.hero p { font-size:1em; }
+.impressum-content { padding:20px 15px; }
+.impressum-content h2 { font-size:1.3em; }
 }
 </style>
 </head>
@@ -207,48 +260,113 @@ nav ul li ul li ul { left:0; }
 <main>
   <section class="hero">
     <h1>Impressum</h1>
-    <p>Alle rechtlich erforderlichen Angaben zu PlanDach Höfinghoff auf einen Blick.</p>
+    <p>Rechtliche Informationen und Kontaktdaten gemäß § 5 TMG</p>
   </section>
 
-  <section class="form-section">
+  <section class="impressum-content">
+    
     <h2>Angaben gemäß § 5 TMG</h2>
     <p>
       <strong>PlanDach Höfinghoff</strong><br>
-      Philipp Höfinghoff<br>
-      Musterstraße 1<br>
-      12345 Berlin<br>
+      Inhaber: Philipp Höfinghoff<br>
+      [Ihre Straße und Hausnummer]<br>
+      [PLZ] [Ort]<br>
       Deutschland
     </p>
 
-    <h2>Kontakt</h2>
+    <div class="contact-box">
+      <h2 style="margin-top:0; border:none; padding-bottom:0;">Kontakt</h2>
+      <p style="margin-bottom:0;">
+        <strong>Telefon:</strong> [Ihre Telefonnummer]<br>
+        <strong>E-Mail:</strong> <a href="mailto:info@plandach-hoefinghoff.de">info@plandach-hoefinghoff.de</a><br>
+        <strong>Web:</strong> <a href="https://www.plandach-hoefinghoff.de">www.plandach-hoefinghoff.de</a>
+      </p>
+    </div>
+
+    <h2>Berufsbezeichnung und Qualifikation</h2>
     <p>
-      Telefon: 030 / 12345678<br>
-      E-Mail: info@plandach.de
+      <strong>Berufsbezeichnung:</strong> [z.B. Dachdeckermeister / Sachverständiger für Dach-, Wand- und Abdichtungstechnik]<br>
+      <strong>Verliehen in:</strong> Deutschland<br>
+      <strong>Zuständige Kammer:</strong> [z.B. Handwerkskammer Berlin]<br>
+      <strong>Kammer-Anschrift:</strong> [Adresse der zuständigen Kammer]
     </p>
 
-    <h2>Umsatzsteuer-ID</h2>
-    <p>DE123456789</p>
+    <h2>Umsatzsteuer-Identifikationsnummer</h2>
+    <p>
+      Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG:<br>
+      <strong>[Ihre USt-IdNr., z.B. DE123456789]</strong>
+    </p>
+
+    <h2>Berufshaftpflichtversicherung</h2>
+    <p>
+      <strong>Name und Sitz der Versicherung:</strong><br>
+      [Name der Versicherungsgesellschaft]<br>
+      [Straße und Hausnummer]<br>
+      [PLZ] [Ort]<br>
+      <strong>Geltungsbereich:</strong> Deutschland / Europa
+    </p>
+
+    <div class="info-box">
+      <strong>Hinweis:</strong> Die Berufshaftpflichtversicherung besteht für Tätigkeiten im Bereich Planung, Bauüberwachung und Sachverständigenwesen gemäß den gesetzlichen Bestimmungen.
+    </div>
+
+    <h2>Aufsichtsbehörde</h2>
+    <p>
+      [Name der zuständigen Aufsichtsbehörde, falls zutreffend]<br>
+      [Adresse der Behörde]
+    </p>
+
+    <h2>Angaben zur Berufs­haftpflicht­versicherung</h2>
+    <p>
+      Die gesetzliche Berufsbezeichnung wurde in Deutschland verliehen. Es gelten die berufsrechtlichen Regelungen des jeweiligen Bundeslandes, einsehbar bei der zuständigen Handwerkskammer oder Ingenieurkammer.
+    </p>
+
+    <h2>EU-Streitschlichtung</h2>
+    <p>
+      Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:<br>
+      <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a><br>
+      Unsere E-Mail-Adresse finden Sie oben im Impressum.
+    </p>
+
+    <h2>Verbraucher­streit­beilegung / Universal­schlichtungs­stelle</h2>
+    <p>
+      Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+    </p>
 
     <h2>Haftung für Inhalte</h2>
     <p>
-      Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Inhalte Dritter werden entsprechend § 8 bis 10 TMG geprüft.
+      Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+    </p>
+    <p>
+      Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
     </p>
 
     <h2>Haftung für Links</h2>
     <p>
-      Verweise auf externe Websites liegen außerhalb unseres Verantwortungsbereichs. Für deren Inhalte übernehmen wir keine Haftung.
+      Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.
+    </p>
+    <p>
+      Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
     </p>
 
     <h2>Urheberrecht</h2>
     <p>
-      Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet.
+      Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
     </p>
+    <p>
+      Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
+    </p>
+
+    <div class="info-box">
+      <strong>Hinweis zum Datenschutz:</strong> Informationen zur Verarbeitung Ihrer personenbezogenen Daten finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.
+    </div>
+
   </section>
 </main>
 
 <footer>
   <div style="max-width:1000px; margin:0 auto; text-align:center;">
-    <p>&copy; 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
+    <p>&copy; 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten | <a href="impressum.html" style="color:#007f5f; text-decoration:none;">Impressum</a> | <a href="datenschutz.html" style="color:#007f5f; text-decoration:none;">Datenschutz</a></p>
   </div>
 </footer>
 
@@ -267,7 +385,6 @@ document.querySelectorAll('.has-submenu > a').forEach(link => {
       const submenu = link.nextElementSibling;
       if (submenu) {
         submenu.classList.toggle('active');
-        // Wenn geschlossen, alle Untermenüs auch schließen
         if (!submenu.classList.contains('active')) {
           submenu.querySelectorAll('.submenu.active').forEach(sub => {
             sub.classList.remove('active');
