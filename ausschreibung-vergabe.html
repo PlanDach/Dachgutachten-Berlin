@@ -33,11 +33,13 @@ nav ul li a {
   display:block; 
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 nav ul li a:hover { 
   background-color:#e6f4ea; 
   border-radius:6px; 
   color:#007f5f; 
 }
+nav ul li a:active, 
 nav ul li a.active { 
   background-color:#cde9d8; 
   border-radius:6px; 
@@ -62,14 +64,24 @@ nav ul li ul li { padding:0; }
 nav ul li ul li a { padding:8px 15px; white-space:nowrap; }
 nav ul li ul li ul { top:0; left:100%; }
 
+nav ul li ul li a.active {
+  background-color:#cde9d8;
+  border-radius:6px;
+  color:#007f5f;
+}
+
 /* Hero */
 .hero { 
   position:relative;
   text-align:center; 
-  padding:120px 20px; 
-  min-height:350px; 
+  padding:140px 20px 80px 20px; 
+  min-height:400px; 
   background: url('IMG_3981.jpeg') center center / cover no-repeat;
   color:#ffffff;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 }
 .hero::after {
   content:"";
@@ -80,56 +92,156 @@ nav ul li ul li ul { top:0; left:100%; }
   z-index:1;
 }
 .hero h1, .hero p { position:relative; z-index:2; }
+.hero h1 { font-size:2.8em; margin-bottom:20px; font-weight:700; }
+.hero p { font-size:1.3em; max-width:700px; line-height:1.5; }
 
 /* Steps Section */
 .steps-section {
-  max-width:900px;
-  margin:40px auto 20px auto;
-  display:flex;
-  flex-direction:column;
-  gap:40px;
+  max-width:1100px;
+  margin:80px auto;
+  padding:0 20px;
+}
+
+.steps-section > h2 {
+  font-size:2em;
+  font-weight:600;
   text-align:center;
+  margin-bottom:60px;
+  color:#004d00;
 }
-.steps-section h2 {
-  font-size:1.8em;
-  font-weight:bold;
-  margin-bottom:30px;
-  color:#004D00;
+
+.steps-grid {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:50px;
 }
+
 .step {
+  display:grid;
+  grid-template-columns:80px 1fr;
+  gap:30px;
+  align-items:start;
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+
+.step.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+
+.step .icon {
+  width:80px;
+  height:80px;
   display:flex;
-  flex-direction:column;
   align-items:center;
-  gap:15px;
+  justify-content:center;
 }
-.step img {
-  width:48px;
-  height:48px;
-  object-fit:contain;
+
+.step .icon img {
+  width:80px;
+  height:80px;
+  transition: transform 0.3s ease;
 }
-.step h3 { 
-  font-size:1.2em; 
-  font-weight:bold; 
-  color:#004D00; 
+
+.step:hover .icon img {
+  transform:scale(1.05);
 }
-.step p { font-size:1rem; color:#004D00; line-height:1.4; max-width:600px; }
+
+.step-content h3 { 
+  font-size:1.4em; 
+  font-weight:600; 
+  color:#004d00;
+  margin-bottom:12px;
+  line-height:1.3;
+}
+
+.step-content p { 
+  font-size:1.05rem; 
+  color:#333; 
+  line-height:1.8;
+  margin:0;
+}
+
+/* Tablet/Desktop: 2 Spalten */
+@media (min-width:900px) {
+  .steps-grid {
+    grid-template-columns:repeat(2, 1fr);
+    gap:60px 50px;
+  }
+}
 
 /* Footer */
-footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
+footer { 
+  background:#f8f8f8; 
+  padding:40px 20px; 
+  text-align:center; 
+  font-size:14px; 
+  color:#333; 
+  margin-top:80px;
+}
 
 /* Responsive */
 @media (max-width:768px) {
   .hamburger { display:block; }
-  nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:60px; left:0; width:100%; }
+  nav ul { 
+    flex-direction:column; 
+    display:none; 
+    background:#fff; 
+    position:absolute; 
+    top:60px; 
+    left:0; 
+    width:100%; 
+  }
   nav ul.show { display:flex; }
   nav ul li a { font-size:1.2em; text-align:center; }
   nav ul li ul { position:relative; top:0; left:0; box-shadow:none; }
   nav ul li ul li ul { left:0; }
-  .steps-section { gap:25px; }
-  .step img { width:40px; height:40px; }
-  .step p { font-size:0.95rem; max-width:100%; }
-  .hero h1 { font-size:1.8rem; }
-  .hero p { font-size:1rem; }
+  
+  .hero { 
+    padding:100px 20px 60px 20px; 
+    min-height:320px;
+  }
+  .hero h1 { font-size:2em; }
+  .hero p { font-size:1.1em; }
+  
+  .steps-section { 
+    margin:50px auto; 
+  }
+  
+  .steps-section > h2 { 
+    font-size:1.7em; 
+    margin-bottom:40px; 
+  }
+  
+  .steps-grid {
+    gap:40px;
+  }
+  
+  .step {
+    grid-template-columns:70px 1fr;
+    gap:20px;
+  }
+  
+  .step .icon {
+    width:70px;
+    height:70px;
+  }
+  
+  .step .icon img {
+    width:70px;
+    height:70px;
+  }
+  
+  .step-content h3 { 
+    font-size:1.2em; 
+  }
+  
+  .step-content p { 
+    font-size:1rem; 
+    line-height:1.7;
+  }
 }
 </style>
 </head>
@@ -195,22 +307,38 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
   <section class="steps-section">
     <h2>Unsere Leistungen im Detail</h2>
 
-    <div class="step">
-      <img src="compliance_18091924.png" alt="Vergabeunterlagen Icon">
-      <h3>Erstellung der Vergabeunterlagen</h3>
-      <p>Wir formulieren Verträge, Leistungsbeschreibungen und Rahmenbedingungen für die Auftragnehmer, damit alle rechtlich und organisatorisch abgesichert sind.</p>
-    </div>
+    <div class="steps-grid">
+      
+      <div class="step">
+        <div class="icon">
+          <img src="compliance_18091924.png" alt="Vergabeunterlagen" width="80" height="80">
+        </div>
+        <div class="step-content">
+          <h3>Erstellung der Vergabeunterlagen</h3>
+          <p>Wir formulieren Verträge, Leistungsbeschreibungen und Rahmenbedingungen für die Auftragnehmer, damit alle rechtlich und organisatorisch abgesichert sind.</p>
+        </div>
+      </div>
 
-    <div class="step">
-      <img src="colaboration_16853310.png" alt="Kommunikation Icon">
-      <h3>Kommunikation mit Bietern</h3>
-      <p>Die ausgewählten Anbieter werden informiert, offene Fragen geklärt und Nachforderungen bearbeitet – für maximale Transparenz und Verbindlichkeit.</p>
-    </div>
+      <div class="step">
+        <div class="icon">
+          <img src="colaboration_16853310.png" alt="Kommunikation" width="80" height="80">
+        </div>
+        <div class="step-content">
+          <h3>Kommunikation mit Bietern</h3>
+          <p>Die ausgewählten Anbieter werden informiert, offene Fragen geklärt und Nachforderungen bearbeitet – für maximale Transparenz und Verbindlichkeit.</p>
+        </div>
+      </div>
 
-    <div class="step">
-      <img src="contract_17648636.png" alt="Dokumentation Icon">
-      <h3>Rechtssichere Dokumentation & Abschluss</h3>
-      <p>Alle Schritte der Vergabe werden lückenlos protokolliert, die Verträge unterzeichnet und der Projektstart organisiert, um Fristen, Qualität und Rechtssicherheit zu gewährleisten.</p>
+      <div class="step">
+        <div class="icon">
+          <img src="contract_17648636.png" alt="Dokumentation" width="80" height="80">
+        </div>
+        <div class="step-content">
+          <h3>Rechtssichere Dokumentation und Abschluss</h3>
+          <p>Alle Schritte der Vergabe werden lückenlos protokolliert, die Verträge unterzeichnet und der Projektstart organisiert, um Fristen, Qualität und Rechtssicherheit zu gewährleisten.</p>
+        </div>
+      </div>
+
     </div>
 
   </section>
@@ -236,6 +364,18 @@ document.querySelectorAll('#navMenu .has-submenu > a').forEach(link => {
     }
   });
 });
+
+// Scroll-Animation
+const steps = document.querySelectorAll('.step');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.2 });
+
+steps.forEach(step => observer.observe(step));
 </script>
 
 </body>
