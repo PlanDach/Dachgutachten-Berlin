@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online-Services – PlanDach Höfinghoff</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Arial, sans-serif; background:#fff; color:#333; overflow-x:hidden; }
+
+/* Header */
+header {
+width:100%;
+background:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 20px;
+position:fixed;
+top:0; left:0;
+z-index:10;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+.logo img { height:80px; width:auto; display:block; }
+.hamburger { display:none; font-size:2em; cursor:pointer; user-select:none; }
+
+/* Menü */
+nav ul { list-style:none; display:flex; gap:20px; }
+nav ul li { position:relative; }
+nav ul li a {
+text-decoration:none;
+color:#004d00;
+font-weight:500;
+padding:5px 10px;
+display:block;
+transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+background-color:#e6f4ea;
+border-radius:6px;
+color:#007f5f;
+}
+nav ul li a:active,
+nav ul li a.active {
+background-color:#cde9d8;
+border-radius:6px;
+color:#007f5f;
+}
+
+/* Submenus */
+nav ul li ul {
+display:none;
+position:absolute;
+top:100%;
+left:0;
+background:#fff;
+list-style:none;
+padding:10px 0;
+min-width:200px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+z-index:20;
+border-radius:6px;
+}
+
+@media (min-width:769px) {
+nav ul li:hover > ul { display:block; }
+}
+
+nav ul li ul li a { padding:8px 15px; color:#004d00; }
+nav ul li ul li ul { top:0; left:100%; }
+
+/* Main padding for fixed header */
+main { padding-top:100px; }
+
+/* HERO */
+.hero {
+position: relative;
+text-align:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+min-height:350px;
+width:100vw;
+overflow:hidden;
+padding:120px 20px;
+background: url(‘IMG_4009.jpeg’) center center / cover no-repeat;
+color:#fff;
+}
+.hero::before {
+content:””;
+position:absolute;
+top:0; left:0;
+width:100%;
+height:100%;
+background: inherit;
+opacity:0.5;
+z-index:1;
+filter: brightness(0.7);
+}
+.hero h1, .hero p {
+position: relative;
+z-index:2;
+color:#ffffff;
+}
+.hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
+.hero p { font-size:1.2em; }
+
+/* Content */
+.content-wrapper {
+max-width:1200px;
+margin:40px auto;
+padding:0 20px;
+}
+
+/* INTRO SECTION */
+.intro-section {
+max-width:800px;
+margin:60px auto 80px;
+}
+
+.intro-section h2 {
+color:#004d00;
+font-size:2em;
+margin-bottom:30px;
+font-weight:600;
+}
+
+.intro-section p {
+font-size:1.1em;
+line-height:1.8;
+color:#333;
+margin:30px 0;
+}
+
+.intro-section ul {
+list-style:none;
+padding:0;
+margin:40px 0;
+line-height:2.2;
+}
+
+.intro-section ul li {
+padding-left:30px;
+position:relative;
+color:#333;
+font-size:1.05em;
+}
+
+.intro-section ul li:before {
+content:”·”;
+position:absolute;
+left:10px;
+color:#004d00;
+font-size:1.5em;
+line-height:1.4;
+}
+
+/* SERVICE CARDS GRID */
+.services-grid {
+display:grid;
+grid-template-columns:repeat(2, 1fr);
+gap:40px;
+max-width:1100px;
+margin:60px auto;
+padding:0 20px;
+}
+
+.service-card {
+background:#fff;
+border:1px solid #e6e6e6;
+border-radius:8px;
+padding:30px;
+box-shadow:0 2px 8px rgba(0,0,0,0.05);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+transform:translateY(-4px);
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+.service-card .icon {
+font-size:2.5em;
+margin-bottom:15px;
+display:block;
+}
+
+.service-card h3 {
+color:#004d00;
+font-size:1.4em;
+margin-bottom:15px;
+font-weight:600;
+}
+
+.service-card p {
+color:#555;
+line-height:1.7;
+margin-bottom:20px;
+font-size:0.95em;
+}
+
+.service-card ul {
+list-style:none;
+padding:0;
+margin:20px 0;
+}
+
+.service-card ul li {
+padding:8px 0 8px 25px;
+position:relative;
+color:#333;
+font-size:0.9em;
+line-height:1.5;
+}
+
+.service-card ul li:before {
+content:“✓”;
+position:absolute;
+left:0;
+color:#007f5f;
+font-weight:bold;
+}
+
+.service-card .cta-link {
+display:inline-block;
+margin-top:15px;
+color:#007f5f;
+text-decoration:none;
+font-weight:600;
+transition:color 0.2s;
+}
+
+.service-card .cta-link:hover {
+color:#004d00;
+}
+
+/* HIGHLIGHT BOX */
+.highlight-section {
+max-width:800px;
+margin:60px auto;
+padding:40px 0 40px 30px;
+border-left:4px solid #004d00;
+}
+
+.highlight-section h3 {
+color:#004d00;
+font-size:1.4em;
+margin-bottom:20px;
+font-weight:600;
+}
+
+.highlight-section p {
+font-size:1.05em;
+line-height:1.8;
+color:#333;
+}
+
+/* CLOSING SECTION */
+.closing-section {
+max-width:800px;
+margin:60px auto 60px;
+}
+
+.closing-section p {
+font-size:1.05em;
+line-height:1.8;
+color:#333;
+}
+
+footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
+footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
+
+/* SCROLL ANIMATIONS */
+.scroll-animate {
+opacity: 0;
+transform: translateY(40px);
+transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.scroll-animate.active {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width:768px) {
+.hamburger { display:block; }
+nav ul {
+flex-direction:column;
+display:none;
+background:#fff;
+position:absolute;
+top:60px;
+left:0;
+width:100%;
+padding:10px 0;
+gap:0;
+text-align:center;
+}
+nav ul.show { display:flex; }
+
+nav ul li { width:100%; }
+nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
+
+nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
+nav ul li ul.active { display:flex; }
+nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
+nav ul li ul li ul { left:0; }
+
+.hero { padding:120px 20px; min-height:350px; }
+.hero h1 { font-size:2.5em; }
+.hero p { font-size:1.2em; }
+
+.services-grid {
+grid-template-columns:1fr;
+gap:40px;
+margin:60px auto;
+}
+
+.intro-section,
+.highlight-section,
+.closing-section {
+padding:0 20px;
+}
+}
+</style>
+
+</head>
+<body>
+<header>
+  <div class="logo"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></div>
+  <div class="hamburger" id="hamburger">☰</div>
+  <nav>
+    <ul id="navMenu">
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
+      <li class="has-submenu">
+        <a href="#">Leistungen</a>
+        <ul class="submenu">
+          <li><a href="gutachten.html">Gutachten</a></li>
+          <li class="has-submenu">
+            <a href="#">Planung</a>
+            <ul class="submenu">
+              <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
+              <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
+              <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
+              <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#">Bauüberwachung</a>
+            <ul class="submenu">
+              <li><a href="bau-koordination.html">Koordination</a></li>
+              <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
+              <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
+              <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#">Ausschreibung</a>
+            <ul class="submenu">
+              <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
+              <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
+              <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
+            </ul>
+          </li>
+          <li><a href="dachwartung.html">Dachwartung</a></li>
+          <li><a href="online-services.html" class="active">Online-Services</a></li>
+          <li><a href="leckageortung.html">Leckageortung</a></li>
+        </ul>
+      </li>
+      <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero scroll-animate">
+    <h1>Online-Services</h1>
+    <p>Professionelle Bau- und Dachgutachten – digital, schnell und bundesweit verfügbar</p>
+  </section>
+
+  <div class="content-wrapper">
+    <section class="intro-section scroll-animate">
+      <h2>Expertise ohne Anfahrt – Ihre Vorteile der digitalen Baubegleitung</h2>
+      <p>
+        In der modernen Baubranche zählt Effizienz. Deshalb biete ich Ihnen umfassende Fachleistungen komplett digital an – von der Planprüfung bis zur Schadensanalyse. Sie profitieren von meiner langjährigen Erfahrung als Sachverständiger, sparen Anfahrtskosten und erhalten schnelle, fundierte Ergebnisse.
+      </p>
+
+```
+  <ul>
+    <li>Bundesweite Verfügbarkeit ohne Vor-Ort-Termine</li>
+    <li>Schnelle Bearbeitung und zeitnahe Ergebnisse</li>
+    <li>Transparente Pauschalpreise ohne versteckte Kosten</li>
+    <li>Präzise Analysen auf Basis Ihrer Unterlagen</li>
+  </ul>
+</section>
+
+<div class="services-grid scroll-animate">
+  <!-- Service 1 -->
+  <div class="service-card">
+    <span class="icon">🏠</span>
+    <h3>Online-DachCheck</h3>
+    <p>Ihr Dach aus der Ferne professionell begutachtet – mittels Ihrer Fotos, Videos oder Drohnenaufnahmen. Schnell, präzise und ohne Vor-Ort-Termin.</p>
+    <ul>
+      <li>Analyse von Schäden und Undichtigkeiten</li>
+      <li>Bewertung des Sanierungsbedarfs</li>
+      <li>Schriftliches Gutachten mit Handlungsempfehlungen</li>
+      <li>Rechtssicher und verständlich aufbereitet</li>
+    </ul>
+    <a href="online-dachcheck.html" class="cta-link">📤 Mehr erfahren →</a>
+  </div>
+
+  <!-- Service 2 -->
+  <div class="service-card">
+    <span class="icon">⚙️</span>
+    <h3>Digitale Bauleitung</h3>
+    <p>Ihr Bauprojekt professionell begleitet – auch aus der Ferne. Per Video-Reviews, Foto-Dokumentation und digitaler Planprüfung behalte ich den Überblick über Ihren Baufortschritt.</p>
+    <ul>
+      <li>Wöchentliche Videoanalysen des Baufortschritts</li>
+      <li>Prüfung von Ausführungsqualität und Mängeln</li>
+      <li>Dokumentenprüfung und Freigaben</li>
+      <li>Direkte Kommunikation mit Handwerkern möglich</li>
+    </ul>
+    <a href="kontakt.html" class="cta-link">👉 Projekt digital starten →</a>
+  </div>
+
+  <!-- Service 3 -->
+  <div class="service-card">
+    <span class="icon">📋</span>
+    <h3>Gutachten per Video & Foto</h3>
+    <p>Laden Sie Ihre Aufnahmen hoch und erhalten Sie ein vollwertiges, gerichtsfestes Gutachten. Ideal bei Baumängeln, Versicherungsfällen oder Kaufentscheidungen.</p>
+    <ul>
+      <li>Upload von Fotos, Videos und Plänen</li>
+      <li>Detaillierte Schadensbewertung</li>
+      <li>Kosteneinschätzung für Sanierung</li>
+      <li>Schnelle Bearbeitungszeit (3-5 Werktage)</li>
+    </ul>
+    <a href="kontakt.html" class="cta-link">📄 Gutachten beauftragen →</a>
+  </div>
+
+  <!-- Service 4 -->
+  <div class="service-card">
+    <span class="icon">💡</span>
+    <h3>Energie- & Sanierungsberatung</h3>
+    <p>Ich analysiere online Ihren Dachaufbau und die Gebäudehülle – mit Fokus auf Wärmedämmung, Energieeffizienz und mögliche Fördermittel (KfW, BAFA).</p>
+    <ul>
+      <li>Analyse von Wärmedämmung und Energieverlusten</li>
+      <li>Sanierungsempfehlungen mit Kostenrahmen</li>
+      <li>Fördermittelberatung (KfW, BAFA)</li>
+      <li>Online-Termin oder schriftliche Analyse</li>
+    </ul>
+    <a href="kontakt.html" class="cta-link">🔍 Beratung anfragen →</a>
+  </div>
+
+  <!-- Service 5 -->
+  <div class="service-card">
+    <span class="icon">📑</span>
+    <h3>Projektbegleitung & Kostenprüfung</h3>
+    <p>Unabhängige Prüfung von Angeboten, Leistungsverzeichnissen und Rechnungen. Ich sorge dafür, dass Sie als Bauherr oder Investor die volle Kostenkontrolle behalten.</p>
+    <ul>
+      <li>Angebotsprüfung auf Vollständigkeit und Plausibilität</li>
+      <li>Bewertung von Nachträgen</li>
+      <li>Materialpreisvergleich</li>
+      <li>Optionale Zoom-Beratung inklusive</li>
+    </ul>
+    <a href="kontakt.html" class="cta-link">💰 Kosten prüfen lassen →</a>
+  </div>
+
+  <!-- Service 6 -->
+  <div class="service-card">
+    <span class="icon">📸</span>
+    <h3>Bau- & Schadendokumentation</h3>
+    <p>Professionelle Dokumentation von Schäden oder Bauzuständen – mit Beweiswert für Versicherungen, Gerichte oder Eigentümerversammlungen.</p>
+    <ul>
+      <li>Strukturierte Aufbereitung Ihrer Aufnahmen</li>
+      <li>Fachliche Bewertung und Einordnung</li>
+      <li>Gerichtsverwertbare Dokumentation</li>
+      <li>Ideal für Eigentümer, Verwalter und Juristen</li>
+    </ul>
+    <a href="kontakt.html" class="cta-link">📷 Schaden dokumentieren →</a>
+  </div>
+
+  <!-- Service 7 -->
+  <div class="service-card">
+    <span class="icon">🧰</span>
+    <h3>Planprüfung & Detail-Check</h3>
+    <p>Bevor gebaut wird: Ich prüfe Ihre Planunterlagen auf technische Schwächen, Normabweichungen und Ausführungsrisiken – digital und effizient.</p>
+    <ul>
+      <li>Prüfung von Ausführungsplänen und Details</li>
+      <li>Abgleich mit gültigen Normen und Regelwerken</li>
+      <li>Risikoeinschätzung vor Baubeginn</li>
+      <li>Kurzbewertung oder Vollgutachten möglich</li>
+    </ul>
+    <a href="kontakt.html" class="cta-link">📐 Pläne prüfen lassen →</a>
+  </div>
+
+  <!-- Service 8 -->
+  <div class="service-card">
+    <span class="icon">🎓</span>
+    <h3>Schulungen & Wissenstransfer</h3>
+    <p>Kompakte Online-Kurse, Live-Webinare und Fachinhalte rund um Dachhandwerk und Baupraxis – verständlich erklärt für Bauleiter, Handwerker und Eigentümer.</p>
+    <ul>
+      <li>Videokurse zu Fachthemen</li>
+      <li>Live-Webinare mit Q&A</li>
+      <li>Praxisnahes Expertenwissen</li>
+      <li>Zertifikate für Teilnehmer</li>
+    </ul>
+    <a href="kontakt.html" class="cta-link">📚 Schulungsangebot ansehen →</a>
+  </div>
+
+  <!-- Service 9 -->
+  <div class="service-card">
+    <span class="icon">🔍</span>
+    <h3>Checklisten & Tools</h3>
+    <p>Professionelle Checklisten und Vorlagen für Dacharbeiten, Wartungen und Ausschreibungen – praxiserprobt und sofort einsetzbar.</p>
+    <ul>
+      <li>Abnahme-Checklisten</li>
+      <li>Wartungspläne für Dächer</li>
+      <li>Vorlagen für Leistungsverzeichnisse</li>
+      <li>Kostenloser Download nach Registrierung</li>
+    </ul>
+    <a href="kontakt.html" class="cta-link">⬇️ Checklisten herunterladen →</a>
+  </div>
+
+  <!-- Service 10 -->
+  <div class="service-card">
+    <span class="icon">💬</span>
+    <h3>Virtuelle Beratungstermine</h3>
+    <p>Buchen Sie direkt online Ihren persönlichen Termin. Ich beantworte Ihre Fragen zu Dach, Bauvorhaben oder Angeboten – professionell, unkompliziert, digital.</p>
+    <ul>
+      <li>30- oder 60-minütige Beratungsgespräche</li>
+      <li>Per Video-Call oder Telefon</li>
+      <li>Flexible Terminbuchung</li>
+      <li>Direkter Expertenkontakt</li>
+    </ul>
+    <a href="kontakt.html" class="cta-link">📅 Termin buchen →</a>
+  </div>
+</div>
+
+<section class="highlight-section scroll-animate">
+  <h3>Warum digitale Bau-Services?</h3>
+  <p>
+    Schnell: Keine Anfahrtszeiten, keine Terminabstimmung vor Ort – Sie erhalten zeitnah fundierte Ergebnisse · 
+    Kostengünstig: Sie sparen Anfahrtskosten und profitieren von transparenten, fairen Pauschalpreisen · 
+    Bundesweit: Egal wo Sie bauen – meine Expertise ist digital überall verfügbar · 
+    Präzise: Detaillierte Analysen auf Basis Ihrer Unterlagen – fundiert und nachvollziehbar dokumentiert
+  </p>
+</section>
+
+<section class="closing-section scroll-animate">
+  <p>
+    Nutzen Sie die Vorteile der Digitalisierung für Ihr Bauvorhaben. Kontaktieren Sie mich für ein unverbindliches Erstgespräch – ich berate Sie gerne, welcher Online-Service für Ihr Projekt am besten geeignet ist.
+  </p>
+</section>
+```
+
+  </div>
+</main>
+
+<footer>
+  <div style="max-width:1000px; margin:0 auto;">
+    <p>© 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
+    <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="kontakt.html">Kontakt</a></p>
+    <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: 030 12345678 | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
+  </div>
+</footer>
+
+<script>
+/* --- Navigation --- */
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+
+document.querySelectorAll('.has-submenu > a').forEach(link => {
+  link.addEventListener('click', e => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      const submenu = link.nextElementSibling;
+      if (submenu) {
+        submenu.classList.toggle('active');
+        if (!submenu.classList.contains('active')) {
+          submenu.querySelectorAll('.submenu.active').forEach(sub => {
+            sub.classList.remove('active');
+          });
+        }
+      }
+    }
+  });
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    navMenu.classList.remove('show');
+    document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
+  }
+});
+
+/* --- Scroll Animation --- */
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -80px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('active');
+      }, index * 50);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.scroll-animate').forEach(el => {
+  observer.observe(el);
+});
+
+window.addEventListener('load', () => {
+  const firstElements = document.querySelectorAll('.hero, .intro-section');
+  firstElements.forEach(el => el.classList.add('active'));
+});
+</script>
+
+</body>
+</html>
