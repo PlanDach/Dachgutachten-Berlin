@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="de">
 <head>
 <meta charset="UTF-8">
@@ -10,54 +11,54 @@ body { font-family: Arial, sans-serif; overflow-x:hidden; background:#ffffff; co
 
 /* Header */
 header {
-  width:100%;
-  background:#fff;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:10px 20px;
-  position:fixed;
-  top:0; left:0;
-  z-index:10;
-  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+width:100%;
+background:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 20px;
+position:fixed;
+top:0; left:0;
+z-index:10;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 .logo img { height:80px; width:auto; }
 .hamburger { display:none; font-size:2em; cursor:pointer; }
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
-nav ul li a { 
-  text-decoration:none; 
-  color:#004d00; 
-  font-weight:500; 
-  padding:5px 10px; 
-  display:block; 
-  transition: background-color 0.3s ease, color 0.3s ease;
+nav ul li a {
+text-decoration:none;
+color:#004d00;
+font-weight:500;
+padding:5px 10px;
+display:block;
+transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-nav ul li a:hover { 
-  background-color:#e6f4ea; 
-  border-radius:6px; 
-  color:#007f5f; 
+nav ul li a:hover {
+background-color:#e6f4ea;
+border-radius:6px;
+color:#007f5f;
 }
-nav ul li a:active, 
-nav ul li a.active { 
-  background-color:#cde9d8; 
-  border-radius:6px; 
-  color:#007f5f; 
+nav ul li a:active,
+nav ul li a.active {
+background-color:#cde9d8;
+border-radius:6px;
+color:#007f5f;
 }
 
 /* Untermenüs Desktop */
-nav ul li ul { 
-  display:none; 
-  position:absolute; 
-  top:100%; 
-  left:0; 
-  background:#fff; 
-  list-style:none; 
-  padding:10px 0; 
-  min-width:200px; 
-  box-shadow:0 4px 10px rgba(0,0,0,0.1); 
-  z-index:10; 
+nav ul li ul {
+display:none;
+position:absolute;
+top:100%;
+left:0;
+background:#fff;
+list-style:none;
+padding:10px 0;
+min-width:200px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+z-index:10;
 }
 nav ul li:hover > ul { display:block; }
 nav ul li ul li { padding:0; }
@@ -65,185 +66,456 @@ nav ul li ul li a { padding:8px 15px; white-space:nowrap; }
 nav ul li ul li ul { top:0; left:100%; }
 
 nav ul li ul li a.active {
-  background-color:#cde9d8;
-  border-radius:6px;
-  color:#007f5f;
+background-color:#cde9d8;
+border-radius:6px;
+color:#007f5f;
 }
 
 /* Hero */
-.hero { 
-  position:relative;
-  text-align:center; 
-  padding:140px 20px 80px 20px; 
-  min-height:400px; 
-  background: url('IMG_3980.jpeg') center center / cover no-repeat;
-  color:#ffffff;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+.hero {
+position:relative;
+width:100%;
+text-align:center;
+padding:140px 20px 80px 20px;
+min-height:400px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+.hero-img {
+position:absolute;
+top:0; left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0.9;
+z-index:1;
 }
 .hero::after {
-  content:"";
-  position:absolute;
-  top:0; left:0; right:0; bottom:0;
-  background:rgba(0,0,0,0.5);
-  filter: brightness(0.7);
-  z-index:1;
+content:””;
+position:absolute;
+top:0; left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.35);
+z-index:2;
 }
-.hero h1, .hero p { position:relative; z-index:2; }
+.hero h1, .hero p {
+position:relative;
+z-index:3;
+color:#ffffff;
+}
 .hero h1 { font-size:2.8em; margin-bottom:20px; font-weight:700; }
 .hero p { font-size:1.3em; max-width:700px; line-height:1.5; }
 
 /* Steps Section */
 .steps-section {
-  max-width:1100px;
-  margin:80px auto;
-  padding:0 20px;
+max-width:1100px;
+margin:80px auto;
+padding:0 20px;
 }
 
 .steps-section > h2 {
-  font-size:2em;
-  font-weight:600;
-  text-align:center;
-  margin-bottom:60px;
-  color:#004d00;
+font-size:2em;
+font-weight:600;
+text-align:center;
+margin-bottom:60px;
+color:#004d00;
 }
 
 .steps-grid {
-  display:grid;
-  grid-template-columns:1fr;
-  gap:50px;
+display:grid;
+grid-template-columns:1fr;
+gap:50px;
 }
 
 .step {
-  display:grid;
-  grid-template-columns:80px 1fr;
-  gap:30px;
-  align-items:start;
-  opacity:0;
-  transform:translateY(20px);
-  transition:opacity 0.6s ease, transform 0.6s ease;
+display:grid;
+grid-template-columns:80px 1fr;
+gap:30px;
+align-items:start;
+opacity:0;
+transform:translateY(20px);
+transition:opacity 0.6s ease, transform 0.6s ease;
 }
 
 .step.visible {
-  opacity:1;
-  transform:translateY(0);
+opacity:1;
+transform:translateY(0);
 }
 
 .step .icon {
-  width:80px;
-  height:80px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+width:80px;
+height:80px;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
 .step .icon img {
-  width:80px;
-  height:80px;
-  transition: transform 0.3s ease;
+width:80px;
+height:80px;
+transition: transform 0.3s ease;
 }
 
 .step:hover .icon img {
-  transform:scale(1.05);
+transform:scale(1.05);
 }
 
-.step-content h3 { 
-  font-size:1.4em; 
-  font-weight:600; 
-  color:#004d00;
-  margin-bottom:12px;
-  line-height:1.3;
+.step-content h3 {
+font-size:1.4em;
+font-weight:600;
+color:#004d00;
+margin-bottom:12px;
+line-height:1.3;
 }
 
-.step-content p { 
-  font-size:1.05rem; 
-  color:#333; 
-  line-height:1.8;
-  margin:0;
+.step-content p {
+font-size:1.05rem;
+color:#333;
+line-height:1.8;
+margin:0;
 }
 
 /* Tablet/Desktop: 2 Spalten */
 @media (min-width:900px) {
-  .steps-grid {
-    grid-template-columns:repeat(2, 1fr);
-    gap:60px 50px;
-  }
+.steps-grid {
+grid-template-columns:repeat(2, 1fr);
+gap:60px 50px;
+}
+}
+
+/* DIGITALE BAULEITUNG SECTION */
+.digital-section {
+background:#fafafa;
+padding:80px 20px;
+margin-top:80px;
+}
+
+.digital-content {
+max-width:1100px;
+margin:0 auto;
+}
+
+.digital-content > h2 {
+font-size:2em;
+font-weight:600;
+text-align:center;
+margin-bottom:30px;
+color:#004d00;
+}
+
+.digital-intro {
+max-width:800px;
+margin:0 auto 60px;
+text-align:center;
+font-size:1.1em;
+line-height:1.8;
+color:#333;
+}
+
+/* Vorteile Grid */
+.benefits-grid {
+display:grid;
+grid-template-columns:repeat(2, 1fr);
+gap:40px;
+max-width:900px;
+margin:0 auto 60px;
+}
+
+.benefit-item {
+display:flex;
+gap:20px;
+align-items:start;
+opacity:0;
+transform:translateY(20px);
+transition:opacity 0.6s ease, transform 0.6s ease;
+}
+
+.benefit-item.visible {
+opacity:1;
+transform:translateY(0);
+}
+
+.benefit-item .icon {
+width:70px;
+height:70px;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-shrink:0;
+}
+
+.benefit-item .icon svg {
+width:70px;
+height:70px;
+transition: transform 0.3s ease;
+}
+
+.benefit-item:hover .icon svg {
+transform:scale(1.05);
+}
+
+.benefit-item .benefit-content h3 {
+font-size:1.2em;
+font-weight:600;
+color:#004d00;
+margin-bottom:8px;
+}
+
+.benefit-item .benefit-content p {
+font-size:0.95em;
+color:#555;
+line-height:1.6;
+}
+
+/* Wie funktioniert’s */
+.how-it-works {
+max-width:1000px;
+margin:60px auto 60px;
+}
+
+.how-it-works > h3 {
+font-size:1.6em;
+font-weight:600;
+text-align:center;
+margin-bottom:50px;
+color:#004d00;
+}
+
+.process-grid {
+display:grid;
+grid-template-columns:repeat(2, 1fr);
+gap:40px;
+}
+
+.process-step {
+display:flex;
+gap:20px;
+align-items:start;
+opacity:0;
+transform:translateY(20px);
+transition:opacity 0.6s ease, transform 0.6s ease;
+}
+
+.process-step.visible {
+opacity:1;
+transform:translateY(0);
+}
+
+.process-step .icon {
+width:60px;
+height:60px;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-shrink:0;
+}
+
+.process-step .icon img {
+width:60px;
+height:60px;
+transition: transform 0.3s ease;
+}
+
+.process-step:hover .icon img {
+transform:scale(1.05);
+}
+
+.process-step .icon svg {
+width:60px;
+height:60px;
+transition: transform 0.3s ease;
+}
+
+.process-step:hover .icon svg {
+transform:scale(1.05);
+}
+
+.process-step .process-content h4 {
+font-size:1.1em;
+font-weight:600;
+color:#004d00;
+margin-bottom:8px;
+}
+
+.process-step .process-content p {
+font-size:0.95em;
+color:#555;
+line-height:1.6;
+}
+
+/* Highlight Box */
+.highlight-box {
+max-width:800px;
+margin:60px auto 40px;
+padding:30px 0 30px 30px;
+border-left:4px solid #004d00;
+background:#fff;
+}
+
+.highlight-box p {
+font-size:1.05em;
+line-height:1.7;
+color:#333;
+}
+
+.highlight-box strong {
+color:#004d00;
+font-weight:600;
+}
+
+/* CTA Section */
+.cta-section {
+text-align:center;
+max-width:700px;
+margin:50px auto 0;
+}
+
+.cta-section p {
+font-size:1.05em;
+line-height:1.7;
+color:#333;
+margin-bottom:30px;
+}
+
+.cta-button {
+display:inline-block;
+background:#007f5f;
+color:#fff;
+padding:16px 40px;
+font-size:1.1em;
+font-weight:600;
+text-decoration:none;
+border-radius:8px;
+transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+background:#005f46;
+transform:translateY(-2px);
 }
 
 /* Footer */
-footer { 
-  background:#f8f8f8; 
-  padding:40px 20px; 
-  text-align:center; 
-  font-size:14px; 
-  color:#333; 
-  margin-top:80px;
+footer {
+background:#f8f8f8;
+padding:40px 20px;
+text-align:center;
+font-size:14px;
+color:#333;
+margin-top:0;
 }
 
 /* Responsive */
 @media (max-width:768px) {
-  .hamburger { display:block; }
-  nav ul { 
-    flex-direction:column; 
-    display:none; 
-    background:#fff; 
-    position:absolute; 
-    top:60px; 
-    left:0; 
-    width:100%; 
-  }
-  nav ul.show { display:flex; }
-  nav ul li a { font-size:1.2em; text-align:center; }
-  nav ul li ul { position:relative; top:0; left:0; box-shadow:none; }
-  nav ul li ul li ul { left:0; }
-  
-  .hero { 
-    padding:100px 20px 60px 20px; 
-    min-height:320px;
-  }
-  .hero h1 { font-size:2em; }
-  .hero p { font-size:1.1em; }
-  
-  .steps-section { 
-    margin:50px auto; 
-  }
-  
-  .steps-section > h2 { 
-    font-size:1.7em; 
-    margin-bottom:40px; 
-  }
-  
-  .steps-grid {
-    gap:40px;
-  }
-  
-  .step {
-    grid-template-columns:70px 1fr;
-    gap:20px;
-  }
-  
-  .step .icon {
-    width:70px;
-    height:70px;
-  }
-  
-  .step .icon img {
-    width:70px;
-    height:70px;
-  }
-  
-  .step-content h3 { 
-    font-size:1.2em; 
-  }
-  
-  .step-content p { 
-    font-size:1rem; 
-    line-height:1.7;
-  }
+.hamburger { display:block; }
+nav ul {
+flex-direction:column;
+display:none;
+background:#fff;
+position:absolute;
+top:60px;
+left:0;
+width:100%;
+}
+nav ul.show { display:flex; }
+nav ul li a { font-size:1.2em; text-align:center; }
+nav ul li ul { position:relative; top:0; left:0; box-shadow:none; }
+nav ul li ul li ul { left:0; }
+
+.hero {
+padding:100px 20px 60px 20px;
+min-height:320px;
+}
+.hero h1 { font-size:2em; }
+.hero p { font-size:1.1em; }
+
+.steps-section {
+margin:50px auto;
+}
+
+.steps-section > h2 {
+font-size:1.7em;
+margin-bottom:40px;
+}
+
+.steps-grid {
+gap:40px;
+}
+
+.step {
+grid-template-columns:70px 1fr;
+gap:20px;
+}
+
+.step .icon {
+width:70px;
+height:70px;
+}
+
+.step .icon img {
+width:70px;
+height:70px;
+}
+
+.step-content h3 {
+font-size:1.2em;
+}
+
+.step-content p {
+font-size:1rem;
+line-height:1.7;
+}
+
+/* Digital Section Mobile */
+.digital-section {
+padding:60px 20px;
+margin-top:60px;
+}
+
+.digital-content > h2 {
+font-size:1.7em;
+margin-bottom:25px;
+}
+
+.digital-intro {
+font-size:1em;
+margin-bottom:40px;
+}
+
+.benefits-grid {
+grid-template-columns:1fr;
+gap:30px;
+}
+
+.process-grid {
+grid-template-columns:1fr;
+gap:30px;
+}
+
+.how-it-works > h3 {
+font-size:1.4em;
+margin-bottom:35px;
+}
+
+.highlight-box {
+padding:25px 0 25px 20px;
+margin:40px 20px 30px;
+}
+
+.cta-section {
+margin:40px auto 0;
+}
+
+.cta-button {
+padding:14px 32px;
+font-size:1em;
+}
 }
 </style>
+
 </head>
 <body>
 
@@ -300,6 +572,7 @@ footer {
 
 <main>
   <section class="hero">
+    <img src="IMG_3980.jpeg" alt="Baukoordination" class="hero-img">
     <h1>Baukoordination</h1>
     <p>Reibungslose Abläufe, transparente Kommunikation und effizientes Projektmanagement auf Ihrer Baustelle.</p>
   </section>
@@ -307,51 +580,230 @@ footer {
   <section class="steps-section">
     <h2>Unsere Leistungen</h2>
 
-    <div class="steps-grid">
-      
-      <div class="step">
-        <div class="icon">
-          <img src="project-management_17416428.png" alt="Organisation" width="80" height="80">
-        </div>
-        <div class="step-content">
-          <h3>Organisation und Bauablaufplanung</h3>
-          <p>Wir erstellen detaillierte Ablaufpläne, klären Verantwortlichkeiten und koordinieren Handwerker, Ingenieure und Fachplaner. Meilensteinpläne, Ressourcenplanung und Fristenkontrolle sichern die termingerechte Fertigstellung.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="icon">
-          <img src="partnership_18321230.png" alt="Schnittstellenmanagement" width="80" height="80">
-        </div>
-        <div class="step-content">
-          <h3>Schnittstellenmanagement</h3>
-          <p>Kritische Schnittstellen zwischen Gewerken werden identifiziert, Konflikte gelöst und reibungslose Übergaben sichergestellt.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="icon">
-          <img src="reden2.jpeg" alt="Kommunikation" width="80" height="80">
-        </div>
-        <div class="step-content">
-          <h3>Kommunikation und Dokumentation</h3>
-          <p>Abstimmung mit Bauherr, Architekt, Fachplanern und Handwerkern sowie lückenlose Dokumentation von Fortschritten, Änderungen und Entscheidungen.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="icon">
-          <img src="trustworthiness_18291158.png" alt="Qualität" width="80" height="80">
-        </div>
-        <div class="step-content">
-          <h3>Qualität und Kontrolle</h3>
-          <p>Überprüfung der Einhaltung technischer Normen, baurechtlicher Vorgaben und vertraglicher Vereinbarungen während des gesamten Bauprozesses.</p>
-        </div>
-      </div>
-
+```
+<div class="steps-grid">
+  
+  <div class="step">
+    <div class="icon">
+      <img src="project-management_17416428.png" alt="Organisation" width="80" height="80">
     </div>
+    <div class="step-content">
+      <h3>Organisation und Bauablaufplanung</h3>
+      <p>Wir erstellen detaillierte Ablaufpläne, klären Verantwortlichkeiten und koordinieren Handwerker, Ingenieure und Fachplaner. Meilensteinpläne, Ressourcenplanung und Fristenkontrolle sichern die termingerechte Fertigstellung.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="icon">
+      <img src="partnership_18321230.png" alt="Schnittstellenmanagement" width="80" height="80">
+    </div>
+    <div class="step-content">
+      <h3>Schnittstellenmanagement</h3>
+      <p>Kritische Schnittstellen zwischen Gewerken werden identifiziert, Konflikte gelöst und reibungslose Übergaben sichergestellt.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="icon">
+      <img src="reden2.jpeg" alt="Kommunikation" width="80" height="80">
+    </div>
+    <div class="step-content">
+      <h3>Kommunikation und Dokumentation</h3>
+      <p>Abstimmung mit Bauherr, Architekt, Fachplanern und Handwerkern sowie lückenlose Dokumentation von Fortschritten, Änderungen und Entscheidungen.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="icon">
+      <img src="trustworthiness_18291158.png" alt="Qualität" width="80" height="80">
+    </div>
+    <div class="step-content">
+      <h3>Qualität und Kontrolle</h3>
+      <p>Überprüfung der Einhaltung technischer Normen, baurechtlicher Vorgaben und vertraglicher Vereinbarungen während des gesamten Bauprozesses.</p>
+    </div>
+  </div>
+
+</div>
+```
 
   </section>
+
+  <!-- DIGITALE BAULEITUNG SECTION -->
+
+  <section class="digital-section">
+    <div class="digital-content">
+      <h2>Digitale Bauleitung – Bauüberwachung aus der Ferne</h2>
+
+```
+  <div class="digital-intro">
+    <p>Bauüberwachung muss nicht immer vor Ort stattfinden. Mit digitaler Bauleitung begleite ich Ihr Projekt bundesweit – per Videoanalyse, digitaler Planprüfung und regelmäßigen Online-Abstimmungen. So profitieren Sie von professioneller Baukoordination ohne Anfahrtskosten und mit maximaler Flexibilität.</p>
+  </div>
+
+  <div class="benefits-grid">
+    <div class="benefit-item">
+      <div class="icon">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+          <circle cx="40" cy="40" r="35" fill="#e6f4ea" stroke="#007f5f" stroke-width="2.5"/>
+          <!-- Blitz-Symbol für Geschwindigkeit -->
+          <path d="M45 15L28 42H40L35 65L52 38H40L45 15Z" fill="#007f5f" stroke="#007f5f" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="benefit-content">
+        <h3>Schnell & effizient</h3>
+        <p>Keine Anfahrtszeiten, direktes Feedback und schnelle Reaktionszeiten bei Problemen.</p>
+      </div>
+    </div>
+
+    <div class="benefit-item">
+      <div class="icon">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+          <circle cx="40" cy="40" r="35" fill="#e6f4ea" stroke="#007f5f" stroke-width="2.5"/>
+          <!-- Münzen mit Pfeil nach unten für Kostenersparnis -->
+          <circle cx="32" cy="38" r="10" fill="white" stroke="#007f5f" stroke-width="2.5"/>
+          <circle cx="48" cy="38" r="10" fill="white" stroke="#007f5f" stroke-width="2.5"/>
+          <path d="M32 35v6M48 35v6" stroke="#007f5f" stroke-width="2"/>
+          <path d="M28 35h8M44 35h8" stroke="#007f5f" stroke-width="2"/>
+          <path d="M40 52v8M40 60l-4-4M40 60l4-4" stroke="#007f5f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="benefit-content">
+        <h3>Kosteneffektiv</h3>
+        <p>Reduzierte Reisekosten bei gleicher Qualität der Bauüberwachung.</p>
+      </div>
+    </div>
+
+    <div class="benefit-item">
+      <div class="icon">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+          <circle cx="40" cy="40" r="35" fill="#e6f4ea" stroke="#007f5f" stroke-width="2.5"/>
+          <!-- Weltkugel mit Verbindungslinien -->
+          <circle cx="40" cy="40" r="22" stroke="#007f5f" stroke-width="2.5" fill="white"/>
+          <ellipse cx="40" cy="40" rx="10" ry="22" stroke="#007f5f" stroke-width="2"/>
+          <path d="M18 40h44M40 18v44" stroke="#007f5f" stroke-width="2"/>
+          <path d="M28 28Q34 40 28 52M52 28Q46 40 52 52" stroke="#007f5f" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+      <div class="benefit-content">
+        <h3>Bundesweit verfügbar</h3>
+        <p>Standortunabhängige Betreuung – egal wo Ihr Projekt realisiert wird.</p>
+      </div>
+    </div>
+
+    <div class="benefit-item">
+      <div class="icon">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+          <circle cx="40" cy="40" r="35" fill="#e6f4ea" stroke="#007f5f" stroke-width="2.5"/>
+          <!-- Ordner mit Lupe für transparente Dokumentation -->
+          <path d="M20 30v25c0 2 1 3 3 3h34c2 0 3-1 3-3V30" stroke="#007f5f" stroke-width="2.5" fill="white"/>
+          <path d="M20 30h15l4-6h21v6" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
+          <circle cx="50" cy="48" r="8" fill="white" stroke="#007f5f" stroke-width="2"/>
+          <path d="M56 54l5 5" stroke="#007f5f" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="benefit-content">
+        <h3>Transparente Dokumentation</h3>
+        <p>Alle Analysen und Entscheidungen digital nachvollziehbar und jederzeit abrufbar.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="how-it-works">
+    <h3>Wie funktioniert's?</h3>
+    
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="icon">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="60" height="60">
+            <!-- Kamera mit Upload-Pfeil -->
+            <rect x="15" y="25" width="50" height="35" rx="4" fill="#e6f4ea" stroke="#007f5f" stroke-width="2.5"/>
+            <circle cx="40" cy="42" r="10" stroke="#007f5f" stroke-width="2.5" fill="white"/>
+            <circle cx="40" cy="42" r="6" fill="#007f5f"/>
+            <rect x="25" y="20" width="12" height="6" rx="2" fill="#007f5f"/>
+            <circle cx="55" cy="32" r="3" fill="#007f5f"/>
+            <path d="M40 12v10M40 12l-3 3M40 12l3 3" stroke="#007f5f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="process-content">
+          <h4>Schritt 1: Dokumentation</h4>
+          <p>Wöchentliche Video- oder Foto-Dokumentation vom Baufortschritt durch Sie oder Ihre Handwerker.</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="icon">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="60" height="60">
+            <!-- Bauplan mit Lupe -->
+            <rect x="18" y="20" width="36" height="45" rx="2" fill="white" stroke="#007f5f" stroke-width="2.5"/>
+            <path d="M25 28h22M25 34h18M25 40h20" stroke="#007f5f" stroke-width="2" stroke-linecap="round"/>
+            <rect x="25" y="46" width="12" height="12" fill="#e6f4ea" stroke="#007f5f" stroke-width="1.5"/>
+            <path d="M28 49h6M28 52h6M28 55h4" stroke="#007f5f" stroke-width="1" stroke-linecap="round"/>
+            <circle cx="52" cy="52" r="11" fill="#007f5f"/>
+            <circle cx="52" cy="52" r="6" fill="white"/>
+            <path d="M59 59l6 6" stroke="#007f5f" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="process-content">
+          <h4>Schritt 2: Planprüfung</h4>
+          <p>Digitale Planprüfung und Review aller Dokumente, Rechnungen und Ausführungsdetails.</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="icon">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="60" height="60">
+            <!-- Monitor mit zwei Personen im Video-Call -->
+            <rect x="12" y="22" width="56" height="36" rx="3" fill="#e6f4ea" stroke="#007f5f" stroke-width="2.5"/>
+            <rect x="16" y="26" width="48" height="28" rx="2" fill="white" stroke="#007f5f" stroke-width="1.5"/>
+            <!-- Linke Person -->
+            <circle cx="28" cy="36" r="5" fill="#007f5f"/>
+            <path d="M20 48c0-4 3-6 8-6s8 2 8 6" fill="#007f5f"/>
+            <!-- Rechte Person -->
+            <circle cx="52" cy="36" r="5" fill="#007f5f"/>
+            <path d="M44 48c0-4 3-6 8-6s8 2 8 6" fill="#007f5f"/>
+            <!-- Standfuß -->
+            <rect x="36" y="58" width="8" height="8" fill="#007f5f"/>
+            <rect x="28" y="66" width="24" height="3" rx="1.5" fill="#007f5f"/>
+          </svg>
+        </div>
+        <div class="process-content">
+          <h4>Schritt 3: Abstimmung</h4>
+          <p>Regelmäßige Video-Calls zur Besprechung von Mängeln, Freigaben und nächsten Schritten.</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="icon">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="60" height="60">
+            <!-- Ordner mit Dokumenten und Haken -->
+            <path d="M18 30c0-2 1-3 3-3h12l4-5h22c2 0 3 1 3 3v8" stroke="#007f5f" stroke-width="2.5" fill="white"/>
+            <rect x="18" y="30" width="44" height="30" rx="2" fill="#e6f4ea" stroke="#007f5f" stroke-width="2.5"/>
+            <rect x="24" y="36" width="20" height="18" rx="1" fill="white" stroke="#007f5f" stroke-width="1.5"/>
+            <path d="M28 42h12M28 46h10M28 50h8" stroke="#007f5f" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="52" cy="50" r="10" fill="#007f5f"/>
+            <path d="M48 50l3 3 5-6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="process-content">
+          <h4>Schritt 4: Dokumentation</h4>
+          <p>Lückenlose digitale Dokumentation aller Entscheidungen, Freigaben und Änderungen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Ideal für:</strong> Überregionale Projekte, Investoren mit mehreren Standorten, zeitkritische Bauvorhaben oder als kosteneffiziente Ergänzung zur klassischen Vor-Ort-Bauleitung.</p>
+  </div>
+
+  <div class="cta-section">
+    <p>Die digitale Bauleitung eignet sich besonders für überregionale Projekte, Investoren mit mehreren Standorten oder als kosteneffiziente Ergänzung zur klassischen Bauüberwachung. Sprechen Sie mich an – ich berate Sie gerne, welche Lösung für Ihr Bauvorhaben ideal ist.</p>
+    <a href="kontakt.html" class="cta-button">Digitale Bauleitung anfragen</a>
+  </div>
+</div>
+```
+
+  </section>
+
 </main>
 
 <footer>
@@ -375,8 +827,8 @@ document.querySelectorAll('#navMenu .has-submenu > a').forEach(link => {
   });
 });
 
-// Scroll-Animation
-const steps = document.querySelectorAll('.step');
+// Scroll-Animation für alle animierten Elemente
+const animatedElements = document.querySelectorAll('.step, .benefit-item, .process-step');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -385,7 +837,7 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.2 });
 
-steps.forEach(step => observer.observe(step));
+animatedElements.forEach(el => observer.observe(el));
 </script>
 
 </body>
