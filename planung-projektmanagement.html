@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="de">
 <head>
 <meta charset="UTF-8">
@@ -10,54 +11,54 @@ body { font-family: Arial, sans-serif; overflow-x:hidden; background:#ffffff; co
 
 /* Header */
 header {
-  width:100%;
-  background:#fff;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:10px 20px;
-  position:fixed;
-  top:0; left:0;
-  z-index:10;
-  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+width:100%;
+background:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 20px;
+position:fixed;
+top:0; left:0;
+z-index:10;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 .logo img { height:80px; width:auto; }
 .hamburger { display:none; font-size:2em; cursor:pointer; }
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
-nav ul li a { 
-  text-decoration:none; 
-  color:#004d00; 
-  font-weight:500; 
-  padding:5px 10px; 
-  display:block; 
-  transition: background-color 0.3s ease, color 0.3s ease;
+nav ul li a {
+text-decoration:none;
+color:#004d00;
+font-weight:500;
+padding:5px 10px;
+display:block;
+transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-nav ul li a:hover { 
-  background-color:#e6f4ea; 
-  border-radius:6px; 
-  color:#007f5f; 
+nav ul li a:hover {
+background-color:#e6f4ea;
+border-radius:6px;
+color:#007f5f;
 }
-nav ul li a:active, 
-nav ul li a.active { 
-  background-color:#cde9d8; 
-  border-radius:6px; 
-  color:#007f5f; 
+nav ul li a:active,
+nav ul li a.active {
+background-color:#cde9d8;
+border-radius:6px;
+color:#007f5f;
 }
 
 /* Untermenüs Desktop */
-nav ul li ul { 
-  display:none; 
-  position:absolute; 
-  top:100%; 
-  left:0; 
-  background:#fff; 
-  list-style:none; 
-  padding:10px 0; 
-  min-width:200px; 
-  box-shadow:0 4px 10px rgba(0,0,0,0.1); 
-  z-index:10; 
+nav ul li ul {
+display:none;
+position:absolute;
+top:100%;
+left:0;
+background:#fff;
+list-style:none;
+padding:10px 0;
+min-width:200px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+z-index:10;
 }
 nav ul li:hover > ul { display:block; }
 nav ul li ul li { padding:0; }
@@ -65,31 +66,31 @@ nav ul li ul li a { padding:8px 15px; white-space:nowrap; }
 nav ul li ul li ul { top:0; left:100%; }
 
 nav ul li ul li ul li a.active {
-  background-color:#cde9d8;
-  border-radius:6px;
-  color:#007f5f;
+background-color:#cde9d8;
+border-radius:6px;
+color:#007f5f;
 }
 
 /* Hero */
-.hero { 
-  position:relative;
-  text-align:center; 
-  padding:140px 20px 80px 20px; 
-  min-height:400px; 
-  background: url('IMG_3949.jpeg') center center / cover no-repeat;
-  color:#ffffff;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+.hero {
+position:relative;
+text-align:center;
+padding:140px 20px 80px 20px;
+min-height:400px;
+background: url('IMG_3949.jpeg') center center / cover no-repeat;
+color:#ffffff;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 }
 .hero::after {
-  content:"";
-  position:absolute;
-  top:0; left:0; right:0; bottom:0;
-  background:rgba(0,0,0,0.5);
-  filter: brightness(0.7);
-  z-index:1;
+content:””;
+position:absolute;
+top:0; left:0; right:0; bottom:0;
+background:rgba(0,0,0,0.5);
+filter: brightness(0.7);
+z-index:1;
 }
 .hero h1, .hero p { position:relative; z-index:2; }
 .hero h1 { font-size:2.8em; margin-bottom:20px; font-weight:700; }
@@ -97,153 +98,264 @@ nav ul li ul li ul li a.active {
 
 /* Steps Section */
 .steps-section {
-  max-width:1100px;
-  margin:80px auto;
-  padding:0 20px;
+max-width:1100px;
+margin:80px auto;
+padding:0 20px;
 }
 
 .steps-section > h2 {
-  font-size:2em;
-  font-weight:600;
-  text-align:center;
-  margin-bottom:60px;
-  color:#004d00;
+font-size:2em;
+font-weight:600;
+text-align:center;
+margin-bottom:60px;
+color:#004d00;
 }
 
 .steps-grid {
-  display:grid;
-  grid-template-columns:1fr;
-  gap:50px;
+display:grid;
+grid-template-columns:1fr;
+gap:50px;
 }
 
 .step {
-  display:grid;
-  grid-template-columns:80px 1fr;
-  gap:30px;
-  align-items:start;
-  opacity:0;
-  transform:translateY(20px);
-  transition:opacity 0.6s ease, transform 0.6s ease;
+display:grid;
+grid-template-columns:80px 1fr;
+gap:30px;
+align-items:start;
+opacity:0;
+transform:translateY(20px);
+transition:opacity 0.6s ease, transform 0.6s ease;
 }
 
 .step.visible {
-  opacity:1;
-  transform:translateY(0);
+opacity:1;
+transform:translateY(0);
 }
 
 .step .icon {
-  width:80px;
-  height:80px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+width:80px;
+height:80px;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
 .step .icon img {
-  width:80px;
-  height:80px;
-  transition: transform 0.3s ease;
+width:80px;
+height:80px;
+transition: transform 0.3s ease;
 }
 
 .step:hover .icon img {
-  transform:scale(1.05);
+transform:scale(1.05);
 }
 
-.step-content h3 { 
-  font-size:1.4em; 
-  font-weight:600; 
-  color:#004d00;
-  margin-bottom:12px;
-  line-height:1.3;
+.step-content h3 {
+font-size:1.4em;
+font-weight:600;
+color:#004d00;
+margin-bottom:12px;
+line-height:1.3;
 }
 
-.step-content p { 
-  font-size:1.05rem; 
-  color:#333; 
-  line-height:1.8;
-  margin:0;
+.step-content p {
+font-size:1.05rem;
+color:#333;
+line-height:1.8;
+margin:0;
 }
 
 /* Tablet/Desktop: 2 Spalten */
 @media (min-width:900px) {
-  .steps-grid {
-    grid-template-columns:repeat(2, 1fr);
-    gap:60px 50px;
-  }
+.steps-grid {
+grid-template-columns:repeat(2, 1fr);
+gap:60px 50px;
+}
+}
+
+/* DIGITALE KOSTENPRÜFUNG SECTION */
+.digital-section {
+background:#fafafa;
+padding:80px 20px;
+margin-top:80px;
+}
+
+.digital-content {
+max-width:800px;
+margin:0 auto;
+}
+
+.digital-content > h2 {
+font-size:2em;
+font-weight:600;
+text-align:center;
+margin-bottom:30px;
+color:#004d00;
+}
+
+.digital-intro {
+max-width:800px;
+margin:0 auto 50px;
+text-align:center;
+font-size:1.1em;
+line-height:1.8;
+color:#333;
+}
+
+/* Highlight Box */
+.highlight-box {
+max-width:800px;
+margin:0 auto 40px;
+padding:30px 0 30px 30px;
+border-left:4px solid #004d00;
+background:#fff;
+}
+
+.highlight-box p {
+font-size:1.05em;
+line-height:1.7;
+color:#333;
+}
+
+.highlight-box strong {
+color:#004d00;
+font-weight:600;
+}
+
+/* CTA Section */
+.cta-section {
+text-align:center;
+max-width:700px;
+margin:50px auto 0;
+}
+
+.cta-section p {
+font-size:1.05em;
+line-height:1.7;
+color:#333;
+margin-bottom:30px;
+}
+
+.cta-button {
+display:inline-block;
+background:#007f5f;
+color:#fff;
+padding:16px 40px;
+font-size:1.1em;
+font-weight:600;
+text-decoration:none;
+border-radius:8px;
+transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+background:#005f46;
+transform:translateY(-2px);
 }
 
 /* Footer */
-footer { 
-  background:#f8f8f8; 
-  padding:40px 20px; 
-  text-align:center; 
-  font-size:14px; 
-  color:#333; 
-  margin-top:80px;
+footer {
+background:#f8f8f8;
+padding:40px 20px;
+text-align:center;
+font-size:14px;
+color:#333;
+margin-top:0;
 }
 
 /* Responsive */
 @media (max-width:768px) {
-  .hamburger { display:block; }
-  nav ul { 
-    flex-direction:column; 
-    display:none; 
-    background:#fff; 
-    position:absolute; 
-    top:60px; 
-    left:0; 
-    width:100%; 
-  }
-  nav ul.show { display:flex; }
-  nav ul li a { font-size:1.2em; text-align:center; }
-  nav ul li ul { position:relative; top:0; left:0; box-shadow:none; }
-  nav ul li ul li ul { left:0; }
-  
-  .hero { 
-    padding:100px 20px 60px 20px; 
-    min-height:320px;
-  }
-  .hero h1 { font-size:2em; }
-  .hero p { font-size:1.1em; }
-  
-  .steps-section { 
-    margin:50px auto; 
-  }
-  
-  .steps-section > h2 { 
-    font-size:1.7em; 
-    margin-bottom:40px; 
-  }
-  
-  .steps-grid {
-    gap:40px;
-  }
-  
-  .step {
-    grid-template-columns:70px 1fr;
-    gap:20px;
-  }
-  
-  .step .icon {
-    width:70px;
-    height:70px;
-  }
-  
-  .step .icon img {
-    width:70px;
-    height:70px;
-  }
-  
-  .step-content h3 { 
-    font-size:1.2em; 
-  }
-  
-  .step-content p { 
-    font-size:1rem; 
-    line-height:1.7;
-  }
+.hamburger { display:block; }
+nav ul {
+flex-direction:column;
+display:none;
+background:#fff;
+position:absolute;
+top:60px;
+left:0;
+width:100%;
+}
+nav ul.show { display:flex; }
+nav ul li a { font-size:1.2em; text-align:center; }
+nav ul li ul { position:relative; top:0; left:0; box-shadow:none; }
+nav ul li ul li ul { left:0; }
+
+.hero {
+padding:100px 20px 60px 20px;
+min-height:320px;
+}
+.hero h1 { font-size:2em; }
+.hero p { font-size:1.1em; }
+
+.steps-section {
+margin:50px auto;
+}
+
+.steps-section > h2 {
+font-size:1.7em;
+margin-bottom:40px;
+}
+
+.steps-grid {
+gap:40px;
+}
+
+.step {
+grid-template-columns:70px 1fr;
+gap:20px;
+}
+
+.step .icon {
+width:70px;
+height:70px;
+}
+
+.step .icon img {
+width:70px;
+height:70px;
+}
+
+.step-content h3 {
+font-size:1.2em;
+}
+
+.step-content p {
+font-size:1rem;
+line-height:1.7;
+}
+
+/* Digital Section Mobile */
+.digital-section {
+padding:60px 20px;
+margin-top:60px;
+}
+
+.digital-content > h2 {
+font-size:1.7em;
+margin-bottom:25px;
+}
+
+.digital-intro {
+font-size:1em;
+margin-bottom:40px;
+}
+
+.highlight-box {
+padding:25px 0 25px 20px;
+margin:40px auto 30px;
+}
+
+.cta-section {
+margin:40px auto 0;
+}
+
+.cta-button {
+padding:14px 32px;
+font-size:1em;
+}
 }
 </style>
+
 </head>
 <body>
 
@@ -307,41 +419,68 @@ footer {
   <section class="steps-section">
     <h2>Schritte im Projektmanagement</h2>
 
-    <div class="steps-grid">
-      
-      <div class="step">
-        <div class="icon">
-          <img src="space_17416501.png" alt="Projektstruktur" width="80" height="80">
-        </div>
-        <div class="step-content">
-          <h3>1. Projektstruktur und Ablaufplanung</h3>
-          <p>Ein durchdachtes Fundament ist entscheidend: Wir legen klare Projektphasen, Verantwortlichkeiten und Abläufe fest, damit alle Beteiligten von Beginn an zielgerichtet arbeiten können.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="icon">
-          <img src="communiation.png" alt="Koordination" width="80" height="80">
-        </div>
-        <div class="step-content">
-          <h3>2. Koordination und Kommunikation</h3>
-          <p>Als zentrale Schnittstelle zwischen Auftraggebern, Planern und Handwerkern sorge ich für reibungslose Abstimmungen, Transparenz und eine enge Zusammenarbeit – damit alle stets auf dem gleichen Stand sind.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="icon">
-          <img src="masterplan_17416379 (1).png" alt="Termin und Kosten" width="80" height="80">
-        </div>
-        <div class="step-content">
-          <h3>3. Termin- und Kostenkontrolle</h3>
-          <p>Durch konsequente Überwachung von Zeitplänen, Meilensteinen und Budgets sichere ich die Einhaltung von Terminen und Kosten und schaffe damit Planungs- und Investitionssicherheit.</p>
-        </div>
-      </div>
-
+```
+<div class="steps-grid">
+  
+  <div class="step">
+    <div class="icon">
+      <img src="space_17416501.png" alt="Projektstruktur" width="80" height="80">
     </div>
+    <div class="step-content">
+      <h3>1. Projektstruktur und Ablaufplanung</h3>
+      <p>Ein durchdachtes Fundament ist entscheidend: Wir legen klare Projektphasen, Verantwortlichkeiten und Abläufe fest, damit alle Beteiligten von Beginn an zielgerichtet arbeiten können.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="icon">
+      <img src="communiation.png" alt="Koordination" width="80" height="80">
+    </div>
+    <div class="step-content">
+      <h3>2. Koordination und Kommunikation</h3>
+      <p>Als zentrale Schnittstelle zwischen Auftraggebern, Planern und Handwerkern sorge ich für reibungslose Abstimmungen, Transparenz und eine enge Zusammenarbeit – damit alle stets auf dem gleichen Stand sind.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="icon">
+      <img src="masterplan_17416379 (1).png" alt="Termin und Kosten" width="80" height="80">
+    </div>
+    <div class="step-content">
+      <h3>3. Termin- und Kostenkontrolle</h3>
+      <p>Durch konsequente Überwachung von Zeitplänen, Meilensteinen und Budgets sichere ich die Einhaltung von Terminen und Kosten und schaffe damit Planungs- und Investitionssicherheit.</p>
+    </div>
+  </div>
+
+</div>
+```
 
   </section>
+
+  <!-- DIGITALE KOSTENPRÜFUNG SECTION -->
+
+  <section class="digital-section">
+    <div class="digital-content">
+      <h2>Digitale Kostenprüfung – Transparenz und Kontrolle aus der Ferne</h2>
+
+```
+  <div class="digital-intro">
+    <p>Kostenkontrolle muss nicht zwingend vor Ort erfolgen. Mit der digitalen Kostenprüfung analysiere ich Ihre Angebote, Leistungsverzeichnisse, Rechnungen und Nachträge standortunabhängig – präzise, unabhängig und mit professioneller Bewertung. So behalten Sie als Bauherr oder Investor jederzeit die volle Kostenkontrolle über Ihr Projekt.</p>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Ideal für:</strong> Bauherren und Investoren mit überregionalen Projekten, Nachtragsstreitigkeiten, komplexen Abrechnungen oder als neutrale Zweitprüfung bei Unsicherheiten zu Angeboten und Rechnungen.</p>
+  </div>
+
+  <div class="cta-section">
+    <p>Die digitale Kostenprüfung eignet sich besonders zur Vermeidung von Kostenüberschreitungen, zur objektiven Bewertung von Nachträgen oder als unabhängige Kontrolle bei umfangreichen Bauvorhaben. Kontaktieren Sie mich – ich prüfe Ihre Unterlagen professionell und gebe Ihnen klare Handlungsempfehlungen.</p>
+    <a href="kontakt.html" class="cta-button">Kostenprüfung anfragen</a>
+  </div>
+</div>
+```
+
+  </section>
+
 </main>
 
 <footer>
