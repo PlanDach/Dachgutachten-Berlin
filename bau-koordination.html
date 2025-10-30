@@ -187,7 +187,7 @@ gap:60px 50px;
 }
 }
 
-/* DIGITALE BAULEITUNG SECTION */
+/* DIGITALE BAULEITUNG SECTION - Clean Version */
 .digital-section {
 background:#fafafa;
 padding:80px 20px;
@@ -195,7 +195,7 @@ margin-top:80px;
 }
 
 .digital-content {
-max-width:1100px;
+max-width:800px;
 margin:0 auto;
 }
 
@@ -209,148 +209,17 @@ color:#004d00;
 
 .digital-intro {
 max-width:800px;
-margin:0 auto 60px;
+margin:0 auto 50px;
 text-align:center;
 font-size:1.1em;
 line-height:1.8;
 color:#333;
 }
 
-/* Vorteile Grid */
-.benefits-grid {
-display:grid;
-grid-template-columns:repeat(2, 1fr);
-gap:40px;
-max-width:900px;
-margin:0 auto 60px;
-}
-
-.benefit-item {
-display:flex;
-gap:20px;
-align-items:start;
-opacity:0;
-transform:translateY(20px);
-transition:opacity 0.6s ease, transform 0.6s ease;
-}
-
-.benefit-item.visible {
-opacity:1;
-transform:translateY(0);
-}
-
-.benefit-item .icon {
-width:70px;
-height:70px;
-display:flex;
-align-items:center;
-justify-content:center;
-flex-shrink:0;
-}
-
-.benefit-item .icon svg {
-width:70px;
-height:70px;
-transition: transform 0.3s ease;
-}
-
-.benefit-item:hover .icon svg {
-transform:scale(1.05);
-}
-
-.benefit-item .benefit-content h3 {
-font-size:1.2em;
-font-weight:600;
-color:#004d00;
-margin-bottom:8px;
-}
-
-.benefit-item .benefit-content p {
-font-size:0.95em;
-color:#555;
-line-height:1.6;
-}
-
-/* Wie funktioniert’s */
-.how-it-works {
-max-width:1000px;
-margin:60px auto 60px;
-}
-
-.how-it-works > h3 {
-font-size:1.6em;
-font-weight:600;
-text-align:center;
-margin-bottom:50px;
-color:#004d00;
-}
-
-.process-grid {
-display:grid;
-grid-template-columns:repeat(2, 1fr);
-gap:40px;
-}
-
-.process-step {
-display:flex;
-gap:20px;
-align-items:start;
-opacity:0;
-transform:translateY(20px);
-transition:opacity 0.6s ease, transform 0.6s ease;
-}
-
-.process-step.visible {
-opacity:1;
-transform:translateY(0);
-}
-
-.process-step .icon {
-width:60px;
-height:60px;
-display:flex;
-align-items:center;
-justify-content:center;
-flex-shrink:0;
-}
-
-.process-step .icon img {
-width:60px;
-height:60px;
-transition: transform 0.3s ease;
-}
-
-.process-step:hover .icon img {
-transform:scale(1.05);
-}
-
-.process-step .icon svg {
-width:60px;
-height:60px;
-transition: transform 0.3s ease;
-}
-
-.process-step:hover .icon svg {
-transform:scale(1.05);
-}
-
-.process-step .process-content h4 {
-font-size:1.1em;
-font-weight:600;
-color:#004d00;
-margin-bottom:8px;
-}
-
-.process-step .process-content p {
-font-size:0.95em;
-color:#555;
-line-height:1.6;
-}
-
 /* Highlight Box */
 .highlight-box {
 max-width:800px;
-margin:60px auto 40px;
+margin:0 auto 40px;
 padding:30px 0 30px 30px;
 border-left:4px solid #004d00;
 background:#fff;
@@ -485,24 +354,9 @@ font-size:1em;
 margin-bottom:40px;
 }
 
-.benefits-grid {
-grid-template-columns:1fr;
-gap:30px;
-}
-
-.process-grid {
-grid-template-columns:1fr;
-gap:30px;
-}
-
-.how-it-works > h3 {
-font-size:1.4em;
-margin-bottom:35px;
-}
-
 .highlight-box {
 padding:25px 0 25px 20px;
-margin:40px 20px 30px;
+margin:40px auto 30px;
 }
 
 .cta-section {
@@ -520,294 +374,136 @@ font-size:1em;
 <body>
 
 <header>
-  <div class="logo">
-    <img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo">
-  </div>
-  <div class="hamburger" id="hamburger">☰</div>
-  <nav>
-    <ul id="navMenu">
-      <li><a href="index.html">Startseite</a></li>
-      <li><a href="ueber-mich.html">Über mich</a></li>
-      <li class="has-submenu">
-        <a href="#">Leistungen</a>
-        <ul>
-          <li><a href="gutachten.html">Gutachten</a></li>
-          <li class="has-submenu">
-            <a href="#">Planung</a>
-            <ul>
-              <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
-              <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
-              <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
-              <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
-            </ul>
-          </li>
-          <li class="has-submenu">
-            <a href="#">Bauüberwachung</a>
-            <ul>
-              <li><a href="bau-koordination.html" class="active">Koordination</a></li>
-              <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
-              <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
-              <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
-            </ul>
-          </li>
-          <li class="has-submenu">
-            <a href="#">Ausschreibung</a>
-            <ul>
-              <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
-              <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
-              <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
-            </ul>
-          </li>
-          <li><a href="dachwartung.html">Dachwartung</a></li>
-          <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
-          <li><a href="leckageortung.html">Leckageortung</a></li>
-        </ul>
-      </li>
-      <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
-      <li><a href="impressum.html">Impressum</a></li>
-    </ul>
-  </nav>
+<div class="logo">
+<img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo">
+</div>
+<div class="hamburger" id="hamburger">☰</div>
+<nav>
+<ul id="navMenu">
+<li><a href="index.html">Startseite</a></li>
+<li><a href="ueber-mich.html">Über mich</a></li>
+<li class="has-submenu">
+<a href="#">Leistungen</a>
+<ul>
+<li><a href="gutachten.html">Gutachten</a></li>
+<li class="has-submenu">
+<a href="#">Planung</a>
+<ul>
+<li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
+<li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
+<li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
+<li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
+</ul>
+</li>
+<li class="has-submenu">
+<a href="#">Bauüberwachung</a>
+<ul>
+<li><a href="bau-koordination.html" class="active">Koordination</a></li>
+<li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
+<li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
+<li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
+</ul>
+</li>
+<li class="has-submenu">
+<a href="#">Ausschreibung</a>
+<ul>
+<li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
+<li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
+<li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
+</ul>
+</li>
+<li><a href="dachwartung.html">Dachwartung</a></li>
+<li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+<li><a href="leckageortung.html">Leckageortung</a></li>
+</ul>
+</li>
+<li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+<li><a href="kontakt.html">Kontakt</a></li>
+<li><a href="impressum.html">Impressum</a></li>
+</ul>
+</nav>
 </header>
 
 <main>
-  <section class="hero">
-    <img src="IMG_3980.jpeg" alt="Baukoordination" class="hero-img">
-    <h1>Baukoordination</h1>
-    <p>Reibungslose Abläufe, transparente Kommunikation und effizientes Projektmanagement auf Ihrer Baustelle.</p>
-  </section>
+<section class="hero">
+<img src="IMG_3980.jpeg" alt="Baukoordination" class="hero-img">
+<h1>Baukoordination</h1>
+<p>Reibungslose Abläufe, transparente Kommunikation und effizientes Projektmanagement auf Ihrer Baustelle.</p>
+</section>
 
-  <section class="steps-section">
-    <h2>Unsere Leistungen</h2>
-
+<section class="steps-section">
+<h2>Unsere Leistungen</h2>
 
 <div class="steps-grid">
-  
-  <div class="step">
-    <div class="icon">
-      <img src="project-management_17416428.png" alt="Organisation" width="80" height="80">
-    </div>
-    <div class="step-content">
-      <h3>Organisation und Bauablaufplanung</h3>
-      <p>Wir erstellen detaillierte Ablaufpläne, klären Verantwortlichkeiten und koordinieren Handwerker, Ingenieure und Fachplaner. Meilensteinpläne, Ressourcenplanung und Fristenkontrolle sichern die termingerechte Fertigstellung.</p>
-    </div>
-  </div>
 
-  <div class="step">
-    <div class="icon">
-      <img src="partnership_18321230.png" alt="Schnittstellenmanagement" width="80" height="80">
-    </div>
-    <div class="step-content">
-      <h3>Schnittstellenmanagement</h3>
-      <p>Kritische Schnittstellen zwischen Gewerken werden identifiziert, Konflikte gelöst und reibungslose Übergaben sichergestellt.</p>
-    </div>
-  </div>
-
-  <div class="step">
-    <div class="icon">
-      <img src="reden2.jpeg" alt="Kommunikation" width="80" height="80">
-    </div>
-    <div class="step-content">
-      <h3>Kommunikation und Dokumentation</h3>
-      <p>Abstimmung mit Bauherr, Architekt, Fachplanern und Handwerkern sowie lückenlose Dokumentation von Fortschritten, Änderungen und Entscheidungen.</p>
-    </div>
-  </div>
-
-  <div class="step">
-    <div class="icon">
-      <img src="trustworthiness_18291158.png" alt="Qualität" width="80" height="80">
-    </div>
-    <div class="step-content">
-      <h3>Qualität und Kontrolle</h3>
-      <p>Überprüfung der Einhaltung technischer Normen, baurechtlicher Vorgaben und vertraglicher Vereinbarungen während des gesamten Bauprozesses.</p>
-    </div>
-  </div>
-
+<div class="step">
+<div class="icon">
+<img src="project-management_17416428.png" alt="Organisation" width="80" height="80">
+</div>
+<div class="step-content">
+<h3>Organisation und Bauablaufplanung</h3>
+<p>Wir erstellen detaillierte Ablaufpläne, klären Verantwortlichkeiten und koordinieren Handwerker, Ingenieure und Fachplaner. Meilensteinpläne, Ressourcenplanung und Fristenkontrolle sichern die termingerechte Fertigstellung.</p>
+</div>
 </div>
 
-
-  </section>
-
-  <!-- DIGITALE BAULEITUNG SECTION -->
-
-  <section class="digital-section">
-    <div class="digital-content">
-      <h2>Digitale Bauleitung – Bauüberwachung aus der Ferne</h2>
-
-
-  <div class="digital-intro">
-    <p>Bauüberwachung muss nicht immer vor Ort stattfinden. Mit digitaler Bauleitung begleite ich Ihr Projekt bundesweit – per Videoanalyse, digitaler Planprüfung und regelmäßigen Online-Abstimmungen. So profitieren Sie von professioneller Baukoordination ohne Anfahrtskosten und mit maximaler Flexibilität.</p>
-  </div>
-
-  <div class="benefits-grid">
-    <div class="benefit-item">
-      <div class="icon">
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="70" height="70">
-          <circle cx="40" cy="40" r="35" fill="#e6f4ea" stroke="#007f5f" stroke-width="2.5"/>
-          <!-- Blitz-Symbol für Geschwindigkeit -->
-          <path d="M45 15L28 42H40L35 65L52 38H40L45 15Z" fill="#007f5f" stroke="#007f5f" stroke-width="1.5" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div class="benefit-content">
-        <h3>Schnell & effizient</h3>
-        <p>Keine Anfahrtszeiten, direktes Feedback und schnelle Reaktionszeiten bei Problemen.</p>
-      </div>
-    </div>
-
-    <div class="benefit-item">
-      <div class="icon">
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="70" height="70">
-          <circle cx="40" cy="40" r="35" fill="#e6f4ea" stroke="#007f5f" stroke-width="2.5"/>
-          <!-- Münzen mit Pfeil nach unten für Kostenersparnis -->
-          <circle cx="32" cy="38" r="10" fill="white" stroke="#007f5f" stroke-width="2.5"/>
-          <circle cx="48" cy="38" r="10" fill="white" stroke="#007f5f" stroke-width="2.5"/>
-          <path d="M32 35v6M48 35v6" stroke="#007f5f" stroke-width="2"/>
-          <path d="M28 35h8M44 35h8" stroke="#007f5f" stroke-width="2"/>
-          <path d="M40 52v8M40 60l-4-4M40 60l4-4" stroke="#007f5f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div class="benefit-content">
-        <h3>Kosteneffektiv</h3>
-        <p>Reduzierte Reisekosten bei gleicher Qualität der Bauüberwachung.</p>
-      </div>
-    </div>
-
-    <div class="benefit-item">
-      <div class="icon">
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="70" height="70">
-          <circle cx="40" cy="40" r="35" fill="#e6f4ea" stroke="#007f5f" stroke-width="2.5"/>
-          <!-- Weltkugel mit Verbindungslinien -->
-          <circle cx="40" cy="40" r="22" stroke="#007f5f" stroke-width="2.5" fill="white"/>
-          <ellipse cx="40" cy="40" rx="10" ry="22" stroke="#007f5f" stroke-width="2"/>
-          <path d="M18 40h44M40 18v44" stroke="#007f5f" stroke-width="2"/>
-          <path d="M28 28Q34 40 28 52M52 28Q46 40 52 52" stroke="#007f5f" stroke-width="2" fill="none"/>
-        </svg>
-      </div>
-      <div class="benefit-content">
-        <h3>Bundesweit verfügbar</h3>
-        <p>Standortunabhängige Betreuung – egal wo Ihr Projekt realisiert wird.</p>
-      </div>
-    </div>
-
-    <div class="benefit-item">
-      <div class="icon">
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="70" height="70">
-          <circle cx="40" cy="40" r="35" fill="#e6f4ea" stroke="#007f5f" stroke-width="2.5"/>
-          <!-- Ordner mit Lupe für transparente Dokumentation -->
-          <path d="M20 30v25c0 2 1 3 3 3h34c2 0 3-1 3-3V30" stroke="#007f5f" stroke-width="2.5" fill="white"/>
-          <path d="M20 30h15l4-6h21v6" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
-          <circle cx="50" cy="48" r="8" fill="white" stroke="#007f5f" stroke-width="2"/>
-          <path d="M56 54l5 5" stroke="#007f5f" stroke-width="2.5" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="benefit-content">
-        <h3>Transparente Dokumentation</h3>
-        <p>Alle Analysen und Entscheidungen digital nachvollziehbar und jederzeit abrufbar.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="how-it-works">
-    <h3>Wie funktioniert's?</h3>
-    
-    <div class="process-grid">
-      <div class="process-step">
-        <div class="icon">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="60" height="60">
-            <!-- Kamera mit Upload-Pfeil -->
-            <rect x="15" y="25" width="50" height="35" rx="4" fill="#e6f4ea" stroke="#007f5f" stroke-width="2.5"/>
-            <circle cx="40" cy="42" r="10" stroke="#007f5f" stroke-width="2.5" fill="white"/>
-            <circle cx="40" cy="42" r="6" fill="#007f5f"/>
-            <rect x="25" y="20" width="12" height="6" rx="2" fill="#007f5f"/>
-            <circle cx="55" cy="32" r="3" fill="#007f5f"/>
-            <path d="M40 12v10M40 12l-3 3M40 12l3 3" stroke="#007f5f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="process-content">
-          <h4>Schritt 1: Dokumentation</h4>
-          <p>Wöchentliche Video- oder Foto-Dokumentation vom Baufortschritt durch Sie oder Ihre Handwerker.</p>
-        </div>
-      </div>
-
-      <div class="process-step">
-        <div class="icon">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="60" height="60">
-            <!-- Bauplan mit Lupe -->
-            <rect x="18" y="20" width="36" height="45" rx="2" fill="white" stroke="#007f5f" stroke-width="2.5"/>
-            <path d="M25 28h22M25 34h18M25 40h20" stroke="#007f5f" stroke-width="2" stroke-linecap="round"/>
-            <rect x="25" y="46" width="12" height="12" fill="#e6f4ea" stroke="#007f5f" stroke-width="1.5"/>
-            <path d="M28 49h6M28 52h6M28 55h4" stroke="#007f5f" stroke-width="1" stroke-linecap="round"/>
-            <circle cx="52" cy="52" r="11" fill="#007f5f"/>
-            <circle cx="52" cy="52" r="6" fill="white"/>
-            <path d="M59 59l6 6" stroke="#007f5f" stroke-width="3" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="process-content">
-          <h4>Schritt 2: Planprüfung</h4>
-          <p>Digitale Planprüfung und Review aller Dokumente, Rechnungen und Ausführungsdetails.</p>
-        </div>
-      </div>
-
-      <div class="process-step">
-        <div class="icon">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="60" height="60">
-            <!-- Monitor mit zwei Personen im Video-Call -->
-            <rect x="12" y="22" width="56" height="36" rx="3" fill="#e6f4ea" stroke="#007f5f" stroke-width="2.5"/>
-            <rect x="16" y="26" width="48" height="28" rx="2" fill="white" stroke="#007f5f" stroke-width="1.5"/>
-            <!-- Linke Person -->
-            <circle cx="28" cy="36" r="5" fill="#007f5f"/>
-            <path d="M20 48c0-4 3-6 8-6s8 2 8 6" fill="#007f5f"/>
-            <!-- Rechte Person -->
-            <circle cx="52" cy="36" r="5" fill="#007f5f"/>
-            <path d="M44 48c0-4 3-6 8-6s8 2 8 6" fill="#007f5f"/>
-            <!-- Standfuß -->
-            <rect x="36" y="58" width="8" height="8" fill="#007f5f"/>
-            <rect x="28" y="66" width="24" height="3" rx="1.5" fill="#007f5f"/>
-          </svg>
-        </div>
-        <div class="process-content">
-          <h4>Schritt 3: Abstimmung</h4>
-          <p>Regelmäßige Video-Calls zur Besprechung von Mängeln, Freigaben und nächsten Schritten.</p>
-        </div>
-      </div>
-
-      <div class="process-step">
-        <div class="icon">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="60" height="60">
-            <!-- Ordner mit Dokumenten und Haken -->
-            <path d="M18 30c0-2 1-3 3-3h12l4-5h22c2 0 3 1 3 3v8" stroke="#007f5f" stroke-width="2.5" fill="white"/>
-            <rect x="18" y="30" width="44" height="30" rx="2" fill="#e6f4ea" stroke="#007f5f" stroke-width="2.5"/>
-            <rect x="24" y="36" width="20" height="18" rx="1" fill="white" stroke="#007f5f" stroke-width="1.5"/>
-            <path d="M28 42h12M28 46h10M28 50h8" stroke="#007f5f" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="52" cy="50" r="10" fill="#007f5f"/>
-            <path d="M48 50l3 3 5-6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="process-content">
-          <h4>Schritt 4: Dokumentation</h4>
-          <p>Lückenlose digitale Dokumentation aller Entscheidungen, Freigaben und Änderungen.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="highlight-box">
-    <p><strong>Ideal für:</strong> Überregionale Projekte, Investoren mit mehreren Standorten, zeitkritische Bauvorhaben oder als kosteneffiziente Ergänzung zur klassischen Vor-Ort-Bauleitung.</p>
-  </div>
-
-  <div class="cta-section">
-    <p>Die digitale Bauleitung eignet sich besonders für überregionale Projekte, Investoren mit mehreren Standorten oder als kosteneffiziente Ergänzung zur klassischen Bauüberwachung. Sprechen Sie mich an – ich berate Sie gerne, welche Lösung für Ihr Bauvorhaben ideal ist.</p>
-    <a href="kontakt.html" class="cta-button">Digitale Bauleitung anfragen</a>
-  </div>
+<div class="step">
+<div class="icon">
+<img src="partnership_18321230.png" alt="Schnittstellenmanagement" width="80" height="80">
+</div>
+<div class="step-content">
+<h3>Schnittstellenmanagement</h3>
+<p>Kritische Schnittstellen zwischen Gewerken werden identifiziert, Konflikte gelöst und reibungslose Übergaben sichergestellt.</p>
+</div>
 </div>
 
+<div class="step">
+<div class="icon">
+<img src="reden2.jpeg" alt="Kommunikation" width="80" height="80">
+</div>
+<div class="step-content">
+<h3>Kommunikation und Dokumentation</h3>
+<p>Abstimmung mit Bauherr, Architekt, Fachplanern und Handwerkern sowie lückenlose Dokumentation von Fortschritten, Änderungen und Entscheidungen.</p>
+</div>
+</div>
 
-  </section>
+<div class="step">
+<div class="icon">
+<img src="trustworthiness_18291158.png" alt="Qualität" width="80" height="80">
+</div>
+<div class="step-content">
+<h3>Qualität und Kontrolle</h3>
+<p>Überprüfung der Einhaltung technischer Normen, baurechtlicher Vorgaben und vertraglicher Vereinbarungen während des gesamten Bauprozesses.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- DIGITALE BAULEITUNG SECTION - Clean & Professional -->
+
+<section class="digital-section">
+<div class="digital-content">
+<h2>Digitale Bauleitung – Bauüberwachung aus der Ferne</h2>
+
+<div class="digital-intro">
+<p>Bauüberwachung muss nicht immer vor Ort stattfinden. Mit digitaler Bauleitung begleite ich Ihr Projekt bundesweit – per Videoanalyse, digitaler Planprüfung und regelmäßigen Online-Abstimmungen. So profitieren Sie von professioneller Baukoordination ohne Anfahrtskosten und mit maximaler Flexibilität.</p>
+</div>
+
+<div class="highlight-box">
+<p><strong>Ideal für:</strong> Überregionale Projekte, Investoren mit mehreren Standorten, zeitkritische Bauvorhaben oder als kosteneffiziente Ergänzung zur klassischen Vor-Ort-Bauleitung.</p>
+</div>
+
+<div class="cta-section">
+<p>Die digitale Bauleitung eignet sich besonders für überregionale Projekte, Investoren mit mehreren Standorten oder als kosteneffiziente Ergänzung zur klassischen Bauüberwachung. Sprechen Sie mich an – ich berate Sie gerne, welche Lösung für Ihr Bauvorhaben ideal ist.</p>
+<a href="kontakt.html" class="cta-button">Digitale Bauleitung anfragen</a>
+</div>
+</div>
+</section>
 
 </main>
 
 <footer>
-  <p>&copy; 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
+<p>&copy; 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
 </footer>
 
 <script>
@@ -817,27 +513,27 @@ hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); })
 
 // Mobile Untermenü toggle
 document.querySelectorAll('#navMenu .has-submenu > a').forEach(link => {
-  link.addEventListener('click', e => {
-    if(window.innerWidth <= 768){
-      e.preventDefault();
-      const submenu = link.nextElementSibling;
-      submenu.style.display = (submenu.style.display === 'flex') ? 'none' : 'flex';
-      submenu.style.flexDirection = 'column';
-    }
-  });
+link.addEventListener('click', e => {
+if(window.innerWidth <= 768){
+e.preventDefault();
+const submenu = link.nextElementSibling;
+submenu.style.display = (submenu.style.display === 'flex') ? 'none' : 'flex';
+submenu.style.flexDirection = 'column';
+}
+});
 });
 
-// Scroll-Animation für alle animierten Elemente
-const animatedElements = document.querySelectorAll('.step, .benefit-item, .process-step');
+// Scroll-Animation
+const steps = document.querySelectorAll('.step');
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+}
+});
 }, { threshold: 0.2 });
 
-animatedElements.forEach(el => observer.observe(el));
+steps.forEach(step => observer.observe(step));
 </script>
 
 </body>
