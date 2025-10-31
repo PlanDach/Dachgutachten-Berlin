@@ -33,7 +33,6 @@ nav ul li a {
   display:block; 
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 nav ul li a:hover { 
   background-color:#e6f4ea; 
   border-radius:6px; 
@@ -63,7 +62,6 @@ nav ul li:hover > ul { display:block; }
 nav ul li ul li { padding:0; }
 nav ul li ul li a { padding:8px 15px; white-space:nowrap; }
 nav ul li ul li ul { top:0; left:100%; }
-
 nav ul li ul li a.active {
   background-color:#cde9d8;
   border-radius:6px;
@@ -101,7 +99,6 @@ nav ul li ul li a.active {
   margin:80px auto;
   padding:0 20px;
 }
-
 .steps-section > h2 {
   font-size:2em;
   font-weight:600;
@@ -109,13 +106,11 @@ nav ul li ul li a.active {
   margin-bottom:60px;
   color:#004d00;
 }
-
 .steps-grid {
   display:grid;
   grid-template-columns:1fr;
   gap:50px;
 }
-
 .step {
   display:grid;
   grid-template-columns:80px 1fr;
@@ -125,12 +120,10 @@ nav ul li ul li a.active {
   transform:translateY(20px);
   transition:opacity 0.6s ease, transform 0.6s ease;
 }
-
 .step.visible {
   opacity:1;
   transform:translateY(0);
 }
-
 .step .icon {
   width:80px;
   height:80px;
@@ -138,17 +131,14 @@ nav ul li ul li a.active {
   align-items:center;
   justify-content:center;
 }
-
 .step .icon img {
   width:80px;
   height:80px;
   transition: transform 0.3s ease;
 }
-
 .step:hover .icon img {
   transform:scale(1.05);
 }
-
 .step-content h3 { 
   font-size:1.4em; 
   font-weight:600; 
@@ -156,20 +146,88 @@ nav ul li ul li a.active {
   margin-bottom:12px;
   line-height:1.3;
 }
-
 .step-content p { 
   font-size:1.05rem; 
   color:#333; 
   line-height:1.8;
   margin:0;
 }
-
 /* Tablet/Desktop: 2 Spalten */
 @media (min-width:900px) {
   .steps-grid {
     grid-template-columns:repeat(2, 1fr);
     gap:60px 50px;
   }
+}
+
+/* DIGITALE KOSTENPRÜFUNG SECTION */
+.digital-section {
+  background:#fafafa;
+  padding:80px 20px;
+  margin-top:80px;
+}
+.digital-content {
+  max-width:800px;
+  margin:0 auto;
+}
+.digital-content > h2 {
+  font-size:2em;
+  font-weight:600;
+  text-align:center;
+  margin-bottom:30px;
+  color:#004d00;
+}
+.digital-intro {
+  max-width:800px;
+  margin:0 auto 50px;
+  text-align:center;
+  font-size:1.1em;
+  line-height:1.8;
+  color:#333;
+}
+/* Highlight Box */
+.highlight-box {
+  max-width:800px;
+  margin:0 auto 40px;
+  padding:30px 0 30px 30px;
+  border-left:4px solid #004d00;
+  background:#fff;
+}
+.highlight-box p {
+  font-size:1.05em;
+  line-height:1.7;
+  color:#333;
+}
+.highlight-box strong {
+  color:#004d00;
+  font-weight:600;
+}
+/* CTA Section */
+.cta-section {
+  text-align:center;
+  max-width:700px;
+  margin:50px auto 0;
+}
+.cta-section p {
+  font-size:1.05em;
+  line-height:1.7;
+  color:#333;
+  margin-bottom:30px;
+}
+.cta-button {
+  display:inline-block;
+  background:#007f5f;
+  color:#fff;
+  padding:16px 40px;
+  font-size:1.1em;
+  font-weight:600;
+  text-decoration:none;
+  border-radius:8px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.cta-button:hover {
+  background:#005f46;
+  transform:translateY(-2px);
 }
 
 /* Footer */
@@ -198,50 +256,40 @@ footer {
   nav ul li a { font-size:1.2em; text-align:center; }
   nav ul li ul { position:relative; top:0; left:0; box-shadow:none; }
   nav ul li ul li ul { left:0; }
-  
+
   .hero { 
     padding:100px 20px 60px 20px; 
     min-height:320px;
   }
   .hero h1 { font-size:2em; }
   .hero p { font-size:1.1em; }
-  
+
   .steps-section { 
     margin:50px auto; 
   }
-  
   .steps-section > h2 { 
     font-size:1.7em; 
     margin-bottom:40px; 
   }
-  
-  .steps-grid {
-    gap:40px;
-  }
-  
+  .steps-grid { gap:40px; }
   .step {
     grid-template-columns:70px 1fr;
     gap:20px;
   }
-  
-  .step .icon {
-    width:70px;
-    height:70px;
+  .step .icon { width:70px; height:70px; }
+  .step .icon img { width:70px; height:70px; }
+  .step-content h3 { font-size:1.2em; }
+  .step-content p { font-size:1rem; line-height:1.7; }
+
+  .digital-section {
+    padding:60px 20px;
+    margin-top:60px;
   }
-  
-  .step .icon img {
-    width:70px;
-    height:70px;
-  }
-  
-  .step-content h3 { 
-    font-size:1.2em; 
-  }
-  
-  .step-content p { 
-    font-size:1rem; 
-    line-height:1.7;
-  }
+  .digital-content > h2 { font-size:1.7em; margin-bottom:25px; }
+  .digital-intro { font-size:1em; margin-bottom:40px; }
+  .highlight-box { padding:25px 0 25px 20px; margin:40px auto 30px; }
+  .cta-section { margin:40px auto 0; }
+  .cta-button { padding:14px 32px; font-size:1em; }
 }
 </style>
 </head>
@@ -306,9 +354,7 @@ footer {
 
   <section class="steps-section">
     <h2>Unsere Leistungen</h2>
-
     <div class="steps-grid">
-      
       <div class="step">
         <div class="icon">
           <img src="assessment_18289736.png" alt="Aufmaßprüfung" width="80" height="80">
@@ -318,7 +364,6 @@ footer {
           <p>Wir kontrollieren Mengen, Maße und Nachweise exakt – damit nur tatsächlich erbrachte Leistungen abgerechnet werden.</p>
         </div>
       </div>
-
       <div class="step">
         <div class="icon">
           <img src="lending_17442778.png" alt="Leistungsverzeichnisse" width="80" height="80">
@@ -328,7 +373,6 @@ footer {
           <p>Abgleich aller Rechnungspositionen mit den vereinbarten Ausschreibungen – unzulässige Nachträge und Zusatzkosten werden zuverlässig erkannt.</p>
         </div>
       </div>
-
       <div class="step">
         <div class="icon">
           <img src="transparency_18281035.png" alt="Plausibilität" width="80" height="80">
@@ -338,10 +382,30 @@ footer {
           <p>Analyse der Rechnungen auf Vollständigkeit, faire Preisgestaltung und Übereinstimmung mit allen vertraglichen Vorgaben – für maximale Kostensicherheit.</p>
         </div>
       </div>
-
     </div>
-
   </section>
+
+  <!-- Digitale Kostenprüfung Sektion -->
+  <section class="digital-section">
+    <div class="digital-content">
+      <h2>Digitale Kostenprüfung</h2>
+      <p class="digital-intro">Mit unserer digitalen Kostenprüfung erkennen Sie Abweichungen, unnötige Kosten und Optimierungspotenziale frühzeitig.</p>
+      <div class="highlight-box">
+        <p><strong>Transparenz:</strong> Jede Position wird überprüft und nachvollziehbar dokumentiert.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Sicherheit:</strong> Rechtliche und vertragliche Vorgaben werden automatisch geprüft.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Effizienz:</strong> Optimierte Freigabeprozesse sparen Zeit und Kosten.</p>
+      </div>
+      <div class="cta-section">
+        <p>Starten Sie jetzt mit Ihrer digitalen Kostenprüfung und sichern Sie sich volle Kostentransparenz!</p>
+        <a href="kontakt.html" class="cta-button">Jetzt prüfen lassen</a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
@@ -374,7 +438,6 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 }, { threshold: 0.2 });
-
 steps.forEach(step => observer.observe(step));
 </script>
 
