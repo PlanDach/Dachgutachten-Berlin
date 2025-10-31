@@ -172,6 +172,86 @@ nav ul li ul li ul li a.active {
   }
 }
 
+/* DIGITALE SCHADENDOKUMENTATION SECTION */
+.digital-section {
+  background:#fafafa;
+  padding:80px 20px;
+  margin-top:80px;
+}
+
+.digital-content {
+  max-width:800px;
+  margin:0 auto;
+}
+
+.digital-content > h2 {
+  font-size:2em;
+  font-weight:600;
+  text-align:center;
+  margin-bottom:30px;
+  color:#004d00;
+}
+
+.digital-intro {
+  max-width:800px;
+  margin:0 auto 50px;
+  text-align:center;
+  font-size:1.1em;
+  line-height:1.8;
+  color:#333;
+}
+
+/* Highlight Box */
+.highlight-box {
+  max-width:800px;
+  margin:0 auto 40px;
+  padding:30px 0 30px 30px;
+  border-left:4px solid #004d00;
+  background:#fff;
+}
+
+.highlight-box p {
+  font-size:1.05em;
+  line-height:1.7;
+  color:#333;
+}
+
+.highlight-box strong {
+  color:#004d00;
+  font-weight:600;
+}
+
+/* CTA Section */
+.cta-section {
+  text-align:center;
+  max-width:700px;
+  margin:50px auto 0;
+}
+
+.cta-section p {
+  font-size:1.05em;
+  line-height:1.7;
+  color:#333;
+  margin-bottom:30px;
+}
+
+.cta-button {
+  display:inline-block;
+  background:#007f5f;
+  color:#fff;
+  padding:16px 40px;
+  font-size:1.1em;
+  font-weight:600;
+  text-decoration:none;
+  border-radius:8px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+  background:#005f46;
+  transform:translateY(-2px);
+}
+
 /* Footer */
 footer { 
   background:#f8f8f8; 
@@ -179,7 +259,7 @@ footer {
   text-align:center; 
   font-size:14px; 
   color:#333; 
-  margin-top:80px;
+  margin-top:0;
 }
 
 /* Responsive */
@@ -241,6 +321,35 @@ footer {
   .step-content p { 
     font-size:1rem; 
     line-height:1.7;
+  }
+
+  .digital-section {
+    padding:60px 20px;
+    margin-top:60px;
+  }
+
+  .digital-content > h2 {
+    font-size:1.7em;
+    margin-bottom:25px;
+  }
+
+  .digital-intro {
+    font-size:1em;
+    margin-bottom:40px;
+  }
+
+  .highlight-box {
+    padding:25px 0 25px 20px;
+    margin:40px auto 30px;
+  }
+
+  .cta-section {
+    margin:40px auto 0;
+  }
+
+  .cta-button {
+    padding:14px 32px;
+    font-size:1em;
   }
 }
 </style>
@@ -308,7 +417,6 @@ footer {
     <h2>Unser Vorgehen</h2>
 
     <div class="steps-grid">
-      
       <div class="step">
         <div class="icon">
           <img src="outcomes_18289971.png" alt="Unterlagen prüfen" width="80" height="80">
@@ -348,10 +456,29 @@ footer {
           <p>Erarbeitung konkreter, wirtschaftlicher Sanierungsvorschläge zur dauerhaften Schadensbehebung.</p>
         </div>
       </div>
-
     </div>
-
   </section>
+
+  <!-- DIGITALE SCHADENDOKUMENTATION SECTION -->
+  <section class="digital-section">
+    <div class="digital-content">
+      <h2>Digitale Schadendokumentation & Beweissicherung</h2>
+
+      <div class="digital-intro">
+        <p>Mit der digitalen Schadendokumentation sichere ich Beweise und Schadensbilder ortsunabhängig, präzise und nachvollziehbar. Durch die strukturierte Erfassung von Fotos, Beschreibungen und technischen Einschätzungen entsteht eine lückenlose Grundlage für Versicherung, Gutachter oder rechtliche Auseinandersetzungen.</p>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>Ideal für:</strong> Eigentümer, Hausverwaltungen und Versicherungen, die Schäden digital dokumentieren und rechtssicher archivieren möchten – etwa bei Feuchtigkeit, Undichtigkeiten oder Sturmschäden.</p>
+      </div>
+
+      <div class="cta-section">
+        <p>Die digitale Dokumentation ermöglicht eine schnelle und professionelle Beweissicherung – auch ohne Termin vor Ort. Laden Sie Ihre Unterlagen und Fotos hoch, und ich bewerte den Schaden objektiv und nachvollziehbar. So erhalten Sie fundierte Handlungsempfehlungen und Beweismaterial für die nächsten Schritte.</p>
+        <a href="kontakt.html" class="cta-button">Dokumentation anfragen</a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
@@ -389,3 +516,4 @@ steps.forEach(step => observer.observe(step));
 </script>
 
 </body>
+</html>
