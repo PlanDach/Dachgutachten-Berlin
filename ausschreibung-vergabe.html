@@ -33,7 +33,6 @@ nav ul li a {
   display:block; 
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 nav ul li a:hover { 
   background-color:#e6f4ea; 
   border-radius:6px; 
@@ -172,6 +171,86 @@ nav ul li ul li a.active {
   }
 }
 
+/* DIGITALE KOSTENPRÜFUNG / DIGITALE SEKTION (EXAKT 1:1) */
+.digital-section {
+  background:#fafafa;
+  padding:80px 20px;
+  margin-top:80px;
+}
+
+.digital-content {
+  max-width:800px;
+  margin:0 auto;
+}
+
+.digital-content > h2 {
+  font-size:2em;
+  font-weight:600;
+  text-align:center;
+  margin-bottom:30px;
+  color:#004d00;
+}
+
+.digital-intro {
+  max-width:800px;
+  margin:0 auto 50px;
+  text-align:center;
+  font-size:1.1em;
+  line-height:1.8;
+  color:#333;
+}
+
+/* Highlight Box */
+.highlight-box {
+  max-width:800px;
+  margin:0 auto 40px;
+  padding:30px 0 30px 30px;
+  border-left:4px solid #004d00;
+  background:#fff;
+}
+
+.highlight-box p {
+  font-size:1.05em;
+  line-height:1.7;
+  color:#333;
+}
+
+.highlight-box strong {
+  color:#004d00;
+  font-weight:600;
+}
+
+/* CTA Section */
+.cta-section {
+  text-align:center;
+  max-width:700px;
+  margin:50px auto 0;
+}
+
+.cta-section p {
+  font-size:1.05em;
+  line-height:1.7;
+  color:#333;
+  margin-bottom:30px;
+}
+
+.cta-button {
+  display:inline-block;
+  background:#007f5f;
+  color:#fff;
+  padding:16px 40px;
+  font-size:1.1em;
+  font-weight:600;
+  text-decoration:none;
+  border-radius:8px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+  background:#005f46;
+  transform:translateY(-2px);
+}
+
 /* Footer */
 footer { 
   background:#f8f8f8; 
@@ -198,49 +277,78 @@ footer {
   nav ul li a { font-size:1.2em; text-align:center; }
   nav ul li ul { position:relative; top:0; left:0; box-shadow:none; }
   nav ul li ul li ul { left:0; }
-  
+
   .hero { 
     padding:100px 20px 60px 20px; 
     min-height:320px;
   }
   .hero h1 { font-size:2em; }
   .hero p { font-size:1.1em; }
-  
+
   .steps-section { 
     margin:50px auto; 
   }
-  
+
   .steps-section > h2 { 
     font-size:1.7em; 
     margin-bottom:40px; 
   }
-  
+
   .steps-grid {
     gap:40px;
   }
-  
+
   .step {
     grid-template-columns:70px 1fr;
     gap:20px;
   }
-  
+
   .step .icon {
     width:70px;
     height:70px;
   }
-  
+
   .step .icon img {
     width:70px;
     height:70px;
   }
-  
-  .step-content h3 { 
-    font-size:1.2em; 
+
+  .step-content h3 {
+    font-size:1.2em;
   }
-  
-  .step-content p { 
-    font-size:1rem; 
+
+  .step-content p {
+    font-size:1rem;
     line-height:1.7;
+  }
+
+  .digital-section {
+    padding:60px 20px;
+    margin-top:60px;
+  }
+
+  .digital-content > h2 {
+    font-size:1.7em;
+    margin-bottom:25px;
+  }
+
+  .digital-intro {
+    font-size:1em;
+    margin-bottom:40px;
+  }
+
+  .highlight-box {
+    padding:25px 0 25px 20px;
+    margin:40px auto 30px;
+  }
+
+  .cta-section {
+    margin:40px auto 0;
+  }
+
+  .cta-button {
+    padding:14px 32px;
+    font-size:1em;
   }
 }
 </style>
@@ -342,6 +450,35 @@ footer {
     </div>
 
   </section>
+
+  <!-- Digitale Auftragsvergabe Sektion (exakt 1:1 Stil) -->
+  <section class="digital-section">
+    <div class="digital-content">
+      <h2>Digitale Auftragsvergabe – Remote, transparent und rechtssicher</h2>
+
+      <div class="digital-intro">
+        <p>Ich übernehme für Sie die komplette Vergabeprozesssteuerung digital: von der Koordination der Angebote über die Wertung bis zur finalen Vergabeentscheidung — effizient, nachvollziehbar und revisionssicher.</p>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>Ideal für:</strong> Bauherren, Investoren und Projektleiter, die Vergabeverfahren ortsunabhängig und digital abgewickelt haben möchten.</p>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>Leistungen:</strong> Online-Angebotseingang, techn. & wirtschaftliche Bewertung, Preisspiegel, Vergabeempfehlung und digitales Vergabeprotokoll.</p>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>Vorteil:</strong> Zeitersparnis, bessere Vergleichbarkeit der Angebote und vollständige Dokumentation für Rechtssicherheit.</p>
+      </div>
+
+      <div class="cta-section">
+        <p>Interessiert? Ich begleite Sie durch den kompletten digitalen Vergabeprozess — schnell, sicher und transparent. Kontaktieren Sie mich für ein Angebot.</p>
+        <a href="kontakt.html" class="cta-button">Digitale Vergabe anfragen</a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
