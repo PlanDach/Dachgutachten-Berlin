@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="de">
 <head>
 <meta charset="UTF-8">
@@ -10,16 +11,16 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Ne
 
 /* Header */
 header {
-  width:100%;
-  background:#fff;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:10px 20px;
-  position:fixed;
-  top:0; left:0;
-  z-index:10;
-  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+width:100%;
+background:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 20px;
+position:fixed;
+top:0; left:0;
+z-index:10;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 .logo img { height:80px; width:auto; display:block; }
 .hamburger { display:none; font-size:2em; cursor:pointer; user-select:none; }
@@ -27,25 +28,25 @@ header {
 /* Menü */
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
-nav ul li a { 
-text-decoration:none; 
-color:#004d00; 
-font-weight:500; 
+nav ul li a {
+text-decoration:none;
+color:#004d00;
+font-weight:500;
 padding:5px 10px;
-display:block; 
+display:block;
 transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-nav ul li a:hover { 
-background-color:#e6f4ea; 
-border-radius:6px; 
-color:#007f5f; 
+nav ul li a:hover {
+background-color:#e6f4ea;
+border-radius:6px;
+color:#007f5f;
 }
-nav ul li a:active, 
-nav ul li a.active { 
-background-color:#cde9d8; 
-border-radius:6px; 
-color:#007f5f; 
+nav ul li a:active,
+nav ul li a.active {
+background-color:#cde9d8;
+border-radius:6px;
+color:#007f5f;
 }
 
 /* Submenus */
@@ -64,7 +65,7 @@ border-radius:6px;
 }
 
 @media (min-width:769px) {
-  nav ul li:hover > ul { display:block; }
+nav ul li:hover > ul { display:block; }
 }
 
 nav ul li ul li a { padding:8px 15px; color:#004d00; }
@@ -75,121 +76,121 @@ main { padding-top:100px; }
 
 /* Hero */
 .hero {
-  position: relative;
-  text-align:center;
-  padding:120px 20px;
-  overflow:hidden;
-  min-height:350px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+position: relative;
+text-align:center;
+padding:120px 20px;
+overflow:hidden;
+min-height:350px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 }
 .hero::before {
-  content:"";
-  position:absolute;
-  top:0; left:0;
-  width:100%;
-  height:100%;
-  background: url('IMG_3985.jpeg') center center / cover no-repeat;
-  opacity:0.5;
-  z-index:1;
-  filter: brightness(0.7);
+content:””;
+position:absolute;
+top:0; left:0;
+width:100%;
+height:100%;
+background: url('IMG_3985.jpeg') center center / cover no-repeat;
+opacity:0.5;
+z-index:1;
+filter: brightness(0.7);
 }
 .hero h1, .hero p {
-  position: relative;
-  z-index:2;
-  color:#ffffff;
+position: relative;
+z-index:2;
+color:#ffffff;
 }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
 .hero p { font-size:1.2em; }
 
 /* Contact Section - Apple-Style */
 .contact-wrapper {
-  max-width:700px;
-  margin:80px auto 100px;
-  padding:0 30px;
+max-width:700px;
+margin:80px auto 100px;
+padding:0 30px;
 }
 
 .contact-text {
-  font-size:1.05em;
-  line-height:1.8;
-  color:#1d1d1f;
-  margin-bottom:60px;
-  text-align:center;
-  font-weight:400;
+font-size:1.05em;
+line-height:1.8;
+color:#1d1d1f;
+margin-bottom:60px;
+text-align:center;
+font-weight:400;
 }
 
 .form-section {
-  width:100%;
+width:100%;
 }
 
 .form-section h2 {
-  color:#1d1d1f;
-  margin-bottom:50px;
-  font-size:2em;
-  font-weight:600;
-  text-align:left;
-  letter-spacing:-0.5px;
+color:#004d00;
+margin-bottom:50px;
+font-size:2em;
+font-weight:600;
+text-align:left;
+letter-spacing:-0.5px;
 }
 
-form label { 
-  display:block; 
-  margin-bottom:8px; 
-  font-weight:500; 
-  color:#1d1d1f;
-  font-size:0.95em;
-  letter-spacing:0.2px;
+form label {
+display:block;
+margin-bottom:8px;
+font-weight:500;
+color:#1d1d1f;
+font-size:0.95em;
+letter-spacing:0.2px;
 }
 
 form input, form textarea {
-  width:100%;
-  padding:14px 16px;
-  margin-bottom:28px;
-  border:1px solid #d2d2d7;
-  border-radius:8px;
-  font-size:1em;
-  font-family: Arial, sans-serif;
-  background:#fff;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  color:#1d1d1f;
+width:100%;
+padding:14px 16px;
+margin-bottom:28px;
+border:1px solid #d2d2d7;
+border-radius:8px;
+font-size:1em;
+font-family: Arial, sans-serif;
+background:#fff;
+transition: border-color 0.2s ease, box-shadow 0.2s ease;
+color:#1d1d1f;
 }
 
 form input:focus, form textarea:focus {
-  border-color:#004d00;
-  box-shadow:0 0 0 4px rgba(0,77,0,0.08);
-  outline:none;
+border-color:#004d00;
+box-shadow:0 0 0 4px rgba(0,77,0,0.08);
+outline:none;
 }
 
-form textarea { 
-  resize:vertical;
-  min-height:140px;
-  line-height:1.6;
+form textarea {
+resize:vertical;
+min-height:140px;
+line-height:1.6;
 }
 
 form button {
-  background-color:#004d00;
-  color:#fff;
-  border:none;
-  padding:16px 32px;
-  font-size:1em;
-  font-weight:500;
-  cursor:pointer;
-  border-radius:8px;
-  transition: all 0.2s ease;
-  width:100%;
-  letter-spacing:0.3px;
-  margin-top:12px;
+background-color:#004d00;
+color:#fff;
+border:none;
+padding:16px 32px;
+font-size:1em;
+font-weight:500;
+cursor:pointer;
+border-radius:8px;
+transition: all 0.2s ease;
+width:100%;
+letter-spacing:0.3px;
+margin-top:12px;
 }
 
-form button:hover { 
-  background-color:#003d00;
-  transform:translateY(-1px);
-  box-shadow:0 8px 16px rgba(0,77,0,0.15);
+form button:hover {
+background-color:#003d00;
+transform:translateY(-1px);
+box-shadow:0 8px 16px rgba(0,77,0,0.15);
 }
 
 form button:active {
-  transform:translateY(0);
+transform:translateY(0);
 }
 
 /* Footer */
@@ -200,16 +201,16 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 @media (max-width:768px) {
 .hamburger { display:block; }
 nav ul {
-  flex-direction:column;
-  display:none;
-  background:#fff;
-  position:absolute;
-  top:60px;
-  left:0;
-  width:100%;
-  padding:10px 0;
-  gap:0;
-  text-align:center;
+flex-direction:column;
+display:none;
+background:#fff;
+position:absolute;
+top:60px;
+left:0;
+width:100%;
+padding:10px 0;
+gap:0;
+text-align:center;
 }
 nav ul.show { display:flex; }
 
@@ -225,31 +226,32 @@ nav ul li ul li ul { left:0; }
 .hero p { font-size:1.1em; }
 
 .contact-wrapper {
-  margin:50px auto 80px;
-  padding:0 20px;
+margin:50px auto 80px;
+padding:0 20px;
 }
 
 .contact-text {
-  font-size:1em;
-  margin-bottom:50px;
+font-size:1em;
+margin-bottom:50px;
 }
 
-.form-section h2 { 
-  font-size:1.7em;
-  margin-bottom:40px;
+.form-section h2 {
+font-size:1.7em;
+margin-bottom:40px;
 }
 
 form input, form textarea {
-  padding:12px 14px;
-  font-size:0.95em;
+padding:12px 14px;
+font-size:0.95em;
 }
 
 form button {
-  padding:14px 28px;
-  font-size:0.95em;
+padding:14px 28px;
+font-size:0.95em;
 }
 }
 </style>
+
 </head>
 <body>
 <header>
@@ -314,24 +316,27 @@ form button {
       Sie haben Fragen oder möchten ein unverbindliches Angebot? Schreiben Sie uns eine Nachricht über das Formular. Wir melden uns innerhalb eines Werktages zurück und beraten Sie individuell und kompetent – damit Ihr Dach und Ihre Immobilie in besten Händen sind.
     </div>
 
-    <section class="form-section">
-      <h2>Nachricht senden</h2>
-      <form id="contactForm" action="https://formspree.io/f/yourformid" method="POST">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
 
-        <label for="email">E-Mail</label>
-        <input type="email" id="email" name="_replyto" required>
+<section class="form-section">
+  <h2>Nachricht senden</h2>
+  <form id="contactForm" action="https://formspree.io/f/yourformid" method="POST">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
 
-        <label for="phone">Telefonnummer</label>
-        <input type="tel" id="phone" name="phone">
+    <label for="email">E-Mail</label>
+    <input type="email" id="email" name="_replyto" required>
 
-        <label for="message">Ihre Nachricht</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
+    <label for="phone">Telefonnummer</label>
+    <input type="tel" id="phone" name="phone">
 
-        <button type="submit">Absenden</button>
-      </form>
-    </section>
+    <label for="message">Ihre Nachricht</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit">Absenden</button>
+  </form>
+</section>
+
+
   </div>
 </main>
 
@@ -375,5 +380,6 @@ window.addEventListener('resize', () => {
   }
 });
 </script>
+
 </body>
 </html>
