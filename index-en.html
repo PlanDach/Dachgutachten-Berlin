@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PlanDach Höfinghoff</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; overflow-x:hidden; background-color:#fff; color:#004D00; }
+
+/* Header */
+header {
+width:100%;
+background:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 20px;
+position:fixed;
+top:0; left:0;
+z-index:10;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+.logo img { height:80px; width:auto; display:block; }
+
+/* Sprach-Button */
+.lang-btn {
+text-decoration:none;
+font-weight:600;
+font-size:0.95em;
+color:#004d00;
+background:#e6f4ea;
+border:1.5px solid rgba(0,127,95,0.3);
+border-radius:8px;
+padding:6px 12px;
+transition: background 0.3s ease, transform 0.2s ease;
+white-space:nowrap;
+}
+.lang-btn:hover {
+background:#cde9d8;
+transform:translateY(-1px);
+}
+
+/* Desktop: nav + lang-btn rechts zusammen */
+.header-right {
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+/* Mobile Controls */
+.mobile-controls {
+display:none;
+align-items:center;
+gap:12px;
+margin-left:auto;
+}
+
+.hamburger { font-size:2em; cursor:pointer; user-select:none; }
+
+/* Menü */
+nav ul { list-style:none; display:flex; gap:20px; }
+nav ul li { position:relative; }
+nav ul li a {
+text-decoration:none;
+color:#004d00;
+font-weight:500;
+padding:5px 10px;
+display:block;
+transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+background-color:#e6f4ea;
+border-radius:6px;
+color:#007f5f;
+}
+nav ul li a:active,
+nav ul li a.active {
+background-color:#cde9d8;
+border-radius:6px;
+color:#007f5f;
+}
+
+/* Submenus */
+nav ul li ul {
+display:none;
+position:absolute;
+top:100%;
+left:0;
+background:#fff;
+list-style:none;
+padding:10px 0;
+min-width:200px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+z-index:20;
+border-radius:6px;
+}
+
+@media (min-width:769px) {
+nav ul li:hover > ul { display:block; }
+}
+
+nav ul li ul li a { padding:8px 15px; color:#004d00; }
+nav ul li ul li ul { top:0; left:100%; }
+
+/* Hero */
+.hero {
+position:relative;
+width:100%;
+height:70vh;
+min-height:400px;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+margin-top:90px;
+}
+.hero-img {
+position:absolute;
+top:0; left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0.9;
+z-index:1;
+}
+.hero::after {
+content:””;
+position:absolute;
+top:0; left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.35);
+z-index:2;
+}
+.hero-text { position:relative; z-index:3; max-width:800px; padding:0 20px; }
+.hero-text h1 { font-size:2.5em; margin-bottom:15px; }
+.hero-text p { font-size:1.2em; }
+
+/* CTA Button */
+.cta-button {
+display:inline-block;
+margin-top:20px;
+padding:14px 32px;
+font-size:1.1em;
+font-weight:bold;
+color:#fff;
+background-color:#007f5f;
+border:none;
+border-radius:8px;
+text-decoration:none;
+transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.cta-button:hover {
+background-color:#005f46;
+transform:translateY(-2px);
+}
+
+/* Intro Text */
+.intro-text {
+max-width:900px;
+margin:40px auto;
+padding:40px 20px;
+text-align:center;
+line-height:1.6;
+background-color:#fff;
+border-radius:8px;
+}
+.intro-text h2 { font-size:2em; margin-bottom:15px; color:#004d00; }
+.intro-text p { margin-bottom:15px; font-size:1em; color:#000; }
+
+/* Instagram Box */
+.instagram-box {
+margin:60px auto 80px auto;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:14px;
+color:#004d00;
+font-weight:600;
+font-size:1.1em;
+background: linear-gradient(135deg, #ffffff 0%, #f9fffe 100%);
+padding:18px 32px;
+border-radius:16px;
+border:1.5px solid rgba(0,127,95,0.2);
+max-width:480px;
+text-decoration:none;
+position:relative;
+overflow:hidden;
+box-shadow:
+0 2px 8px rgba(0,127,95,0.08),
+0 8px 24px rgba(0,127,95,0.06);
+transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.instagram-box::before {
+content: “”;
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+transition: left 0.6s ease;
+}
+
+.instagram-box:hover::before { left: 100%; }
+
+.instagram-box:hover {
+transform: translateY(-4px) scale(1.02);
+border-color: rgba(0,127,95,0.35);
+box-shadow:
+0 4px 16px rgba(0,127,95,0.12),
+0 12px 32px rgba(0,127,95,0.1),
+0 0 0 1px rgba(0,127,95,0.08);
+}
+
+.instagram-box:active {
+transform: translateY(-2px) scale(1.01);
+transition: all 0.15s ease;
+}
+
+.instagram-box img {
+width:48px;
+height:48px;
+object-fit:contain;
+transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+display:block;
+filter: drop-shadow(0 2px 4px rgba(0,127,95,0.15));
+}
+
+.instagram-box:hover img { transform: scale(1.12) rotate(5deg); }
+
+.instagram-box span {
+color:#004d00;
+letter-spacing: -0.01em;
+transition: color 0.3s ease;
+}
+
+.instagram-box:hover span { color:#007f5f; }
+
+/* Work Insights */
+.work-insights {
+padding:100px 20px 120px 20px;
+text-align:center;
+background:#fafafa;
+}
+
+.work-insights h2 {
+font-size:2.2em;
+color:#004d00;
+margin-bottom:70px;
+font-weight:600;
+letter-spacing:-0.02em;
+}
+
+.image-section { max-width:1400px; margin:0 auto; }
+
+.work-grid {
+display:grid;
+grid-template-columns: repeat(3, 1fr);
+gap:24px;
+}
+
+.work-item {
+background:#fff;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 2px 12px rgba(0,0,0,0.06);
+transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.work-item:hover {
+transform:translateY(-8px);
+box-shadow:0 12px 32px rgba(0,0,0,0.12);
+}
+
+.work-item img {
+width:100%;
+height:auto;
+display:block;
+transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.work-item:hover img { transform:scale(1.03); }
+
+.work-item p {
+padding:20px 24px 24px 24px;
+font-size:0.95em;
+color:#000;
+text-align:left;
+line-height:1.5;
+}
+
+/* Services */
+.services {
+width:100%;
+background-color:#fff;
+padding:60px 0;
+text-align:center;
+}
+.services h2 { margin-bottom:40px; font-size:2em; color:#004d00; }
+.service-grid {
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+max-width:1200px;
+margin:0 auto;
+padding:0 10px;
+}
+.service-box {
+background:#fcfcfc;
+border-radius:8px;
+padding:20px;
+max-width:300px;
+width:100%;
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
+border:1px solid #004d00;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-box:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.1); }
+.service-box h3 { margin-bottom:10px; color:#004d00; }
+.service-box p { font-size:0.95em; color:#333; }
+.service-icon { width:64px; height:64px; margin:0 auto 15px auto; display:block; }
+
+/* FAQ */
+.faq-section {
+background:#FFFFFF;
+padding:60px 20px;
+max-width:900px;
+margin:0 auto 80px auto;
+}
+.faq-section h2 {
+text-align:center;
+font-size:2.2rem;
+margin-bottom:40px;
+color:#004D00;
+background: linear-gradient(90deg, #004D00, #007F5F);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+.faq-box {
+background:#F0F0F0;
+border-radius:12px;
+padding:20px;
+margin-bottom:20px;
+border:1px solid #CCCCCC;
+box-shadow:0 4px 8px rgba(0,0,0,0.1);
+cursor:pointer;
+transition:background 0.3s ease;
+}
+.faq-box.open { background:#E6F4EA; }
+.faq-question {
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-weight:bold;
+color:#004D00;
+font-size:1.1rem;
+}
+.faq-icon { transition:transform 0.3s ease; color:#007F5F; font-size:1.3rem; }
+.faq-box.open .faq-icon { transform:rotate(180deg); }
+.faq-answer { margin-top:15px; display:none; color:#333333; font-size:1rem; line-height:1.5; }
+.faq-box.open .faq-answer { display:block; }
+
+/* Footer */
+footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
+footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
+
+/* Scroll Animation */
+.scroll-animate {
+opacity: 0;
+transform: translateY(40px);
+transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.scroll-animate.active { opacity: 1; transform: translateY(0); }
+.intro-text.scroll-animate { opacity: 1; transform: translateY(0); }
+
+/* Responsive */
+@media (max-width:992px) {
+.work-grid { grid-template-columns: repeat(2, 1fr); gap:20px; }
+}
+
+@media (max-width:768px) {
+.header-right > .lang-btn { display:none; }
+.mobile-controls { display:flex; }
+
+nav ul {
+flex-direction:column;
+display:none;
+background:#fff;
+position:absolute;
+top:60px;
+left:0;
+width:100%;
+padding:10px 0;
+gap:0;
+text-align:center;
+}
+nav ul.show { display:flex; }
+nav ul li { width:100%; }
+nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
+nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
+nav ul li ul.active { display:flex; }
+nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
+nav ul li ul li ul { left:0; }
+
+.hero { height:50vh; }
+.hero-text h1 { font-size:1.8em; }
+.hero-text p { font-size:1em; }
+.service-grid { flex-direction:column; align-items:center; }
+
+.instagram-box { padding:16px 28px; font-size:1.05em; max-width:90%; }
+.instagram-box img { width:48px; height:48px; }
+
+.work-insights { padding:80px 16px 100px 16px; }
+.work-insights h2 { font-size:1.8em; margin-bottom:50px; }
+.image-section { max-width:100%; }
+.service-icon { width:56px; height:56px; }
+}
+
+@media (max-width:600px) {
+.work-grid { grid-template-columns: 1fr; gap:20px; }
+.work-item p { padding:18px 20px 20px 20px; font-size:0.9em; }
+}
+</style>
+
+</head>
+
+<body>
+<header>
+  <div class="logo">
+    <a href="index-en.html"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></a>
+  </div>
+
+  <!-- Mobile: Flag + Hamburger right -->
+
+  <div class="mobile-controls">
+    <a href="index.html" class="lang-btn">🇩🇪 DE</a>
+    <div class="hamburger" id="hamburger">☰</div>
+  </div>
+
+  <!-- Desktop: Nav + Flag right -->
+
+  <div class="header-right">
+    <nav>
+      <ul id="navMenu">
+        <li><a href="index-en.html" class="active">Home</a></li>
+        <li><a href="about-en.html">About me</a></li>
+        <li><a href="services-en.html">Services</a></li>
+        <li><a href="online-roofcheck-en.html">Online Roof Check</a></li>
+        <li><a href="contact-en.html">Contact</a></li>
+        <li><a href="legal-en.html">Legal Notice</a></li>
+      </ul>
+    </nav>
+    <a href="index.html" class="lang-btn">🇩🇪 DE</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <img src="IMG_3945.jpeg" alt="Roof Experts" class="hero-img">
+  <div class="hero-text">
+    <h1>Understanding Roofs. Protecting Values.</h1>
+    <p>Professional roof assessments, planning & construction supervision – independent and reliable.</p>
+    <a href="contact-en.html" class="cta-button">Request a Quote</a>
+  </div>
+</section>
+
+<section class="intro-text scroll-animate">
+  <h2>Your Roof. Our Standard.</h2>
+  <p>Welcome to PlanDach Höfinghoff – your expert for roof assessments, construction planning and site supervision.</p>
+  <p>Whether leak detection, roof maintenance or online roof check – we deliver precise analyses, reliable reports and practical solutions.</p>
+  <p>Trust in quality, precision and transparency – for a roof that protects and convinces in the long run.</p>
+</section>
+
+<a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="instagram-box scroll-animate">
+  <img src="13D7FD2D-4E4B-4521-B258-01727CBA0489.png" alt="Instagram Logo">
+  <span>Follow us on Instagram</span>
+</a>
+
+<section class="work-insights">
+  <h2 class="scroll-animate">Insights Into Our Work</h2>
+  <div class="image-section">
+    <div class="work-grid">
+      <div class="work-item scroll-animate">
+        <img src="IMG_1164.jpeg" alt="Work Example 1">
+        <p>Despite being a new build: a missing screw and faulty sealing led to water ingress.</p>
+      </div>
+      <div class="work-item scroll-animate">
+        <img src="image0.jpeg" alt="Work Example 2">
+        <p>New roof gutter with correct slope replaces defective workmanship.</p>
+      </div>
+      <div class="work-item scroll-animate">
+        <img src="vornach1.jpeg" alt="Before-After Roof Renovation">
+        <p>Before: damaged flat roof – After: professionally repaired and permanently sealed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <h2 class="scroll-animate">Our Services</h2>
+  <div class="service-grid">
+    <div class="service-box scroll-animate">
+      <svg class="service-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="12" y="8" width="40" height="48" rx="2" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
+        <path d="M20 18h24M20 26h24M20 34h16M20 42h20" stroke="#007f5f" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="48" cy="48" r="10" fill="#007f5f"/>
+        <path d="M44 48l3 3 5-6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h3>Assessments</h3>
+      <p>Independent roof assessments and expert reports.</p>
+    </div>
+    <div class="service-box scroll-animate">
+      <svg class="service-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="12" width="48" height="40" rx="2" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
+        <path d="M16 20h32M16 28h24M16 36h28M16 44h20" stroke="#007f5f" stroke-width="2" stroke-linecap="round"/>
+        <path d="M44 40l8 8M52 40l-8 8" stroke="#007f5f" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="48" cy="44" r="11" stroke="#007f5f" stroke-width="2.5" fill="white"/>
+        <line x1="52" y1="52" x2="58" y2="58" stroke="#007f5f" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <h3>Planning</h3>
+      <p>Professional planning and project management.</p>
+    </div>
+    <div class="service-box scroll-animate">
+      <svg class="service-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 8L8 20v24c0 8 6 16 24 24 18-8 24-16 24-24V20L32 8z" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea" stroke-linejoin="round"/>
+        <path d="M22 32l6 6 14-14" stroke="#007f5f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="32" cy="12" r="3" fill="#007f5f"/>
+        <circle cx="12" cy="22" r="3" fill="#007f5f"/>
+        <circle cx="52" cy="22" r="3" fill="#007f5f"/>
+      </svg>
+      <h3>Site Supervision</h3>
+      <p>Coordination, quality control and final inspection.</p>
+    </div>
+    <div class="service-box scroll-animate">
+      <svg class="service-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="44" height="32" rx="2" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
+        <rect x="14" y="14" width="36" height="24" rx="1" fill="white" stroke="#007f5f" stroke-width="1.5"/>
+        <path d="M20 22h24M20 26h20M20 30h16" stroke="#007f5f" stroke-width="1.5" stroke-linecap="round"/>
+        <rect x="18" y="42" width="28" height="3" rx="1.5" fill="#007f5f"/>
+        <path d="M24 45v8h16v-8" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
+        <rect x="20" y="53" width="24" height="3" rx="1.5" fill="#007f5f"/>
+        <circle cx="48" cy="20" r="2" fill="#007f5f"/>
+      </svg>
+      <h3>Online Roof Check</h3>
+      <p>Get your roof checked conveniently online.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <h2 class="scroll-animate">Frequently Asked Questions</h2>
+
+  <div class="faq-box scroll-animate">
+    <div class="faq-question"><span>Do you also provide assessments nationwide?</span><span class="faq-icon">▼</span></div>
+    <div class="faq-answer">Yes, I provide independent assessments throughout Germany – both on-site and digitally via the Online Roof Check.</div>
+  </div>
+
+  <div class="faq-box scroll-animate">
+    <div class="faq-question"><span>How does the Online Roof Check work?</span><span class="faq-icon">▼</span></div>
+    <div class="faq-answer">You send me photos and information about your roof. I review them and provide a professional assessment with recommendations.</div>
+  </div>
+
+  <div class="faq-box scroll-animate">
+    <div class="faq-question"><span>Do you also handle site supervision?</span><span class="faq-icon">▼</span></div>
+    <div class="faq-answer">Yes, I offer site supervision and construction monitoring to ensure professional and correct execution.</div>
+  </div>
+
+  <div class="faq-box scroll-animate">
+    <div class="faq-question"><span>Can I sign a maintenance contract?</span><span class="faq-icon">▼</span></div>
+    <div class="faq-answer">Yes, I offer regular roof maintenance individually tailored to your building.</div>
+  </div>
+
+  <div class="faq-box scroll-animate">
+    <div class="faq-question"><span>What does an assessment cost?</span><span class="faq-icon">▼</span></div>
+    <div class="faq-answer">Costs depend on the type and scope. After an initial consultation you will receive a transparent quote.</div>
+  </div>
+
+  <div class="faq-box scroll-animate">
+    <div class="faq-question"><span>Can I get an appointment at short notice?</span><span class="faq-icon">▼</span></div>
+    <div class="faq-answer">In urgent cases I will arrange an appointment as quickly as possible – best to reach out by phone.</div>
+  </div>
+
+</section>
+</main>
+
+<footer>
+<div style="max-width:1000px; margin:0 auto;">
+  <p>© 2025 PlanDach Höfinghoff – All rights reserved.</p>
+  <p><a href="legal-en.html">Legal Notice</a> | <a href="privacy-en.html">Privacy Policy</a> | <a href="contact-en.html">Contact</a></p>
+  <p>Address: Musterstraße 1, 12345 Berlin | Phone: 030 12345678 | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
+</div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+
+document.querySelectorAll('.has-submenu > a').forEach(link => {
+  link.addEventListener('click', e => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      const submenu = link.nextElementSibling;
+      if (submenu) {
+        submenu.classList.toggle('active');
+        if (!submenu.classList.contains('active')) {
+          submenu.querySelectorAll('.submenu.active').forEach(sub => {
+            sub.classList.remove('active');
+          });
+        }
+      }
+    }
+  });
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    navMenu.classList.remove('show');
+    document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
+  }
+});
+
+document.querySelectorAll('.faq-box').forEach(box => {
+  box.addEventListener('click', () => { box.classList.toggle('open'); });
+});
+
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -80px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('active');
+      }, index * 50);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.scroll-animate').forEach(el => {
+  observer.observe(el);
+});
+
+window.addEventListener('load', () => {
+  const firstElements = document.querySelectorAll('.intro-text, .instagram-box');
+  firstElements.forEach(el => {
+    el.classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>
