@@ -75,16 +75,25 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-background: url(‘C55CF7CA-3C7F-4AAE-82BB-BD813375AD53.png’) center center / cover no-repeat;
 color:#ffffff;
+overflow:hidden;
 }
-.hero::before {
+.hero img.hero-bg {
+position:absolute;
+top:0; left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+object-position:center;
+z-index:0;
+}
+.hero::after {
 content:””;
 position:absolute;
 top:0; left:0;
 width:100%;
 height:100%;
-background: rgba(0,0,0,0.35);
+background: rgba(0,0,0,0.45);
 z-index:1;
 }
 .hero h1, .hero p { position: relative; z-index:2; color:#ffffff; }
@@ -218,6 +227,7 @@ form button { padding:14px 28px; font-size:0.95em; }
 
 <main>
   <section class="hero">
+    <img src="C55CF7CA-3C7F-4AAE-82BB-BD813375AD53.png" alt="Online Roof Check" class="hero-bg">
     <h1>Online Roof Check</h1>
     <p>Fill out the form to receive a quick assessment and advice for your roof.</p>
   </section>
