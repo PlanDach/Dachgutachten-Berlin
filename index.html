@@ -23,9 +23,43 @@ z-index:10;
 box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 .logo img { height:80px; width:auto; display:block; }
-.hamburger { display:none; font-size:2em; cursor:pointer; user-select:none; }
 
-/* Menü (angepasst 1:1 wie in ueber-mich.html) */
+/* Sprach-Button */
+.lang-btn {
+text-decoration:none;
+font-weight:600;
+font-size:0.95em;
+color:#004d00;
+background:#e6f4ea;
+border:1.5px solid rgba(0,127,95,0.3);
+border-radius:8px;
+padding:6px 12px;
+transition: background 0.3s ease, transform 0.2s ease;
+white-space:nowrap;
+}
+.lang-btn:hover {
+background:#cde9d8;
+transform:translateY(-1px);
+}
+
+/* Desktop: nav + lang-btn rechts zusammen */
+.header-right {
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+/* Mobile Controls (Flagge + Hamburger) */
+.mobile-controls {
+display:none;
+align-items:center;
+gap:12px;
+margin-left:auto;
+}
+
+.hamburger { font-size:2em; cursor:pointer; user-select:none; }
+
+/* Menü */
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
 nav ul li a {
@@ -37,7 +71,6 @@ display:block;
 transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover- und Active-Effekte (exakt wie gemerkt) */
 nav ul li a:hover {
 background-color:#e6f4ea;
 border-radius:6px;
@@ -65,7 +98,6 @@ z-index:20;
 border-radius:6px;
 }
 
-/* Hover nur auf Desktop */
 @media (min-width:769px) {
 nav ul li:hover > ul { display:block; }
 }
@@ -96,7 +128,7 @@ opacity:0.9;
 z-index:1;
 }
 .hero::after {
-content:"";
+content:””;
 position:absolute;
 top:0; left:0;
 width:100%;
@@ -141,7 +173,7 @@ border-radius:8px;
 .intro-text h2 { font-size:2em; margin-bottom:15px; }
 .intro-text p { margin-bottom:15px; font-size:1em; }
 
-/* Instagram Box - Apple Style Premium */
+/* Instagram Box */
 .instagram-box {
 margin:60px auto 80px auto;
 display:flex;
@@ -165,26 +197,18 @@ box-shadow:
 transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Subtiler Glanz-Effekt */
 .instagram-box::before {
-content: "";
+content: “”;
 position: absolute;
 top: 0;
 left: -100%;
 width: 100%;
 height: 100%;
-background: linear-gradient(
-90deg,
-transparent,
-rgba(255,255,255,0.4),
-transparent
-);
+background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
 transition: left 0.6s ease;
 }
 
-.instagram-box:hover::before {
-left: 100%;
-}
+.instagram-box:hover::before { left: 100%; }
 
 .instagram-box:hover {
 transform: translateY(-4px) scale(1.02);
@@ -209,9 +233,7 @@ display:block;
 filter: drop-shadow(0 2px 4px rgba(0,127,95,0.15));
 }
 
-.instagram-box:hover img {
-transform: scale(1.12) rotate(5deg);
-}
+.instagram-box:hover img { transform: scale(1.12) rotate(5deg); }
 
 .instagram-box span {
 color:#004d00;
@@ -219,11 +241,9 @@ letter-spacing: -0.01em;
 transition: color 0.3s ease;
 }
 
-.instagram-box:hover span {
-color:#007f5f;
-}
+.instagram-box:hover span { color:#007f5f; }
 
-/* Work Insights - Apple/Architekturbüro Style */
+/* Work Insights */
 .work-insights {
 padding:100px 20px 120px 20px;
 text-align:center;
@@ -238,10 +258,7 @@ font-weight:600;
 letter-spacing:-0.02em;
 }
 
-.image-section {
-max-width:1400px;
-margin:0 auto;
-}
+.image-section { max-width:1400px; margin:0 auto; }
 
 .work-grid {
 display:grid;
@@ -269,9 +286,7 @@ display:block;
 transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.work-item:hover img {
-transform:scale(1.03);
-}
+.work-item:hover img { transform:scale(1.03); }
 
 .work-item p {
 padding:20px 24px 24px 24px;
@@ -311,14 +326,9 @@ transition: transform 0.3s ease, box-shadow 0.3s ease;
 .service-box:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.1); }
 .service-box h3 { margin-bottom:10px; color:#004d00; }
 .service-box p { font-size:0.95em; color:#333; }
-.service-icon {
-width:64px;
-height:64px;
-margin:0 auto 15px auto;
-display:block;
-}
+.service-icon { width:64px; height:64px; margin:0 auto 15px auto; display:block; }
 
-/* FAQ Sektion */
+/* FAQ */
 .faq-section {
 background:#FFFFFF;
 padding:60px 20px;
@@ -353,53 +363,37 @@ font-weight:bold;
 color:#004D00;
 font-size:1.1rem;
 }
-.faq-icon {
-transition:transform 0.3s ease;
-color:#007F5F;
-font-size:1.3rem;
-}
+.faq-icon { transition:transform 0.3s ease; color:#007F5F; font-size:1.3rem; }
 .faq-box.open .faq-icon { transform:rotate(180deg); }
-.faq-answer {
-margin-top:15px;
-display:none;
-color:#333333;
-font-size:1rem;
-line-height:1.5;
-}
+.faq-answer { margin-top:15px; display:none; color:#333333; font-size:1rem; line-height:1.5; }
 .faq-box.open .faq-answer { display:block; }
 
 /* Footer */
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
-/* Scroll Animation Styles - Apple-like smooth */
+/* Scroll Animation */
 .scroll-animate {
 opacity: 0;
 transform: translateY(40px);
 transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
 transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.scroll-animate.active {
-opacity: 1;
-transform: translateY(0);
-}
-
-/* Erste sichtbare Elemente sofort zeigen */
-.intro-text.scroll-animate {
-opacity: 1;
-transform: translateY(0);
-}
+.scroll-animate.active { opacity: 1; transform: translateY(0); }
+.intro-text.scroll-animate { opacity: 1; transform: translateY(0); }
 
 /* Responsive */
 @media (max-width:992px) {
-.work-grid {
-grid-template-columns: repeat(2, 1fr);
-gap:20px;
-}
+.work-grid { grid-template-columns: repeat(2, 1fr); gap:20px; }
 }
 
 @media (max-width:768px) {
-.hamburger { display:block; }
+/* Desktop lang-btn verstecken */
+.header-right > .lang-btn { display:none; }
+
+/* Mobile Controls anzeigen */
+.mobile-controls { display:flex; }
+
 nav ul {
 flex-direction:column;
 display:none;
@@ -413,10 +407,8 @@ gap:0;
 text-align:center;
 }
 nav ul.show { display:flex; }
-
 nav ul li { width:100%; }
 nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
-
 nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
 nav ul li ul.active { display:flex; }
 nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
@@ -427,101 +419,85 @@ nav ul li ul li ul { left:0; }
 .hero-text p { font-size:1em; }
 .service-grid { flex-direction:column; align-items:center; }
 
-/* Instagram Box Mobile */
-.instagram-box {
-padding:16px 28px;
-font-size:1.05em;
-max-width:90%;
-}
-.instagram-box img {
-width:48px;
-height:48px;
-}
+.instagram-box { padding:16px 28px; font-size:1.05em; max-width:90%; }
+.instagram-box img { width:48px; height:48px; }
 
-/* Work Insights Mobile */
-.work-insights {
-padding:80px 16px 100px 16px;
-}
-
-.work-insights h2 {
-font-size:1.8em;
-margin-bottom:50px;
-}
-
-.image-section {
-max-width:100%;
-}
-
-.service-icon {
-width:56px;
-height:56px;
-}
+.work-insights { padding:80px 16px 100px 16px; }
+.work-insights h2 { font-size:1.8em; margin-bottom:50px; }
+.image-section { max-width:100%; }
+.service-icon { width:56px; height:56px; }
 }
 
 @media (max-width:600px) {
-.work-grid {
-grid-template-columns: 1fr;
-gap:20px;
-}
-
-.work-item p {
-padding:18px 20px 20px 20px;
-font-size:0.9em;
-}
+.work-grid { grid-template-columns: 1fr; gap:20px; }
+.work-item p { padding:18px 20px 20px 20px; font-size:0.9em; }
 }
 </style>
+
 </head>
 
 <body>
 <header>
-<div class="logo">
- <a href="index.html"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></a>
-</div>
-<div class="hamburger" id="hamburger">☰</div>
-<nav>
- <ul id="navMenu">
-   <li><a href="index.html" class="active">Startseite</a></li>
-   <li><a href="ueber-mich.html">Über mich</a></li>
-   <li class="has-submenu">
-     <a href="#">Leistungen</a>
-     <ul class="submenu">
-       <li><a href="gutachten.html">Gutachten</a></li>
-       <li class="has-submenu">
-         <a href="#">Planung</a>
-         <ul class="submenu">
-           <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
-           <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
-           <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
-           <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
-         </ul>
-       </li>
-       <li class="has-submenu">
-         <a href="#">Bauüberwachung</a>
-         <ul class="submenu">
-           <li><a href="bau-koordination.html">Koordination</a></li>
-           <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
-           <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
-           <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
-         </ul>
-       </li>
-       <li class="has-submenu">
-         <a href="#">Ausschreibung</a>
-         <ul class="submenu">
-           <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
-           <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
-           <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
-         </ul>
-       </li>
-       <li><a href="dachwartung.html">Dachwartung</a></li>
-       <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
-       <li><a href="leckageortung.html">Leckageortung</a></li>
-     </ul>
-   </li>
-   <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
-   <li><a href="kontakt.html">Kontakt</a></li>
-   <li><a href="impressum.html">Impressum</a></li>
- </ul>
-</nav>
+  <div class="logo">
+    <a href="index.html"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></a>
+  </div>
+
+  <!-- Mobile: Flagge + Hamburger rechts nebeneinander -->
+
+  <div class="mobile-controls">
+    <a href="index-en.html" class="lang-btn">🇬🇧 EN</a>
+    <div class="hamburger" id="hamburger">☰</div>
+  </div>
+
+  <!-- Desktop: Nav + Flagge rechts -->
+
+  <div class="header-right">
+    <nav>
+      <ul id="navMenu">
+        <li><a href="index.html" class="active">Startseite</a></li>
+        <li><a href="ueber-mich.html">Über mich</a></li>
+        <li class="has-submenu">
+          <a href="#">Leistungen</a>
+          <ul class="submenu">
+            <li><a href="gutachten.html">Gutachten</a></li>
+            <li class="has-submenu">
+              <a href="#">Planung</a>
+              <ul class="submenu">
+                <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
+                <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
+                <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
+                <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#">Bauüberwachung</a>
+              <ul class="submenu">
+                <li><a href="bau-koordination.html">Koordination</a></li>
+                <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
+                <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
+                <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#">Ausschreibung</a>
+              <ul class="submenu">
+                <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
+                <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
+                <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
+              </ul>
+            </li>
+            <li><a href="dachwartung.html">Dachwartung</a></li>
+            <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+            <li><a href="leckageortung.html">Leckageortung</a></li>
+          </ul>
+        </li>
+        <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+      </ul>
+    </nav>
+    <a href="index-en.html" class="lang-btn">🇬🇧 EN</a>
+  </div>
 </header>
 
 <main>
@@ -620,7 +596,6 @@ font-size:0.9em;
 <section class="faq-section">
  <h2 class="scroll-animate">Häufig gestellte Fragen</h2>
 
-
 <div class="faq-box scroll-animate">
 <div class="faq-question"><span>Bieten Sie auch bundesweite Gutachten an?</span><span class="faq-icon">▼</span></div>
 <div class="faq-answer">Ja, ich erstelle unabhängige Gutachten deutschlandweit – vor Ort und digital über den Online-DachCheck.</div>
@@ -651,9 +626,7 @@ font-size:0.9em;
 <div class="faq-answer">In dringenden Fällen ermögliche ich schnellstmögliche Termine – am besten telefonisch Kontakt aufnehmen.</div>
 </div>
 
-
 </section>
-
 </main>
 
 <footer>
@@ -700,7 +673,6 @@ document.querySelectorAll('.faq-box').forEach(box => {
  box.addEventListener('click', () => { box.classList.toggle('open'); });
 });
 
-// Scroll Animation - Apple-like smooth
 const observerOptions = {
  threshold: 0.15,
  rootMargin: '0px 0px -80px 0px'
@@ -709,10 +681,9 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
  entries.forEach((entry, index) => {
    if (entry.isIntersecting) {
-     // Staggered Animation für mehrere Elemente
      setTimeout(() => {
        entry.target.classList.add('active');
-     }, index * 50); // 50ms Verzögerung zwischen Elementen
+     }, index * 50);
    }
  });
 }, observerOptions);
@@ -721,7 +692,6 @@ document.querySelectorAll('.scroll-animate').forEach(el => {
  observer.observe(el);
 });
 
-// Erste sichtbare Elemente sofort aktivieren
 window.addEventListener('load', () => {
  const firstElements = document.querySelectorAll('.intro-text, .instagram-box');
  firstElements.forEach(el => {
