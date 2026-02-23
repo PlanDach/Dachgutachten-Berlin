@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About me – PlanDach Höfinghoff</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; overflow-x:hidden; background-color:#fff; color:#004D00; }
+
+/* Header */
+header {
+width:100%;
+background:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 20px;
+position:fixed;
+top:0; left:0;
+z-index:10;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+.logo img { height:80px; width:auto; display:block; }
+
+/* Sprach-Button */
+.lang-btn {
+text-decoration:none;
+font-weight:600;
+font-size:0.95em;
+color:#004d00;
+background:#e6f4ea;
+border:1.5px solid rgba(0,127,95,0.3);
+border-radius:8px;
+padding:6px 12px;
+transition: background 0.3s ease, transform 0.2s ease;
+white-space:nowrap;
+}
+.lang-btn:hover {
+background:#cde9d8;
+transform:translateY(-1px);
+}
+
+/* Desktop: nav + lang-btn rechts zusammen */
+.header-right {
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+/* Mobile Controls */
+.mobile-controls {
+display:none;
+align-items:center;
+gap:12px;
+margin-left:auto;
+}
+
+.hamburger { font-size:2em; cursor:pointer; user-select:none; }
+
+/* Menü */
+nav ul { list-style:none; display:flex; gap:20px; }
+nav ul li { position:relative; }
+nav ul li a {
+text-decoration:none;
+color:#004d00;
+font-weight:500;
+padding:5px 10px;
+display:block;
+transition: background-color 0.3s ease, color 0.3s ease;
+}
+nav ul li a:hover { background-color:#e6f4ea; border-radius:6px; color:#007f5f; }
+nav ul li a:active,
+nav ul li a.active { background-color:#cde9d8; border-radius:6px; color:#007f5f; }
+
+/* Main padding for fixed header */
+main { padding-top:100px; }
+
+/* Hero */
+.hero {
+position: relative;
+text-align:center;
+padding:120px 20px;
+min-height:350px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:#ffffff;
+overflow:hidden;
+}
+.hero-img {
+position:absolute;
+top:0; left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:1;
+filter: brightness(0.65);
+}
+.hero h1, .hero p { position: relative; z-index:2; color:#ffffff; }
+.hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
+.hero p { font-size:1.2em; }
+
+/* Main content */
+.content-section {
+background:#ffffff;
+padding:80px 40px;
+}
+
+.about-container {
+max-width:1200px;
+margin:0 auto;
+display:grid;
+grid-template-columns: minmax(250px, 45%) 1fr;
+gap:40px;
+align-items:start;
+}
+
+.image-column {
+display:flex;
+justify-content:center;
+align-items:flex-start;
+padding-top: 8px;
+}
+
+.profile-image {
+width: 100%;
+max-width: 400px;
+height: auto;
+border-radius: 12px;
+box-shadow:0 8px 24px rgba(0,0,0,0.12);
+opacity: 1;
+transform: none;
+}
+
+.text-column {
+display:flex;
+flex-direction:column;
+}
+
+.text-column.scroll-animate {
+opacity: 0;
+transform: translateY(40px);
+transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.text-column.scroll-animate.active {
+opacity: 1;
+transform: translateY(0);
+}
+
+.text-column h2 {
+margin:0 0 8px 0;
+color:#004d00;
+font-size:2.2rem;
+font-weight:600;
+line-height:1.2;
+}
+
+.text-column .subtitle {
+font-size:1.1rem;
+color:#333;
+margin-bottom:32px;
+font-weight:400;
+}
+
+.text-column p {
+color:#333;
+line-height:1.7;
+font-size:1.05rem;
+margin-bottom:20px;
+}
+
+.text-column p:last-of-type {
+margin-bottom:12px;
+}
+
+.text-column p strong {
+color:#004d00;
+}
+
+/* Signatur */
+.signature {
+display: block;
+margin: 0 0 0 0;
+width: 280px;
+height: auto;
+}
+
+/* Footer */
+footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
+footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
+
+/* Responsive */
+@media (max-width:768px) {
+.header-right > .lang-btn { display:none; }
+.mobile-controls { display:flex; }
+
+nav ul {
+flex-direction:column;
+display:none;
+background:#fff;
+position:absolute;
+top:60px;
+left:0;
+width:100%;
+padding:10px 0;
+gap:0;
+text-align:center;
+}
+nav ul.show { display:flex; }
+nav ul li { width:100%; }
+nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
+nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
+nav ul li ul.active { display:flex; }
+nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
+nav ul li ul li ul { left:0; }
+
+.hero { padding:120px 20px; min-height:350px; }
+.hero h1 { font-size:2.5em; }
+.hero p { font-size:1.2em; }
+
+.content-section { padding:40px 20px; }
+
+.about-container {
+grid-template-columns:1fr;
+gap:40px;
+}
+
+.profile-image { max-width:100%; }
+
+.text-column h2 { font-size:1.8rem; margin-bottom:6px; }
+.text-column .subtitle { font-size:1rem; margin-bottom:24px; }
+.text-column p { font-size:1rem; }
+
+.signature { width: 220px; margin-top:8px; }
+}
+</style>
+
+</head>
+
+<body>
+<header>
+  <div class="logo">
+    <a href="index-en.html"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></a>
+  </div>
+
+  <!-- Mobile: Flag + Hamburger right -->
+
+  <div class="mobile-controls">
+    <a href="ueber-mich.html" class="lang-btn">🇩🇪 DE</a>
+    <div class="hamburger" id="hamburger">☰</div>
+  </div>
+
+  <!-- Desktop: Nav + Flag right -->
+
+  <div class="header-right">
+    <nav>
+      <ul id="navMenu">
+        <li><a href="index-en.html">Home</a></li>
+        <li><a href="about-en.html" class="active">About me</a></li>
+        <li><a href="services-en.html">Services</a></li>
+        <li><a href="online-roofcheck-en.html">Online Roof Check</a></li>
+        <li><a href="contact-en.html">Contact</a></li>
+        <li><a href="legal-en.html">Legal Notice</a></li>
+      </ul>
+    </nav>
+    <a href="ueber-mich.html" class="lang-btn">🇩🇪 DE</a>
+  </div>
+</header>
+
+<main>
+<section class="hero scroll-animate">
+  <img src="IMG_4154.jpeg" alt="About me Hero" class="hero-img">
+  <h1>About me</h1>
+  <p>Get to know me and my work – experienced, professional, transparent.</p>
+</section>
+
+<section class="content-section">
+  <div class="about-container">
+    <div class="image-column">
+      <img src="E928D746-D19B-4518-A21D-B6111AC3F50F.jpeg" alt="Philipp Höfinghoff Portrait" class="profile-image">
+    </div>
+
+```
+<div class="text-column scroll-animate">
+  <h2>Philipp Höfinghoff</h2>
+  <p class="subtitle">Managing Director & Master Roofer</p>
+
+  <p>I was born in North Rhine-Westphalia and am now based in Berlin. As a master roofer with over ten years of professional experience, I have developed a deep understanding of the challenges and subtleties of the roofing trade.</p>
+
+  <p>With PlanDach Höfinghoff, I pursue a clear mission: to bring the highest quality, transparency and innovation to the roofing and sheet metal industry. I offer independent assessments, professional planning and individual consulting – always with the goal of ensuring long-term security and value appreciation of my clients' properties.</p>
+
+  <p>My approach combines traditional craftsmanship with modern project management and digital services. With our <strong>Online Roof Check</strong>, I enable fast, precise evaluations – whether on-site in Berlin or nationwide online. This allows my clients to benefit from efficient processes, clear communication and tailored solutions.</p>
+
+  <p>I want to do more than just secure roofs – I want to set standards, build trust and give every client the confidence that their project is in the best hands. My standard is simple: every project should be executed the way I would expect it done for my own home.</p>
+
+  <img src="7D3B4BA8-E56B-43F3-8FB0-3C7852010212.png" alt="Signature Philipp Höfinghoff" class="signature">
+</div>
+```
+
+  </div>
+</section>
+</main>
+
+<footer>
+<div style="max-width:1000px; margin:0 auto;">
+  <p>© 2025 PlanDach Höfinghoff – All rights reserved.</p>
+  <p><a href="legal-en.html">Legal Notice</a> | <a href="privacy-en.html">Privacy Policy</a> | <a href="contact-en.html">Contact</a></p>
+  <p>Address: Musterstraße 1, 12345 Berlin | Phone: 030 12345678 | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
+</div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    navMenu.classList.remove('show');
+    document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
+  }
+});
+
+/* Scroll Animation */
+const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -80px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('active'), index * 50);
+    }
+  });
+}, observerOptions);
+document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
+
+window.addEventListener('load', () => {
+  document.querySelectorAll('.hero').forEach(el => el.classList.add('active'));
+});
+</script>
+
+</body>
+</html>
