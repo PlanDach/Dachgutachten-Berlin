@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legal Notice – PlanDach Höfinghoff</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; overflow-x:hidden; background-color:#fff; color:#004D00; }
+
+/* Header */
+header {
+width:100%;
+background:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 20px;
+position:fixed;
+top:0; left:0;
+z-index:10;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+.logo img { height:80px; width:auto; display:block; }
+
+.lang-btn {
+text-decoration:none;
+font-weight:600;
+font-size:0.95em;
+color:#004d00;
+background:#e6f4ea;
+border:1.5px solid rgba(0,127,95,0.3);
+border-radius:8px;
+padding:6px 12px;
+transition: background 0.3s ease, transform 0.2s ease;
+white-space:nowrap;
+}
+.lang-btn:hover { background:#cde9d8; transform:translateY(-1px); }
+
+.header-right { display:flex; align-items:center; gap:20px; }
+
+.mobile-controls {
+display:none;
+align-items:center;
+gap:12px;
+margin-left:auto;
+}
+
+.hamburger { font-size:2em; cursor:pointer; user-select:none; }
+
+nav ul { list-style:none; display:flex; gap:20px; }
+nav ul li { position:relative; }
+nav ul li a {
+text-decoration:none;
+color:#004d00;
+font-weight:500;
+padding:5px 10px;
+display:block;
+transition: background-color 0.3s ease, color 0.3s ease;
+}
+nav ul li a:hover { background-color:#e6f4ea; border-radius:6px; color:#007f5f; }
+nav ul li a:active,
+nav ul li a.active { background-color:#cde9d8; border-radius:6px; color:#007f5f; }
+
+main { padding-top:100px; }
+
+/* Hero */
+.hero {
+position: relative;
+text-align:center;
+padding:120px 20px;
+overflow:hidden;
+min-height:350px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+.hero img.hero-bg {
+position:absolute;
+top:0; left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+object-position:center;
+z-index:0;
+opacity:0.5;
+filter: brightness(0.7);
+}
+.hero h1, .hero p { position: relative; z-index:2; color:#ffffff; }
+.hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
+.hero p { font-size:1.2em; }
+
+/* Content */
+.impressum-content {
+max-width:900px;
+margin:40px auto;
+padding:40px 20px;
+line-height:1.8;
+color:#333;
+}
+
+.impressum-content h2 {
+color:#004d00;
+margin-top:40px;
+margin-bottom:15px;
+font-size:1.5em;
+border-bottom:2px solid #e6f4ea;
+padding-bottom:8px;
+}
+
+.impressum-content h2:first-of-type { margin-top:0; }
+
+.impressum-content p { margin-bottom:20px; line-height:1.8; }
+
+.impressum-content strong { color:#004d00; font-weight:600; }
+
+.impressum-content a {
+color:#007f5f;
+text-decoration:none;
+border-bottom:1px solid transparent;
+transition: border-bottom 0.3s ease;
+}
+.impressum-content a:hover { border-bottom:1px solid #007f5f; }
+
+.contact-box {
+background:#f8fdf9;
+padding:20px;
+border-radius:8px;
+border-left:4px solid #007f5f;
+margin:20px 0;
+}
+
+.info-box {
+background:#f0f0f0;
+padding:15px 20px;
+border-radius:6px;
+margin:15px 0;
+font-size:0.95em;
+}
+
+footer {
+background:#f8f8f8;
+padding:40px 20px;
+text-align:center;
+font-size:14px;
+color:#333;
+margin-top:60px;
+}
+
+/* Responsive */
+@media (max-width:768px) {
+.header-right > .lang-btn { display:none; }
+.mobile-controls { display:flex; }
+
+nav ul {
+flex-direction:column;
+display:none;
+background:#fff;
+position:absolute;
+top:60px;
+left:0;
+width:100%;
+padding:10px 0;
+gap:0;
+text-align:center;
+}
+nav ul.show { display:flex; }
+nav ul li { width:100%; }
+nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
+
+.hero h1 { font-size:2em; }
+.hero p { font-size:1em; }
+.impressum-content { padding:20px 15px; }
+.impressum-content h2 { font-size:1.3em; }
+}
+</style>
+
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <a href="index-en.html"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></a>
+  </div>
+
+  <!-- Mobile: Flag + Hamburger right -->
+
+  <div class="mobile-controls">
+    <a href="impressum.html" class="lang-btn">🇩🇪 DE</a>
+    <div class="hamburger" id="hamburger">☰</div>
+  </div>
+
+  <!-- Desktop: Nav + Flag right -->
+
+  <div class="header-right">
+    <nav>
+      <ul id="navMenu">
+        <li><a href="index-en.html">Home</a></li>
+        <li><a href="about-en.html">About me</a></li>
+        <li><a href="services-en.html">Services</a></li>
+        <li><a href="online-roofcheck-en.html">Online Roof Check</a></li>
+        <li><a href="contact-en.html">Contact</a></li>
+        <li><a href="legal-en.html" class="active">Legal Notice</a></li>
+      </ul>
+    </nav>
+    <a href="impressum.html" class="lang-btn">🇩🇪 DE</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <img src="IMG_4009.jpeg" alt="Legal Notice Hero" class="hero-bg">
+    <h1>Legal Notice</h1>
+    <p>Legal information and contact details pursuant to § 5 TMG</p>
+  </section>
+
+  <section class="impressum-content">
+
+```
+<h2>Information pursuant to § 5 TMG</h2>
+<p>
+  <strong>PlanDach Höfinghoff</strong><br>
+  Owner: Philipp Höfinghoff<br>
+  [Your Street and House Number]<br>
+  [Postcode] [City]<br>
+  Germany
+</p>
+
+<div class="contact-box">
+  <h2 style="margin-top:0; border:none; padding-bottom:0;">Contact</h2>
+  <p style="margin-bottom:0;">
+    <strong>Phone:</strong> [Your Phone Number]<br>
+    <strong>E-Mail:</strong> <a href="mailto:info@plandach-hoefinghoff.de">info@plandach-hoefinghoff.de</a><br>
+    <strong>Web:</strong> <a href="https://www.plandach-hoefinghoff.de">www.plandach-hoefinghoff.de</a>
+  </p>
+</div>
+
+<h2>Professional Title and Qualifications</h2>
+<p>
+  <strong>Professional title:</strong> [e.g. Master Roofer / Expert for Roof, Wall and Waterproofing Technology]<br>
+  <strong>Awarded in:</strong> Germany<br>
+  <strong>Responsible chamber:</strong> [e.g. Chamber of Crafts Berlin]<br>
+  <strong>Chamber address:</strong> [Address of the responsible chamber]
+</p>
+
+<h2>VAT Identification Number</h2>
+<p>
+  VAT identification number pursuant to § 27a UStG:<br>
+  <strong>[Your VAT ID, e.g. DE123456789]</strong>
+</p>
+
+<h2>Professional Liability Insurance</h2>
+<p>
+  <strong>Name and registered office of the insurer:</strong><br>
+  [Name of the insurance company]<br>
+  [Street and House Number]<br>
+  [Postcode] [City]<br>
+  <strong>Scope of coverage:</strong> Germany / Europe
+</p>
+
+<div class="info-box">
+  <strong>Note:</strong> The professional liability insurance covers activities in the areas of planning, construction supervision and expert appraisals in accordance with statutory requirements.
+</div>
+
+<h2>Supervisory Authority</h2>
+<p>
+  [Name of the responsible supervisory authority, if applicable]<br>
+  [Address of the authority]
+</p>
+
+<h2>Professional Regulations</h2>
+<p>
+  The professional title was awarded in Germany. The applicable professional regulations of the respective federal state apply, available from the responsible Chamber of Crafts or Chamber of Engineers.
+</p>
+
+<h2>EU Dispute Resolution</h2>
+<p>
+  The European Commission provides a platform for online dispute resolution (ODR):<br>
+  <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a><br>
+  Our e-mail address can be found above in the legal notice.
+</p>
+
+<h2>Consumer Dispute Resolution</h2>
+<p>
+  We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.
+</p>
+
+<h2>Liability for Content</h2>
+<p>
+  As a service provider, we are responsible for our own content on these pages in accordance with general laws pursuant to § 7 para. 1 TMG. However, pursuant to §§ 8 to 10 TMG, we are not obliged as a service provider to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.
+</p>
+<p>
+  Obligations to remove or block the use of information in accordance with general laws remain unaffected. However, liability in this regard is only possible from the time of knowledge of a specific legal infringement. Upon becoming aware of such legal infringements, we will remove this content immediately.
+</p>
+
+<h2>Liability for Links</h2>
+<p>
+  Our website contains links to external third-party websites over whose content we have no influence. Therefore, we cannot accept any liability for this third-party content. The respective provider or operator of the linked pages is always responsible for their content. The linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognisable at the time of linking.
+</p>
+<p>
+  However, permanent monitoring of the content of linked pages is not reasonable without concrete evidence of a legal violation. Upon becoming aware of legal violations, we will remove such links immediately.
+</p>
+
+<h2>Copyright</h2>
+<p>
+  The content and works created by the site operators on these pages are subject to German copyright law. Reproduction, processing, distribution and any kind of exploitation outside the limits of copyright law require the written consent of the respective author or creator. Downloads and copies of this site are only permitted for private, non-commercial use.
+</p>
+<p>
+  Insofar as the content on this site was not created by the operator, the copyrights of third parties are respected. In particular, third-party content is identified as such. Should you nevertheless become aware of a copyright infringement, please inform us accordingly. Upon becoming aware of legal violations, we will remove such content immediately.
+</p>
+
+<div class="info-box">
+  <strong>Privacy Notice:</strong> Information on the processing of your personal data can be found in our <a href="privacy-en.html">Privacy Policy</a>.
+</div>
+```
+
+  </section>
+</main>
+
+<footer>
+  <div style="max-width:1000px; margin:0 auto; text-align:center;">
+    <p>&copy; 2025 PlanDach Höfinghoff – All rights reserved | <a href="legal-en.html" style="color:#007f5f; text-decoration:none;">Legal Notice</a> | <a href="privacy-en.html" style="color:#007f5f; text-decoration:none;">Privacy Policy</a></p>
+  </div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    navMenu.classList.remove('show');
+  }
+});
+</script>
+
+</body>
+</html>
