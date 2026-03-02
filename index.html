@@ -15,7 +15,7 @@ width: 100%;
 background: #0e5244;
 color: #fff;
 font-size: 0.82em;
-padding: 7px 20px;
+padding: 0 20px;
 display: flex;
 justify-content: flex-end;
 align-items: center;
@@ -24,6 +24,8 @@ position: fixed;
 top: 0;
 left: 0;
 z-index: 20;
+height: 37px;
+line-height: 37px;
 }
 .top-bar a {
 color: #fff;
@@ -93,22 +95,16 @@ margin-left:auto;
 display: flex;
 align-items: center;
 justify-content: center;
-width: 40px;
-height: 40px;
-background: #136f5a;
-border-radius: 50%;
-color: #fff;
+color: #136f5a;
 text-decoration: none;
-font-size: 1.1em;
-transition: background 0.2s, transform 0.2s;
+font-size: 1.4em;
+transition: opacity 0.2s;
 flex-shrink: 0;
+line-height: 1;
 }
-.mobile-call-btn:hover {
-background: #0e5244;
-transform: scale(1.08);
-}
+.mobile-call-btn:hover { opacity: 0.7; }
 
-.hamburger { font-size:2em; cursor:pointer; user-select:none; }
+.hamburger { font-size:1.5em; cursor:pointer; user-select:none; line-height:1; }
 
 /* Menü */
 nav ul { list-style:none; display:flex; gap:20px; }
@@ -514,8 +510,8 @@ gap: 24px;
   <a href="tel:+4917641122628">
     📞 +49 176 41122628
   </a>
-  <a href="mailto:info@plandach.de">
-    ✉ info@plandach.de
+  <a href="/cdn-cgi/l/email-protection#523b3c343d12223e333c3633313a7c3637">
+    ✉ <span class="__cf_email__" data-cfemail="f59c9b939ab58599949b9194969ddb9190">[email&#160;protected]</span>
   </a>
   <a href="index-en.html" class="lang-switcher">🇬🇧 EN</a>
 </div>
@@ -723,70 +719,71 @@ gap: 24px;
   <div style="max-width:1000px; margin:0 auto;">
     <p>© 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
     <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="kontakt.html">Kontakt</a></p>
-    <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: <a href="tel:+4917641122628">+49 176 41122628</a> | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
+    <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: <a href="tel:+4917641122628">+49 176 41122628</a> | E-Mail: <a href="/cdn-cgi/l/email-protection#573e39313817273b36393336343f793332"><span class="__cf_email__" data-cfemail="aac3c4ccc5eadac6cbc4cecbc9c284cecf">[email&#160;protected]</span></a></p>
   </div>
 </footer>
 
-<script>
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('navMenu');
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 
-hamburger.addEventListener('click', () => {
-  navMenu.classList.toggle('show');
+const hamburger = document.getElementById(‘hamburger’);
+const navMenu = document.getElementById(‘navMenu’);
+
+hamburger.addEventListener(‘click’, () => {
+navMenu.classList.toggle(‘show’);
 });
 
-document.querySelectorAll('.has-submenu > a').forEach(link => {
-  link.addEventListener('click', e => {
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      const submenu = link.nextElementSibling;
-      if (submenu) {
-        submenu.classList.toggle('active');
-        if (!submenu.classList.contains('active')) {
-          submenu.querySelectorAll('.submenu.active').forEach(sub => {
-            sub.classList.remove('active');
-          });
-        }
-      }
-    }
-  });
+document.querySelectorAll(’.has-submenu > a’).forEach(link => {
+link.addEventListener(‘click’, e => {
+if (window.innerWidth <= 768) {
+e.preventDefault();
+const submenu = link.nextElementSibling;
+if (submenu) {
+submenu.classList.toggle(‘active’);
+if (!submenu.classList.contains(‘active’)) {
+submenu.querySelectorAll(’.submenu.active’).forEach(sub => {
+sub.classList.remove(‘active’);
+});
+}
+}
+}
+});
 });
 
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 768) {
-    navMenu.classList.remove('show');
-    document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
-  }
+window.addEventListener(‘resize’, () => {
+if (window.innerWidth > 768) {
+navMenu.classList.remove(‘show’);
+document.querySelectorAll(’.submenu.active’).forEach(sm => sm.classList.remove(‘active’));
+}
 });
 
-document.querySelectorAll('.faq-box').forEach(box => {
-  box.addEventListener('click', () => { box.classList.toggle('open'); });
+document.querySelectorAll(’.faq-box’).forEach(box => {
+box.addEventListener(‘click’, () => { box.classList.toggle(‘open’); });
 });
 
 const observerOptions = {
-  threshold: 0.15,
-  rootMargin: '0px 0px -80px 0px'
+threshold: 0.15,
+rootMargin: ‘0px 0px -80px 0px’
 };
 
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, index) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.classList.add('active');
-      }, index * 50);
-    }
-  });
+entries.forEach((entry, index) => {
+if (entry.isIntersecting) {
+setTimeout(() => {
+entry.target.classList.add(‘active’);
+}, index * 50);
+}
+});
 }, observerOptions);
 
-document.querySelectorAll('.scroll-animate').forEach(el => {
-  observer.observe(el);
+document.querySelectorAll(’.scroll-animate’).forEach(el => {
+observer.observe(el);
 });
 
-window.addEventListener('load', () => {
-  const firstElements = document.querySelectorAll('.intro-text, .instagram-box');
-  firstElements.forEach(el => {
-    el.classList.add('active');
-  });
+window.addEventListener(‘load’, () => {
+const firstElements = document.querySelectorAll(’.intro-text, .instagram-box’);
+firstElements.forEach(el => {
+el.classList.add(‘active’);
+});
 });
 </script>
 
