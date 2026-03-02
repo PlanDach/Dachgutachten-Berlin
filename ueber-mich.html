@@ -29,9 +29,7 @@ position:fixed; top:37px; left:0;
 z-index:10; box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 .logo img { height:80px; width:auto; display:block; }
-
 .header-right { display:flex; align-items:center; gap:20px; }
-
 .lang-btn {
 text-decoration:none; font-weight:600; font-size:0.95em;
 color:#004d00; background:#e6f4ea;
@@ -41,82 +39,49 @@ padding:6px 12px; transition:background 0.3s ease, transform 0.2s ease; white-sp
 .lang-btn:hover { background:#cde9d8; transform:translateY(-1px); }
 
 /* Mobile Controls */
-.mobile-controls {
-display:none; align-items:center; gap:16px; margin-left:auto;
-}
-.mobile-call-btn {
-text-decoration:none; font-size:1.1em; line-height:1; display:flex; align-items:center;
-}
-.mobile-flag-btn {
-font-size:1.1em; text-decoration:none; line-height:1; display:flex; align-items:center;
-}
+.mobile-controls { display:none; align-items:center; gap:16px; margin-left:auto; }
+.mobile-call-btn { text-decoration:none; font-size:1.1em; line-height:1; display:flex; align-items:center; }
+.mobile-flag-btn { font-size:1.1em; text-decoration:none; line-height:1; display:flex; align-items:center; }
 .hamburger { font-size:1.8em; cursor:pointer; user-select:none; line-height:1; display:flex; align-items:center; color:#136f5a; }
 
-/* Menü */
+/* Nav */
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
-nav ul li a {
-text-decoration:none; color:#004d00; font-weight:500;
-padding:5px 10px; display:block;
-transition:background-color 0.3s ease, color 0.3s ease;
-}
+nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:5px 10px; display:block; transition:background-color 0.3s ease, color 0.3s ease; }
 nav ul li a:hover { background-color:#e6f4ea; border-radius:6px; color:#007f5f; }
 nav ul li a:active, nav ul li a.active { background-color:#cde9d8; border-radius:6px; color:#007f5f; }
-
-/* Submenus */
-nav ul li ul {
-display:none; position:absolute; top:100%; left:0;
-background:#fff; list-style:none; padding:10px 0;
-min-width:200px; box-shadow:0 4px 10px rgba(0,0,0,0.1);
-z-index:20; border-radius:6px;
-}
+nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#fff; list-style:none; padding:10px 0; min-width:200px; box-shadow:0 4px 10px rgba(0,0,0,0.1); z-index:20; border-radius:6px; }
 @media (min-width:769px) { nav ul li:hover > ul { display:block; } }
 nav ul li ul li a { padding:8px 15px; color:#004d00; }
 nav ul li ul li ul { top:0; left:100%; }
 
 /* Main */
-main { padding-top:137px; } /* 37px topbar + 100px header */
+main { padding-top:137px; }
 
 /* Hero */
 .hero {
 position:relative; text-align:center;
-min-height:350px; padding:120px 20px;
+min-height:400px; padding:120px 20px;
 display:flex; flex-direction:column; justify-content:center; align-items:center;
-
-color:#ffffff;
-}
-.hero::after {
-content:””; position:absolute; top:0; left:0;
-width:100%; height:100%;
-background:rgba(0,0,0,0.45); z-index:1;
+color:#ffffff; overflow:hidden;
 }
 .hero-img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1; }
+.hero::after { content:””; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.45); z-index:2; }
 .hero h1, .hero p { position:relative; z-index:3; color:#ffffff; padding:0 20px; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
 .hero p { font-size:1.2em; }
 
 /* Content */
 .content-section { background:#ffffff; padding:80px 40px; }
-.about-container {
-max-width:1200px; margin:0 auto;
-display:grid; grid-template-columns:minmax(250px, 45%) 1fr;
-gap:40px; align-items:start;
-}
+.about-container { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:minmax(250px, 45%) 1fr; gap:40px; align-items:start; }
 .image-column { display:flex; justify-content:center; align-items:flex-start; padding-top:8px; }
-.profile-image {
-width:100%; max-width:400px; height:auto;
-border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.12);
-}
+.profile-image { width:100%; max-width:400px; height:auto; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.12); }
 .text-column { display:flex; flex-direction:column; }
-.text-column.scroll-animate {
-opacity:0; transform:translateY(40px);
-transition:opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
+.text-column.scroll-animate { opacity:0; transform:translateY(40px); transition:opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 .text-column.scroll-animate.active { opacity:1; transform:translateY(0); }
 .text-column h2 { margin:0 0 8px 0; color:#004d00; font-size:2.2rem; font-weight:600; line-height:1.2; }
 .text-column .subtitle { font-size:1.1rem; color:#333; margin-bottom:32px; font-weight:400; }
 .text-column p { color:#333; line-height:1.7; font-size:1.05rem; margin-bottom:20px; }
-.text-column p:last-of-type { margin-bottom:12px; }
 .text-column p strong { color:#004d00; }
 .signature { display:block; margin:0; width:280px; height:auto; }
 
@@ -129,15 +94,9 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 .top-bar { display:none; }
 header { top:0; }
 main { padding-top:100px; }
-
 .header-right > .lang-btn { display:none; }
 .mobile-controls { display:flex; }
-
-nav ul {
-flex-direction:column; display:none; background:#fff;
-position:absolute; top:60px; left:0; width:100%;
-padding:10px 0; gap:0; text-align:center;
-}
+nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:60px; left:0; width:100%; padding:10px 0; gap:0; text-align:center; }
 nav ul.show { display:flex; }
 nav ul li { width:100%; }
 nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
@@ -145,51 +104,43 @@ nav ul li ul { display:none; flex-direction:column; width:100%; text-align:cente
 nav ul li ul.active { display:flex; }
 nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
 nav ul li ul li ul { left:0; }
-
-.hero { padding:80px 20px; min-height:280px; }
+.hero { min-height:300px; padding:80px 20px; }
 .hero h1 { font-size:2em; }
 .hero p { font-size:1em; }
-
 .content-section { padding:40px 20px; }
 .about-container { grid-template-columns:1fr; gap:40px; }
 .profile-image { max-width:100%; }
-.text-column h2 { font-size:1.8rem; margin-bottom:6px; }
+.text-column h2 { font-size:1.8rem; }
 .text-column .subtitle { font-size:1rem; margin-bottom:24px; }
 .text-column p { font-size:1rem; }
-.signature { width:220px; margin-top:8px; }
+.signature { width:220px; }
 }
 </style>
 
 </head>
 <body>
 
-<!-- TOP BAR (nur Desktop) -->
+<!-- TOP BAR Desktop -->
 
 <div class="top-bar">
   <a href="tel:+4917641122628">📞 +49 176 41122628</a>
   <a href="mailto:info@plandach.de">✉ info@plandach.de</a>
-  <a href="index-en.html" class="lang-switcher">🇬🇧 EN</a>
+  <a href="about-en.html" class="lang-switcher">🇬🇧 EN</a>
 </div>
 
 <header>
   <div class="logo">
     <a href="index.html"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></a>
   </div>
-
-  <!-- Mobile: Telefon + Flagge + Hamburger -->
-
   <div class="mobile-controls">
     <a href="tel:+4917641122628" class="mobile-call-btn" title="Jetzt anrufen">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="#136f5a" xmlns="http://www.w3.org/2000/svg">
         <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.24 1.01l-2.21 2.2z"/>
       </svg>
     </a>
-    <a href="index-en.html" class="mobile-flag-btn">🇬🇧</a>
+    <a href="about-en.html" class="mobile-flag-btn">🇬🇧</a>
     <div class="hamburger" id="hamburger">☰</div>
   </div>
-
-  <!-- Desktop: Nav -->
-
   <div class="header-right">
     <nav>
       <ul id="navMenu">
@@ -239,7 +190,8 @@ nav ul li ul li ul { left:0; }
 </header>
 
 <main>
-<section class="hero"><img src="IMG_4154.jpeg" alt="Über mich Hero" class="hero-img">
+<section class="hero">
+  <img src="IMG_4154.jpeg" alt="Über mich Hero" class="hero-img">
   <h1>Über mich</h1>
   <p>Lerne mich und meine Arbeit kennen – erfahren, professionell, transparent.</p>
 </section>
