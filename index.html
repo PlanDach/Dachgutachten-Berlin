@@ -86,8 +86,9 @@ gap:20px;
 .mobile-controls {
 display:none;
 align-items:center;
-gap:12px;
+gap:16px;
 margin-left:auto;
+height: 100%;
 }
 
 /* Mobile Telefon-Button */
@@ -97,14 +98,22 @@ align-items: center;
 justify-content: center;
 color: #136f5a;
 text-decoration: none;
-font-size: 1.4em;
+font-size: 1.1em;
 transition: opacity 0.2s;
 flex-shrink: 0;
 line-height: 1;
 }
 .mobile-call-btn:hover { opacity: 0.7; }
 
-.hamburger { font-size:1.5em; cursor:pointer; user-select:none; line-height:1; }
+.mobile-flag-btn {
+font-size: 1.1em;
+text-decoration: none;
+line-height: 1;
+display: flex;
+align-items: center;
+}
+
+.hamburger { font-size:1.8em; cursor:pointer; user-select:none; line-height:1; display:flex; align-items:center; }
 
 /* Menü */
 nav ul { list-style:none; display:flex; gap:20px; }
@@ -525,7 +534,7 @@ gap: 24px;
 
   <div class="mobile-controls">
     <a href="tel:+4917641122628" class="mobile-call-btn" title="Jetzt anrufen">📞</a>
-    <a href="index-en.html" class="lang-btn">🇬🇧 EN</a>
+    <a href="index-en.html" class="mobile-flag-btn">🇬🇧</a>
     <div class="hamburger" id="hamburger">☰</div>
   </div>
 
