@@ -434,11 +434,15 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
 /* Scroll Animation */
 .scroll-animate {
+opacity: 1;
+transform: translateY(0);
+}
+.scroll-animate.animate-ready {
 opacity: 0;
 transform: translateY(40px);
 transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.scroll-animate.active { opacity: 1; transform: translateY(0); }
+.scroll-animate.animate-ready.active { opacity: 1; transform: translateY(0); }
 .intro-text.scroll-animate { opacity: 1; transform: translateY(0); }
 
 /* ── RESPONSIVE ── */
@@ -732,67 +736,69 @@ gap: 24px;
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+// Burger Menü
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
 
-const hamburger = document.getElementById(‘hamburger’);
-const navMenu = document.getElementById(‘navMenu’);
-
-hamburger.addEventListener(‘click’, () => {
-navMenu.classList.toggle(‘show’);
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
 });
 
-document.querySelectorAll(’.has-submenu > a’).forEach(link => {
-link.addEventListener(‘click’, e => {
-if (window.innerWidth <= 768) {
-e.preventDefault();
-const submenu = link.nextElementSibling;
-if (submenu) {
-submenu.classList.toggle(‘active’);
-if (!submenu.classList.contains(‘active’)) {
-submenu.querySelectorAll(’.submenu.active’).forEach(sub => {
-sub.classList.remove(‘active’);
-});
-}
-}
-}
-});
-});
-
-window.addEventListener(‘resize’, () => {
-if (window.innerWidth > 768) {
-navMenu.classList.remove(‘show’);
-document.querySelectorAll(’.submenu.active’).forEach(sm => sm.classList.remove(‘active’));
-}
+document.querySelectorAll('.has-submenu > a').forEach(link => {
+  link.addEventListener('click', e => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      const submenu = link.nextElementSibling;
+      if (submenu) {
+        submenu.classList.toggle('active');
+        if (!submenu.classList.contains('active')) {
+          submenu.querySelectorAll('.submenu.active').forEach(sub => {
+            sub.classList.remove('active');
+          });
+        }
+      }
+    }
+  });
 });
 
-document.querySelectorAll(’.faq-box’).forEach(box => {
-box.addEventListener(‘click’, () => { box.classList.toggle(‘open’); });
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    navMenu.classList.remove('show');
+    document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
+  }
 });
 
-const observerOptions = {
-threshold: 0.15,
-rootMargin: ‘0px 0px -80px 0px’
-};
-
-const observer = new IntersectionObserver((entries) => {
-entries.forEach((entry, index) => {
-if (entry.isIntersecting) {
-setTimeout(() => {
-entry.target.classList.add(‘active’);
-}, index * 50);
-}
-});
-}, observerOptions);
-
-document.querySelectorAll(’.scroll-animate’).forEach(el => {
-observer.observe(el);
+// FAQ
+document.querySelectorAll('.faq-box').forEach(box => {
+  box.addEventListener('click', () => { box.classList.toggle('open'); });
 });
 
-window.addEventListener(‘load’, () => {
-const firstElements = document.querySelectorAll(’.intro-text, .instagram-box’);
-firstElements.forEach(el => {
-el.classList.add(‘active’);
-});
+// Scroll Animation – erst nach Load aktivieren damit Inhalt immer sichtbar
+window.addEventListener('load', () => {
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -80px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('active');
+        }, index * 50);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.scroll-animate').forEach(el => {
+    el.classList.add('animate-ready');
+    observer.observe(el);
+  });
+
+  document.querySelectorAll('.intro-text, .instagram-box').forEach(el => {
+    el.classList.add('active');
+  });
 });
 </script>
 
