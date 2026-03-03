@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="de">
 <head>
 <meta charset="UTF-8" />
@@ -8,291 +9,99 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; overflow-x:hidden; background-color:#fff; color:#004D00; }
 
+/* TOP BAR - nur Desktop */
+.top-bar {
+width:100%; background:#0e5244; color:#fff;
+font-size:0.82em; padding:0 20px; height:37px;
+display:flex; justify-content:flex-end; align-items:center; gap:24px;
+position:fixed; top:0; left:0; z-index:20;
+}
+.top-bar a { color:#fff; text-decoration:none; display:flex; align-items:center; gap:6px; transition:opacity 0.2s; }
+.top-bar a:hover { opacity:0.8; }
+.top-bar .lang-switcher { border-left:1px solid rgba(255,255,255,0.3); padding-left:20px; }
+
 /* Header */
 header {
-  width:100%;
-  background:#fff;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:10px 20px;
-  position:fixed;
-  top:0; left:0;
-  z-index:10;
-  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+width:100%; background:#fff;
+display:flex; justify-content:space-between; align-items:center;
+padding:10px 20px;
+position:fixed; top:37px; left:0;
+z-index:10; box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 .logo img { height:80px; width:auto; display:block; }
-.hamburger { display:none; font-size:2em; cursor:pointer; user-select:none; }
+.header-right { display:flex; align-items:center; gap:20px; }
+.lang-btn {
+text-decoration:none; font-weight:600; font-size:0.95em;
+color:#004d00; background:#e6f4ea;
+border:1.5px solid rgba(0,127,95,0.3); border-radius:8px;
+padding:6px 12px; transition:background 0.3s ease, transform 0.2s ease; white-space:nowrap;
+}
+.lang-btn:hover { background:#cde9d8; transform:translateY(-1px); }
 
-/* Menü */
+/* Mobile Controls */
+.mobile-controls { display:none; align-items:center; gap:16px; margin-left:auto; }
+.mobile-call-btn { text-decoration:none; line-height:1; display:flex; align-items:center; }
+.mobile-flag-btn { font-size:1.1em; text-decoration:none; line-height:1; display:flex; align-items:center; }
+.hamburger { font-size:1.8em; cursor:pointer; user-select:none; line-height:1; display:flex; align-items:center; color:#136f5a; }
+
+/* Nav */
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
-nav ul li a { 
-text-decoration:none; 
-color:#004d00; 
-font-weight:500; 
-padding:5px 10px;
-display:block; 
-transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-nav ul li a:hover { 
-background-color:#e6f4ea; 
-border-radius:6px; 
-color:#007f5f; 
-}
-nav ul li a:active, 
-nav ul li a.active { 
-background-color:#cde9d8; 
-border-radius:6px; 
-color:#007f5f; 
-}
-
-/* Submenus */
-nav ul li ul {
-display:none;
-position:absolute;
-top:100%;
-left:0;
-background:#fff;
-list-style:none;
-padding:10px 0;
-min-width:200px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-z-index:20;
-border-radius:6px;
-}
-
-@media (min-width:769px) {
-  nav ul li:hover > ul { display:block; }
-}
-
+nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:5px 10px; display:block; transition:background-color 0.3s ease, color 0.3s ease; }
+nav ul li a:hover { background-color:#e6f4ea; border-radius:6px; color:#007f5f; }
+nav ul li a:active, nav ul li a.active { background-color:#cde9d8; border-radius:6px; color:#007f5f; }
+nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#fff; list-style:none; padding:10px 0; min-width:200px; box-shadow:0 4px 10px rgba(0,0,0,0.1); z-index:20; border-radius:6px; }
+@media (min-width:769px) { nav ul li:hover > ul { display:block; } }
 nav ul li ul li a { padding:8px 15px; color:#004d00; }
 nav ul li ul li ul { top:0; left:100%; }
 
-/* Main padding for fixed header */
-main { padding-top:100px; }
+/* Main */
+main { padding-top:137px; }
 
 /* Hero */
-.hero { 
-  position: relative;
-  text-align:center; 
-  padding:120px 20px; 
-  min-height:350px; 
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  background: url('C55CF7CA-3C7F-4AAE-82BB-BD813375AD53.png') center center / cover no-repeat; 
-  color:#ffffff;
+.hero {
+position:relative; text-align:center;
+min-height:400px; padding:120px 20px;
+display:flex; flex-direction:column; justify-content:center; align-items:center;
+color:#ffffff; overflow:hidden;
 }
-.hero::before {
-  content:"";
-  position:absolute;
-  top:0; left:0;
-  width:100%;
-  height:100%;
-  background: inherit;
-  opacity:0.5;
-  z-index:1;
-  filter: brightness(0.7);
-}
-.hero h1, .hero p {
-  position: relative;
-  z-index:2;
-  color:#ffffff;
-}
+.hero-img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1; }
+.hero::after { content:””; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.45); z-index:2; }
+.hero h1, .hero p { position:relative; z-index:3; color:#ffffff; padding:0 20px; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
 .hero p { font-size:1.2em; }
 
 /* CHECK CONTAINER */
 .check-container {
-  max-width:800px;
-  margin:80px auto 100px;
-  padding:0 30px;
-  display:flex;
-  flex-direction:column;
-  gap:60px;
+max-width:800px; margin:80px auto 100px;
+padding:0 30px; display:flex; flex-direction:column; gap:60px;
 }
 
-/* Beschreibung */
-.form-description {
-  color:#1d1d1f;
-  text-align:center;
-  line-height:1.8;
-  font-size:1.05em;
-  font-weight:400;
-}
+.form-description { color:#1d1d1f; text-align:center; line-height:1.8; font-size:1.05em; font-weight:400; }
 
-/* Steps-Box */
-.steps-section {
-  background:#ffffff;
-  padding:0;
-  text-align:center;
-  border:none;
-  box-shadow:none;
-}
-.steps-header {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  margin-bottom:40px;
-}
-.steps-header h2 {
-  color:#1d1d1f;
-  font-size:2em;
-  margin:0;
-  font-weight:600;
-  letter-spacing:-0.5px;
-}
-.steps-header .check-icon {
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  color:#007F5F;
-  font-size:1.5rem;
-  width:32px;
-  height:32px;
-}
-.steps-grid {
-  display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap:40px;
-  justify-items:center;
-  align-items:start;
-  padding:0;
-}
-@media (min-width:768px) {
-  .steps-grid { grid-template-columns: repeat(4, 1fr); gap:30px; }
-}
-.step {
-  text-align:center;
-  max-width:180px;
-}
-.step .icon {
-  width:72px;
-  height:72px;
-  margin:0 auto;
-  background:#f5f5f7;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:32px;
-  color:#007F5F;
-  transition:all 0.2s ease;
-}
-.step .icon:hover {
-  background:#e6f4ea;
-  transform:scale(1.05);
-}
-.step p {
-  margin-top:16px;
-  font-size:0.95rem;
-  color:#1d1d1f;
-  line-height:1.4;
-  text-align:center;
-  font-weight:500;
-}
+.steps-section { background:#ffffff; padding:0; text-align:center; }
+.steps-header { display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:40px; }
+.steps-header h2 { color:#1d1d1f; font-size:2em; margin:0; font-weight:600; letter-spacing:-0.5px; }
+.steps-header .check-icon { display:inline-flex; align-items:center; justify-content:center; color:#007F5F; font-size:1.5rem; width:32px; height:32px; }
+.steps-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:40px; justify-items:center; align-items:start; }
+@media (min-width:768px) { .steps-grid { grid-template-columns:repeat(4, 1fr); gap:30px; } }
+.step { text-align:center; max-width:180px; }
+.step .icon { width:72px; height:72px; margin:0 auto; background:#f5f5f7; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:32px; color:#007F5F; transition:all 0.2s ease; }
+.step .icon:hover { background:#e6f4ea; transform:scale(1.05); }
+.step p { margin-top:16px; font-size:0.95rem; color:#1d1d1f; line-height:1.4; text-align:center; font-weight:500; }
 
-/* Formular - Apple Style */
-.form-section {
-  background:#ffffff;
-  border-radius:0;
-  padding:0;
-  box-shadow:none;
-}
-.form-section h2 {
-  text-align:left;
-  color:#1d1d1f;
-  margin-bottom:40px;
-  font-size:2em;
-  font-weight:600;
-  letter-spacing:-0.5px;
-}
-
-form label { 
-  display:block; 
-  margin-bottom:8px; 
-  font-weight:500; 
-  color:#1d1d1f;
-  font-size:0.95em;
-  letter-spacing:0.2px;
-}
-
-form input, form textarea, form select {
-  width:100%;
-  padding:14px 16px;
-  margin-bottom:28px;
-  border:1px solid #d2d2d7;
-  border-radius:8px;
-  font-size:1em;
-  font-family: Arial, Helvetica, sans-serif;
-  background:#fff;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  color:#1d1d1f;
-}
-
-form input:focus, form textarea:focus, form select:focus {
-  border-color:#004d00;
-  box-shadow:0 0 0 4px rgba(0,77,0,0.08);
-  outline:none;
-}
-
-form textarea { 
-  resize:vertical;
-  min-height:140px;
-  line-height:1.6;
-}
-
-form select {
-  appearance:none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d1d1f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-  background-repeat:no-repeat;
-  background-position:right 12px center;
-  background-size:20px;
-  padding-right:40px;
-  cursor:pointer;
-}
-
-form input[type="file"] {
-  padding:12px 16px;
-  border:1px dashed #d2d2d7;
-  background:#fafafa;
-  cursor:pointer;
-  transition:all 0.2s ease;
-}
-
-form input[type="file"]:hover {
-  border-color:#004d00;
-  background:#f5f5f7;
-}
-
-form button {
-  background-color:#007f5f;
-  color:#fff;
-  border:none;
-  padding:16px 32px;
-  font-size:1em;
-  font-weight:500;
-  cursor:pointer;
-  border-radius:8px;
-  transition: all 0.2s ease;
-  width:100%;
-  letter-spacing:0.3px;
-  margin-top:12px;
-}
-
-form button:hover { 
-  background-color:#005f46;
-  transform:translateY(-1px);
-  box-shadow:0 8px 16px rgba(0,127,95,0.15);
-}
-
-form button:active {
-  transform:translateY(0);
-}
+.form-section { background:#ffffff; padding:0; }
+.form-section h2 { text-align:left; color:#1d1d1f; margin-bottom:40px; font-size:2em; font-weight:600; letter-spacing:-0.5px; }
+form label { display:block; margin-bottom:8px; font-weight:500; color:#1d1d1f; font-size:0.95em; letter-spacing:0.2px; }
+form input, form textarea, form select { width:100%; padding:14px 16px; margin-bottom:28px; border:1px solid #d2d2d7; border-radius:8px; font-size:1em; font-family:Arial, Helvetica, sans-serif; background:#fff; transition:border-color 0.2s ease, box-shadow 0.2s ease; color:#1d1d1f; }
+form input:focus, form textarea:focus, form select:focus { border-color:#004d00; box-shadow:0 0 0 4px rgba(0,77,0,0.08); outline:none; }
+form textarea { resize:vertical; min-height:140px; line-height:1.6; }
+form select { appearance:none; background-image:url(“data:image/svg+xml;charset=UTF-8,%3csvg xmlns=‘http://www.w3.org/2000/svg’ viewBox=‘0 0 24 24’ fill=‘none’ stroke=’%231d1d1f’ stroke-width=‘2’ stroke-linecap=‘round’ stroke-linejoin=‘round’%3e%3cpolyline points=‘6 9 12 15 18 9’%3e%3c/polyline%3e%3c/svg%3e”); background-repeat:no-repeat; background-position:right 12px center; background-size:20px; padding-right:40px; cursor:pointer; }
+form input[type=“file”] { padding:12px 16px; border:1px dashed #d2d2d7; background:#fafafa; cursor:pointer; transition:all 0.2s ease; }
+form input[type=“file”]:hover { border-color:#004d00; background:#f5f5f7; }
+form button { background-color:#007f5f; color:#fff; border:none; padding:16px 32px; font-size:1em; font-weight:500; cursor:pointer; border-radius:8px; transition:all 0.2s ease; width:100%; letter-spacing:0.3px; margin-top:12px; }
+form button:hover { background-color:#005f46; transform:translateY(-1px); box-shadow:0 8px 16px rgba(0,127,95,0.15); }
+form button:active { transform:translateY(0); }
 
 /* Footer */
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
@@ -300,221 +109,177 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
 /* Responsive */
 @media (max-width:768px) {
-.hamburger { display:block; }
-nav ul {
-  flex-direction:column;
-  display:none;
-  background:#fff;
-  position:absolute;
-  top:60px;
-  left:0;
-  width:100%;
-  padding:10px 0;
-  gap:0;
-  text-align:center;
-}
+.top-bar { display:none; }
+header { top:0; }
+main { padding-top:100px; }
+.header-right > .lang-btn { display:none; }
+.mobile-controls { display:flex; }
+nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:60px; left:0; width:100%; padding:10px 0; gap:0; text-align:center; }
 nav ul.show { display:flex; }
-
 nav ul li { width:100%; }
 nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
-
 nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
 nav ul li ul.active { display:flex; }
 nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
 nav ul li ul li ul { left:0; }
-
-.hero { padding:120px 20px; }
+.hero { min-height:300px; padding:80px 20px; }
 .hero h1 { font-size:2em; }
 .hero p { font-size:1.1em; }
-
-.check-container {
-  margin:50px auto 80px;
-  padding:0 20px;
-  gap:50px;
-}
-
-.form-description { 
-  font-size:1em;
-}
-
-.steps-header h2 {
-  font-size:1.7em;
-}
-
-.steps-grid { 
-  grid-template-columns:1fr; 
-  gap:40px; 
-}
-
-.step { 
-  max-width:280px; 
-}
-
-.form-section h2 { 
-  font-size:1.7em;
-  margin-bottom:30px;
-}
-
-form input, form textarea, form select {
-  padding:12px 14px;
-  margin-bottom:24px;
-  font-size:0.95em;
-}
-
-form button {
-  padding:14px 28px;
-  font-size:0.95em;
-}
+.check-container { margin:50px auto 80px; padding:0 20px; gap:50px; }
+.steps-header h2 { font-size:1.7em; }
+.steps-grid { grid-template-columns:1fr; gap:40px; }
+.step { max-width:280px; }
+.form-section h2 { font-size:1.7em; margin-bottom:30px; }
+form input, form textarea, form select { padding:12px 14px; margin-bottom:24px; font-size:0.95em; }
+form button { padding:14px 28px; font-size:0.95em; }
 }
 </style>
+
 </head>
 <body>
 
+<!-- TOP BAR Desktop -->
+
+<div class="top-bar">
+  <a href="tel:+4917641122628">📞 +49 176 41122628</a>
+  <a href="mailto:info@plandach.de">✉ info@plandach.de</a>
+  <a href="online-roofcheck-en.html" class="lang-switcher">🇬🇧 EN</a>
+</div>
+
 <header>
   <div class="logo">
-    <img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo">
+    <a href="index.html"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></a>
   </div>
-  <div class="hamburger" id="hamburger">☰</div>
-  <nav>
-    <ul id="navMenu">
-      <li><a href="index.html">Startseite</a></li>
-      <li><a href="ueber-mich.html">Über mich</a></li>
-      <li class="has-submenu">
-        <a href="#">Leistungen</a>
-        <ul class="submenu">
-          <li><a href="gutachten.html">Gutachten</a></li>
-          <li class="has-submenu">
-            <a href="#">Planung</a>
-            <ul class="submenu">
-              <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
-              <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
-              <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
-              <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
-            </ul>
-          </li>
-          <li class="has-submenu">
-            <a href="#">Bauüberwachung</a>
-            <ul class="submenu">
-              <li><a href="bau-koordination.html">Koordination</a></li>
-              <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
-              <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
-              <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
-            </ul>
-          </li>
-          <li class="has-submenu">
-            <a href="#">Ausschreibung</a>
-            <ul class="submenu">
-              <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
-              <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
-              <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
-            </ul>
-          </li>
-          <li><a href="dachwartung.html">Dachwartung</a></li>
-          <li><a href="online-dachcheck.html" class="active">Online-DachCheck</a></li>
-          <li><a href="leckageortung.html">Leckageortung</a></li>
-        </ul>
-      </li>
-      <li><a href="online-dachcheck.html" class="active">Online-DachCheck</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
-      <li><a href="impressum.html">Impressum</a></li>
-    </ul>
-  </nav>
+  <div class="mobile-controls">
+    <a href="tel:+4917641122628" class="mobile-call-btn" title="Jetzt anrufen">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#136f5a" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.24 1.01l-2.21 2.2z"/>
+      </svg>
+    </a>
+    <a href="online-roofcheck-en.html" class="mobile-flag-btn">🇬🇧</a>
+    <div class="hamburger" id="hamburger">☰</div>
+  </div>
+  <div class="header-right">
+    <nav>
+      <ul id="navMenu">
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="ueber-mich.html">Über mich</a></li>
+        <li class="has-submenu">
+          <a href="#">Leistungen</a>
+          <ul class="submenu">
+            <li><a href="gutachten.html">Gutachten</a></li>
+            <li class="has-submenu">
+              <a href="#">Planung</a>
+              <ul class="submenu">
+                <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
+                <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
+                <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
+                <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#">Bauüberwachung</a>
+              <ul class="submenu">
+                <li><a href="bau-koordination.html">Koordination</a></li>
+                <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
+                <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
+                <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#">Ausschreibung</a>
+              <ul class="submenu">
+                <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
+                <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
+                <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
+              </ul>
+            </li>
+            <li><a href="dachwartung.html">Dachwartung</a></li>
+            <li><a href="online-dachcheck.html" class="active">Online-DachCheck</a></li>
+            <li><a href="leckageortung.html">Leckageortung</a></li>
+          </ul>
+        </li>
+        <li><a href="online-dachcheck.html" class="active">Online-DachCheck</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <main>
   <section class="hero">
+    <img src="C55CF7CA-3C7F-4AAE-82BB-BD813375AD53.png" alt="Online-DachCheck Hero" class="hero-img">
     <h1>Online-DachCheck</h1>
     <p>Fülle das Formular aus, um eine schnelle Einschätzung und Beratung für dein Dach zu erhalten.</p>
   </section>
 
   <div class="check-container">
-
     <section class="form-description">
-      Nutzen Sie unseren Online-DachCheck, um den Zustand Ihres Daches bequem von zu Hause aus einzuschätzen. 
-      Unser digitaler Check führt Sie strukturiert durch alle relevanten Bereiche – von der Dacheindeckung über die Abdichtung bis zur Entwässerung. 
+      Nutzen Sie unseren Online-DachCheck, um den Zustand Ihres Daches bequem von zu Hause aus einzuschätzen.
+      Unser digitaler Check führt Sie strukturiert durch alle relevanten Bereiche – von der Dacheindeckung über die Abdichtung bis zur Entwässerung.
       So erhalten Sie eine fundierte Übersicht, erkennen mögliche Schäden frühzeitig und können gezielt Maßnahmen für den Werterhalt Ihrer Immobilie planen.
     </section>
 
-    <section class="steps-section" aria-labelledby="steps-heading">
-      <div class="steps-header">
-        <span class="check-icon" aria-hidden="true">✅</span>
-        <h2 id="steps-heading">So funktioniert Ihr Online-DachCheck</h2>
-      </div>
-      <div class="steps-grid" role="list">
-        <div class="step" role="listitem">
-          <div class="icon" aria-hidden="true">📤</div>
-          <p>Daten & Fotos hochladen</p>
-        </div>
-        <div class="step" role="listitem">
-          <div class="icon" aria-hidden="true">⚙️</div>
-          <p>Analyse starten</p>
-        </div>
-        <div class="step" role="listitem">
-          <div class="icon" aria-hidden="true">📊</div>
-          <p>Ergebnis prüfen</p>
-        </div>
-        <div class="step" role="listitem">
-          <div class="icon" aria-hidden="true">💡</div>
-          <p>Empfehlungen erhalten</p>
-        </div>
-      </div>
-    </section>
+```
+<section class="steps-section">
+  <div class="steps-header">
+    <span class="check-icon">✅</span>
+    <h2>So funktioniert Ihr Online-DachCheck</h2>
+  </div>
+  <div class="steps-grid">
+    <div class="step"><div class="icon">📤</div><p>Daten & Fotos hochladen</p></div>
+    <div class="step"><div class="icon">⚙️</div><p>Analyse starten</p></div>
+    <div class="step"><div class="icon">📊</div><p>Ergebnis prüfen</p></div>
+    <div class="step"><div class="icon">💡</div><p>Empfehlungen erhalten</p></div>
+  </div>
+</section>
 
-    <section class="form-section" aria-labelledby="form-heading">
-      <h2 id="form-heading">DachCheck starten</h2>
-      <form id="dachcheckForm" action="https://formspree.io/f/yourformid" method="POST" enctype="multipart/form-data">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-        
-        <label for="email">E-Mail</label>
-        <input type="email" id="email" name="_replyto" required>
-        
-        <label for="phone">Telefonnummer</label>
-        <input type="tel" id="phone" name="phone">
-        
-        <label for="address">Adresse / Standort</label>
-        <input type="text" id="address" name="address" required>
-        
-        <label for="dachtyp">Dachtyp</label>
-        <select id="dachtyp" name="dachtyp" required>
-          <option value="">Bitte wählen</option>
-          <option value="Satteldach">Satteldach</option>
-          <option value="Flachdach">Flachdach</option>
-          <option value="Pultdach">Pultdach</option>
-          <option value="Walmdach">Walmdach</option>
-          <option value="Mansarddach">Mansarddach</option>
-          <option value="Schleppdach">Schleppdach</option>
-        </select>
-        
-        <label for="dachmaterial">Dachmaterial</label>
-        <select id="dachmaterial" name="dachmaterial" required>
-          <option value="">Bitte wählen</option>
-          <option value="Ziegel">Ziegel</option>
-          <option value="Betonstein">Betonstein</option>
-          <option value="Bitumen / Bahnen">Bitumen / Bahnen</option>
-          <option value="Blech / Metall">Blech / Metall</option>
-          <option value="Schiefer">Schiefer</option>
-          <option value="Dachfolie / Kunststoff">Dachfolie / Kunststoff</option>
-        </select>
-        
-        <label for="dachflaeche">Dachfläche (m²)</label>
-        <input type="number" id="dachflaeche" name="dachflaeche" min="1" step="1">
-        
-        <label for="baujahr">Baujahr / Alter des Dachs</label>
-        <input type="number" id="baujahr" name="baujahr" min="1900" max="2099" step="1">
-        
-        <label for="dringlichkeit">Dringlichkeit / Gewünschter Termin</label>
-        <input type="text" id="dringlichkeit" name="dringlichkeit">
-        
-        <label for="photos">Fotos hochladen (optional)</label>
-        <input type="file" id="photos" name="photos[]" multiple accept="image/*">
-        
-        <label for="message">Nachricht / Beschreibung</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-        
-        <button type="submit">Absenden</button>
-      </form>
-    </section>
+<section class="form-section">
+  <h2>DachCheck starten</h2>
+  <form id="dachcheckForm" action="https://formspree.io/f/yourformid" method="POST" enctype="multipart/form-data">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+    <label for="email">E-Mail</label>
+    <input type="email" id="email" name="_replyto" required>
+    <label for="phone">Telefonnummer</label>
+    <input type="tel" id="phone" name="phone">
+    <label for="address">Adresse / Standort</label>
+    <input type="text" id="address" name="address" required>
+    <label for="dachtyp">Dachtyp</label>
+    <select id="dachtyp" name="dachtyp" required>
+      <option value="">Bitte wählen</option>
+      <option value="Satteldach">Satteldach</option>
+      <option value="Flachdach">Flachdach</option>
+      <option value="Pultdach">Pultdach</option>
+      <option value="Walmdach">Walmdach</option>
+      <option value="Mansarddach">Mansarddach</option>
+      <option value="Schleppdach">Schleppdach</option>
+    </select>
+    <label for="dachmaterial">Dachmaterial</label>
+    <select id="dachmaterial" name="dachmaterial" required>
+      <option value="">Bitte wählen</option>
+      <option value="Ziegel">Ziegel</option>
+      <option value="Betonstein">Betonstein</option>
+      <option value="Bitumen / Bahnen">Bitumen / Bahnen</option>
+      <option value="Blech / Metall">Blech / Metall</option>
+      <option value="Schiefer">Schiefer</option>
+      <option value="Dachfolie / Kunststoff">Dachfolie / Kunststoff</option>
+    </select>
+    <label for="dachflaeche">Dachfläche (m²)</label>
+    <input type="number" id="dachflaeche" name="dachflaeche" min="1" step="1">
+    <label for="baujahr">Baujahr / Alter des Dachs</label>
+    <input type="number" id="baujahr" name="baujahr" min="1900" max="2099" step="1">
+    <label for="dringlichkeit">Dringlichkeit / Gewünschter Termin</label>
+    <input type="text" id="dringlichkeit" name="dringlichkeit">
+    <label for="photos">Fotos hochladen (optional)</label>
+    <input type="file" id="photos" name="photos[]" multiple accept="image/*">
+    <label for="message">Nachricht / Beschreibung</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+    <button type="submit">Absenden</button>
+  </form>
+</section>
+```
 
   </div>
 </main>
@@ -523,18 +288,14 @@ form button {
   <div style="max-width:1000px; margin:0 auto;">
     <p>© 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
     <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="kontakt.html">Kontakt</a></p>
-    <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: 030 12345678 | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
+    <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: <a href="tel:+4917641122628">+49 176 41122628</a> | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
   </div>
 </footer>
 
 <script>
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
-
-hamburger.addEventListener('click', () => {
-  navMenu.classList.toggle('show');
-});
-
+hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
 document.querySelectorAll('.has-submenu > a').forEach(link => {
   link.addEventListener('click', e => {
     if (window.innerWidth <= 768) {
@@ -543,15 +304,12 @@ document.querySelectorAll('.has-submenu > a').forEach(link => {
       if (submenu) {
         submenu.classList.toggle('active');
         if (!submenu.classList.contains('active')) {
-          submenu.querySelectorAll('.submenu.active').forEach(sub => {
-            sub.classList.remove('active');
-          });
+          submenu.querySelectorAll('.submenu.active').forEach(sub => { sub.classList.remove('active'); });
         }
       }
     }
   });
 });
-
 window.addEventListener('resize', () => {
   if (window.innerWidth > 768) {
     navMenu.classList.remove('show');
@@ -559,5 +317,6 @@ window.addEventListener('resize', () => {
   }
 });
 </script>
+
 </body>
 </html>
