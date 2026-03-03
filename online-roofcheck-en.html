@@ -9,6 +9,38 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; overflow-x:hidden; background-color:#fff; color:#004D00; }
 
+/* ── TOP BAR (Desktop only) ── */
+.top-bar {
+width: 100%;
+background: #005f46;
+color: #fff;
+font-size: 0.82em;
+padding: 0 20px;
+display: flex;
+justify-content: flex-end;
+align-items: center;
+gap: 24px;
+position: fixed;
+top: 0;
+left: 0;
+z-index: 20;
+height: 37px;
+line-height: 37px;
+}
+.top-bar a {
+color: #fff;
+text-decoration: none;
+display: flex;
+align-items: center;
+gap: 6px;
+transition: opacity 0.2s;
+}
+.top-bar a:hover { opacity: 0.8; }
+.top-bar .lang-switcher {
+border-left: 1px solid rgba(255,255,255,0.3);
+padding-left: 20px;
+}
+
 /* Header */
 header {
 width:100%;
@@ -18,7 +50,8 @@ justify-content:space-between;
 align-items:center;
 padding:10px 20px;
 position:fixed;
-top:0; left:0;
+top: 37px;
+left:0;
 z-index:10;
 box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
@@ -43,11 +76,31 @@ white-space:nowrap;
 .mobile-controls {
 display:none;
 align-items:center;
-gap:12px;
+gap:16px;
 margin-left:auto;
+height: 100%;
 }
 
-.hamburger { font-size:2em; cursor:pointer; user-select:none; }
+.mobile-call-btn {
+display: flex;
+align-items: center;
+justify-content: center;
+text-decoration: none;
+font-size: 1.4em;
+flex-shrink: 0;
+line-height: 1;
+}
+.mobile-call-btn:hover { opacity: 0.7; }
+
+.mobile-flag-btn {
+font-size: 1.4em;
+text-decoration: none;
+line-height: 1;
+display: flex;
+align-items: center;
+}
+
+.hamburger { font-size:1.8em; cursor:pointer; user-select:none; line-height:1; display:flex; align-items:center; color:#136f5a; }
 
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
@@ -63,7 +116,7 @@ nav ul li a:hover { background-color:#e6f4ea; border-radius:6px; color:#007f5f; 
 nav ul li a:active,
 nav ul li a.active { background-color:#cde9d8; border-radius:6px; color:#007f5f; }
 
-main { padding-top:100px; }
+main { padding-top: 127px; }
 
 /* Hero */
 .hero {
@@ -179,12 +232,23 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
 @media (max-width:768px) {
+/* Top-Bar hidden on Mobile */
+.top-bar { display: none; }
+
+/* Header back to top */
+header { top: 0; }
+
+/* Main padding adjust */
+main { padding-top: 90px; }
+
 .header-right > .lang-btn { display:none; }
 .mobile-controls { display:flex; }
+
 nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:60px; left:0; width:100%; padding:10px 0; gap:0; text-align:center; }
 nav ul.show { display:flex; }
 nav ul li { width:100%; }
 nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
+
 .hero { padding:120px 20px; }
 .hero h1 { font-size:2em; }
 .hero p { font-size:1.1em; }
@@ -202,14 +266,37 @@ form button { padding:14px 28px; font-size:0.95em; }
 </head>
 <body>
 
+<!-- ── TOP BAR (Desktop only) ── -->
+
+<div class="top-bar">
+  <a href="tel:+4917641122628">
+    📞 +49 176 41122628
+  </a>
+  <a href="mailto:info@plandach.de">
+    ✉ info@plandach.de
+  </a>
+  <a href="online-dachcheck.html" class="lang-switcher">🇩🇪 DE</a>
+</div>
+
 <header>
   <div class="logo">
     <a href="index-en.html"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></a>
   </div>
+
+  <!-- Mobile: Phone + DE Flag + Hamburger -->
+
   <div class="mobile-controls">
-    <a href="online-dachcheck.html" class="lang-btn">🇩🇪 DE</a>
+    <a href="tel:+4917641122628" class="mobile-call-btn" title="Call now">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#136f5a" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.24 1.01l-2.21 2.2z"/>
+      </svg>
+    </a>
+    <a href="online-dachcheck.html" class="mobile-flag-btn">🇩🇪</a>
     <div class="hamburger" id="hamburger">☰</div>
   </div>
+
+  <!-- Desktop: Nav (DE flag in Top-Bar) -->
+
   <div class="header-right">
     <nav>
       <ul id="navMenu">
@@ -221,7 +308,6 @@ form button { padding:14px 28px; font-size:0.95em; }
         <li><a href="legal-en.html">Legal Notice</a></li>
       </ul>
     </nav>
-    <a href="online-dachcheck.html" class="lang-btn">🇩🇪 DE</a>
   </div>
 </header>
 
@@ -233,6 +319,7 @@ form button { padding:14px 28px; font-size:0.95em; }
   </section>
 
   <div class="check-container">
+
 
 <section class="form-description">
   Use our Online Roof Check to assess the condition of your roof conveniently from home.
@@ -330,7 +417,7 @@ form button { padding:14px 28px; font-size:0.95em; }
   <div style="max-width:1000px; margin:0 auto;">
     <p>© 2025 PlanDach Höfinghoff – All rights reserved.</p>
     <p><a href="legal-en.html">Legal Notice</a> | <a href="privacy-en.html">Privacy Policy</a> | <a href="contact-en.html">Contact</a></p>
-    <p>Address: Musterstraße 1, 12345 Berlin | Phone: 030 12345678 | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
+    <p>Address: Musterstraße 1, 12345 Berlin | Phone: <a href="tel:+4917641122628">+49 176 41122628</a> | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
   </div>
 </footer>
 
