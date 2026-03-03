@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services – PlanDach Höfinghoff</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; overflow-x:hidden; background-color:#fff; color:#004D00; }
+
+/* Header */
+header {
+width:100%;
+background:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 20px;
+position:fixed;
+top:0; left:0;
+z-index:10;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+.logo img { height:80px; width:auto; display:block; }
+
+.lang-btn {
+text-decoration:none;
+font-weight:600;
+font-size:0.95em;
+color:#004d00;
+background:#e6f4ea;
+border:1.5px solid rgba(0,127,95,0.3);
+border-radius:8px;
+padding:6px 12px;
+transition: background 0.3s ease, transform 0.2s ease;
+white-space:nowrap;
+}
+.lang-btn:hover { background:#cde9d8; transform:translateY(-1px); }
+
+.header-right { display:flex; align-items:center; gap:20px; }
+
+.mobile-controls {
+display:none;
+align-items:center;
+gap:12px;
+margin-left:auto;
+}
+
+.hamburger { font-size:2em; cursor:pointer; user-select:none; }
+
+nav ul { list-style:none; display:flex; gap:20px; }
+nav ul li { position:relative; }
+nav ul li a {
+text-decoration:none;
+color:#004d00;
+font-weight:500;
+padding:5px 10px;
+display:block;
+transition: background-color 0.3s ease, color 0.3s ease;
+}
+nav ul li a:hover { background-color:#e6f4ea; border-radius:6px; color:#007f5f; }
+nav ul li a:active,
+nav ul li a.active { background-color:#cde9d8; border-radius:6px; color:#007f5f; }
+
+main { padding-top:100px; }
+
+/* Hero */
+.hero {
+position: relative;
+text-align:center;
+padding:140px 20px;
+overflow:hidden;
+min-height:420px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+.hero img.hero-bg {
+position:absolute;
+top:0; left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+object-position:center;
+z-index:0;
+opacity:0.5;
+filter: brightness(0.7);
+}
+.hero::after {
+content:””;
+position:absolute;
+top:0; left:0;
+width:100%;
+height:100%;
+background: rgba(0,0,0,0.3);
+z-index:1;
+}
+.hero h1, .hero p { position: relative; z-index:2; color:#ffffff; }
+.hero h1 { font-size:2.8em; margin-bottom:15px; font-weight:700; letter-spacing:-0.5px; }
+.hero p { font-size:1.2em; max-width:600px; line-height:1.6; }
+
+/* Intro */
+.services-intro {
+max-width:800px;
+margin:80px auto 60px;
+padding:0 30px;
+text-align:center;
+}
+.services-intro h2 {
+font-size:2em;
+color:#004d00;
+margin-bottom:20px;
+font-weight:600;
+letter-spacing:-0.3px;
+}
+.services-intro p {
+font-size:1.05em;
+color:#333;
+line-height:1.8;
+}
+
+/* Services Grid */
+.services-container {
+max-width:1100px;
+margin:0 auto 100px;
+padding:0 30px;
+display:flex;
+flex-direction:column;
+gap:0;
+}
+
+.service-item {
+display:grid;
+grid-template-columns: 100px 1fr;
+gap:0 40px;
+align-items:start;
+padding:50px 0;
+border-bottom:1px solid #e6f4ea;
+opacity:0;
+transform:translateY(30px);
+transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.service-item:first-child { border-top:1px solid #e6f4ea; }
+.service-item.active { opacity:1; transform:translateY(0); }
+
+.service-number {
+font-size:3.5em;
+font-weight:700;
+color:#e6f4ea;
+line-height:1;
+padding-top:8px;
+letter-spacing:-2px;
+}
+
+.service-body { display:flex; flex-direction:column; gap:20px; }
+
+.service-header {
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.service-icon-wrap {
+width:64px;
+height:64px;
+background:#e6f4ea;
+border-radius:16px;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-shrink:0;
+border:1px solid #cde9d8;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover .service-icon-wrap {
+transform:translateY(-3px);
+box-shadow:0 8px 20px rgba(0,127,95,0.15);
+}
+
+.service-icon-wrap img {
+width:38px;
+height:38px;
+object-fit:contain;
+}
+
+.service-title {
+font-size:1.5em;
+font-weight:600;
+color:#004d00;
+letter-spacing:-0.3px;
+line-height:1.2;
+}
+
+.service-tags {
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+}
+
+.service-tag {
+background:#e6f4ea;
+color:#007f5f;
+font-size:0.8em;
+font-weight:500;
+padding:4px 12px;
+border-radius:20px;
+border:1px solid #cde9d8;
+}
+
+.service-text {
+font-size:1em;
+color:#444;
+line-height:1.8;
+}
+
+.service-cta {
+display:inline-flex;
+align-items:center;
+gap:6px;
+color:#007f5f;
+font-weight:600;
+font-size:0.95em;
+text-decoration:none;
+margin-top:4px;
+transition: gap 0.2s ease;
+}
+.service-cta:hover { gap:10px; }
+.service-cta::after { content:“→”; }
+
+/* CTA Banner */
+.cta-banner {
+background: #007f5f;
+padding:80px 30px;
+text-align:center;
+margin-bottom:0;
+}
+.cta-banner h2 {
+font-size:2em;
+color:#fff;
+margin-bottom:16px;
+font-weight:600;
+}
+.cta-banner p {
+color:rgba(255,255,255,0.85);
+font-size:1.1em;
+margin-bottom:36px;
+max-width:500px;
+margin-left:auto;
+margin-right:auto;
+line-height:1.6;
+}
+.cta-banner a {
+display:inline-block;
+background:#fff;
+color:#004d00;
+font-weight:700;
+font-size:1em;
+padding:16px 36px;
+border-radius:8px;
+text-decoration:none;
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cta-banner a:hover {
+transform:translateY(-2px);
+box-shadow:0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* Footer */
+footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
+footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
+
+/* Responsive */
+@media (max-width:768px) {
+.header-right > .lang-btn { display:none; }
+.mobile-controls { display:flex; }
+
+nav ul {
+flex-direction:column;
+display:none;
+background:#fff;
+position:absolute;
+top:60px; left:0;
+width:100%;
+padding:10px 0;
+gap:0;
+text-align:center;
+}
+nav ul.show { display:flex; }
+nav ul li { width:100%; }
+nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
+
+.hero { padding:120px 20px; min-height:350px; }
+.hero h1 { font-size:2em; }
+.hero p { font-size:1em; }
+
+.services-intro { margin:50px auto 40px; padding:0 20px; }
+.services-intro h2 { font-size:1.6em; }
+
+.services-container { padding:0 20px; margin-bottom:60px; }
+
+.service-item {
+grid-template-columns: 1fr;
+gap:20px;
+padding:40px 0;
+}
+
+.service-number { font-size:2.5em; }
+.service-title { font-size:1.25em; }
+
+.cta-banner { padding:60px 20px; }
+.cta-banner h2 { font-size:1.6em; }
+.cta-banner p { font-size:1em; }
+}
+</style>
+
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <a href="index-en.html"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></a>
+  </div>
+  <div class="mobile-controls">
+    <a href="index.html" class="lang-btn">🇩🇪 DE</a>
+    <div class="hamburger" id="hamburger">☰</div>
+  </div>
+  <div class="header-right">
+    <nav>
+      <ul id="navMenu">
+        <li><a href="index-en.html">Home</a></li>
+        <li><a href="about-en.html">About me</a></li>
+        <li><a href="services-en.html" class="active">Services</a></li>
+        <li><a href="online-roofcheck-en.html">Online Roof Check</a></li>
+        <li><a href="contact-en.html">Contact</a></li>
+        <li><a href="legal-en.html">Legal Notice</a></li>
+      </ul>
+    </nav>
+    <a href="index.html" class="lang-btn">🇩🇪 DE</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <img src="IMG_3980.jpeg" alt="Services Hero" class="hero-bg">
+    <h1>Our Services</h1>
+    <p>Professional roofing expertise – independent, precise and reliable. Tailored solutions for every project.</p>
+  </section>
+
+  <div class="services-intro">
+    <h2>What We Offer</h2>
+    <p>With over ten years of hands-on experience in roofing and construction, PlanDach Höfinghoff delivers a comprehensive range of expert services. From the first inspection to the final sign-off – we are your independent, professional partner at every stage of your project.</p>
+  </div>
+
+  <div class="services-container">
+
+```
+<!-- Service 1 -->
+<div class="service-item">
+  <div class="service-number">01</div>
+  <div class="service-body">
+    <div class="service-header">
+      <div class="service-icon-wrap">
+        <img src="evaluate_18289840.png" alt="Inspection Icon">
+      </div>
+      <h3 class="service-title">Roof & Building Inspections</h3>
+    </div>
+    <div class="service-tags">
+      <span class="service-tag">On-site & Remote</span>
+      <span class="service-tag">Nationwide</span>
+      <span class="service-tag">Independent</span>
+    </div>
+    <p class="service-text">
+      A thorough inspection is the foundation of every sound roofing decision. We carry out detailed assessments of flat roofs, pitched roofs and building envelopes – identifying defects, water ingress, structural weaknesses and workmanship issues with precision. Our inspections are fully independent, giving you an unbiased picture of the actual condition of your property.
+    </p>
+    <a href="contact-en.html" class="service-cta">Request an inspection</a>
+  </div>
+</div>
+
+<!-- Service 2 -->
+<div class="service-item">
+  <div class="service-number">02</div>
+  <div class="service-body">
+    <div class="service-header">
+      <div class="service-icon-wrap">
+        <img src="trustworthiness_18291158.png" alt="Report Icon">
+      </div>
+      <h3 class="service-title">Technical Reports & Expert Assessments</h3>
+    </div>
+    <div class="service-tags">
+      <span class="service-tag">Legally Recognised</span>
+      <span class="service-tag">Insurance Claims</span>
+      <span class="service-tag">Dispute Resolution</span>
+    </div>
+    <p class="service-text">
+      Our expert reports are prepared to the highest professional standards and are suitable for use in insurance claims, legal proceedings and construction disputes. Each report is clearly structured, evidence-based and written in a language that is accessible to clients and legal professionals alike. We document defects with photographic evidence and provide actionable recommendations.
+    </p>
+    <a href="contact-en.html" class="service-cta">Request a report</a>
+  </div>
+</div>
+
+<!-- Service 3 -->
+<div class="service-item">
+  <div class="service-number">03</div>
+  <div class="service-body">
+    <div class="service-header">
+      <div class="service-icon-wrap">
+        <img src="best_18289742.png" alt="Planning Icon">
+      </div>
+      <h3 class="service-title">Planning & Technical Project Support</h3>
+    </div>
+    <div class="service-tags">
+      <span class="service-tag">Concept to Execution</span>
+      <span class="service-tag">Tender Preparation</span>
+      <span class="service-tag">Cost Planning</span>
+    </div>
+    <p class="service-text">
+      Good planning is the key to a successful project. We support you from the initial feasibility study through to detailed technical planning and tender documentation. Our expertise covers flat roof systems, pitched roof structures, waterproofing and drainage. We prepare precise specifications and bills of quantities that form a solid basis for contractor selection and cost control.
+    </p>
+    <a href="contact-en.html" class="service-cta">Discuss your project</a>
+  </div>
+</div>
+
+<!-- Service 4 -->
+<div class="service-item">
+  <div class="service-number">04</div>
+  <div class="service-body">
+    <div class="service-header">
+      <div class="service-icon-wrap">
+        <img src="project-management_17416428.png" alt="Supervision Icon">
+      </div>
+      <h3 class="service-title">Construction Supervision & Quality Control</h3>
+    </div>
+    <div class="service-tags">
+      <span class="service-tag">On-site Monitoring</span>
+      <span class="service-tag">Defect Management</span>
+      <span class="service-tag">Final Inspection</span>
+    </div>
+    <p class="service-text">
+      Ensuring that roofing work is executed correctly requires expert eyes on site. We monitor construction progress, verify compliance with approved plans and applicable standards, and identify deviations before they become costly problems. Our supervision service includes regular site visits, photographic documentation, defect logs and professional final acceptance inspections – protecting your investment from start to finish.
+    </p>
+    <a href="contact-en.html" class="service-cta">Get supervision support</a>
+  </div>
+</div>
+
+<!-- Service 5 -->
+<div class="service-item">
+  <div class="service-number">05</div>
+  <div class="service-body">
+    <div class="service-header">
+      <div class="service-icon-wrap">
+        <img src="partnership_18321230.png" alt="Remote Consulting Icon">
+      </div>
+      <h3 class="service-title">Remote Consulting & Digital Roof Check</h3>
+    </div>
+    <div class="service-tags">
+      <span class="service-tag">Nationwide</span>
+      <span class="service-tag">Fast Turnaround</span>
+      <span class="service-tag">Digital First</span>
+    </div>
+    <p class="service-text">
+      Professional roofing advice is now available wherever you are. Through our Digital Roof Check, you submit photos and information about your roof online and receive a structured expert assessment with clear recommendations – quickly and without the need for an on-site visit. Ideal for property owners, landlords and buyers seeking a fast, reliable second opinion before making decisions.
+    </p>
+    <a href="online-roofcheck-en.html" class="service-cta">Start your Roof Check</a>
+  </div>
+</div>
+```
+
+  </div>
+
+  <div class="cta-banner">
+    <h2>Ready to get started?</h2>
+    <p>Contact us today for a no-obligation consultation. We look forward to supporting your project.</p>
+    <a href="contact-en.html">Get in touch</a>
+  </div>
+
+</main>
+
+<footer>
+  <div style="max-width:1000px; margin:0 auto;">
+    <p>© 2025 PlanDach Höfinghoff – All rights reserved.</p>
+    <p><a href="legal-en.html">Legal Notice</a> | <a href="privacy-en.html">Privacy Policy</a> | <a href="contact-en.html">Contact</a></p>
+    <p>Address: Musterstraße 1, 12345 Berlin | Phone: 030 12345678 | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
+  </div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    navMenu.classList.remove('show');
+  }
+});
+
+// Scroll Animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('active');
+      }, index * 100);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.service-item').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
