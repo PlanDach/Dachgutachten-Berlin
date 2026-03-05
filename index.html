@@ -428,7 +428,6 @@ transform: translateY(40px);
 transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .scroll-animate.animate-ready.active { opacity: 1; transform: translateY(0); }
-.intro-text.scroll-animate { opacity: 1; transform: translateY(0); }
 
 @media (max-width:992px) {
 .work-grid { grid-template-columns: repeat(2, 1fr); gap:20px; }
@@ -760,9 +759,7 @@ window.addEventListener('load', () => {
     observer.observe(el);
   });
 
-  document.querySelectorAll('.intro-text, .instagram-box').forEach(el => {
-    el.classList.add('active');
-  });
+
 });
 </script>
 
