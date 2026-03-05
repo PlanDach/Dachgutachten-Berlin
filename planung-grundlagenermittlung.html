@@ -30,6 +30,19 @@ z-index:10; box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 .logo img { height:80px; width:auto; display:block; }
 .header-right { display:flex; align-items:center; gap:20px; }
+.header-cta-btn {
+display:inline-block;
+background:#007f5f;
+color:#fff;
+padding:9px 22px;
+font-size:0.92em;
+font-weight:600;
+text-decoration:none;
+border-radius:8px;
+transition:background 0.2s, transform 0.2s;
+white-space:nowrap;
+}
+.header-cta-btn:hover { background:#005f46; transform:translateY(-1px); }
 
 /* Mobile Controls */
 .mobile-controls { display:none; align-items:center; gap:16px; margin-left:auto; }
@@ -51,18 +64,23 @@ nav ul li ul li ul { top:0; left:100%; }
 /* Main */
 main { padding-top:137px; }
 
-/* Hero */
+/* HERO – identisch mit ueber-mich.html */
 .hero {
 position:relative; text-align:center;
-min-height:400px; padding:120px 20px;
+min-height:500px; padding:120px 20px;
 display:flex; flex-direction:column; justify-content:center; align-items:center;
 color:#ffffff; overflow:hidden;
+-webkit-mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+margin-bottom:-20px;
 }
 .hero-img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1; }
-.hero::after { content:””; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:2; }
+.hero::after { content:””; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.50); z-index:2; }
 .hero h1, .hero p { position:relative; z-index:3; color:#ffffff; padding:0 20px; }
 .hero h1 { font-size:2.8em; margin-bottom:20px; font-weight:700; }
-.hero p { font-size:1.3em; max-width:700px; line-height:1.5; }
+.hero p { font-size:1.3em; max-width:700px; line-height:1.5; margin-bottom:30px; }
+.hero-cta { position:relative; z-index:3; display:inline-block; background:#007f5f; color:#fff; padding:16px 40px; font-size:17.6px; font-weight:600; text-decoration:none; border-radius:8px; transition:background 0.3s ease, transform 0.2s ease; margin-top:10px; }
+.hero-cta:hover { background:#005f46; transform:translateY(-2px); }
 
 /* Steps Section */
 .steps-section { max-width:1100px; margin:80px auto; padding:0 20px; }
@@ -90,7 +108,7 @@ color:#ffffff; overflow:hidden;
 .highlight-box strong { color:#004d00; font-weight:600; }
 .cta-section { text-align:center; max-width:700px; margin:50px auto 0; }
 .cta-section p { font-size:1.05em; line-height:1.7; color:#333; margin-bottom:30px; }
-.cta-button { display:inline-block; background:#007f5f; color:#fff; padding:16px 40px; font-size:1.1em; font-weight:600; text-decoration:none; border-radius:8px; transition:background 0.3s ease, transform 0.2s ease; }
+.cta-button { display:inline-block; background:#007f5f; color:#fff; padding:16px 40px; font-size:17.6px; font-weight:600; text-decoration:none; border-radius:8px; transition:background 0.3s ease, transform 0.2s ease; }
 .cta-button:hover { background:#005f46; transform:translateY(-2px); }
 
 /* Footer */
@@ -103,6 +121,7 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 header { top:0; }
 main { padding-top:100px; }
 .mobile-controls { display:flex; }
+.header-cta-btn { display:none; }
 nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:60px; left:0; width:100%; padding:10px 0; gap:0; text-align:center; }
 nav ul.show { display:flex; }
 nav ul li { width:100%; }
@@ -111,7 +130,7 @@ nav ul li ul { display:none; flex-direction:column; width:100%; text-align:cente
 nav ul li ul.active { display:flex; }
 nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
 nav ul li ul li ul { left:0; }
-.hero { min-height:320px; padding:80px 20px 60px; }
+.hero { min-height:380px; padding:80px 20px; }
 .hero h1 { font-size:2em; }
 .hero p { font-size:1.1em; }
 .steps-section { margin:50px auto; }
@@ -191,17 +210,16 @@ nav ul li ul li ul { left:0; }
               </ul>
             </li>
             <li><a href="dachwartung.html">Dachwartung</a></li>
-            <!-- ✅ GEÄNDERT: Online-DachCheck → Kaufberatung -->
             <li><a href="kaufberatung.html">Kaufberatung</a></li>
             <li><a href="leckageortung.html">Leckageortung</a></li>
           </ul>
         </li>
-        <!-- ✅ BLEIBT: Online-DachCheck im Hauptmenü unverändert -->
         <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
         <li><a href="impressum.html">Impressum</a></li>
       </ul>
     </nav>
+
   </div>
 </header>
 
@@ -210,6 +228,7 @@ nav ul li ul li ul { left:0; }
     <img src="IMG_3949.jpeg" alt="Grundlagenermittlung Hero" class="hero-img">
     <h1>Grundlagenermittlung</h1>
     <p>Wir schaffen die Basis für eine präzise und sichere Planung Ihres Dachprojekts.</p>
+    <a href="kontakt.html" class="hero-cta">Planprüfung anfragen</a>
   </section>
 
   <section class="steps-section">
