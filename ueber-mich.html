@@ -58,15 +58,18 @@ nav ul li ul li ul { top:0; left:100%; }
 /* Main */
 main { padding-top:137px; }
 
-/* Hero */
+/* HERO */
 .hero {
 position:relative; text-align:center;
-min-height:400px; padding:120px 20px;
+min-height:500px; padding:120px 20px;
 display:flex; flex-direction:column; justify-content:center; align-items:center;
 color:#ffffff; overflow:hidden;
+-webkit-mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+margin-bottom: -20px;
 }
 .hero-img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1; }
-.hero::after { content:””; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.45); z-index:2; }
+.hero::after { content:””; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.50); z-index:2; }
 .hero h1, .hero p { position:relative; z-index:3; color:#ffffff; padding:0 20px; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
 .hero p { font-size:1.2em; }
@@ -83,7 +86,22 @@ color:#ffffff; overflow:hidden;
 .text-column .subtitle { font-size:1.1rem; color:#333; margin-bottom:32px; font-weight:400; }
 .text-column p { color:#333; line-height:1.7; font-size:1.05rem; margin-bottom:20px; }
 .text-column p strong { color:#004d00; }
-.signature { display:block; margin:0; width:280px; height:auto; }
+.signature { display:block; margin:0 0 32px 0; width:280px; height:auto; }
+
+/* CTA Button */
+.cta-button {
+display:inline-block;
+padding:14px 32px;
+background:#007f5f;
+color:#fff;
+text-decoration:none;
+border-radius:8px;
+font-size:1em;
+font-weight:600;
+transition:background 0.2s, transform 0.2s;
+align-self:flex-start;
+}
+.cta-button:hover { background:#005f46; transform:translateY(-2px); }
 
 /* Footer */
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
@@ -104,7 +122,7 @@ nav ul li ul { display:none; flex-direction:column; width:100%; text-align:cente
 nav ul li ul.active { display:flex; }
 nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
 nav ul li ul li ul { left:0; }
-.hero { min-height:300px; padding:80px 20px; }
+.hero { min-height:380px; padding:80px 20px; }
 .hero h1 { font-size:2em; }
 .hero p { font-size:1em; }
 .content-section { padding:40px 20px; }
@@ -114,6 +132,7 @@ nav ul li ul li ul { left:0; }
 .text-column .subtitle { font-size:1rem; margin-bottom:24px; }
 .text-column p { font-size:1rem; }
 .signature { width:220px; }
+.cta-button { align-self:center; }
 }
 </style>
 
@@ -177,12 +196,10 @@ nav ul li ul li ul { left:0; }
               </ul>
             </li>
             <li><a href="dachwartung.html">Dachwartung</a></li>
-            <!-- ✅ GEÄNDERT: Online-DachCheck → Kaufberatung -->
             <li><a href="kaufberatung.html">Kaufberatung</a></li>
             <li><a href="leckageortung.html">Leckageortung</a></li>
           </ul>
         </li>
-        <!-- ✅ BLEIBT: Online-DachCheck im Hauptmenü unverändert -->
         <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
         <li><a href="impressum.html">Impressum</a></li>
@@ -211,6 +228,7 @@ nav ul li ul li ul { left:0; }
       <p>Mein Ansatz verbindet traditionelles Handwerk mit modernem Projektmanagement und digitalen Services. Mit unserem <strong>Online-DachCheck</strong> ermögliche ich schnelle, präzise Bewertungen – egal, ob vor Ort in Berlin oder deutschlandweit online. So profitieren meine Kunden von effizienten Prozessen, klarer Kommunikation und maßgeschneiderten Lösungen.</p>
       <p>Ich möchte mehr als nur Dächer sichern – ich möchte Standards setzen, Vertrauen schaffen und jedem Kunden das gute Gefühl geben, dass sein Projekt in den besten Händen ist. Dabei ist mein Anspruch einfach: Jedes Projekt soll so umgesetzt werden, wie ich es selbst für mein eigenes Haus erwarten würde.</p>
       <img src="7D3B4BA8-E56B-43F3-8FB0-3C7852010212.png" alt="Signatur Philipp Höfinghoff" class="signature">
+      <a href="kontakt.html" class="cta-button">Jetzt Kontakt aufnehmen</a>
     </div>
   </div>
 </section>
