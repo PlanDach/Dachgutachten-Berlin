@@ -70,7 +70,9 @@ z-index:2;
 }
 .hero h1, .hero p { position:relative; z-index:3; color:#ffffff; padding:0 20px; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
-.hero p { font-size:1.2em; }
+.hero p { font-size:1.2em; margin-bottom:30px; }
+.hero-cta { position:relative; z-index:3; display:inline-block; margin-top:10px; padding:14px 32px; background:#007f5f; color:#fff; text-decoration:none; border-radius:8px; font-size:1em; font-weight:600; transition:background 0.2s; }
+.hero-cta:hover { background:#005f46; }
 
 /* Content */
 .content-wrapper { max-width:1200px; margin:40px auto; padding:0 20px; }
@@ -129,7 +131,7 @@ nav ul li ul li ul { left:0; }
 
 <div class="top-bar">
   <a href="tel:+4917641122628">📞 +49 176 41122628</a>
-  <a href="mailto:info@plandach.de">✉ info@plandach.de</a>
+  <a href="/cdn-cgi/l/email-protection#11787f777e51617d707f757072793f7574">✉ <span class="__cf_email__" data-cfemail="bdd4d3dbd2fdcdd1dcd3d9dcded593d9d8">[email&#160;protected]</span></a>
   <a href="index-en.html" class="lang-switcher">🇬🇧 EN</a>
 </div>
 
@@ -200,6 +202,7 @@ nav ul li ul li ul { left:0; }
     <img src="IMG_2341.jpeg" alt="Gutachten Hero" class="hero-img">
     <h1>Gutachten</h1>
     <p>Professionelle Dachgutachten für private und gewerbliche Kunden in Berlin und Umgebung.</p>
+    <a href="kontakt.html" class="hero-cta">Jetzt Gutachten anfragen</a>
   </section>
 
   <div class="content-wrapper">
@@ -257,6 +260,7 @@ nav ul li ul li ul { left:0; }
   </p>
 </section>
 
+
   </div>
 </main>
 
@@ -264,48 +268,37 @@ nav ul li ul li ul { left:0; }
   <div style="max-width:1000px; margin:0 auto;">
     <p>© 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
     <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="kontakt.html">Kontakt</a></p>
-    <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: <a href="tel:+4917641122628">+49 176 41122628</a> | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
+    <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: <a href="tel:+4917641122628">+49 176 41122628</a> | E-Mail: <a href="/cdn-cgi/l/email-protection#c7aea9a1a887b7aba6a9a3a6a4afe9a3a2"><span class="__cf_email__" data-cfemail="f990979f96b9899598979d989a91d79d9c">[email&#160;protected]</span></a></p>
   </div>
 </footer>
 
-<script>
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('navMenu');
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 
-hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
+const hamburger = document.getElementById(‘hamburger’);
+const navMenu = document.getElementById(‘navMenu’);
 
-document.querySelectorAll('.has-submenu > a').forEach(link => {
-  link.addEventListener('click', e => {
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      const submenu = link.nextElementSibling;
-      if (submenu) {
-        submenu.classList.toggle('active');
-        if (!submenu.classList.contains('active')) {
-          submenu.querySelectorAll('.submenu.active').forEach(sub => { sub.classList.remove('active'); });
-        }
-      }
-    }
-  });
+hamburger.addEventListener(‘click’, () => { navMenu.classList.toggle(‘show’); });
+
+document.querySelectorAll(’.has-submenu > a’).forEach(link => {
+link.addEventListener(‘click’, e => {
+if (window.innerWidth <= 768) {
+e.preventDefault();
+const submenu = link.nextElementSibling;
+if (submenu) {
+submenu.classList.toggle(‘active’);
+if (!submenu.classList.contains(‘active’)) {
+submenu.querySelectorAll(’.submenu.active’).forEach(sub => { sub.classList.remove(‘active’); });
+}
+}
+}
+});
 });
 
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 768) {
-    navMenu.classList.remove('show');
-    document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
-  }
+window.addEventListener(‘resize’, () => {
+if (window.innerWidth > 768) {
+navMenu.classList.remove(‘show’);
+document.querySelectorAll(’.submenu.active’).forEach(sm => sm.classList.remove(‘active’));
+}
 });
 
-const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -80px 0px' };
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, index) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => { entry.target.classList.add('active'); }, index * 50);
-    }
-  });
-}, observerOptions);
-document.querySelectorAll('.scroll-animate').forEach(el => { observer.observe(el); });
-</script>
-
-</body>
-</html>
+const observerOptions = { threshold: 0.15, rootMargin: ’0px 0px -
