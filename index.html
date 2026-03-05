@@ -50,14 +50,13 @@ justify-content:space-between;
 align-items:center;
 padding:10px 20px;
 position:fixed;
-top: 37px; /* height of top-bar */
+top: 37px;
 left:0;
 z-index:10;
 box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 .logo img { height:80px; width:auto; display:block; }
 
-/* Sprach-Button */
 .lang-btn {
 text-decoration:none;
 font-weight:600;
@@ -75,14 +74,12 @@ background:#cde9d8;
 transform:translateY(-1px);
 }
 
-/* Desktop: nav + lang-btn rechts zusammen */
 .header-right {
 display:flex;
 align-items:center;
 gap:20px;
 }
 
-/* Mobile Controls */
 .mobile-controls {
 display:none;
 align-items:center;
@@ -91,7 +88,6 @@ margin-left:auto;
 height: 100%;
 }
 
-/* Mobile Telefon-Button */
 .mobile-call-btn {
 display: flex;
 align-items: center;
@@ -113,7 +109,6 @@ align-items: center;
 
 .hamburger { font-size:1.8em; cursor:pointer; user-select:none; line-height:1; display:flex; align-items:center; color:#136f5a; }
 
-/* Menü */
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
 nav ul li a {
@@ -136,7 +131,6 @@ border-radius:6px;
 color:#007f5f;
 }
 
-/* Submenus */
 nav ul li ul {
 display:none;
 position:absolute;
@@ -156,7 +150,6 @@ nav ul li:hover > ul { display:block; }
 nav ul li ul li a { padding:8px 15px; color:#004d00; }
 nav ul li ul li ul { top:0; left:100%; }
 
-/* Hero – margin-top berücksichtigt top-bar + header */
 .hero {
 position:relative;
 width:100%;
@@ -167,7 +160,7 @@ justify-content:center;
 align-items:center;
 text-align:center;
 color:white;
-margin-top: 127px; /* 37px top-bar + 90px header */
+margin-top: 127px;
 }
 .hero-img {
 position:absolute;
@@ -191,7 +184,6 @@ z-index:2;
 .hero-text h1 { font-size:2.5em; margin-bottom:15px; }
 .hero-text p { font-size:1.2em; }
 
-/* CTA Button */
 .cta-button {
 display:inline-block;
 margin-top:20px;
@@ -210,7 +202,6 @@ background-color:#005f46;
 transform:translateY(-2px);
 }
 
-/* Intro Text */
 .intro-text {
 max-width:900px;
 margin:40px auto;
@@ -223,7 +214,6 @@ border-radius:8px;
 .intro-text h2 { font-size:2em; margin-bottom:15px; color:#004d00; }
 .intro-text p { margin-bottom:15px; font-size:1em; color:#000; }
 
-/* ── ÜBER MICH SEKTION ── */
 .about-snippet {
 width: 100%;
 margin: 0;
@@ -242,7 +232,6 @@ border-radius: 50%;
 object-fit: cover;
 flex-shrink: 0;
 border: 4px solid #136f5a;
-/* Platzhalter-Hintergrund wenn kein Foto */
 background: #cde9d8;
 display: flex;
 align-items: center;
@@ -288,7 +277,6 @@ background: #005f46;
 transform: translateY(-2px);
 }
 
-/* Instagram Box */
 .instagram-box {
 margin:60px auto 80px auto;
 display:flex;
@@ -336,7 +324,6 @@ filter: drop-shadow(0 2px 4px rgba(0,127,95,0.15));
 .instagram-box span { color:#004d00; letter-spacing: -0.01em; transition: color 0.3s ease; }
 .instagram-box:hover span { color:#007f5f; }
 
-/* Work Insights */
 .work-insights {
 padding:100px 20px 120px 20px;
 text-align:center;
@@ -363,7 +350,6 @@ transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 .work-item:hover img { transform:scale(1.03); }
 .work-item p { padding:20px 24px 24px 24px; font-size:0.95em; color:#000; text-align:left; line-height:1.5; }
 
-/* Services */
 .services { width:100%; background-color:#fff; padding:60px 0; text-align:center; }
 .services h2 { margin-bottom:40px; font-size:2em; color:#004d00; }
 .service-grid {
@@ -393,7 +379,6 @@ display: block;
 .service-box p { font-size:0.95em; color:#333; }
 .service-icon { width:64px; height:64px; margin:0 auto 15px auto; display:block; }
 
-/* FAQ */
 .faq-section {
 background:#FFFFFF;
 padding:60px 20px;
@@ -426,11 +411,9 @@ transition:background 0.3s ease;
 .faq-answer { margin-top:15px; display:none; color:#333333; font-size:1rem; line-height:1.5; }
 .faq-box.open .faq-answer { display:block; }
 
-/* Footer */
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
-/* Scroll Animation */
 .scroll-animate {
 opacity: 1;
 transform: translateY(0);
@@ -443,22 +426,15 @@ transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cu
 .scroll-animate.animate-ready.active { opacity: 1; transform: translateY(0); }
 .intro-text.scroll-animate { opacity: 1; transform: translateY(0); }
 
-/* ── RESPONSIVE ── */
 @media (max-width:992px) {
 .work-grid { grid-template-columns: repeat(2, 1fr); gap:20px; }
 .about-snippet { gap: 30px; }
 }
 
 @media (max-width:768px) {
-/* Top-Bar auf Mobile ausblenden */
 .top-bar { display: none; }
-
-/* Header wieder oben */
 header { top: 0; }
-
-/* Hero margin anpassen */
 .hero { margin-top: 90px; }
-
 .header-right > .lang-btn { display:none; }
 .mobile-controls { display:flex; }
 
@@ -495,7 +471,6 @@ nav ul li ul li ul { left:0; }
 .image-section { max-width:100%; }
 .service-icon { width:56px; height:56px; }
 
-/* Über-mich Snippet auf Mobile */
 .about-snippet {
 flex-direction: column;
 text-align: center;
@@ -515,15 +490,9 @@ gap: 24px;
 
 <body>
 
-<!-- ── TOP BAR (nur Desktop) ── -->
-
 <div class="top-bar">
-  <a href="tel:+4917641122628">
-    📞 +49 176 41122628
-  </a>
-  <a href="/cdn-cgi/l/email-protection#523b3c343d12223e333c3633313a7c3637">
-    ✉ <span class="__cf_email__" data-cfemail="f59c9b939ab58599949b9194969ddb9190">[email&#160;protected]</span>
-  </a>
+  <a href="tel:+4917641122628">📞 +49 176 41122628</a>
+  <a href="mailto:info@plandach.de">✉ info@plandach.de</a>
   <a href="index-en.html" class="lang-switcher">🇬🇧 EN</a>
 </div>
 
@@ -532,15 +501,15 @@ gap: 24px;
     <a href="index.html"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></a>
   </div>
 
-  <!-- Mobile: Telefon + Flagge + Hamburger -->
-
   <div class="mobile-controls">
-    <a href="tel:+4917641122628" class="mobile-call-btn" title="Jetzt anrufen"><svg width="22" height="22" viewBox="0 0 24 24" fill="#136f5a" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.24 1.01l-2.21 2.2z"/></svg></a>
+    <a href="tel:+4917641122628" class="mobile-call-btn" title="Jetzt anrufen">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#136f5a" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.24 1.01l-2.21 2.2z"/>
+      </svg>
+    </a>
     <a href="index-en.html" class="mobile-flag-btn">🇬🇧</a>
     <div class="hamburger" id="hamburger">☰</div>
   </div>
-
-  <!-- Desktop: Nav + Flagge rechts (Flagge jetzt in Top-Bar) -->
 
   <div class="header-right">
     <nav>
@@ -578,16 +547,17 @@ gap: 24px;
               </ul>
             </li>
             <li><a href="dachwartung.html">Dachwartung</a></li>
-            <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+            <!-- ✅ GEÄNDERT: Online-DachCheck → Kaufberatung -->
+            <li><a href="kaufberatung.html">Kaufberatung</a></li>
             <li><a href="leckageortung.html">Leckageortung</a></li>
           </ul>
         </li>
+        <!-- ✅ BLEIBT: Online-DachCheck im Hauptmenü unverändert -->
         <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
         <li><a href="impressum.html">Impressum</a></li>
       </ul>
     </nav>
-    <!-- Flagge jetzt in Top-Bar, hier entfernt -->
   </div>
 </header>
 
@@ -608,10 +578,7 @@ gap: 24px;
   <p>Vertrauen Sie auf Qualität, Präzision und Transparenz – für ein Dach, das langfristig schützt und überzeugt.</p>
 </section>
 
-<!-- ── ÜBER MICH SNIPPET ── -->
-
 <div class="about-snippet scroll-animate" style="margin-left:auto; margin-right:auto; max-width:900px;">
-  <!-- Ersetze das Emoji durch dein Foto: <img src="DEIN-FOTO.jpg" class="about-img" alt="Foto"> -->
   <div class="about-placeholder">🧑‍💼</div>
   <div class="about-text">
     <h3>Ihr Ansprechpartner</h3>
@@ -730,12 +697,11 @@ gap: 24px;
   <div style="max-width:1000px; margin:0 auto;">
     <p>© 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
     <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="kontakt.html">Kontakt</a></p>
-    <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: <a href="tel:+4917641122628">+49 176 41122628</a> | E-Mail: <a href="/cdn-cgi/l/email-protection#573e39313817273b36393336343f793332"><span class="__cf_email__" data-cfemail="aac3c4ccc5eadac6cbc4cecbc9c284cecf">[email&#160;protected]</span></a></p>
+    <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: <a href="tel:+4917641122628">+49 176 41122628</a> | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
   </div>
 </footer>
 
 <script>
-// Burger Menü
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 
@@ -767,12 +733,10 @@ window.addEventListener('resize', () => {
   }
 });
 
-// FAQ
 document.querySelectorAll('.faq-box').forEach(box => {
   box.addEventListener('click', () => { box.classList.toggle('open'); });
 });
 
-// Scroll Animation – erst nach Load aktivieren damit Inhalt immer sichtbar
 window.addEventListener('load', () => {
   const observerOptions = {
     threshold: 0.15,
