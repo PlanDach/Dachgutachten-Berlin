@@ -428,7 +428,6 @@ transform: translateY(40px);
 transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .scroll-animate.animate-ready.active { opacity: 1; transform: translateY(0); }
-.intro-text.scroll-animate { opacity: 1; transform: translateY(0); }
 
 @media (max-width:992px) {
 .work-grid { grid-template-columns: repeat(2, 1fr); gap:20px; }
@@ -496,7 +495,7 @@ gap: 24px;
 
 <div class="top-bar">
   <a href="tel:+4917641122628">📞 +49 176 41122628</a>
-  <a href="mailto:info@plandach.de">✉ info@plandach.de</a>
+  <a href="/cdn-cgi/l/email-protection#355c5b535a754559545b5154565d1b5150">✉ <span class="__cf_email__" data-cfemail="21484f474e61514d404f454042490f4544">[email&#160;protected]</span></a>
   <a href="index-en.html" class="lang-switcher">🇬🇧 EN</a>
 </div>
 
@@ -699,72 +698,55 @@ gap: 24px;
   <div style="max-width:1000px; margin:0 auto;">
     <p>© 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
     <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="kontakt.html">Kontakt</a></p>
-    <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: <a href="tel:+4917641122628">+49 176 41122628</a> | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
+    <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: <a href="tel:+4917641122628">+49 176 41122628</a> | E-Mail: <a href="/cdn-cgi/l/email-protection#e78e898188a7978b86898386848fc98382"><span class="__cf_email__" data-cfemail="8be2e5ede4cbfbe7eae5efeae8e3a5efee">[email&#160;protected]</span></a></p>
   </div>
 </footer>
 
-<script>
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('navMenu');
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 
-hamburger.addEventListener('click', () => {
-  navMenu.classList.toggle('show');
+const hamburger = document.getElementById(‘hamburger’);
+const navMenu = document.getElementById(‘navMenu’);
+
+hamburger.addEventListener(‘click’, () => {
+navMenu.classList.toggle(‘show’);
 });
 
-document.querySelectorAll('.has-submenu > a').forEach(link => {
-  link.addEventListener('click', e => {
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      const submenu = link.nextElementSibling;
-      if (submenu) {
-        submenu.classList.toggle('active');
-        if (!submenu.classList.contains('active')) {
-          submenu.querySelectorAll('.submenu.active').forEach(sub => {
-            sub.classList.remove('active');
-          });
-        }
-      }
-    }
-  });
+document.querySelectorAll(’.has-submenu > a’).forEach(link => {
+link.addEventListener(‘click’, e => {
+if (window.innerWidth <= 768) {
+e.preventDefault();
+const submenu = link.nextElementSibling;
+if (submenu) {
+submenu.classList.toggle(‘active’);
+if (!submenu.classList.contains(‘active’)) {
+submenu.querySelectorAll(’.submenu.active’).forEach(sub => {
+sub.classList.remove(‘active’);
+});
+}
+}
+}
+});
 });
 
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 768) {
-    navMenu.classList.remove('show');
-    document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
-  }
+window.addEventListener(‘resize’, () => {
+if (window.innerWidth > 768) {
+navMenu.classList.remove(‘show’);
+document.querySelectorAll(’.submenu.active’).forEach(sm => sm.classList.remove(‘active’));
+}
 });
 
-document.querySelectorAll('.faq-box').forEach(box => {
-  box.addEventListener('click', () => { box.classList.toggle('open'); });
+document.querySelectorAll(’.faq-box’).forEach(box => {
+box.addEventListener(‘click’, () => { box.classList.toggle(‘open’); });
 });
 
-window.addEventListener('load', () => {
-  const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -80px 0px'
-  };
+window.addEventListener(‘load’, () => {
+const observerOptions = {
+threshold: 0.15,
+rootMargin: ‘0px 0px -80px 0px’
+};
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('active');
-        }, index * 50);
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll('.scroll-animate').forEach(el => {
-    el.classList.add('animate-ready');
-    observer.observe(el);
-  });
-
-  document.querySelectorAll('.intro-text, .instagram-box').forEach(el => {
-    el.classList.add('active');
-  });
-});
-</script>
-
-</body>
-</html>
+const observer = new IntersectionObserver((entries) => {
+entries.forEach((entry, index) => {
+if (entry.isIntersecting) {
+setTimeout(() => {
+entry.target.cl
