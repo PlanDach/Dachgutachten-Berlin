@@ -9,7 +9,6 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; overflow-x:hidden; background-color:#fff; color:#004D00; }
 
-/* TOP BAR - nur Desktop */
 .top-bar {
 width:100%; background:#0e5244; color:#fff;
 font-size:0.82em; padding:0 20px; height:37px;
@@ -20,7 +19,6 @@ position:fixed; top:0; left:0; z-index:20;
 .top-bar a:hover { opacity:0.8; }
 .top-bar .lang-switcher { border-left:1px solid rgba(255,255,255,0.3); padding-left:20px; }
 
-/* Header */
 header {
 width:100%; background:#fff;
 display:flex; justify-content:space-between; align-items:center;
@@ -31,13 +29,11 @@ z-index:10; box-shadow:0 2px 5px rgba(0,0,0,0.1);
 .logo img { height:80px; width:auto; display:block; }
 .header-right { display:flex; align-items:center; gap:20px; }
 
-/* Mobile Controls */
 .mobile-controls { display:none; align-items:center; gap:16px; margin-left:auto; }
 .mobile-call-btn { text-decoration:none; line-height:1; display:flex; align-items:center; }
 .mobile-flag-btn { font-size:1.1em; text-decoration:none; line-height:1; display:flex; align-items:center; }
 .hamburger { font-size:1.8em; cursor:pointer; user-select:none; line-height:1; display:flex; align-items:center; color:#136f5a; }
 
-/* Nav */
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
 nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:5px 10px; display:block; transition:background-color 0.3s ease, color 0.3s ease; }
@@ -48,28 +44,50 @@ nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#ff
 nav ul li ul li a { padding:8px 15px; color:#004d00; }
 nav ul li ul li ul { top:0; left:100%; }
 
-/* Main */
 main { padding-top:137px; }
 
 /* Hero */
 .hero {
 position:relative; text-align:center;
-min-height:400px; padding:120px 20px;
+min-height:500px; padding:120px 20px 100px;
 display:flex; flex-direction:column; justify-content:center; align-items:center;
 color:#ffffff; overflow:hidden;
+margin-bottom:-20px;
 }
-.hero-img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1; }
-.hero::after { content:””; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:2; }
-.hero h1, .hero p { position:relative; z-index:3; color:#ffffff; padding:0 20px; }
-.hero h1 { font-size:2.8em; margin-bottom:20px; font-weight:700; }
-.hero p { font-size:1.3em; max-width:700px; line-height:1.5; }
+.hero-img {
+position:absolute; top:0; left:0; width:100%; height:100%;
+object-fit:cover; z-index:1;
+-webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+}
+.hero::after {
+content:””; position:absolute; top:0; left:0; width:100%; height:100%;
+background:rgba(0,0,0,0.50); z-index:2;
+-webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+}
+.hero h1, .hero p, .hero-cta { position:relative; z-index:3; }
+.hero h1 { font-size:2.8em; margin-bottom:20px; font-weight:700; color:#fff; padding:0 20px; }
+.hero p { font-size:1.3em; max-width:700px; line-height:1.5; margin-bottom:30px; color:#fff; padding:0 20px; }
+.hero-cta {
+display:inline-block; margin-top:10px;
+padding:16px 40px;
+background:#007f5f; color:#fff;
+text-decoration:none; border-radius:8px;
+font-size:1.1em; font-weight:600;
+transition:background 0.3s ease, transform 0.2s ease;
+}
+.hero-cta:hover { background:#005f46; transform:translateY(-2px); }
 
-/* Steps Section */
+/* Steps */
 .steps-section { max-width:1100px; margin:80px auto; padding:0 20px; }
 .steps-section > h2 { font-size:2em; font-weight:600; text-align:center; margin-bottom:60px; color:#004d00; }
 .steps-grid { display:grid; grid-template-columns:1fr; gap:50px; }
-.step { display:grid; grid-template-columns:80px 1fr; gap:30px; align-items:start; opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease; }
-.step.visible { opacity:1; transform:translateY(0); }
+
+.step { display:grid; grid-template-columns:80px 1fr; gap:30px; align-items:start; }
+.step.will-animate { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.step.will-animate.visible { opacity:1; transform:translateY(0); }
+
 .step .icon { width:80px; height:80px; display:flex; align-items:center; justify-content:center; }
 .step .icon img { width:80px; height:80px; transition:transform 0.3s ease; }
 .step:hover .icon img { transform:scale(1.05); }
@@ -93,17 +111,19 @@ color:#ffffff; overflow:hidden;
 .cta-button { display:inline-block; background:#007f5f; color:#fff; padding:16px 40px; font-size:1.1em; font-weight:600; text-decoration:none; border-radius:8px; transition:background 0.3s ease, transform 0.2s ease; }
 .cta-button:hover { background:#005f46; transform:translateY(-2px); }
 
-/* Footer */
+.scroll-fade { }
+.scroll-fade.will-animate { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.scroll-fade.will-animate.visible { opacity:1; transform:translateY(0); }
+
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; margin-top:0; }
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
-/* Responsive */
 @media (max-width:768px) {
 .top-bar { display:none; }
 header { top:0; }
 main { padding-top:100px; }
 .mobile-controls { display:flex; }
-nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:60px; left:0; width:100%; padding:10px 0; gap:0; text-align:center; }
+nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:60px; left:0; width:100%; padding:10px 0; gap:0; text-align:center; z-index:50; }
 nav ul.show { display:flex; }
 nav ul li { width:100%; }
 nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
@@ -111,9 +131,10 @@ nav ul li ul { display:none; flex-direction:column; width:100%; text-align:cente
 nav ul li ul.active { display:flex; }
 nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
 nav ul li ul li ul { left:0; }
-.hero { min-height:320px; padding:80px 20px 60px; }
+.hero { min-height:380px; padding:80px 20px 70px; }
 .hero h1 { font-size:2em; }
 .hero p { font-size:1.1em; }
+.hero-cta { padding:14px 32px; font-size:1em; }
 .steps-section { margin:50px auto; }
 .steps-section > h2 { font-size:1.7em; margin-bottom:40px; }
 .steps-grid { gap:40px; }
@@ -133,8 +154,6 @@ nav ul li ul li ul { left:0; }
 
 </head>
 <body>
-
-<!-- TOP BAR Desktop -->
 
 <div class="top-bar">
   <a href="tel:+4917641122628">📞 +49 176 41122628</a>
@@ -208,6 +227,7 @@ nav ul li ul li ul { left:0; }
     <img src="IMG_3981.jpeg" alt="Leistungsverzeichnisse" class="hero-img">
     <h1>Leistungsverzeichnisse</h1>
     <p>Strukturierte Ausschreibungsunterlagen für Transparenz, Vergleichbarkeit und Kostenkontrolle.</p>
+    <a href="kontakt.html" class="hero-cta">Jetzt anfragen</a>
   </section>
 
   <section class="steps-section">
@@ -246,18 +266,18 @@ nav ul li ul li ul { left:0; }
 
   <section class="digital-section">
     <div class="digital-content">
-      <h2>Digitale Erstellung von Leistungsverzeichnissen</h2>
-      <p class="digital-intro">Unsere digitale LV-Erstellung verbindet Präzision, Effizienz und Transparenz – für eine moderne Ausschreibung, die keine Fragen offenlässt.</p>
-      <div class="highlight-box">
+      <h2 class="scroll-fade">Digitale Erstellung von Leistungsverzeichnissen</h2>
+      <p class="digital-intro scroll-fade">Unsere digitale LV-Erstellung verbindet Präzision, Effizienz und Transparenz – für eine moderne Ausschreibung, die keine Fragen offenlässt.</p>
+      <div class="highlight-box scroll-fade">
         <p><strong>Automatisierte Strukturierung:</strong> Schnellere und klar definierte Positionen durch digitale Tools.</p>
       </div>
-      <div class="highlight-box">
+      <div class="highlight-box scroll-fade">
         <p><strong>Normgerechte Leistungstexte:</strong> Basierend auf aktuellen VOB- und DIN-Vorgaben.</p>
       </div>
-      <div class="highlight-box">
+      <div class="highlight-box scroll-fade">
         <p><strong>Effiziente Übertragung:</strong> Direkter Export in gängige Formate für Auftraggeber und Bieter.</p>
       </div>
-      <div class="cta-section">
+      <div class="cta-section scroll-fade">
         <p>Nutzen Sie die Vorteile der digitalen LV-Erstellung für Ihr nächstes Projekt.</p>
         <a href="kontakt.html" class="cta-button">Jetzt anfragen</a>
       </div>
@@ -300,13 +320,25 @@ window.addEventListener('resize', () => {
   }
 });
 
-const steps = document.querySelectorAll('.step');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
   });
-}, { threshold: 0.2 });
-steps.forEach(step => observer.observe(step));
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.step, .scroll-fade').forEach(el => {
+  const rect = el.getBoundingClientRect();
+  if (rect.top < window.innerHeight) {
+    el.style.opacity = '1';
+    el.style.transform = 'translateY(0)';
+  } else {
+    el.classList.add('will-animate');
+    observer.observe(el);
+  }
+});
 </script>
 
 </body>
