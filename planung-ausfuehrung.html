@@ -9,7 +9,6 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; overflow-x:hidden; background-color:#fff; color:#004D00; }
 
-/* TOP BAR - nur Desktop */
 .top-bar {
 width:100%; background:#0e5244; color:#fff;
 font-size:0.82em; padding:0 20px; height:37px;
@@ -20,7 +19,6 @@ position:fixed; top:0; left:0; z-index:20;
 .top-bar a:hover { opacity:0.8; }
 .top-bar .lang-switcher { border-left:1px solid rgba(255,255,255,0.3); padding-left:20px; }
 
-/* Header */
 header {
 width:100%; background:#fff;
 display:flex; justify-content:space-between; align-items:center;
@@ -31,13 +29,11 @@ z-index:10; box-shadow:0 2px 5px rgba(0,0,0,0.1);
 .logo img { height:80px; width:auto; display:block; }
 .header-right { display:flex; align-items:center; gap:20px; }
 
-/* Mobile Controls */
 .mobile-controls { display:none; align-items:center; gap:16px; margin-left:auto; }
 .mobile-call-btn { text-decoration:none; line-height:1; display:flex; align-items:center; }
 .mobile-flag-btn { font-size:1.1em; text-decoration:none; line-height:1; display:flex; align-items:center; }
 .hamburger { font-size:1.8em; cursor:pointer; user-select:none; line-height:1; display:flex; align-items:center; color:#136f5a; }
 
-/* Nav */
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
 nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:5px 10px; display:block; transition:background-color 0.3s ease, color 0.3s ease; }
@@ -48,23 +44,33 @@ nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#ff
 nav ul li ul li a { padding:8px 15px; color:#004d00; }
 nav ul li ul li ul { top:0; left:100%; }
 
-/* Main */
 main { padding-top:137px; }
 
-/* Hero */
 .hero {
 position:relative; text-align:center;
-min-height:400px; padding:120px 20px;
+min-height:500px; padding:120px 20px;
 display:flex; flex-direction:column; justify-content:center; align-items:center;
 color:#ffffff; overflow:hidden;
+-webkit-mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+margin-bottom:-20px;
 }
 .hero-img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1; }
-.hero::after { content:””; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:2; }
+.hero::after { content:””; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.50); z-index:2; }
 .hero h1, .hero p { position:relative; z-index:3; color:#ffffff; padding:0 20px; }
-.hero h1 { font-size:2.8em; margin-bottom:20px; font-weight:700; }
-.hero p { font-size:1.3em; max-width:700px; line-height:1.5; }
+.hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
+.hero p { font-size:1.2em; margin-bottom:30px; }
+.hero-cta {
+position:relative; z-index:3;
+display:inline-block; margin-top:10px;
+padding:14px 32px;
+background:#007f5f; color:#fff;
+text-decoration:none; border-radius:8px;
+font-size:1em; font-weight:600;
+transition:background 0.2s;
+}
+.hero-cta:hover { background:#005f46; }
 
-/* Steps Section */
 .steps-section { max-width:1100px; margin:80px auto; padding:0 20px; }
 .steps-section > h2 { font-size:2em; font-weight:600; text-align:center; margin-bottom:60px; color:#004d00; }
 .steps-grid { display:grid; grid-template-columns:1fr; gap:50px; }
@@ -80,7 +86,6 @@ color:#ffffff; overflow:hidden;
 .steps-grid { grid-template-columns:repeat(2, 1fr); gap:60px 50px; }
 }
 
-/* Digital Section */
 .digital-section { background:#fafafa; padding:80px 20px; margin-top:80px; }
 .digital-content { max-width:800px; margin:0 auto; }
 .digital-content > h2 { font-size:2em; font-weight:600; text-align:center; margin-bottom:30px; color:#004d00; }
@@ -90,20 +95,21 @@ color:#ffffff; overflow:hidden;
 .highlight-box strong { color:#004d00; font-weight:600; }
 .cta-section { text-align:center; max-width:700px; margin:50px auto 0; }
 .cta-section p { font-size:1.05em; line-height:1.7; color:#333; margin-bottom:30px; }
-.cta-button { display:inline-block; background:#007f5f; color:#fff; padding:16px 40px; font-size:1.1em; font-weight:600; text-decoration:none; border-radius:8px; transition:background 0.3s ease, transform 0.2s ease; }
+.cta-button { display:inline-block; background:#007f5f; color:#fff; padding:14px 32px; font-size:1em; font-weight:600; text-decoration:none; border-radius:8px; transition:background 0.3s ease, transform 0.2s ease; }
 .cta-button:hover { background:#005f46; transform:translateY(-2px); }
 
-/* Footer */
+.scroll-animate { opacity:0; transform:translateY(30px); transition:opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.scroll-animate.active { opacity:1; transform:translateY(0); }
+
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
-/* Responsive */
 @media (max-width:768px) {
 .top-bar { display:none; }
 header { top:0; }
 main { padding-top:100px; }
 .mobile-controls { display:flex; }
-nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:60px; left:0; width:100%; padding:10px 0; gap:0; text-align:center; }
+nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:60px; left:0; width:100%; padding:10px 0; gap:0; text-align:center; z-index:50; }
 nav ul.show { display:flex; }
 nav ul li { width:100%; }
 nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
@@ -111,9 +117,10 @@ nav ul li ul { display:none; flex-direction:column; width:100%; text-align:cente
 nav ul li ul.active { display:flex; }
 nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
 nav ul li ul li ul { left:0; }
-.hero { min-height:320px; padding:80px 20px 60px; }
+.hero { min-height:380px; padding:80px 20px; }
 .hero h1 { font-size:2em; }
-.hero p { font-size:1.1em; }
+.hero p { font-size:1em; }
+.hero-cta { padding:12px 24px; font-size:0.95em; }
 .steps-section { margin:50px auto; }
 .steps-section > h2 { font-size:1.7em; margin-bottom:40px; }
 .steps-grid { gap:40px; }
@@ -133,8 +140,6 @@ nav ul li ul li ul { left:0; }
 
 </head>
 <body>
-
-<!-- TOP BAR Desktop -->
 
 <div class="top-bar">
   <a href="tel:+4917641122628">📞 +49 176 41122628</a>
@@ -191,12 +196,10 @@ nav ul li ul li ul { left:0; }
               </ul>
             </li>
             <li><a href="dachwartung.html">Dachwartung</a></li>
-            <!-- ✅ GEÄNDERT: Online-DachCheck → Kaufberatung -->
             <li><a href="kaufberatung.html">Kaufberatung</a></li>
             <li><a href="leckageortung.html">Leckageortung</a></li>
           </ul>
         </li>
-        <!-- ✅ BLEIBT: Online-DachCheck im Hauptmenü unverändert -->
         <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
         <li><a href="impressum.html">Impressum</a></li>
@@ -210,6 +213,7 @@ nav ul li ul li ul { left:0; }
     <img src="IMG_3949.jpeg" alt="Ausführungsplanung Hero" class="hero-img">
     <h1>Ausführungsplanung</h1>
     <p>Wir erstellen detaillierte Pläne, die direkt von Handwerkern umgesetzt werden können.</p>
+    <a href="kontakt.html" class="hero-cta">Sanierungsplanung anfragen</a>
   </section>
 
   <section class="steps-section">
@@ -248,14 +252,14 @@ nav ul li ul li ul { left:0; }
 
   <section class="digital-section">
     <div class="digital-content">
-      <h2>Digitale Sanierungsplanung – Effiziente Planung für Ihr Bauprojekt</h2>
-      <div class="digital-intro">
+      <h2 class="scroll-animate">Digitale Sanierungsplanung – Effiziente Planung für Ihr Bauprojekt</h2>
+      <div class="digital-intro scroll-animate">
         <p>Mit der digitalen Sanierungsplanung erstellen wir präzise Sanierungspläne, Materiallisten und Ablaufpläne standortunabhängig. So behalten Sie jederzeit die Kontrolle über Kosten, Termine und Qualitätsanforderungen.</p>
       </div>
-      <div class="highlight-box">
+      <div class="highlight-box scroll-animate">
         <p><strong>Optimal für:</strong> Eigentümer, Investoren oder Bauleiter, die mehrere Sanierungsprojekte koordinieren möchten oder eine neutrale Prüfung der geplanten Maßnahmen wünschen.</p>
       </div>
-      <div class="cta-section">
+      <div class="cta-section scroll-animate">
         <p>Die digitale Sanierungsplanung unterstützt Sie dabei, Sanierungsprojekte effizient zu steuern, Risiken frühzeitig zu erkennen und den Ablauf transparent zu gestalten. Ich berate Sie professionell und erstelle Ihnen klare Handlungsoptionen.</p>
         <a href="kontakt.html" class="cta-button">Sanierungsplanung anfragen</a>
       </div>
@@ -298,13 +302,21 @@ window.addEventListener('resize', () => {
   }
 });
 
-const steps = document.querySelectorAll('.step');
-const observer = new IntersectionObserver(entries => {
+const stepObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) { entry.target.classList.add('visible'); }
   });
 }, { threshold: 0.2 });
-steps.forEach(step => observer.observe(step));
+document.querySelectorAll('.step').forEach(el => stepObserver.observe(el));
+
+const scrollObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('active'), index * 120);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.scroll-animate').forEach(el => scrollObserver.observe(el));
 </script>
 
 </body>
