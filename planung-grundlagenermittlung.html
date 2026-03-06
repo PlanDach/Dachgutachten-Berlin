@@ -9,7 +9,6 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; overflow-x:hidden; background-color:#fff; color:#004D00; }
 
-/* TOP BAR - nur Desktop */
 .top-bar {
 width:100%; background:#0e5244; color:#fff;
 font-size:0.82em; padding:0 20px; height:37px;
@@ -20,7 +19,6 @@ position:fixed; top:0; left:0; z-index:20;
 .top-bar a:hover { opacity:0.8; }
 .top-bar .lang-switcher { border-left:1px solid rgba(255,255,255,0.3); padding-left:20px; }
 
-/* Header */
 header {
 width:100%; background:#fff;
 display:flex; justify-content:space-between; align-items:center;
@@ -31,13 +29,11 @@ z-index:10; box-shadow:0 2px 5px rgba(0,0,0,0.1);
 .logo img { height:80px; width:auto; display:block; }
 .header-right { display:flex; align-items:center; gap:20px; }
 
-/* Mobile Controls */
 .mobile-controls { display:none; align-items:center; gap:16px; margin-left:auto; }
 .mobile-call-btn { text-decoration:none; line-height:1; display:flex; align-items:center; }
 .mobile-flag-btn { font-size:1.1em; text-decoration:none; line-height:1; display:flex; align-items:center; }
 .hamburger { font-size:1.8em; cursor:pointer; user-select:none; line-height:1; display:flex; align-items:center; color:#136f5a; }
 
-/* Nav */
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
 nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:5px 10px; display:block; transition:background-color 0.3s ease, color 0.3s ease; }
@@ -48,10 +44,8 @@ nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#ff
 nav ul li ul li a { padding:8px 15px; color:#004d00; }
 nav ul li ul li ul { top:0; left:100%; }
 
-/* Main */
 main { padding-top:137px; }
 
-/* HERO */
 .hero {
 position:relative; text-align:center;
 min-height:500px; padding:120px 20px;
@@ -62,11 +56,7 @@ mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
 margin-bottom:-20px;
 }
 .hero-img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1; }
-.hero::after {
-content:””; position:absolute; top:0; left:0; width:100%; height:100%;
-background:rgba(0,0,0,0.50);
-z-index:2;
-}
+.hero::after { content:””; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.50); z-index:2; }
 .hero h1, .hero p { position:relative; z-index:3; color:#ffffff; padding:0 20px; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
 .hero p { font-size:1.2em; margin-bottom:30px; }
@@ -81,7 +71,6 @@ transition:background 0.2s;
 }
 .hero-cta:hover { background:#005f46; }
 
-/* Steps Section */
 .steps-section { max-width:1100px; margin:80px auto; padding:0 20px; }
 .steps-section > h2 { font-size:2em; font-weight:600; text-align:center; margin-bottom:60px; color:#004d00; }
 .steps-grid { display:grid; grid-template-columns:1fr; gap:50px; }
@@ -97,7 +86,6 @@ transition:background 0.2s;
 .steps-grid { grid-template-columns:repeat(2, 1fr); gap:60px 50px; }
 }
 
-/* Digital Section */
 .digital-section { background:#fafafa; padding:80px 20px; margin-top:80px; }
 .digital-content { max-width:800px; margin:0 auto; }
 .digital-content > h2 { font-size:2em; font-weight:600; text-align:center; margin-bottom:30px; color:#004d00; }
@@ -110,11 +98,12 @@ transition:background 0.2s;
 .cta-button { display:inline-block; background:#007f5f; color:#fff; padding:14px 32px; font-size:1em; font-weight:600; text-decoration:none; border-radius:8px; transition:background 0.3s ease, transform 0.2s ease; }
 .cta-button:hover { background:#005f46; transform:translateY(-2px); }
 
-/* Footer */
+.scroll-animate { opacity:0; transform:translateY(30px); transition:opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.scroll-animate.active { opacity:1; transform:translateY(0); }
+
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
-/* Responsive */
 @media (max-width:768px) {
 .top-bar { display:none; }
 header { top:0; }
@@ -151,8 +140,6 @@ nav ul li ul li ul { left:0; }
 
 </head>
 <body>
-
-<!-- TOP BAR Desktop -->
 
 <div class="top-bar">
   <a href="tel:+4917641122628">📞 +49 176 41122628</a>
@@ -273,14 +260,14 @@ nav ul li ul li ul { left:0; }
 
   <section class="digital-section">
     <div class="digital-content">
-      <h2>Digitale Planprüfung & Detail-Check – Präzision in jeder Zeichnung</h2>
-      <div class="digital-intro">
+      <h2 class="scroll-animate">Digitale Planprüfung & Detail-Check – Präzision in jeder Zeichnung</h2>
+      <div class="digital-intro scroll-animate">
         <p>Die digitale Planprüfung ermöglicht eine unabhängige und präzise Analyse Ihrer Planunterlagen, Detailzeichnungen und Schnittdarstellungen – ganz ohne Vor-Ort-Termin. Ich prüfe technische Details, Ausführungsqualität und Plausibilität, um spätere Mängel oder Kollisionen frühzeitig zu vermeiden.</p>
       </div>
-      <div class="highlight-box">
+      <div class="highlight-box scroll-animate">
         <p><strong>Ideal für:</strong> Architekten, Ingenieure, Bauherren und Investoren, die ihre Planunterlagen vor der Ausführung professionell gegenprüfen lassen möchten – zur Sicherstellung der technischen Umsetzbarkeit und zur Minimierung von Ausführungsfehlern.</p>
       </div>
-      <div class="cta-section">
+      <div class="cta-section scroll-animate">
         <p>Mit dem digitalen Detail-Check lassen sich Planungsfehler oder Unstimmigkeiten in frühen Projektphasen erkennen – bevor sie auf der Baustelle teuer werden. Senden Sie mir Ihre Planunterlagen digital zu, und ich übernehme die fachliche Prüfung.</p>
         <a href="kontakt.html" class="cta-button">Planprüfung anfragen</a>
       </div>
@@ -324,13 +311,23 @@ window.addEventListener('resize', () => {
   }
 });
 
-const steps = document.querySelectorAll('.step');
-const observer = new IntersectionObserver(entries => {
+// Steps observer
+const stepObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) { entry.target.classList.add('visible'); }
   });
 }, { threshold: 0.2 });
-steps.forEach(step => observer.observe(step));
+document.querySelectorAll('.step').forEach(el => stepObserver.observe(el));
+
+// Scroll-animate observer
+const scrollObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('active'), index * 120);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.scroll-animate').forEach(el => scrollObserver.observe(el));
 </script>
 
 </body>
