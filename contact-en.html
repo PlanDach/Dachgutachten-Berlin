@@ -102,7 +102,6 @@ align-items: center;
 
 .hamburger { font-size:1.8em; cursor:pointer; user-select:none; line-height:1; display:flex; align-items:center; color:#136f5a; }
 
-/* Menü */
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
 nav ul li a {
@@ -125,11 +124,14 @@ position: relative;
 text-align:center;
 padding:120px 20px;
 overflow:hidden;
-min-height:350px;
+min-height:500px;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
+-webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+margin-bottom: -20px;
 }
 .hero img.hero-bg {
 position:absolute;
@@ -138,11 +140,18 @@ width:100%;
 height:100%;
 object-fit:cover;
 object-position:center;
-z-index:0;
-opacity:0.5;
-filter: brightness(0.7);
+z-index:1;
 }
-.hero h1, .hero p { position: relative; z-index:2; color:#ffffff; }
+.hero::after {
+content:””;
+position:absolute;
+top:0; left:0;
+width:100%;
+height:100%;
+background: rgba(0,0,0,0.50);
+z-index:2;
+}
+.hero h1, .hero p { position: relative; z-index:3; color:#ffffff; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
 .hero p { font-size:1.2em; }
 
@@ -226,13 +235,8 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
 /* Responsive */
 @media (max-width:768px) {
-/* Top-Bar hidden on Mobile */
 .top-bar { display: none; }
-
-/* Header back to top */
 header { top: 0; }
-
-/* Main padding adjust */
 main { padding-top: 90px; }
 
 .header-right > .lang-btn { display:none; }
@@ -254,6 +258,7 @@ nav ul.show { display:flex; }
 nav ul li { width:100%; }
 nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
 
+.hero { padding:80px 20px; min-height:380px; }
 .hero h1 { font-size:2em; }
 .hero p { font-size:1.1em; }
 
@@ -266,7 +271,6 @@ form button { padding:14px 28px; font-size:0.95em; }
 </style>
 
 </head>
-
 <body>
 
 <!-- ── TOP BAR (Desktop only) ── -->
@@ -298,7 +302,7 @@ form button { padding:14px 28px; font-size:0.95em; }
     <div class="hamburger" id="hamburger">☰</div>
   </div>
 
-  <!-- Desktop: Nav (DE flag in Top-Bar) -->
+  <!-- Desktop: Nav -->
 
   <div class="header-right">
     <nav>
@@ -345,7 +349,7 @@ form button { padding:14px 28px; font-size:0.95em; }
     <button type="submit">Submit</button>
   </form>
 </section>
-
+    
 
   </div>
 </main>
