@@ -134,14 +134,15 @@ main { padding-top: 127px; }
 .hero {
 position: relative;
 text-align:center;
-padding:120px 20px;
-min-height:350px;
+padding:120px 20px 100px;
+min-height:500px;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 color:#ffffff;
 overflow:hidden;
+margin-bottom:-20px;
 }
 .hero-img {
 position:absolute;
@@ -150,9 +151,21 @@ width:100%;
 height:100%;
 object-fit:cover;
 z-index:1;
-filter: brightness(0.65);
+-webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
 }
-.hero h1, .hero p { position: relative; z-index:2; color:#ffffff; }
+.hero::after {
+content:””;
+position:absolute;
+top:0; left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.50);
+z-index:2;
+-webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+}
+.hero h1, .hero p { position: relative; z-index:3; color:#ffffff; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
 .hero p { font-size:1.2em; }
 
@@ -240,6 +253,22 @@ width: 280px;
 height: auto;
 }
 
+/* Kontakt Button */
+.contact-btn {
+display: inline-block;
+margin-top: 28px;
+padding: 16px 40px;
+background: #007f5f;
+color: #fff;
+text-decoration: none;
+border-radius: 8px;
+font-size: 1.1em;
+font-weight: 600;
+transition: background 0.3s ease, transform 0.2s ease;
+align-self: center;
+}
+.contact-btn:hover { background: #005f46; transform: translateY(-2px); }
+
 /* Footer */
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
@@ -296,6 +325,7 @@ gap:40px;
 .text-column p { font-size:1rem; }
 
 .signature { width: 220px; margin-top:8px; }
+.contact-btn { padding:14px 32px; font-size:1em; }
 }
 </style>
 
@@ -361,6 +391,7 @@ gap:40px;
       <img src="E928D746-D19B-4518-A21D-B6111AC3F50F.jpeg" alt="Philipp Höfinghoff Portrait" class="profile-image">
     </div>
 
+
 <div class="text-column scroll-animate">
   <h2>Philipp Höfinghoff</h2>
   <p class="subtitle">Managing Director & Master Roofer</p>
@@ -374,6 +405,7 @@ gap:40px;
   <p>I want to do more than just secure roofs – I want to set standards, build trust and give every client the confidence that their project is in the best hands. My standard is simple: every project should be executed the way I would expect it done for my own home.</p>
 
   <img src="7D3B4BA8-E56B-43F3-8FB0-3C7852010212.png" alt="Signature Philipp Höfinghoff" class="signature">
+  <a href="contact-en.html" class="contact-btn">Get in Touch Now</a>
 </div>
 
 
