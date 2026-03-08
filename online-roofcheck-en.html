@@ -123,13 +123,16 @@ main { padding-top: 127px; }
 position: relative;
 text-align:center;
 padding:120px 20px;
-min-height:350px;
+min-height:500px;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 color:#ffffff;
 overflow:hidden;
+-webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+margin-bottom: -20px;
 }
 .hero img.hero-bg {
 position:absolute;
@@ -138,7 +141,9 @@ width:100%;
 height:100%;
 object-fit:cover;
 object-position:center;
-z-index:0;
+z-index:1;
+opacity:0.5;
+filter: brightness(0.7);
 }
 .hero::after {
 content:””;
@@ -146,12 +151,12 @@ position:absolute;
 top:0; left:0;
 width:100%;
 height:100%;
-background: rgba(0,0,0,0.45);
-z-index:1;
+background: rgba(0,0,0,0.50);
+z-index:2;
 }
-.hero h1, .hero p { position: relative; z-index:2; color:#ffffff; }
+.hero h1, .hero p { position: relative; z-index:3; color:#ffffff; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
-.hero p { font-size:1.2em; }
+.hero p { font-size:1.2em; max-width:600px; line-height:1.6; }
 
 /* CHECK CONTAINER */
 .check-container {
@@ -232,13 +237,8 @@ footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14p
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
 @media (max-width:768px) {
-/* Top-Bar hidden on Mobile */
 .top-bar { display: none; }
-
-/* Header back to top */
 header { top: 0; }
-
-/* Main padding adjust */
 main { padding-top: 90px; }
 
 .header-right > .lang-btn { display:none; }
@@ -249,9 +249,9 @@ nav ul.show { display:flex; }
 nav ul li { width:100%; }
 nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
 
-.hero { padding:120px 20px; }
+.hero { padding:80px 20px; min-height:380px; }
 .hero h1 { font-size:2em; }
-.hero p { font-size:1.1em; }
+.hero p { font-size:1em; }
 .check-container { margin:50px auto 80px; padding:0 20px; gap:50px; }
 .form-description { font-size:1em; }
 .steps-header h2 { font-size:1.7em; }
@@ -295,7 +295,7 @@ form button { padding:14px 28px; font-size:0.95em; }
     <div class="hamburger" id="hamburger">☰</div>
   </div>
 
-  <!-- Desktop: Nav (DE flag in Top-Bar) -->
+  <!-- Desktop: Nav -->
 
   <div class="header-right">
     <nav>
