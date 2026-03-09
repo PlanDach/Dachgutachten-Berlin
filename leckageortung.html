@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="de">
 <head>
 <meta charset="UTF-8">
@@ -8,344 +9,205 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; overflow-x:hidden; background-color:#fff; color:#004D00; }
 
+/* TOP BAR - nur Desktop */
+.top-bar {
+width:100%; background:#0e5244; color:#fff;
+font-size:0.82em; padding:0 20px; height:37px;
+display:flex; justify-content:flex-end; align-items:center; gap:24px;
+position:fixed; top:0; left:0; z-index:20;
+}
+.top-bar a { color:#fff; text-decoration:none; display:flex; align-items:center; gap:6px; transition:opacity 0.2s; }
+.top-bar a:hover { opacity:0.8; }
+.top-bar .lang-switcher { border-left:1px solid rgba(255,255,255,0.3); padding-left:20px; }
+
 /* Header */
 header {
-  width:100%;
-  background:#fff;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:10px 20px;
-  position:fixed;
-  top:0; left:0;
-  z-index:10;
-  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+width:100%; background:#fff;
+display:flex; justify-content:space-between; align-items:center;
+padding:10px 20px;
+position:fixed; top:37px; left:0;
+z-index:10; box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 .logo img { height:80px; width:auto; display:block; }
-.hamburger { display:none; font-size:2em; cursor:pointer; user-select:none; }
+.header-right { display:flex; align-items:center; gap:20px; }
 
-/* Menü */
+/* Mobile Controls */
+.mobile-controls { display:none; align-items:center; gap:16px; margin-left:auto; }
+.mobile-call-btn { text-decoration:none; line-height:1; display:flex; align-items:center; }
+.mobile-flag-btn { font-size:1.1em; text-decoration:none; line-height:1; display:flex; align-items:center; }
+.hamburger { font-size:1.8em; cursor:pointer; user-select:none; line-height:1; display:flex; align-items:center; color:#136f5a; }
+
+/* Nav */
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
-nav ul li a { 
-text-decoration:none; 
-color:#004d00; 
-font-weight:500; 
-padding:5px 10px;
-display:block; 
-transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-nav ul li a:hover { 
-background-color:#e6f4ea; 
-border-radius:6px; 
-color:#007f5f; 
-}
-nav ul li a:active, 
-nav ul li a.active { 
-background-color:#cde9d8; 
-border-radius:6px; 
-color:#007f5f; 
-}
-
-/* Submenus */
-nav ul li ul {
-display:none;
-position:absolute;
-top:100%;
-left:0;
-background:#fff;
-list-style:none;
-padding:10px 0;
-min-width:200px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-z-index:20;
-border-radius:6px;
-}
-
-@media (min-width:769px) {
-  nav ul li:hover > ul { display:block; }
-}
-
+nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:5px 10px; display:block; transition:background-color 0.3s ease, color 0.3s ease; }
+nav ul li a:hover { background-color:#e6f4ea; border-radius:6px; color:#007f5f; }
+nav ul li a:active, nav ul li a.active { background-color:#cde9d8; border-radius:6px; color:#007f5f; }
+nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#fff; list-style:none; padding:10px 0; min-width:200px; box-shadow:0 4px 10px rgba(0,0,0,0.1); z-index:20; border-radius:6px; }
+@media (min-width:769px) { nav ul li:hover > ul { display:block; } }
 nav ul li ul li a { padding:8px 15px; color:#004d00; }
 nav ul li ul li ul { top:0; left:100%; }
 
-/* Main padding for fixed header */
-main { padding-top:100px; }
+/* Main */
+main { padding-top:137px; }
 
 /* HERO */
 .hero {
-  position: relative;
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  min-height:350px;
-  width:100vw;
-  overflow:hidden;
-  padding:120px 20px;
-  background: url('IMG_3971.jpeg') center center / cover no-repeat;
-  color:#fff;
+position:relative; text-align:center;
+min-height:500px; padding:120px 20px;
+display:flex; flex-direction:column; justify-content:center; align-items:center;
+color:#ffffff; overflow:hidden;
+-webkit-mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+margin-bottom: -20px;
 }
-.hero::before {
-  content:"";
-  position:absolute;
-  top:0; left:0;
-  width:100%;
-  height:100%;
-  background: inherit;
-  opacity:0.5;
-  z-index:1;
-  filter: brightness(0.7);
-}
-.hero h1, .hero p {
-  position: relative;
-  z-index:2;
-  color:#ffffff;
-}
+.hero-img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1; }
+.hero::after { content:””; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.50); z-index:2; }
+.hero h1, .hero p { position:relative; z-index:3; color:#ffffff; padding:0 20px; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
-.hero p { font-size:1.2em; }
+.hero p { font-size:1.2em; margin-bottom:30px; }
 
 /* Content */
-.content-wrapper {
-  max-width:1200px;
-  margin:40px auto;
-  padding:0 20px;
-}
+.content-wrapper { max-width:1200px; margin:40px auto; padding:0 20px; }
 
-/* TEXT SECTIONS - Professionell gestaltet */
-.intro-section {
-  max-width:800px;
-  margin:60px auto 80px;
-}
+.intro-section { max-width:800px; margin:60px auto 80px; }
+.intro-section h2 { color:#004d00; font-size:2em; margin-bottom:30px; font-weight:600; }
+.intro-section p { font-size:1.1em; line-height:1.8; color:#333; margin:30px 0; }
+.intro-section ul { list-style:none; padding:0; margin:40px 0; line-height:2.2; }
+.intro-section ul li { padding-left:30px; position:relative; color:#333; font-size:1.05em; }
+.intro-section ul li:before { content:”·”; position:absolute; left:10px; color:#004d00; font-size:1.5em; line-height:1.4; }
 
-.intro-section h2 {
-  color:#004d00;
-  font-size:2em;
-  margin-bottom:30px;
-  font-weight:600;
-}
+.highlight-section { max-width:800px; margin:80px auto; padding:40px 0 40px 30px; border-left:4px solid #004d00; }
+.highlight-section h3 { color:#004d00; font-size:1.4em; margin-bottom:20px; font-weight:600; }
+.highlight-section p { font-size:1.05em; line-height:1.8; color:#333; }
 
-.intro-section p {
-  font-size:1.1em;
-  line-height:1.8;
-  color:#333;
-  margin:30px 0;
-}
+.image-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:40px; max-width:1100px; margin:80px auto; padding:0 20px; }
+.image-item { display:flex; flex-direction:column; }
+.image-item img { width:100%; height:auto; border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.08); display:block; }
+.image-caption { font-size:0.85rem; color:#666; margin-top:12px; font-style:italic; line-height:1.5; }
 
-.intro-section ul {
-  list-style:none;
-  padding:0;
-  margin:40px 0;
-  line-height:2.2;
-}
-
-.intro-section ul li {
-  padding-left:30px;
-  position:relative;
-  color:#333;
-  font-size:1.05em;
-}
-
-.intro-section ul li:before {
-  content:"·";
-  position:absolute;
-  left:10px;
-  color:#004d00;
-  font-size:1.5em;
-  line-height:1.4;
-}
-
-/* HIGHLIGHT BOX - Minimalistisch ohne grauen Hintergrund */
-.highlight-section {
-  max-width:800px;
-  margin:80px auto;
-  padding:40px 0 40px 30px;
-  border-left:4px solid #004d00;
-}
-
-.highlight-section h3 {
-  color:#004d00;
-  font-size:1.4em;
-  margin-bottom:20px;
-  font-weight:600;
-}
-
-.highlight-section p {
-  font-size:1.05em;
-  line-height:1.8;
-  color:#333;
-}
-
-/* BILD-GRID - 2 Spalten mit viel Weißraum */
-.image-grid {
-  display:grid;
-  grid-template-columns:repeat(2, 1fr);
-  gap:40px;
-  max-width:1100px;
-  margin:80px auto;
-  padding:0 20px;
-}
-
-.image-item {
-  display:flex;
-  flex-direction:column;
-}
-
-.image-item img {
-  width:100%;
-  height:auto;
-  border-radius:8px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.08);
-  display:block;
-}
-
-.image-caption {
-  font-size:0.85rem;
-  color:#666;
-  margin-top:12px;
-  font-style:italic;
-  line-height:1.5;
-}
-
-/* Closing Text */
-.closing-section {
-  max-width:800px;
-  margin:80px auto 60px;
-}
-
-.closing-section p {
-  font-size:1.05em;
-  line-height:1.8;
-  color:#333;
-}
+.closing-section { max-width:800px; margin:80px auto 60px; }
+.closing-section p { font-size:1.05em; line-height:1.8; color:#333; }
 
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
-/* --- SCROLL ANIMATION STYLES (IDENTISCH ZU DEINEN ANDEREN SEITEN) --- */
-.scroll-animate {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.scroll-animate.active {
-  opacity: 1;
-  transform: translateY(0);
-}
+.scroll-animate { opacity:0; transform:translateY(40px); transition:opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.scroll-animate.active { opacity:1; transform:translateY(0); }
 
 /* Responsive */
 @media (max-width:768px) {
-.hamburger { display:block; }
-nav ul {
-  flex-direction:column;
-  display:none;
-  background:#fff;
-  position:absolute;
-  top:60px;
-  left:0;
-  width:100%;
-  padding:10px 0;
-  gap:0;
-  text-align:center;
-}
+.top-bar { display:none; }
+header { top:0; }
+main { padding-top:100px; }
+.mobile-controls { display:flex; }
+nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:60px; left:0; width:100%; padding:10px 0; gap:0; text-align:center; }
 nav ul.show { display:flex; }
-
 nav ul li { width:100%; }
 nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
-
 nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
 nav ul li ul.active { display:flex; }
 nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
 nav ul li ul li ul { left:0; }
-
-.hero { padding:120px 20px; min-height:350px; }
-.hero h1 { font-size:2.5em; }
-.hero p { font-size:1.2em; }
-
-.image-grid {
-  grid-template-columns:1fr;
-  gap:50px;
-  margin:60px auto;
-}
-
-.intro-section,
-.highlight-section,
-.closing-section {
-  padding:0 20px;
-}
+.hero { min-height:380px; padding:80px 20px; }
+.hero h1 { font-size:2em; }
+.hero p { font-size:1em; }
+.image-grid { grid-template-columns:1fr; gap:50px; margin:60px auto; }
+.intro-section, .highlight-section, .closing-section { padding-left:20px; padding-right:20px; }
 }
 </style>
+
 </head>
 <body>
+
+<div class="top-bar">
+  <a href="tel:+4917641122628">📞 +49 176 41122628</a>
+  <a href="mailto:info@plandach.de">✉ info@plandach.de</a>
+  <a href="index-en.html" class="lang-switcher">🇬🇧 EN</a>
+</div>
+
 <header>
-  <div class="logo"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></div>
-  <div class="hamburger" id="hamburger">☰</div>
-  <nav>
-    <ul id="navMenu">
-      <li><a href="index.html">Startseite</a></li>
-      <li><a href="ueber-mich.html">Über mich</a></li>
-      <li class="has-submenu">
-        <a href="#">Leistungen</a>
-        <ul class="submenu">
-          <li><a href="gutachten.html">Gutachten</a></li>
-          <li class="has-submenu">
-            <a href="#">Planung</a>
-            <ul class="submenu">
-              <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
-              <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
-              <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
-              <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
-            </ul>
-          </li>
-          <li class="has-submenu">
-            <a href="#">Bauüberwachung</a>
-            <ul class="submenu">
-              <li><a href="bau-koordination.html">Koordination</a></li>
-              <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
-              <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
-              <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
-            </ul>
-          </li>
-          <li class="has-submenu">
-            <a href="#">Ausschreibung</a>
-            <ul class="submenu">
-              <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
-              <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
-              <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
-            </ul>
-          </li>
-          <li><a href="dachwartung.html">Dachwartung</a></li>
-          <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
-          <li><a href="leckageortung.html" class="active">Leckageortung</a></li>
-        </ul>
-      </li>
-      <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
-      <li><a href="impressum.html">Impressum</a></li>
-    </ul>
-  </nav>
+  <div class="logo">
+    <a href="index.html"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></a>
+  </div>
+  <div class="mobile-controls">
+    <a href="tel:+4917641122628" class="mobile-call-btn" title="Jetzt anrufen">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#136f5a" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.24 1.01l-2.21 2.2z"/>
+      </svg>
+    </a>
+    <a href="index-en.html" class="mobile-flag-btn">🇬🇧</a>
+    <div class="hamburger" id="hamburger">☰</div>
+  </div>
+  <div class="header-right">
+    <nav>
+      <ul id="navMenu">
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="ueber-mich.html">Über mich</a></li>
+        <li class="has-submenu">
+          <a href="#">Leistungen</a>
+          <ul class="submenu">
+            <li><a href="gutachten.html">Gutachten</a></li>
+            <li class="has-submenu">
+              <a href="zustandsanalyse.html">Zustandsanalyse</a>
+              <ul class="submenu">
+                <li><a href="dach-zustandsanalyse.html">Dach-Zustandsanalyse</a></li>
+                <li><a href="pv-check.html">PV-Check</a></li>
+                <li><a href="leckageortung.html" class="active">Leckageortung</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#">Planung</a>
+              <ul class="submenu">
+                <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
+                <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
+                <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
+                <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#">Bauüberwachung</a>
+              <ul class="submenu">
+                <li><a href="bau-koordination.html">Koordination</a></li>
+                <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
+                <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
+                <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#">Ausschreibung</a>
+              <ul class="submenu">
+                <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
+                <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
+                <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
+              </ul>
+            </li>
+            <li><a href="ankaufsberatung.html">Ankaufsberatung</a></li>
+          </ul>
+        </li>
+        <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <main>
-<section class="hero scroll-animate">
+<section class="hero">
+  <img src="IMG_3971.jpeg" alt="Leckageortung Hero" class="hero-img">
   <h1>Leckageortung</h1>
   <p>Schnelle und präzise Ortung von Feuchtigkeit und Leckagen in Dach- und Gebäudestrukturen.</p>
 </section>
 
 <div class="content-wrapper">
-  
-  <!-- INTRO TEXT -->
+
   <section class="intro-section scroll-animate">
     <p>
-      Mit modernster Messtechnik und fundierter Erfahrung identifizieren wir Leckagen zuverlässig, 
+      Mit modernster Messtechnik und fundierter Erfahrung identifizieren wir Leckagen zuverlässig,
       ohne unnötige Schäden an Ihrem Gebäude zu verursachen.
     </p>
-
     <h2>Unsere Leistungen im Bereich Leckageortung</h2>
-    
     <ul>
       <li>Thermografie zur Identifikation feuchter Stellen</li>
       <li>Feuchtigkeitsmessungen und präzise Leckageortung</li>
@@ -354,7 +216,6 @@ nav ul li ul li ul { left:0; }
     </ul>
   </section>
 
-  <!-- BILDER 1+2 -->
   <div class="image-grid scroll-animate">
     <div class="image-item">
       <img src="IMG_2467.jpeg" alt="Kleine Leckage mit großer Wirkung">
@@ -366,18 +227,16 @@ nav ul li ul li ul { left:0; }
     </div>
   </div>
 
-  <!-- HIGHLIGHT / VORTEIL -->
   <section class="highlight-section scroll-animate">
     <h3>Ihr Vorteil</h3>
     <p>
-      Schnelle und genaue Leckageortung · 
-      Zeit- und Kostenersparnis · 
-      Verhinderung von Folgeschäden · 
+      Schnelle und genaue Leckageortung ·
+      Zeit- und Kostenersparnis ·
+      Verhinderung von Folgeschäden ·
       Belastbare Entscheidungsgrundlage für Maßnahmen
     </p>
   </section>
 
-  <!-- BILDER 3+4 -->
   <div class="image-grid scroll-animate">
     <div class="image-item">
       <img src="IMG_3969.png" alt="Leckage auf Industrieanlage">
@@ -389,10 +248,9 @@ nav ul li ul li ul { left:0; }
     </div>
   </div>
 
-  <!-- CLOSING TEXT -->
   <section class="closing-section scroll-animate">
     <p>
-      Bei Fragen oder individuellen Problemen rund um Ihr Dach stehen wir Ihnen jederzeit kompetent zur Verfügung – 
+      Bei Fragen oder individuellen Problemen rund um Ihr Dach stehen wir Ihnen jederzeit kompetent zur Verfügung –
       sprechen Sie uns gerne an.
     </p>
   </section>
@@ -404,7 +262,7 @@ nav ul li ul li ul { left:0; }
   <div style="max-width:1000px; margin:0 auto;">
     <p>© 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
     <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="kontakt.html">Kontakt</a></p>
-    <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: 030 12345678 | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
+    <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: <a href="tel:+4917641122628">+49 176 41122628</a> | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
   </div>
 </footer>
 
@@ -412,9 +270,7 @@ nav ul li ul li ul { left:0; }
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 
-hamburger.addEventListener('click', () => {
-  navMenu.classList.toggle('show');
-});
+hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
 
 document.querySelectorAll('.has-submenu > a').forEach(link => {
   link.addEventListener('click', e => {
@@ -424,9 +280,7 @@ document.querySelectorAll('.has-submenu > a').forEach(link => {
       if (submenu) {
         submenu.classList.toggle('active');
         if (!submenu.classList.contains('active')) {
-          submenu.querySelectorAll('.submenu.active').forEach(sub => {
-            sub.classList.remove('active');
-          });
+          submenu.querySelectorAll('.submenu.active').forEach(sub => { sub.classList.remove('active'); });
         }
       }
     }
@@ -440,32 +294,16 @@ window.addEventListener('resize', () => {
   }
 });
 
-/* --- Scroll Animation (identisch zu deinen anderen Seiten) --- */
-const observerOptions = {
-  threshold: 0.15,
-  rootMargin: '0px 0px -80px 0px'
-};
-
+const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -80px 0px' };
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, index) => {
     if (entry.isIntersecting) {
-      // Staggered animation for elements
-      setTimeout(() => {
-        entry.target.classList.add('active');
-      }, index * 50); // 50ms stagger
+      setTimeout(() => { entry.target.classList.add('active'); }, index * 50);
     }
   });
 }, observerOptions);
-
-document.querySelectorAll('.scroll-animate').forEach(el => {
-  observer.observe(el);
-});
-
-// First visible elements appear on load
-window.addEventListener('load', () => {
-  const firstElements = document.querySelectorAll('.hero, .intro-section');
-  firstElements.forEach(el => el.classList.add('active'));
-});
+document.querySelectorAll('.scroll-animate').forEach(el => { observer.observe(el); });
 </script>
+
 </body>
 </html>
