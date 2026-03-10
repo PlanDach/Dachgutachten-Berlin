@@ -46,17 +46,26 @@ nav ul li ul li ul { top:0; left:100%; }
 
 main { padding-top:137px; }
 
+/* FIX 1: mask only on .hero-img and ::after – NOT on .hero itself */
 .hero {
 position:relative; text-align:center;
 min-height:500px; padding:120px 20px;
 display:flex; flex-direction:column; justify-content:center; align-items:center;
 color:#ffffff; overflow:hidden;
--webkit-mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
-mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
 margin-bottom:-20px;
 }
-.hero-img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:center 70%; z-index:1; }
-.hero::after { content:””; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.62); z-index:2; }
+.hero-img {
+position:absolute; top:0; left:0; width:100%; height:100%;
+object-fit:cover; object-position:center 70%; z-index:1;
+-webkit-mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+}
+.hero::after {
+content:””; position:absolute; top:0; left:0; width:100%; height:100%;
+background:rgba(0,0,0,0.62); z-index:2;
+-webkit-mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+}
 .hero h1, .hero p { position:relative; z-index:3; color:#ffffff; padding:0 20px; text-shadow:0 2px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.7); }
 .hero p { font-weight:600; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
@@ -99,7 +108,9 @@ transition:background 0.2s;
 .cta-button { display:inline-block; background:#007f5f; color:#fff; padding:14px 32px; font-size:1em; font-weight:600; text-decoration:none; border-radius:8px; transition:background 0.3s ease, transform 0.2s ease; }
 .cta-button:hover { background:#005f46; transform:translateY(-2px); }
 
-.scroll-animate { opacity:0; transform:translateY(30px); transition:opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+/* FIX 2: scroll-animate visible by default, animation added by JS */
+.scroll-animate { opacity:1; transform:translateY(0); transition:opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.scroll-animate.will-animate { opacity:0; transform:translateY(30px); }
 .scroll-animate.active { opacity:1; transform:translateY(0); }
 
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
@@ -144,7 +155,7 @@ nav ul li ul li ul { left:0; }
 
 <div class="top-bar">
   <a href="tel:+4917641122628">📞 +49 176 41122628</a>
-  <a href="/cdn-cgi/l/email-protection#d4bdbab2bb94a4b8b5bab0b5b7bcfab0b1">✉ <span class="__cf_email__" data-cfemail="2841464e4768584449464c494b40064c4d">[email&#160;protected]</span></a>
+  <a href="mailto:info@plandach.de">✉ info@plandach.de</a>
   <a href="index-en.html" class="lang-switcher">🇬🇧 EN</a>
 </div>
 
@@ -292,54 +303,67 @@ nav ul li ul li ul { left:0; }
   <div style="max-width:1000px; margin:0 auto;">
     <p>© 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
     <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="kontakt.html">Kontakt</a></p>
-    <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: <a href="tel:+4917641122628">+49 176 41122628</a> | E-Mail: <a href="/cdn-cgi/l/email-protection#ee87808881ae9e828f808a8f8d86c08a8b"><span class="__cf_email__" data-cfemail="6801060e0728180409060c090b00460c0d">[email&#160;protected]</span></a></p>
+    <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: <a href="tel:+4917641122628">+49 176 41122628</a> | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
 
-const hamburger = document.getElementById(‘hamburger’);
-const navMenu = document.getElementById(‘navMenu’);
+hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
 
-hamburger.addEventListener(‘click’, () => { navMenu.classList.toggle(‘show’); });
-
-document.querySelectorAll(’.has-submenu > a’).forEach(link => {
-link.addEventListener(‘click’, e => {
-if (window.innerWidth <= 768) {
-e.preventDefault();
-const submenu = link.nextElementSibling;
-if (submenu) {
-submenu.classList.toggle(‘active’);
-if (!submenu.classList.contains(‘active’)) {
-submenu.querySelectorAll(’.submenu.active’).forEach(sub => { sub.classList.remove(‘active’); });
-}
-}
-}
-});
-});
-
-window.addEventListener(‘resize’, () => {
-if (window.innerWidth > 768) {
-navMenu.classList.remove(‘show’);
-document.querySelectorAll(’.submenu.active’).forEach(sm => sm.classList.remove(‘active’));
-}
+document.querySelectorAll('.has-submenu > a').forEach(link => {
+  link.addEventListener('click', e => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      const submenu = link.nextElementSibling;
+      if (submenu) {
+        submenu.classList.toggle('active');
+        if (!submenu.classList.contains('active')) {
+          submenu.querySelectorAll('.submenu.active').forEach(sub => { sub.classList.remove('active'); });
+        }
+      }
+    }
+  });
 });
 
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    navMenu.classList.remove('show');
+    document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
+  }
+});
+
+// Steps observer
 const stepObserver = new IntersectionObserver(entries => {
-entries.forEach(entry => {
-if (entry.isIntersecting) { entry.target.classList.add(‘visible’); }
-});
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+  });
 }, { threshold: 0.2 });
-document.querySelectorAll(’.step’).forEach(el => stepObserver.observe(el));
+document.querySelectorAll('.step').forEach(el => stepObserver.observe(el));
+
+// Scroll-animate: only animate elements that are OFF screen on load
+document.querySelectorAll('.scroll-animate').forEach(el => {
+  const rect = el.getBoundingClientRect();
+  if (rect.top < window.innerHeight) {
+    // Already visible – keep opacity:1, no animation needed
+    el.style.opacity = '1';
+    el.style.transform = 'translateY(0)';
+  } else {
+    // Off screen – mark for animation
+    el.classList.add('will-animate');
+  }
+});
 
 const scrollObserver = new IntersectionObserver((entries) => {
-entries.forEach((entry, index) => {
-if (entry.isIntersecting) {
-setTimeout(() => entry.target.classList.add(‘active’), index * 120);
-}
-});
-}, { threshold: 0.15, rootMargin: ‘0px 0px -60px 0px’ });
-document.querySelectorAll(’.scroll-animate’).forEach(el => scrollObserver.observe(el));
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('active'), index * 120);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.scroll-animate.will-animate').forEach(el => scrollObserver.observe(el));
 </script>
 
 </body>
