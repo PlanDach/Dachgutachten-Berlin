@@ -120,7 +120,7 @@ header { top:0; }
 main { padding-top:100px; }
 .header-right > .lang-btn { display:none; }
 .mobile-controls { display:flex; }
-nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:60px; left:0; width:100%; padding:10px 0; gap:0; text-align:center; }
+nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:100%; left:0; width:100%; padding:10px 0; gap:0; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
 nav ul.show { display:flex; }
 nav ul li { width:100%; }
 nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
@@ -432,7 +432,7 @@ document.querySelectorAll(’.submenu.active’).forEach(function(sm) { sm.class
 }
 });
 
-// Scroll Animations
+// Scroll Animations – Fix: Elemente die beim Load schon sichtbar sind sofort einblenden
 var fadeObserver = new IntersectionObserver(function(entries) {
 entries.forEach(function(entry) {
 if (entry.isIntersecting) {
@@ -442,7 +442,16 @@ fadeObserver.unobserve(entry.target);
 });
 }, { threshold: 0.1 });
 
-document.querySelectorAll(’.fade-in-section’).forEach(function(el) { fadeObserver.observe(el); });
+document.querySelectorAll(’.fade-in-section’).forEach(function(el) {
+var rect = el.getBoundingClientRect();
+if (rect.top < window.innerHeight && rect.bottom > 0) {
+// Bereits im Viewport beim Laden → sofort sichtbar
+el.classList.add(‘visible’);
+} else {
+// Außerhalb → Observer beobachtet
+fadeObserver.observe(el);
+}
+});
 
 });
 </script>
