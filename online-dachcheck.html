@@ -33,7 +33,7 @@ nav ul li ul li ul { top:0; left:100%; }
 main { padding-top:137px; }
 .hero { position:relative; text-align:center; min-height:500px; padding:120px 20px; display:flex; flex-direction:column; justify-content:center; align-items:center; color:#fff; overflow:hidden; -webkit-mask-image:linear-gradient(to bottom,black 0%,black 85%,transparent 100%); mask-image:linear-gradient(to bottom,black 0%,black 85%,transparent 100%); margin-bottom:-20px; }
 .hero-img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1; }
-.hero::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.40); z-index:2; }
+.hero::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.50); z-index:2; }
 .hero h1, .hero p { position:relative; z-index:3; color:#fff; padding:0 20px; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
 .hero p { font-size:1.2em; }
@@ -90,8 +90,7 @@ main { padding-top:137px; }
 .package-option-name { font-size:0.88em; font-weight:700; color:#004d00; margin-bottom:4px; }
 .package-option-price { font-size:1.1em; font-weight:700; color:#007f5f; }
 .package-option-price small { font-size:0.7em; font-weight:400; color:#888; }
-.package-check { width:18px; height:18px; border:2px solid #ccc; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:10px; transition:all 0.2s ease; background:#fff; }
-.package-option.selected .package-check { border-color:#007f5f; background:#007f5f; } .check-svg { display:none; } .package-option.selected .check-svg { display:block; }
+.package-check { width:18px; height:18px; border:2px solid #ccc; border-radius:50%; display:block; margin-bottom:10px; transition:background 0.2s ease, border-color 0.2s ease; }
 
 input[name=“paket”] { display:none; }
 .form-section { background:#fff; padding:0; }
@@ -310,9 +309,9 @@ form button { padding:16px 28px; font-size:0.95em; }
         <div class="package-select">
           <div class="package-select-title">Gewünschtes Paket</div>
           <div class="package-options">
-            <div class="package-option" data-value="Dach-Basis-Check (149 EUR)"><div class="package-check"><svg class="check-svg" width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" fill="white"/></svg></div><div class="package-option-name">Dach-Basis-Check</div><div class="package-option-price">149 € <small>inkl. MwSt.</small></div></div>
-            <div class="package-option" data-value="Experten-Bericht (349 EUR)"><div class="package-check"><svg class="check-svg" width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" fill="white"/></svg></div><div class="package-option-name">Experten-Bericht</div><div class="package-option-price">349 € <small>inkl. MwSt.</small></div></div>
-            <div class="package-option" data-value="Gewerbe- und Industrieanalyse"><div class="package-check"><svg class="check-svg" width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" fill="white"/></svg></div><div class="package-option-name">Gewerbe- &amp; Industrie</div><div class="package-option-price">Auf Anfrage</div></div>
+            <div class="package-option" data-value="Dach-Basis-Check (149 EUR)"><div class="package-check"></div><div class="package-option-name">Dach-Basis-Check</div><div class="package-option-price">149 € <small>inkl. MwSt.</small></div></div>
+            <div class="package-option" data-value="Experten-Bericht (349 EUR)"><div class="package-check"></div><div class="package-option-name">Experten-Bericht</div><div class="package-option-price">349 € <small>inkl. MwSt.</small></div></div>
+            <div class="package-option" data-value="Gewerbe- und Industrieanalyse"><div class="package-check"></div><div class="package-option-name">Gewerbe- &amp; Industrie</div><div class="package-option-price">Auf Anfrage</div></div>
           </div>
           <input type="hidden" name="paket" id="paketInput">
         </div>
@@ -383,8 +382,16 @@ form button { padding:16px 28px; font-size:0.95em; }
 window.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.package-option').forEach(function(option) {
     option.addEventListener('click', function() {
-      document.querySelectorAll('.package-option').forEach(function(o) { o.classList.remove('selected'); });
+      document.querySelectorAll('.package-option').forEach(function(o) {
+        o.classList.remove('selected');
+        var chk = o.querySelector('.package-check');
+        chk.style.backgroundColor = '';
+        chk.style.borderColor = '#ccc';
+      });
       option.classList.add('selected');
+      var chk = option.querySelector('.package-check');
+      chk.style.backgroundColor = '#007f5f';
+      chk.style.borderColor = '#007f5f';
       document.getElementById('paketInput').value = option.getAttribute('data-value');
     });
   });
