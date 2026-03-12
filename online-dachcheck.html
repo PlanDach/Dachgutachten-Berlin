@@ -90,9 +90,9 @@ main { padding-top:137px; }
 .package-option-name { font-size:0.88em; font-weight:700; color:#004d00; margin-bottom:4px; }
 .package-option-price { font-size:1.1em; font-weight:700; color:#007f5f; }
 .package-option-price small { font-size:0.7em; font-weight:400; color:#888; }
-.package-check { width:18px; height:18px; border:2px solid #ccc; border-radius:50%; display:inline-block; margin-bottom:10px; position:relative; transition:all 0.2s ease; }
+.package-check { width:18px; height:18px; border:2px solid #ccc; border-radius:50%; display:block; margin-bottom:10px; position:relative; transition:all 0.2s ease; }
 .package-option.selected .package-check { border-color:#007f5f; background:#007f5f; }
-.package-option.selected .package-check::after { content:""; position:absolute; top:3px; left:3px; width:8px; height:8px; background:#fff; border-radius:50%; }
+.package-option.selected .package-check::after { content:""; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:8px; height:8px; background:#fff; border-radius:50%; }
 input[name="paket"] { display:none; }
 .form-section { background:#fff; padding:0; }
 .form-section-header { margin-bottom:40px; }
@@ -150,22 +150,16 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 </style>
 </head>
 <body>
-
 <div class="top-bar">
   <a href="tel:+4917641122628">📞 +49 176 41122628</a>
   <a href="mailto:info@plandach.de">✉ info@plandach.de</a>
   <a href="online-roofcheck-en.html" class="lang-switcher">🇬🇧 EN</a>
 </div>
-
 <header>
-  <div class="logo">
-    <a href="index.html"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></a>
-  </div>
+  <div class="logo"><a href="index.html"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></a></div>
   <div class="mobile-controls">
     <a href="tel:+4917641122628" class="mobile-call-btn" title="Jetzt anrufen">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="#136f5a" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.24 1.01l-2.21 2.2z"/>
-      </svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#136f5a" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.24 1.01l-2.21 2.2z"/></svg>
     </a>
     <a href="online-roofcheck-en.html" class="mobile-flag-btn">🇬🇧</a>
     <div class="hamburger" id="hamburger">☰</div>
@@ -223,228 +217,160 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
     </nav>
   </div>
 </header>
-
 <main>
   <section class="hero">
     <img src="C55CF7CA-3C7F-4AAE-82BB-BD813375AD53.png" alt="Online-DachCheck Hero" class="hero-img">
     <h1>Online-DachCheck</h1>
     <p>Fülle das Formular aus, um eine schnelle Einschätzung und Beratung für dein Dach zu erhalten.</p>
   </section>
-
   <div class="check-container">
-
-
-<section class="form-description fade-in-section">
-  Nutzen Sie unseren Online-DachCheck, um den Zustand Ihres Daches bequem von zu Hause aus einzuschätzen.
-  Unser digitaler Check führt Sie strukturiert durch alle relevanten Bereiche – von der Dacheindeckung über die Abdichtung bis zur Entwässerung.
-  So erhalten Sie eine fundierte Übersicht, erkennen mögliche Schäden frühzeitig und können gezielt Maßnahmen für den Werterhalt Ihrer Immobilie planen.
-</section>
-
-<section class="steps-section fade-in-section">
-  <div class="steps-header">
-    <h2>So funktioniert Ihr Online-DachCheck</h2>
-  </div>
-  <div class="steps-grid">
-    <div class="step">
-      <div class="step-number">1</div>
-      <span class="step-icon">📤</span>
-      <span class="step-label">Fotos &amp; Infos einsenden</span>
-      <span class="step-sub">Per Formular oder E-Mail</span>
-    </div>
-    <div class="step">
-      <div class="step-number">2</div>
-      <span class="step-icon">🔍</span>
-      <span class="step-label">Fachliche Analyse</span>
-      <span class="step-sub">Durch Dachdeckermeister</span>
-    </div>
-    <div class="step">
-      <div class="step-number">3</div>
-      <span class="step-icon">📋</span>
-      <span class="step-label">Bericht erstellen</span>
-      <span class="step-sub">Schriftlich &amp; verständlich</span>
-    </div>
-    <div class="step">
-      <div class="step-number">4</div>
-      <span class="step-icon">💡</span>
-      <span class="step-label">Empfehlung erhalten</span>
-      <span class="step-sub">Innerhalb von 48 Stunden</span>
-    </div>
-  </div>
-</section>
-
-<section class="pricing-section fade-in-section">
-  <div class="pricing-section-header">
-    <h2>Transparente Preise</h2>
-    <p>Wählen Sie das Paket, das zu Ihrem Bedarf passt – klar kalkuliert, ohne versteckte Kosten.</p>
-  </div>
-  <div class="pricing-grid">
-    <div class="pricing-card">
-      <div class="pricing-card-title">Digitaler Dach-Basis-Check</div>
-      <div class="pricing-card-subtitle">Digitale Ersteinschätzung Ihres Daches anhand Ihrer Fotos oder Videos.</div>
-      <div class="pricing-price-row">
-        <span class="pricing-price">149 €</span>
-        <span class="pricing-price-unit">inkl. MwSt.</span>
+    <section class="form-description fade-in-section">
+      Nutzen Sie unseren Online-DachCheck, um den Zustand Ihres Daches bequem von zu Hause aus einzuschätzen.
+      Unser digitaler Check führt Sie strukturiert durch alle relevanten Bereiche – von der Dacheindeckung über die Abdichtung bis zur Entwässerung.
+      So erhalten Sie eine fundierte Übersicht, erkennen mögliche Schäden frühzeitig und können gezielt Maßnahmen für den Werterhalt Ihrer Immobilie planen.
+    </section>
+    <section class="steps-section fade-in-section">
+      <div class="steps-header"><h2>So funktioniert Ihr Online-DachCheck</h2></div>
+      <div class="steps-grid">
+        <div class="step"><div class="step-number">1</div><span class="step-icon">📤</span><span class="step-label">Fotos &amp; Infos einsenden</span><span class="step-sub">Per Formular oder E-Mail</span></div>
+        <div class="step"><div class="step-number">2</div><span class="step-icon">🔍</span><span class="step-label">Fachliche Analyse</span><span class="step-sub">Durch Dachdeckermeister</span></div>
+        <div class="step"><div class="step-number">3</div><span class="step-icon">📋</span><span class="step-label">Bericht erstellen</span><span class="step-sub">Schriftlich &amp; verständlich</span></div>
+        <div class="step"><div class="step-number">4</div><span class="step-icon">💡</span><span class="step-label">Empfehlung erhalten</span><span class="step-sub">Innerhalb von 48 Stunden</span></div>
       </div>
-      <div class="pricing-divider"></div>
-      <div class="pricing-label">Leistungsumfang</div>
-      <ul class="pricing-features">
-        <li>Sichtung von bis zu 15 Fotos oder kurzen Videos</li>
-        <li>Fachliche Einschätzung sichtbarer Schäden</li>
-        <li>Bewertung möglicher Mängel oder Schwachstellen</li>
-        <li>Erste Einschätzung zur PV-Eignung der Dachfläche</li>
-        <li>Kurze schriftliche Rückmeldung per E-Mail</li>
-      </ul>
-      <div class="pricing-turnaround"><span>⏱</span><span>Bearbeitungszeit: innerhalb von 48 Stunden</span></div>
-      <div class="pricing-upsell">Mehr Material vorhanden? Für umfangreichere Unterlagen empfehlen wir den Digitalen Experten-Bericht.</div>
-    </div>
-    <div class="pricing-card featured">
-      <div class="badge-popular">Empfohlen</div>
-      <div class="pricing-card-title">Digitaler Experten-Bericht</div>
-      <div class="pricing-card-subtitle">Ausführlichere Analyse für Eigentümer, Käufer oder Versicherungsfälle.</div>
-      <div class="pricing-price-row">
-        <span class="pricing-price">349 €</span>
-        <span class="pricing-price-unit">inkl. MwSt.</span>
+    </section>
+    <section class="pricing-section fade-in-section">
+      <div class="pricing-section-header">
+        <h2>Transparente Preise</h2>
+        <p>Wählen Sie das Paket, das zu Ihrem Bedarf passt – klar kalkuliert, ohne versteckte Kosten.</p>
       </div>
-      <div class="pricing-divider"></div>
-      <div class="pricing-label">Leistungsumfang</div>
-      <ul class="pricing-features">
-        <li>Analyse aller hochgeladenen Fotos, Videos und Dokumente</li>
-        <li>Fachliche Bewertung möglicher Schäden und Risiken</li>
-        <li>Schriftlicher Kurzbericht (PDF) mit Handlungsempfehlung</li>
-        <li>Erste Sanierungs- oder Reparaturempfehlung</li>
-        <li>Erste Kostenschätzung möglicher Maßnahmen</li>
-      </ul>
-      <div class="pricing-turnaround"><span>⏱</span><span>Bearbeitungszeit: innerhalb von 48 Stunden</span></div>
-      <div class="pricing-upsell">Bei anschließender Vor-Ort-Beauftragung kann der Betrag teilweise angerechnet werden.</div>
-    </div>
-  </div>
-  <div class="pricing-card-enterprise">
-    <div class="pricing-enterprise-left">
-      <div class="pricing-card-title">Gewerbe- &amp; Industrieanalyse (PV-Ready)</div>
-      <div class="pricing-card-subtitle">Technische Ersteinschätzung für größere Dachflächen von Gewerbe- und Industriegebäuden.</div>
-      <div class="pricing-price-custom">Individuelles Angebot</div>
-      <div class="pricing-price-custom-sub">Preis nach Umfang und Objektgröße</div>
-    </div>
-    <div class="pricing-enterprise-right">
-      <div class="pricing-label">Mögliche Leistungen</div>
-      <ul class="pricing-features">
-        <li>Analyse großer Dachflächen anhand bereitgestellter Unterlagen</li>
-        <li>Prüfung vorhandener Dachaufbauten und Abdichtungssysteme</li>
-        <li>Einschätzung der Eignung für Photovoltaik-Anlagen</li>
-        <li>Technische Einschätzung für Investoren oder Projektentwickler</li>
-      </ul>
-    </div>
-  </div>
-  <div class="pricing-disclaimer">
-    <p>ℹ️ Der Online-DachCheck ersetzt kein vollständiges Gutachten oder eine Vor-Ort-Begutachtung. Die Einschätzung erfolgt ausschließlich auf Basis der bereitgestellten Informationen und Bilder.</p>
-    <p><span class="disclaimer-highlight">Bei anschließender Beauftragung einer Sanierungsplanung oder eines Vor-Ort-Gutachtens werden die Kosten für den Online-Check zu 100 % angerechnet.</span></p>
-  </div>
-</section>
-
-<section class="form-section fade-in-section">
-  <div class="form-section-header">
-    <h2>DachCheck starten</h2>
-    <p>Füllen Sie das Formular aus – wir melden uns innerhalb von 48 Stunden mit Ihrer Einschätzung.</p>
-  </div>
-  <form id="dachcheckForm" action="https://formspree.io/f/yourformid" method="POST" enctype="multipart/form-data">
-    <div class="package-select">
-      <div class="package-select-title">Gewünschtes Paket</div>
-      <div class="package-options">
-        <div class="package-option" data-value="Dach-Basis-Check (149 EUR)">
-          <div class="package-check"></div>
-          <div class="package-option-name">Dach-Basis-Check</div>
-          <div class="package-option-price">149 € <small>inkl. MwSt.</small></div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-card-title">Digitaler Dach-Basis-Check</div>
+          <div class="pricing-card-subtitle">Digitale Ersteinschätzung Ihres Daches anhand Ihrer Fotos oder Videos.</div>
+          <div class="pricing-price-row"><span class="pricing-price">149 €</span><span class="pricing-price-unit">inkl. MwSt.</span></div>
+          <div class="pricing-divider"></div>
+          <div class="pricing-label">Leistungsumfang</div>
+          <ul class="pricing-features">
+            <li>Sichtung von bis zu 15 Fotos oder kurzen Videos</li>
+            <li>Fachliche Einschätzung sichtbarer Schäden</li>
+            <li>Bewertung möglicher Mängel oder Schwachstellen</li>
+            <li>Erste Einschätzung zur PV-Eignung der Dachfläche</li>
+            <li>Kurze schriftliche Rückmeldung per E-Mail</li>
+          </ul>
+          <div class="pricing-turnaround"><span>⏱</span><span>Bearbeitungszeit: innerhalb von 48 Stunden</span></div>
+          <div class="pricing-upsell">Mehr Material vorhanden? Für umfangreichere Unterlagen empfehlen wir den Digitalen Experten-Bericht.</div>
         </div>
-        <div class="package-option" data-value="Experten-Bericht (349 EUR)">
-          <div class="package-check"></div>
-          <div class="package-option-name">Experten-Bericht</div>
-          <div class="package-option-price">349 € <small>inkl. MwSt.</small></div>
-        </div>
-        <div class="package-option" data-value="Gewerbe- und Industrieanalyse">
-          <div class="package-check"></div>
-          <div class="package-option-name">Gewerbe- &amp; Industrie</div>
-          <div class="package-option-price">Auf Anfrage</div>
+        <div class="pricing-card featured">
+          <div class="badge-popular">Empfohlen</div>
+          <div class="pricing-card-title">Digitaler Experten-Bericht</div>
+          <div class="pricing-card-subtitle">Ausführlichere Analyse für Eigentümer, Käufer oder Versicherungsfälle.</div>
+          <div class="pricing-price-row"><span class="pricing-price">349 €</span><span class="pricing-price-unit">inkl. MwSt.</span></div>
+          <div class="pricing-divider"></div>
+          <div class="pricing-label">Leistungsumfang</div>
+          <ul class="pricing-features">
+            <li>Analyse aller hochgeladenen Fotos, Videos und Dokumente</li>
+            <li>Fachliche Bewertung möglicher Schäden und Risiken</li>
+            <li>Schriftlicher Kurzbericht (PDF) mit Handlungsempfehlung</li>
+            <li>Erste Sanierungs- oder Reparaturempfehlung</li>
+            <li>Erste Kostenschätzung möglicher Maßnahmen</li>
+          </ul>
+          <div class="pricing-turnaround"><span>⏱</span><span>Bearbeitungszeit: innerhalb von 48 Stunden</span></div>
+          <div class="pricing-upsell">Bei anschließender Vor-Ort-Beauftragung kann der Betrag teilweise angerechnet werden.</div>
         </div>
       </div>
-      <input type="hidden" name="paket" id="paketInput">
-    </div>
-    <div class="form-group-title">Ihre Kontaktdaten</div>
-    <div class="form-row">
-      <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Max Mustermann" required>
+      <div class="pricing-card-enterprise">
+        <div class="pricing-enterprise-left">
+          <div class="pricing-card-title">Gewerbe- &amp; Industrieanalyse (PV-Ready)</div>
+          <div class="pricing-card-subtitle">Technische Ersteinschätzung für größere Dachflächen von Gewerbe- und Industriegebäuden.</div>
+          <div class="pricing-price-custom">Individuelles Angebot</div>
+          <div class="pricing-price-custom-sub">Preis nach Umfang und Objektgröße</div>
+        </div>
+        <div class="pricing-enterprise-right">
+          <div class="pricing-label">Mögliche Leistungen</div>
+          <ul class="pricing-features">
+            <li>Analyse großer Dachflächen anhand bereitgestellter Unterlagen</li>
+            <li>Prüfung vorhandener Dachaufbauten und Abdichtungssysteme</li>
+            <li>Einschätzung der Eignung für Photovoltaik-Anlagen</li>
+            <li>Technische Einschätzung für Investoren oder Projektentwickler</li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <label for="email">E-Mail</label>
-        <input type="email" id="email" name="_replyto" placeholder="ihre@email.de" required>
+      <div class="pricing-disclaimer">
+        <p>ℹ️ Der Online-DachCheck ersetzt kein vollständiges Gutachten oder eine Vor-Ort-Begutachtung. Die Einschätzung erfolgt ausschließlich auf Basis der bereitgestellten Informationen und Bilder.</p>
+        <p><span class="disclaimer-highlight">Bei anschließender Beauftragung einer Sanierungsplanung oder eines Vor-Ort-Gutachtens werden die Kosten für den Online-Check zu 100 % angerechnet.</span></p>
       </div>
-    </div>
-    <div class="form-row">
-      <div>
-        <label for="phone">Telefonnummer</label>
-        <input type="tel" id="phone" name="phone" placeholder="+49 ...">
+    </section>
+    <section class="form-section fade-in-section">
+      <div class="form-section-header">
+        <h2>DachCheck starten</h2>
+        <p>Füllen Sie das Formular aus – wir melden uns innerhalb von 48 Stunden mit Ihrer Einschätzung.</p>
       </div>
-      <div>
-        <label for="address">Adresse / Standort</label>
-        <input type="text" id="address" name="address" placeholder="Straße, PLZ, Stadt" required>
-      </div>
-    </div>
-    <div class="form-group-title">Angaben zum Dach</div>
-    <div class="form-row">
-      <div>
-        <label for="dachtyp">Dachtyp</label>
-        <select id="dachtyp" name="dachtyp" required>
-          <option value="">Bitte wählen</option>
-          <option value="Satteldach">Satteldach</option>
-          <option value="Flachdach">Flachdach</option>
-          <option value="Pultdach">Pultdach</option>
-          <option value="Walmdach">Walmdach</option>
-          <option value="Mansarddach">Mansarddach</option>
-          <option value="Schleppdach">Schleppdach</option>
-        </select>
-      </div>
-      <div>
-        <label for="dachmaterial">Dachmaterial</label>
-        <select id="dachmaterial" name="dachmaterial" required>
-          <option value="">Bitte wählen</option>
-          <option value="Ziegel">Ziegel</option>
-          <option value="Betonstein">Betonstein</option>
-          <option value="Bitumen / Bahnen">Bitumen / Bahnen</option>
-          <option value="Blech / Metall">Blech / Metall</option>
-          <option value="Schiefer">Schiefer</option>
-          <option value="Dachfolie / Kunststoff">Dachfolie / Kunststoff</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-row">
-      <div>
-        <label for="dachflaeche">Dachfläche (m²)</label>
-        <input type="number" id="dachflaeche" name="dachflaeche" min="1" step="1" placeholder="z. B. 120">
-      </div>
-      <div>
-        <label for="baujahr">Baujahr / Alter des Dachs</label>
-        <input type="number" id="baujahr" name="baujahr" min="1900" max="2099" step="1" placeholder="z. B. 1998">
-      </div>
-    </div>
-    <div class="form-group-title">Fotos &amp; Beschreibung</div>
-    <label for="photos">Fotos hochladen</label>
-    <input type="file" id="photos" name="photos[]" multiple accept="image/*">
-    <span class="file-hint">Bis zu 15 Fotos oder kurze Videos – je mehr, desto genauer die Einschätzung.</span>
-    <label for="dringlichkeit">Dringlichkeit / Gewünschter Termin</label>
-    <input type="text" id="dringlichkeit" name="dringlichkeit" placeholder="z. B. so schnell wie möglich / nächste Woche">
-    <label for="message">Beschreibung / Anliegen</label>
-    <textarea id="message" name="message" rows="5" placeholder="Beschreiben Sie kurz Ihr Anliegen oder bekannte Schäden..." required></textarea>
-    <button type="submit">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-      Jetzt DachCheck anfragen
-    </button>
-  </form>
-</section>
-
-
+      <form id="dachcheckForm" action="https://formspree.io/f/yourformid" method="POST" enctype="multipart/form-data">
+        <div class="package-select">
+          <div class="package-select-title">Gewünschtes Paket</div>
+          <div class="package-options">
+            <div class="package-option" data-value="Dach-Basis-Check (149 EUR)"><div class="package-check"></div><div class="package-option-name">Dach-Basis-Check</div><div class="package-option-price">149 € <small>inkl. MwSt.</small></div></div>
+            <div class="package-option" data-value="Experten-Bericht (349 EUR)"><div class="package-check"></div><div class="package-option-name">Experten-Bericht</div><div class="package-option-price">349 € <small>inkl. MwSt.</small></div></div>
+            <div class="package-option" data-value="Gewerbe- und Industrieanalyse"><div class="package-check"></div><div class="package-option-name">Gewerbe- &amp; Industrie</div><div class="package-option-price">Auf Anfrage</div></div>
+          </div>
+          <input type="hidden" name="paket" id="paketInput">
+        </div>
+        <div class="form-group-title">Ihre Kontaktdaten</div>
+        <div class="form-row">
+          <div><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Max Mustermann" required></div>
+          <div><label for="email">E-Mail</label><input type="email" id="email" name="_replyto" placeholder="ihre@email.de" required></div>
+        </div>
+        <div class="form-row">
+          <div><label for="phone">Telefonnummer</label><input type="tel" id="phone" name="phone" placeholder="+49 ..."></div>
+          <div><label for="address">Adresse / Standort</label><input type="text" id="address" name="address" placeholder="Straße, PLZ, Stadt" required></div>
+        </div>
+        <div class="form-group-title">Angaben zum Dach</div>
+        <div class="form-row">
+          <div>
+            <label for="dachtyp">Dachtyp</label>
+            <select id="dachtyp" name="dachtyp" required>
+              <option value="">Bitte wählen</option>
+              <option value="Satteldach">Satteldach</option>
+              <option value="Flachdach">Flachdach</option>
+              <option value="Pultdach">Pultdach</option>
+              <option value="Walmdach">Walmdach</option>
+              <option value="Mansarddach">Mansarddach</option>
+              <option value="Schleppdach">Schleppdach</option>
+            </select>
+          </div>
+          <div>
+            <label for="dachmaterial">Dachmaterial</label>
+            <select id="dachmaterial" name="dachmaterial" required>
+              <option value="">Bitte wählen</option>
+              <option value="Ziegel">Ziegel</option>
+              <option value="Betonstein">Betonstein</option>
+              <option value="Bitumen / Bahnen">Bitumen / Bahnen</option>
+              <option value="Blech / Metall">Blech / Metall</option>
+              <option value="Schiefer">Schiefer</option>
+              <option value="Dachfolie / Kunststoff">Dachfolie / Kunststoff</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div><label for="dachflaeche">Dachfläche (m²)</label><input type="number" id="dachflaeche" name="dachflaeche" min="1" step="1" placeholder="z. B. 120"></div>
+          <div><label for="baujahr">Baujahr / Alter des Dachs</label><input type="number" id="baujahr" name="baujahr" min="1900" max="2099" step="1" placeholder="z. B. 1998"></div>
+        </div>
+        <div class="form-group-title">Fotos &amp; Beschreibung</div>
+        <label for="photos">Fotos hochladen</label>
+        <input type="file" id="photos" name="photos[]" multiple accept="image/*">
+        <span class="file-hint">Bis zu 15 Fotos oder kurze Videos – je mehr, desto genauer die Einschätzung.</span>
+        <label for="dringlichkeit">Dringlichkeit / Gewünschter Termin</label>
+        <input type="text" id="dringlichkeit" name="dringlichkeit" placeholder="z. B. so schnell wie möglich / nächste Woche">
+        <label for="message">Beschreibung / Anliegen</label>
+        <textarea id="message" name="message" rows="5" placeholder="Beschreiben Sie kurz Ihr Anliegen oder bekannte Schäden..." required></textarea>
+        <button type="submit">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          Jetzt DachCheck anfragen
+        </button>
+      </form>
+    </section>
   </div>
 </main>
-
 <footer>
   <div style="max-width:1000px; margin:0 auto;">
     <p>© 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
@@ -452,29 +378,18 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
     <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: <a href="tel:+4917641122628">+49 176 41122628</a> | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
   </div>
 </footer>
-
 <script>
 window.addEventListener('DOMContentLoaded', function() {
-
-  // Package selection
   document.querySelectorAll('.package-option').forEach(function(option) {
     option.addEventListener('click', function() {
-      document.querySelectorAll('.package-option').forEach(function(o) {
-        o.classList.remove('selected');
-      });
+      document.querySelectorAll('.package-option').forEach(function(o) { o.classList.remove('selected'); });
       option.classList.add('selected');
       document.getElementById('paketInput').value = option.getAttribute('data-value');
     });
   });
-
-  // Burger Menu
   var hamburger = document.getElementById('hamburger');
   var navMenu = document.getElementById('navMenu');
-
-  hamburger.addEventListener('click', function() {
-    navMenu.classList.toggle('show');
-  });
-
+  hamburger.addEventListener('click', function() { navMenu.classList.toggle('show'); });
   document.querySelectorAll('.has-submenu > a').forEach(function(link) {
     link.addEventListener('click', function(e) {
       if (window.innerWidth <= 768) {
@@ -483,25 +398,18 @@ window.addEventListener('DOMContentLoaded', function() {
         if (submenu) {
           submenu.classList.toggle('active');
           if (!submenu.classList.contains('active')) {
-            submenu.querySelectorAll('.submenu.active').forEach(function(sub) {
-              sub.classList.remove('active');
-            });
+            submenu.querySelectorAll('.submenu.active').forEach(function(sub) { sub.classList.remove('active'); });
           }
         }
       }
     });
   });
-
   window.addEventListener('resize', function() {
     if (window.innerWidth > 768) {
       navMenu.classList.remove('show');
-      document.querySelectorAll('.submenu.active').forEach(function(sm) {
-        sm.classList.remove('active');
-      });
+      document.querySelectorAll('.submenu.active').forEach(function(sm) { sm.classList.remove('active'); });
     }
   });
-
-  // Scroll Animations
   var fadeObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
@@ -510,13 +418,8 @@ window.addEventListener('DOMContentLoaded', function() {
       }
     });
   }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-in-section').forEach(function(el) {
-    fadeObserver.observe(el);
-  });
-
+  document.querySelectorAll('.fade-in-section').forEach(function(el) { fadeObserver.observe(el); });
 });
 </script>
-
 </body>
 </html>
