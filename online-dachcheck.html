@@ -33,7 +33,7 @@ nav ul li ul li ul { top:0; left:100%; }
 main { padding-top:137px; }
 .hero { position:relative; text-align:center; min-height:500px; padding:120px 20px; display:flex; flex-direction:column; justify-content:center; align-items:center; color:#fff; overflow:hidden; -webkit-mask-image:linear-gradient(to bottom,black 0%,black 85%,transparent 100%); mask-image:linear-gradient(to bottom,black 0%,black 85%,transparent 100%); margin-bottom:-20px; }
 .hero-img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1; }
-.hero::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.50); z-index:2; }
+.hero::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.40); z-index:2; }
 .hero h1, .hero p { position:relative; z-index:3; color:#fff; padding:0 20px; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
 .hero p { font-size:1.2em; }
@@ -90,10 +90,10 @@ main { padding-top:137px; }
 .package-option-name { font-size:0.88em; font-weight:700; color:#004d00; margin-bottom:4px; }
 .package-option-price { font-size:1.1em; font-weight:700; color:#007f5f; }
 .package-option-price small { font-size:0.7em; font-weight:400; color:#888; }
-.package-check { width:18px; height:18px; border:2px solid #ccc; border-radius:50%; display:block; margin-bottom:10px; position:relative; transition:all 0.2s ease; }
-.package-option.selected .package-check { border-color:#007f5f; background:#007f5f; }
-.package-option.selected .package-check::after { content:""; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:8px; height:8px; background:#fff; border-radius:50%; }
-input[name="paket"] { display:none; }
+.package-check { width:18px; height:18px; border:2px solid #ccc; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:10px; transition:all 0.2s ease; background:#fff; }
+.package-option.selected .package-check { border-color:#007f5f; background:#007f5f; } .check-svg { display:none; } .package-option.selected .check-svg { display:block; }
+
+input[name=“paket”] { display:none; }
 .form-section { background:#fff; padding:0; }
 .form-section-header { margin-bottom:40px; }
 .form-section-header h2 { color:#1d1d1f; font-size:2em; font-weight:600; letter-spacing:-0.5px; margin-bottom:10px; }
@@ -101,12 +101,12 @@ input[name="paket"] { display:none; }
 .form-group-title { font-size:0.75em; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#007f5f; margin-bottom:20px; margin-top:8px; padding-bottom:10px; border-bottom:1px solid #e0ede7; }
 .form-row { display:grid; grid-template-columns:1fr 1fr; gap:0 24px; }
 form label { display:block; margin-bottom:7px; font-weight:600; color:#1d1d1f; font-size:0.88em; letter-spacing:0.3px; text-transform:uppercase; }
-form input, form textarea, form select { width:100%; padding:14px 16px; margin-bottom:24px; border:1.5px solid #e0ede7; border-radius:10px; font-size:1em; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif; background:#fff; transition:border-color 0.2s ease,box-shadow 0.2s ease; color:#1d1d1f; }
+form input, form textarea, form select { width:100%; padding:14px 16px; margin-bottom:24px; border:1.5px solid #e0ede7; border-radius:10px; font-size:1em; font-family:-apple-system,BlinkMacSystemFont,‘Segoe UI’,Arial,sans-serif; background:#fff; transition:border-color 0.2s ease,box-shadow 0.2s ease; color:#1d1d1f; }
 form input:focus, form textarea:focus, form select:focus { border-color:#007f5f; box-shadow:0 0 0 4px rgba(0,127,95,0.10); outline:none; }
 form textarea { resize:vertical; min-height:140px; line-height:1.6; }
-form select { appearance:none; background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d1d1f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); background-repeat:no-repeat; background-position:right 14px center; background-size:18px; padding-right:40px; cursor:pointer; }
-form input[type="file"] { padding:20px 16px; border:1.5px dashed #cde9d8; background:#f7fbf9; cursor:pointer; transition:all 0.2s ease; color:#555; border-radius:10px; }
-form input[type="file"]:hover { border-color:#007f5f; background:#edf6f2; }
+form select { appearance:none; background-image:url(“data:image/svg+xml;charset=UTF-8,%3csvg xmlns=‘http://www.w3.org/2000/svg’ viewBox=‘0 0 24 24’ fill=‘none’ stroke=’%231d1d1f’ stroke-width=‘2’ stroke-linecap=‘round’ stroke-linejoin=‘round’%3e%3cpolyline points=‘6 9 12 15 18 9’%3e%3c/polyline%3e%3c/svg%3e”); background-repeat:no-repeat; background-position:right 14px center; background-size:18px; padding-right:40px; cursor:pointer; }
+form input[type=“file”] { padding:20px 16px; border:1.5px dashed #cde9d8; background:#f7fbf9; cursor:pointer; transition:all 0.2s ease; color:#555; border-radius:10px; }
+form input[type=“file”]:hover { border-color:#007f5f; background:#edf6f2; }
 .file-hint { font-size:0.82em; color:#888; margin-top:-18px; margin-bottom:24px; display:block; }
 form button { background-color:#007f5f; color:#fff; border:none; padding:18px 32px; font-size:1.05em; font-weight:600; cursor:pointer; border-radius:10px; transition:all 0.2s ease; width:100%; letter-spacing:0.3px; margin-top:8px; display:flex; align-items:center; justify-content:center; gap:10px; }
 form button:hover { background-color:#005f46; transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,127,95,0.20); }
@@ -116,38 +116,39 @@ form button:active { transform:translateY(0); }
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 @media (max-width:768px) {
-  .top-bar { display:none; }
-  header { top:0; }
-  main { padding-top:100px; }
-  .header-right > .lang-btn { display:none; }
-  .mobile-controls { display:flex; }
-  nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:60px; left:0; width:100%; padding:10px 0; gap:0; text-align:center; }
-  nav ul.show { display:flex; }
-  nav ul li { width:100%; }
-  nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
-  nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
-  nav ul li ul.active { display:flex; }
-  nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
-  nav ul li ul li ul { left:0; }
-  .hero { min-height:380px; padding:80px 20px; }
-  .hero h1 { font-size:2em; }
-  .hero p { font-size:1.1em; }
-  .check-container { margin:50px auto 80px; padding:0 20px; gap:50px; }
-  .steps-grid { grid-template-columns:1fr 1fr; gap:32px; }
-  .steps-grid::before { display:none; }
-  .step { padding:0; }
-  .pricing-grid { grid-template-columns:1fr; gap:20px; }
-  .pricing-card { padding:28px 22px; }
-  .pricing-price { font-size:2.1em; }
-  .pricing-card-enterprise { grid-template-columns:1fr; gap:0; padding:28px 22px; }
-  .pricing-enterprise-right { margin-top:20px; }
-  .pricing-section-header h2, .steps-header h2, .form-section-header h2 { font-size:1.7em; }
-  .package-options { grid-template-columns:1fr; gap:10px; }
-  .form-row { grid-template-columns:1fr; gap:0; }
-  form input, form textarea, form select { padding:12px 14px; margin-bottom:20px; font-size:0.95em; }
-  form button { padding:16px 28px; font-size:0.95em; }
+.top-bar { display:none; }
+header { top:0; }
+main { padding-top:100px; }
+.header-right > .lang-btn { display:none; }
+.mobile-controls { display:flex; }
+nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:60px; left:0; width:100%; padding:10px 0; gap:0; text-align:center; }
+nav ul.show { display:flex; }
+nav ul li { width:100%; }
+nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
+nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
+nav ul li ul.active { display:flex; }
+nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
+nav ul li ul li ul { left:0; }
+.hero { min-height:380px; padding:80px 20px; }
+.hero h1 { font-size:2em; }
+.hero p { font-size:1.1em; }
+.check-container { margin:50px auto 80px; padding:0 20px; gap:50px; }
+.steps-grid { grid-template-columns:1fr 1fr; gap:32px; }
+.steps-grid::before { display:none; }
+.step { padding:0; }
+.pricing-grid { grid-template-columns:1fr; gap:20px; }
+.pricing-card { padding:28px 22px; }
+.pricing-price { font-size:2.1em; }
+.pricing-card-enterprise { grid-template-columns:1fr; gap:0; padding:28px 22px; }
+.pricing-enterprise-right { margin-top:20px; }
+.pricing-section-header h2, .steps-header h2, .form-section-header h2 { font-size:1.7em; }
+.package-options { grid-template-columns:1fr; gap:10px; }
+.form-row { grid-template-columns:1fr; gap:0; }
+form input, form textarea, form select { padding:12px 14px; margin-bottom:20px; font-size:0.95em; }
+form button { padding:16px 28px; font-size:0.95em; }
 }
 </style>
+
 </head>
 <body>
 <div class="top-bar">
@@ -309,9 +310,9 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
         <div class="package-select">
           <div class="package-select-title">Gewünschtes Paket</div>
           <div class="package-options">
-            <div class="package-option" data-value="Dach-Basis-Check (149 EUR)"><div class="package-check"></div><div class="package-option-name">Dach-Basis-Check</div><div class="package-option-price">149 € <small>inkl. MwSt.</small></div></div>
-            <div class="package-option" data-value="Experten-Bericht (349 EUR)"><div class="package-check"></div><div class="package-option-name">Experten-Bericht</div><div class="package-option-price">349 € <small>inkl. MwSt.</small></div></div>
-            <div class="package-option" data-value="Gewerbe- und Industrieanalyse"><div class="package-check"></div><div class="package-option-name">Gewerbe- &amp; Industrie</div><div class="package-option-price">Auf Anfrage</div></div>
+            <div class="package-option" data-value="Dach-Basis-Check (149 EUR)"><div class="package-check"><svg class="check-svg" width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" fill="white"/></svg></div><div class="package-option-name">Dach-Basis-Check</div><div class="package-option-price">149 € <small>inkl. MwSt.</small></div></div>
+            <div class="package-option" data-value="Experten-Bericht (349 EUR)"><div class="package-check"><svg class="check-svg" width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" fill="white"/></svg></div><div class="package-option-name">Experten-Bericht</div><div class="package-option-price">349 € <small>inkl. MwSt.</small></div></div>
+            <div class="package-option" data-value="Gewerbe- und Industrieanalyse"><div class="package-check"><svg class="check-svg" width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" fill="white"/></svg></div><div class="package-option-name">Gewerbe- &amp; Industrie</div><div class="package-option-price">Auf Anfrage</div></div>
           </div>
           <input type="hidden" name="paket" id="paketInput">
         </div>
