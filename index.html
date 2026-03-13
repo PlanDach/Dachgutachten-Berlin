@@ -257,7 +257,14 @@ font-size: 4em;
 .about-snippet .about-text h3 {
 font-size: 1.5em;
 color: #004d00;
-margin-bottom: 12px;
+margin-bottom: 4px;
+}
+.about-snippet .about-text .about-role {
+font-size: 0.9em;
+color: #007f5f;
+font-weight: 600;
+margin-bottom: 14px;
+display: block;
 }
 .about-snippet .about-text p {
 color: #333;
@@ -446,12 +453,14 @@ flex-direction:column;
 display:none;
 background:#fff;
 position:absolute;
-top:60px;
+top:100%;
 left:0;
 width:100%;
 padding:10px 0;
 gap:0;
 text-align:center;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+z-index:100;
 }
 nav ul.show { display:flex; }
 nav ul li { width:100%; }
@@ -586,10 +595,11 @@ gap: 24px;
 </section>
 
 <div class="about-snippet scroll-animate" style="margin-left:auto; margin-right:auto; max-width:900px;">
-  <div class="about-placeholder">🧑‍💼</div>
+  <img src="E928D746-D19B-4518-A21D-B6111AC3F50F.jpeg" alt="Philipp Höfinghoff" class="about-img">
   <div class="about-text">
-    <h3>Ihr Ansprechpartner</h3>
-    <p>Hier kannst du 2–3 Sätze über dich schreiben – deine Qualifikation, deine Erfahrung und warum Kunden dir vertrauen können. Ersetze außerdem das Emoji links durch dein eigenes Foto.</p>
+    <h3>Philipp Höfinghoff</h3>
+    <span class="about-role">Dachdeckermeister &amp; Gutachter</span>
+    <p>Als Dachdeckermeister mit über zehn Jahren Erfahrung biete ich unabhängige Gutachten, professionelle Planung und ehrliche Beratung – ohne Interessenkonflikt, ohne versteckte Agenda. Mein Ziel: dass Sie fundierte Entscheidungen rund um Ihr Dach treffen können.</p>
     <a href="ueber-mich.html">Mehr über mich →</a>
   </div>
 </div>
