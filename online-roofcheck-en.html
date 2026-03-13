@@ -8,293 +8,159 @@
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; overflow-x:hidden; background-color:#fff; color:#004D00; }
-
-/* ── TOP BAR (Desktop only) ── */
-.top-bar {
-width: 100%;
-background: #005f46;
-color: #fff;
-font-size: 0.82em;
-padding: 0 20px;
-display: flex;
-justify-content: flex-end;
-align-items: center;
-gap: 24px;
-position: fixed;
-top: 0;
-left: 0;
-z-index: 20;
-height: 37px;
-line-height: 37px;
-}
-.top-bar a {
-color: #fff;
-text-decoration: none;
-display: flex;
-align-items: center;
-gap: 6px;
-transition: opacity 0.2s;
-}
-.top-bar a:hover { opacity: 0.8; }
-.top-bar .lang-switcher {
-border-left: 1px solid rgba(255,255,255,0.3);
-padding-left: 20px;
-}
-
-/* Header */
-header {
-width:100%;
-background:#fff;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:10px 20px;
-position:fixed;
-top: 37px;
-left:0;
-z-index:10;
-box-shadow:0 2px 5px rgba(0,0,0,0.1);
-}
+.top-bar { width:100%; background:#0e5244; color:#fff; font-size:0.82em; padding:0 20px; height:37px; display:flex; justify-content:flex-end; align-items:center; gap:24px; position:fixed; top:0; left:0; z-index:20; }
+.top-bar a { color:#fff; text-decoration:none; display:flex; align-items:center; gap:6px; transition:opacity 0.2s; }
+.top-bar a:hover { opacity:0.8; }
+.top-bar .lang-switcher { border-left:1px solid rgba(255,255,255,0.3); padding-left:20px; }
+header { width:100%; background:#fff; display:flex; justify-content:space-between; align-items:center; padding:10px 20px; position:fixed; top:37px; left:0; z-index:10; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
 .logo img { height:80px; width:auto; display:block; }
-
-.lang-btn {
-text-decoration:none;
-font-weight:600;
-font-size:0.95em;
-color:#004d00;
-background:#e6f4ea;
-border:1.5px solid rgba(0,127,95,0.3);
-border-radius:8px;
-padding:6px 12px;
-transition: background 0.3s ease, transform 0.2s ease;
-white-space:nowrap;
-}
-.lang-btn:hover { background:#cde9d8; transform:translateY(-1px); }
-
 .header-right { display:flex; align-items:center; gap:20px; }
-
-.mobile-controls {
-display:none;
-align-items:center;
-gap:16px;
-margin-left:auto;
-height: 100%;
-}
-
-.mobile-call-btn {
-display: flex;
-align-items: center;
-justify-content: center;
-text-decoration: none;
-font-size: 1.4em;
-flex-shrink: 0;
-line-height: 1;
-}
-.mobile-call-btn:hover { opacity: 0.7; }
-
-.mobile-flag-btn {
-font-size: 1.4em;
-text-decoration: none;
-line-height: 1;
-display: flex;
-align-items: center;
-}
-
+.lang-btn { text-decoration:none; font-weight:600; font-size:0.95em; color:#004d00; background:#e6f4ea; border:1.5px solid rgba(0,127,95,0.3); border-radius:8px; padding:6px 12px; transition:background 0.3s ease, transform 0.2s ease; white-space:nowrap; }
+.lang-btn:hover { background:#cde9d8; transform:translateY(-1px); }
+.mobile-controls { display:none; align-items:center; gap:16px; margin-left:auto; }
+.mobile-call-btn { text-decoration:none; line-height:1; display:flex; align-items:center; }
+.mobile-flag-btn { font-size:1.1em; text-decoration:none; line-height:1; display:flex; align-items:center; }
 .hamburger { font-size:1.8em; cursor:pointer; user-select:none; line-height:1; display:flex; align-items:center; color:#136f5a; }
-
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
-nav ul li a {
-text-decoration:none;
-color:#004d00;
-font-weight:500;
-padding:5px 10px;
-display:block;
-transition: background-color 0.3s ease, color 0.3s ease;
-}
+nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:5px 10px; display:block; transition:background-color 0.3s ease, color 0.3s ease; }
 nav ul li a:hover { background-color:#e6f4ea; border-radius:6px; color:#007f5f; }
-nav ul li a:active,
-nav ul li a.active { background-color:#cde9d8; border-radius:6px; color:#007f5f; }
+nav ul li a:active, nav ul li a.active { background-color:#cde9d8; border-radius:6px; color:#007f5f; }
+main { padding-top:137px; }
 
-main { padding-top: 127px; }
-
-/* Hero */
-.hero {
-position: relative;
-text-align:center;
-padding:120px 20px;
-min-height:500px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-color:#ffffff;
-overflow:hidden;
--webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-margin-bottom: -20px;
-}
-.hero img.hero-bg {
-position:absolute;
-top:0; left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-object-position:center;
-z-index:1;
-}
-.hero::after {
-content:””;
-position:absolute;
-top:0; left:0;
-width:100%;
-height:100%;
-background: rgba(0,0,0,0.50);
-z-index:2;
-}
-.hero h1, .hero p { position: relative; z-index:3; color:#ffffff; }
+/* ── HERO ── */
+.hero { position:relative; text-align:center; min-height:500px; padding:120px 20px; display:flex; flex-direction:column; justify-content:center; align-items:center; color:#fff; overflow:hidden; -webkit-mask-image:linear-gradient(to bottom,black 0%,black 85%,transparent 100%); mask-image:linear-gradient(to bottom,black 0%,black 85%,transparent 100%); margin-bottom:-20px; }
+.hero-img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1; }
+.hero::after { content:””; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.30); z-index:2; }
+.hero h1, .hero p { position:relative; z-index:3; color:#fff; padding:0 20px; text-shadow:0 2px 8px rgba(0,0,0,0.55); }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
-.hero p { font-size:1.2em; max-width:600px; line-height:1.6; }
+.hero p { font-size:1.2em; }
 
-/* CHECK CONTAINER */
-.check-container {
-max-width:800px;
-margin:80px auto 100px;
-padding:0 30px;
-display:flex;
-flex-direction:column;
-gap:60px;
-}
-
-.form-description {
-color:#1d1d1f;
-text-align:center;
-line-height:1.8;
-font-size:1.05em;
-font-weight:400;
-}
-
-.steps-section { background:#ffffff; padding:0; text-align:center; border:none; box-shadow:none; }
+.check-container { max-width:800px; margin:80px auto 100px; padding:0 30px; display:flex; flex-direction:column; gap:60px; }
+.form-description { background:#f7fbf9; border:1px solid #cde9d8; border-radius:16px; padding:32px 36px; color:#333; text-align:center; line-height:1.85; font-size:1.05em; }
+.steps-section { text-align:center; }
 .steps-header { display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:40px; }
 .steps-header h2 { color:#1d1d1f; font-size:2em; margin:0; font-weight:600; letter-spacing:-0.5px; }
-.steps-header .check-icon { display:inline-flex; align-items:center; justify-content:center; color:#007F5F; font-size:1.5rem; width:32px; height:32px; }
-
-.steps-grid {
-display:grid;
-grid-template-columns: repeat(2, 1fr);
-gap:40px;
-justify-items:center;
-align-items:start;
-padding:0;
-}
-@media (min-width:768px) {
-.steps-grid { grid-template-columns: repeat(4, 1fr); gap:30px; }
-}
-.step { text-align:center; max-width:180px; }
-.step .icon {
-width:72px; height:72px; margin:0 auto;
-background:#f5f5f7; border-radius:50%;
-display:flex; align-items:center; justify-content:center;
-font-size:32px; color:#007F5F; transition:all 0.2s ease;
-}
-.step .icon:hover { background:#e6f4ea; transform:scale(1.05); }
-.step p { margin-top:16px; font-size:0.95rem; color:#1d1d1f; line-height:1.4; text-align:center; font-weight:500; }
-
-.form-section { background:#ffffff; border-radius:0; padding:0; box-shadow:none; }
-.form-section h2 { text-align:left; color:#1d1d1f; margin-bottom:40px; font-size:2em; font-weight:600; letter-spacing:-0.5px; }
-
-form label { display:block; margin-bottom:8px; font-weight:500; color:#1d1d1f; font-size:0.95em; letter-spacing:0.2px; }
-
-form input, form textarea, form select {
-width:100%; padding:14px 16px; margin-bottom:28px;
-border:1px solid #d2d2d7; border-radius:8px;
-font-size:1em; font-family: Arial, Helvetica, sans-serif;
-background:#fff; transition: border-color 0.2s ease, box-shadow 0.2s ease; color:#1d1d1f;
-}
-form input:focus, form textarea:focus, form select:focus {
-border-color:#004d00; box-shadow:0 0 0 4px rgba(0,77,0,0.08); outline:none;
-}
+.steps-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative; }
+.steps-grid::before { content:””; position:absolute; top:36px; left:calc(12.5% + 8px); right:calc(12.5% + 8px); height:2px; background:linear-gradient(to right,#cde9d8,#007f5f,#cde9d8); z-index:0; }
+.step { text-align:center; padding:0 12px; position:relative; z-index:1; }
+.step-number { width:72px; height:72px; margin:0 auto 16px; background:#fff; border:2px solid #007f5f; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.3em; font-weight:700; color:#007f5f; transition:all 0.2s ease; box-shadow:0 4px 12px rgba(0,127,95,0.12); }
+.step:hover .step-number { background:#007f5f; color:#fff; transform:scale(1.07); }
+.step-icon { font-size:1.5em; line-height:1; display:block; margin-bottom:6px; }
+.step-label { font-size:0.92rem; color:#222; line-height:1.4; text-align:center; font-weight:600; margin-top:4px; display:block; }
+.step-sub { display:block; font-weight:400; color:#777; font-size:0.85em; margin-top:4px; }
+.pricing-section { padding:0; }
+.pricing-section-header { text-align:center; margin-bottom:48px; }
+.pricing-section-header h2 { font-size:2em; font-weight:600; color:#1d1d1f; letter-spacing:-0.5px; margin-bottom:12px; }
+.pricing-section-header p { font-size:1.05em; color:#555; line-height:1.6; }
+.pricing-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:24px; }
+.pricing-card { background:#fff; border:1.5px solid #e0ede7; border-radius:16px; padding:36px 32px; display:flex; flex-direction:column; position:relative; transition:box-shadow 0.25s ease, transform 0.25s ease; }
+.pricing-card:hover { box-shadow:0 12px 32px rgba(0,127,95,0.10); transform:translateY(-3px); }
+.pricing-card.featured { border-color:#007f5f; border-width:2px; background:#f7fbf9; }
+.badge-popular { position:absolute; top:-13px; left:50%; transform:translateX(-50%); background:#007f5f; color:#fff; font-size:0.75em; font-weight:700; letter-spacing:0.8px; text-transform:uppercase; padding:5px 16px; border-radius:20px; white-space:nowrap; }
+.pricing-card-title { font-size:1.15em; font-weight:700; color:#004d00; margin-bottom:6px; }
+.pricing-card-subtitle { font-size:0.9em; color:#666; line-height:1.5; margin-bottom:24px; }
+.pricing-price-row { display:flex; align-items:baseline; gap:6px; margin-bottom:28px; }
+.pricing-price { font-size:2.6em; font-weight:700; color:#007f5f; line-height:1; }
+.pricing-price-unit { font-size:1em; color:#888; font-weight:500; }
+.pricing-divider { height:1px; background:#e8f0eb; margin-bottom:24px; }
+.pricing-label { font-size:0.78em; font-weight:700; letter-spacing:0.8px; text-transform:uppercase; color:#007f5f; margin-bottom:14px; }
+.pricing-features { list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:28px; flex:1; }
+.pricing-features li { display:flex; align-items:flex-start; gap:10px; font-size:0.92em; color:#333; line-height:1.4; }
+.pricing-features li::before { content:“✓”; color:#007f5f; font-weight:700; font-size:0.95em; margin-top:1px; flex-shrink:0; }
+.pricing-turnaround { display:flex; align-items:center; gap:8px; font-size:0.85em; color:#555; background:#f0f7f4; border-radius:8px; padding:10px 14px; margin-bottom:28px; }
+.pricing-upsell { font-size:0.82em; color:#777; font-style:italic; border-top:1px solid #e8f0eb; padding-top:16px; margin-top:4px; line-height:1.5; }
+.pricing-card-enterprise { background:#fff; border:1.5px solid #e0ede7; border-radius:16px; padding:36px 32px; display:grid; grid-template-columns:1fr 1fr; gap:0 40px; transition:box-shadow 0.25s ease, transform 0.25s ease; }
+.pricing-card-enterprise:hover { box-shadow:0 12px 32px rgba(0,127,95,0.10); transform:translateY(-3px); }
+.pricing-enterprise-left .pricing-card-title { font-size:1.15em; font-weight:700; color:#004d00; margin-bottom:6px; }
+.pricing-enterprise-left .pricing-card-subtitle { font-size:0.9em; color:#666; line-height:1.5; margin-bottom:24px; }
+.pricing-price-custom { font-size:1.9em; font-weight:700; color:#007f5f; margin-bottom:6px; line-height:1.1; }
+.pricing-price-custom-sub { font-size:0.85em; color:#888; margin-bottom:28px; }
+.pricing-disclaimer { background:#f7fbf9; border:1px solid #cde9d8; border-radius:12px; padding:20px 24px; margin-top:24px; }
+.pricing-disclaimer p { font-size:0.88em; color:#555; line-height:1.65; margin-bottom:10px; }
+.pricing-disclaimer p:last-child { margin-bottom:0; }
+.disclaimer-highlight { color:#004d00; font-weight:600; }
+.package-select { margin-bottom:32px; }
+.package-select-title { font-size:0.75em; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#007f5f; margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid #e0ede7; }
+.package-options { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+.package-option { border:1.5px solid #e0ede7; border-radius:12px; padding:16px 14px; cursor:pointer; transition:all 0.2s ease; background:#fff; text-align:left; }
+.package-option:hover { border-color:#007f5f; background:#f7fbf9; }
+.package-check { width:18px; height:18px; border:2px solid #ccc; border-radius:50%; display:block; margin-bottom:10px; transition:background 0.2s ease, border-color 0.2s ease; }
+input[name=“paket”] { display:none; }
+.form-section { background:#fff; padding:0; }
+.form-section-header { margin-bottom:40px; }
+.form-section-header h2 { color:#1d1d1f; font-size:2em; font-weight:600; letter-spacing:-0.5px; margin-bottom:10px; }
+.form-section-header p { font-size:0.95em; color:#666; line-height:1.6; }
+.form-group-title { font-size:0.75em; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#007f5f; margin-bottom:20px; margin-top:8px; padding-bottom:10px; border-bottom:1px solid #e0ede7; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:0 24px; }
+form label { display:block; margin-bottom:7px; font-weight:600; color:#1d1d1f; font-size:0.88em; letter-spacing:0.3px; text-transform:uppercase; }
+form input, form textarea, form select { width:100%; padding:14px 16px; margin-bottom:24px; border:1.5px solid #e0ede7; border-radius:10px; font-size:1em; font-family:-apple-system,BlinkMacSystemFont,‘Segoe UI’,Arial,sans-serif; background:#fff; transition:border-color 0.2s ease,box-shadow 0.2s ease; color:#1d1d1f; }
+form input:focus, form textarea:focus, form select:focus { border-color:#007f5f; box-shadow:0 0 0 4px rgba(0,127,95,0.10); outline:none; }
 form textarea { resize:vertical; min-height:140px; line-height:1.6; }
-form select {
-appearance:none;
-background-image: url(“data:image/svg+xml;charset=UTF-8,%3csvg xmlns=‘http://www.w3.org/2000/svg’ viewBox=‘0 0 24 24’ fill=‘none’ stroke=’%231d1d1f’ stroke-width=‘2’ stroke-linecap=‘round’ stroke-linejoin=‘round’%3e%3cpolyline points=‘6 9 12 15 18 9’%3e%3c/polyline%3e%3c/svg%3e”);
-background-repeat:no-repeat; background-position:right 12px center; background-size:20px; padding-right:40px; cursor:pointer;
-}
-form input[type=“file”] { padding:12px 16px; border:1px dashed #d2d2d7; background:#fafafa; cursor:pointer; transition:all 0.2s ease; }
-form input[type=“file”]:hover { border-color:#004d00; background:#f5f5f7; }
-form button {
-background-color:#007f5f; color:#fff; border:none;
-padding:16px 32px; font-size:1em; font-weight:500;
-cursor:pointer; border-radius:8px; transition: all 0.2s ease;
-width:100%; letter-spacing:0.3px; margin-top:12px;
-}
-form button:hover { background-color:#005f46; transform:translateY(-1px); box-shadow:0 8px 16px rgba(0,127,95,0.15); }
+form select { appearance:none; background-image:url(“data:image/svg+xml;charset=UTF-8,%3csvg xmlns=‘http://www.w3.org/2000/svg’ viewBox=‘0 0 24 24’ fill=‘none’ stroke=’%231d1d1f’ stroke-width=‘2’ stroke-linecap=‘round’ stroke-linejoin=‘round’%3e%3cpolyline points=‘6 9 12 15 18 9’%3e%3c/polyline%3e%3c/svg%3e”); background-repeat:no-repeat; background-position:right 14px center; background-size:18px; padding-right:40px; cursor:pointer; }
+form input[type=“file”] { padding:20px 16px; border:1.5px dashed #cde9d8; background:#f7fbf9; cursor:pointer; transition:all 0.2s ease; color:#555; border-radius:10px; }
+form input[type=“file”]:hover { border-color:#007f5f; background:#edf6f2; }
+.file-hint { font-size:0.82em; color:#888; margin-top:-18px; margin-bottom:24px; display:block; }
+form button { background-color:#007f5f; color:#fff; border:none; padding:18px 32px; font-size:1.05em; font-weight:600; cursor:pointer; border-radius:10px; transition:all 0.2s ease; width:100%; letter-spacing:0.3px; margin-top:8px; display:flex; align-items:center; justify-content:center; gap:10px; }
+form button:hover { background-color:#005f46; transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,127,95,0.20); }
 form button:active { transform:translateY(0); }
-
+.fade-in-section { opacity:1; transform:translateY(0); transition:opacity 0.65s ease, transform 0.65s ease; }
+.fade-in-section.will-animate { opacity:0; transform:translateY(30px); }
+.fade-in-section.visible { opacity:1; transform:translateY(0); }
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
-
 @media (max-width:768px) {
-.top-bar { display: none; }
-header { top: 0; }
-main { padding-top: 90px; }
-
+.top-bar { display:none; }
+header { top:0; }
+main { padding-top:100px; }
 .header-right > .lang-btn { display:none; }
 .mobile-controls { display:flex; }
-
-nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:60px; left:0; width:100%; padding:10px 0; gap:0; text-align:center; }
+nav ul { flex-direction:column; display:none; background:#fff; position:absolute; top:100%; left:0; width:100%; padding:10px 0; gap:0; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.1); z-index:100; }
 nav ul.show { display:flex; }
 nav ul li { width:100%; }
 nav ul li a { font-size:1.2em; text-align:center; padding:10px 0; }
-
-.hero { padding:80px 20px; min-height:380px; }
+nav ul li ul { display:none; flex-direction:column; width:100%; text-align:center; padding:0; margin:0; position:relative; top:0; left:0; box-shadow:none; border-radius:0; }
+nav ul li ul.active { display:flex; }
+nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
+nav ul li ul li ul { left:0; }
+.hero { min-height:380px; padding:80px 20px; }
 .hero h1 { font-size:2em; }
-.hero p { font-size:1em; }
+.hero p { font-size:1.1em; }
 .check-container { margin:50px auto 80px; padding:0 20px; gap:50px; }
-.form-description { font-size:1em; }
-.steps-header h2 { font-size:1.7em; }
-.steps-grid { grid-template-columns:1fr; gap:40px; }
-.step { max-width:280px; }
-.form-section h2 { font-size:1.7em; margin-bottom:30px; }
-form input, form textarea, form select { padding:12px 14px; margin-bottom:24px; font-size:0.95em; }
-form button { padding:14px 28px; font-size:0.95em; }
+.steps-grid { grid-template-columns:1fr 1fr; gap:32px; }
+.steps-grid::before { display:none; }
+.step { padding:0; }
+.pricing-grid { grid-template-columns:1fr; gap:20px; }
+.pricing-card { padding:28px 22px; }
+.pricing-price { font-size:2.1em; }
+.pricing-card-enterprise { grid-template-columns:1fr; gap:0; padding:28px 22px; }
+.pricing-enterprise-right { margin-top:20px; }
+.pricing-section-header h2, .steps-header h2, .form-section-header h2 { font-size:1.7em; }
+.package-options { grid-template-columns:1fr; gap:10px; }
+.form-row { grid-template-columns:1fr; gap:0; }
+form input, form textarea, form select { padding:12px 14px; margin-bottom:20px; font-size:0.95em; }
+form button { padding:16px 28px; font-size:0.95em; }
 }
 </style>
 
 </head>
 <body>
 
-<!-- ── TOP BAR (Desktop only) ── -->
-
 <div class="top-bar">
-  <a href="tel:+4917641122628">
-    📞 +49 176 41122628
-  </a>
-  <a href="mailto:info@plandach.de">
-    ✉ info@plandach.de
-  </a>
+  <a href="tel:+4917641122628">📞 +49 176 41122628</a>
+  <a href="mailto:info@plandach.de">✉ info@plandach.de</a>
   <a href="online-dachcheck.html" class="lang-switcher">🇩🇪 DE</a>
 </div>
 
 <header>
-  <div class="logo">
-    <a href="index-en.html"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></a>
-  </div>
-
-  <!-- Mobile: Phone + DE Flag + Hamburger -->
-
+  <div class="logo"><a href="index-en.html"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></a></div>
   <div class="mobile-controls">
     <a href="tel:+4917641122628" class="mobile-call-btn" title="Call now">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="#136f5a" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.24 1.01l-2.21 2.2z"/>
-      </svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#136f5a" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.24 1.01l-2.21 2.2z"/></svg>
     </a>
     <a href="online-dachcheck.html" class="mobile-flag-btn">🇩🇪</a>
-    <div class="hamburger" id="hamburger">☰</div>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">☰</div>
   </div>
-
-  <!-- Desktop: Nav -->
-
   <div class="header-right">
     <nav>
       <ul id="navMenu">
@@ -311,99 +177,159 @@ form button { padding:14px 28px; font-size:0.95em; }
 
 <main>
   <section class="hero">
-    <img src="C55CF7CA-3C7F-4AAE-82BB-BD813375AD53.png" alt="Online Roof Check" class="hero-bg">
+    <img src="C55CF7CA-3C7F-4AAE-82BB-BD813375AD53.png" alt="Online Roof Check Hero" class="hero-img">
     <h1>Online Roof Check</h1>
     <p>Fill out the form to receive a quick assessment and advice for your roof.</p>
   </section>
 
   <div class="check-container">
+    <section class="form-description fade-in-section">
+      Use our Online Roof Check to assess the condition of your roof conveniently from home.
+      Our digital check guides you through all relevant areas in a structured way – from the roof covering and waterproofing to the drainage system.
+      This gives you a well-founded overview, helps you identify potential damage early, and allows you to plan targeted measures to maintain the value of your property.
+    </section>
 
 
-<section class="form-description">
-  Use our Online Roof Check to assess the condition of your roof conveniently from home.
-  Our digital check guides you through all relevant areas in a structured way – from the roof covering and waterproofing to the drainage system.
-  This gives you a well-founded overview, helps you identify potential damage early and allows you to plan targeted measures to maintain the value of your property.
-</section>
-
-<section class="steps-section" aria-labelledby="steps-heading">
-  <div class="steps-header">
-    <span class="check-icon" aria-hidden="true">✅</span>
-    <h2 id="steps-heading">How Your Online Roof Check Works</h2>
-  </div>
-  <div class="steps-grid" role="list">
-    <div class="step" role="listitem">
-      <div class="icon" aria-hidden="true">📤</div>
-      <p>Upload data & photos</p>
-    </div>
-    <div class="step" role="listitem">
-      <div class="icon" aria-hidden="true">⚙️</div>
-      <p>Start analysis</p>
-    </div>
-    <div class="step" role="listitem">
-      <div class="icon" aria-hidden="true">📊</div>
-      <p>Review results</p>
-    </div>
-    <div class="step" role="listitem">
-      <div class="icon" aria-hidden="true">💡</div>
-      <p>Receive recommendations</p>
-    </div>
+<section class="steps-section fade-in-section">
+  <div class="steps-header"><h2>How Your Online Roof Check Works</h2></div>
+  <div class="steps-grid">
+    <div class="step"><div class="step-number">1</div><span class="step-icon">📤</span><span class="step-label">Submit Photos &amp; Info</span><span class="step-sub">Via form or e-mail</span></div>
+    <div class="step"><div class="step-number">2</div><span class="step-icon">🔍</span><span class="step-label">Expert Analysis</span><span class="step-sub">By a master roofer</span></div>
+    <div class="step"><div class="step-number">3</div><span class="step-icon">📋</span><span class="step-label">Report Created</span><span class="step-sub">Written &amp; easy to understand</span></div>
+    <div class="step"><div class="step-number">4</div><span class="step-icon">💡</span><span class="step-label">Receive Recommendation</span><span class="step-sub">Within 48 hours</span></div>
   </div>
 </section>
 
-<section class="form-section" aria-labelledby="form-heading">
-  <h2 id="form-heading">Start Your Roof Check</h2>
+<section class="pricing-section fade-in-section">
+  <div class="pricing-section-header">
+    <h2>Transparent Pricing</h2>
+    <p>Choose the package that fits your needs – clearly calculated, no hidden costs.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-card-title">Digital Basic Roof Check</div>
+      <div class="pricing-card-subtitle">Digital initial assessment of your roof based on your photos or videos.</div>
+      <div class="pricing-price-row"><span class="pricing-price">149 €</span><span class="pricing-price-unit">incl. VAT</span></div>
+      <div class="pricing-divider"></div>
+      <div class="pricing-label">Scope of Services</div>
+      <ul class="pricing-features">
+        <li>Review of up to 15 photos or short videos</li>
+        <li>Expert assessment of visible damage</li>
+        <li>Evaluation of potential defects or weak points</li>
+        <li>Initial assessment of the roof's suitability for PV systems</li>
+        <li>Short written feedback by e-mail</li>
+      </ul>
+      <div class="pricing-turnaround"><span>⏱</span><span>Processing time: within 48 hours</span></div>
+      <div class="pricing-upsell">Have more material? For more extensive documentation, we recommend the Digital Expert Report.</div>
+    </div>
+    <div class="pricing-card featured">
+      <div class="badge-popular">Recommended</div>
+      <div class="pricing-card-title">Digital Expert Report</div>
+      <div class="pricing-card-subtitle">More detailed analysis for owners, buyers or insurance cases.</div>
+      <div class="pricing-price-row"><span class="pricing-price">349 €</span><span class="pricing-price-unit">incl. VAT</span></div>
+      <div class="pricing-divider"></div>
+      <div class="pricing-label">Scope of Services</div>
+      <ul class="pricing-features">
+        <li>Analysis of all uploaded photos, videos and documents</li>
+        <li>Expert evaluation of potential damage and risks</li>
+        <li>Written short report (PDF) with recommendations</li>
+        <li>Initial repair or refurbishment recommendations</li>
+        <li>Initial cost estimate for possible measures</li>
+      </ul>
+      <div class="pricing-turnaround"><span>⏱</span><span>Processing time: within 48 hours</span></div>
+      <div class="pricing-upsell">If you subsequently commission an on-site inspection, the cost can be partially credited.</div>
+    </div>
+  </div>
+  <div class="pricing-card-enterprise">
+    <div class="pricing-enterprise-left">
+      <div class="pricing-card-title">Commercial &amp; Industrial Analysis (PV-Ready)</div>
+      <div class="pricing-card-subtitle">Technical initial assessment for larger roof areas of commercial and industrial buildings.</div>
+      <div class="pricing-price-custom">Individual Quote</div>
+      <div class="pricing-price-custom-sub">Price based on scope and building size</div>
+    </div>
+    <div class="pricing-enterprise-right">
+      <div class="pricing-label">Possible Services</div>
+      <ul class="pricing-features">
+        <li>Analysis of large roof areas based on provided documents</li>
+        <li>Review of existing roof structures and waterproofing systems</li>
+        <li>Assessment of suitability for photovoltaic systems</li>
+        <li>Technical assessment for investors or project developers</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pricing-disclaimer">
+    <p>ℹ️ The Online Roof Check does not replace a full expert report or an on-site inspection. The assessment is based solely on the information and images provided.</p>
+    <p><span class="disclaimer-highlight">If you subsequently commission refurbishment planning or an on-site inspection, the cost of the Online Check will be credited 100%.</span></p>
+  </div>
+</section>
+
+<section class="form-section fade-in-section">
+  <div class="form-section-header">
+    <h2>Start Your Roof Check</h2>
+    <p>Fill out the form – we'll get back to you within 48 hours with your assessment.</p>
+  </div>
   <form id="roofcheckForm" action="https://formspree.io/f/yourformid" method="POST" enctype="multipart/form-data">
-
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email">E-Mail</label>
-    <input type="email" id="email" name="_replyto" required>
-
-    <label for="phone">Phone Number</label>
-    <input type="tel" id="phone" name="phone">
-
-    <label for="address">Address / Location</label>
-    <input type="text" id="address" name="address" required>
-
-    <label for="rooftype">Roof Type</label>
-    <select id="rooftype" name="rooftype" required>
-      <option value="">Please select</option>
-      <option value="Gable Roof">Gable Roof</option>
-      <option value="Flat Roof">Flat Roof</option>
-      <option value="Shed Roof">Shed Roof</option>
-      <option value="Hip Roof">Hip Roof</option>
-      <option value="Mansard Roof">Mansard Roof</option>
-      <option value="Lean-to Roof">Lean-to Roof</option>
-    </select>
-
-    <label for="roofmaterial">Roof Material</label>
-    <select id="roofmaterial" name="roofmaterial" required>
-      <option value="">Please select</option>
-      <option value="Clay Tiles">Clay Tiles</option>
-      <option value="Concrete Tiles">Concrete Tiles</option>
-      <option value="Bitumen / Felt">Bitumen / Felt</option>
-      <option value="Metal / Sheet Metal">Metal / Sheet Metal</option>
-      <option value="Slate">Slate</option>
-      <option value="Plastic / Membrane">Plastic / Membrane</option>
-    </select>
-
-    <label for="roofarea">Roof Area (m²)</label>
-    <input type="number" id="roofarea" name="roofarea" min="1" step="1">
-
-    <label for="builtyear">Year Built / Age of Roof</label>
-    <input type="number" id="builtyear" name="builtyear" min="1900" max="2099" step="1">
-
-    <label for="urgency">Urgency / Preferred Appointment</label>
-    <input type="text" id="urgency" name="urgency">
-
-    <label for="photos">Upload Photos (optional)</label>
+    <div class="package-select">
+      <div class="package-select-title">Desired Package</div>
+      <div class="package-options">
+        <div class="package-option" onclick="selectPackage(this)" data-value="Basic Roof Check (149 EUR)"><div class="package-check"></div><div class="package-option-name">Basic Roof Check</div><div class="package-option-price">149 € <small>incl. VAT</small></div></div>
+        <div class="package-option" onclick="selectPackage(this)" data-value="Expert Report (349 EUR)"><div class="package-check"></div><div class="package-option-name">Expert Report</div><div class="package-option-price">349 € <small>incl. VAT</small></div></div>
+        <div class="package-option" onclick="selectPackage(this)" data-value="Commercial & Industrial Analysis"><div class="package-check"></div><div class="package-option-name">Commercial &amp; Industrial</div><div class="package-option-price">On request</div></div>
+      </div>
+      <input type="hidden" name="paket" id="paketInput">
+    </div>
+    <div class="form-group-title">Your Contact Details</div>
+    <div class="form-row">
+      <div><label for="name">Name</label><input type="text" id="name" name="name" placeholder="John Smith" required></div>
+      <div><label for="email">E-Mail</label><input type="email" id="email" name="_replyto" placeholder="your@email.com" required></div>
+    </div>
+    <div class="form-row">
+      <div><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" placeholder="+49 ..."></div>
+      <div><label for="address">Address / Location</label><input type="text" id="address" name="address" placeholder="Street, Postcode, City" required></div>
+    </div>
+    <div class="form-group-title">Roof Details</div>
+    <div class="form-row">
+      <div>
+        <label for="rooftype">Roof Type</label>
+        <select id="rooftype" name="rooftype" required>
+          <option value="">Please select</option>
+          <option value="Gable Roof">Gable Roof</option>
+          <option value="Flat Roof">Flat Roof</option>
+          <option value="Shed Roof">Shed Roof</option>
+          <option value="Hip Roof">Hip Roof</option>
+          <option value="Mansard Roof">Mansard Roof</option>
+          <option value="Lean-to Roof">Lean-to Roof</option>
+        </select>
+      </div>
+      <div>
+        <label for="roofmaterial">Roof Material</label>
+        <select id="roofmaterial" name="roofmaterial" required>
+          <option value="">Please select</option>
+          <option value="Clay Tiles">Clay Tiles</option>
+          <option value="Concrete Tiles">Concrete Tiles</option>
+          <option value="Bitumen / Felt">Bitumen / Felt</option>
+          <option value="Metal / Sheet Metal">Metal / Sheet Metal</option>
+          <option value="Slate">Slate</option>
+          <option value="Plastic / Membrane">Plastic / Membrane</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div><label for="roofarea">Roof Area (m²)</label><input type="number" id="roofarea" name="roofarea" min="1" step="1" placeholder="e.g. 120"></div>
+      <div><label for="builtyear">Year Built / Age of Roof</label><input type="number" id="builtyear" name="builtyear" min="1900" max="2099" step="1" placeholder="e.g. 1998"></div>
+    </div>
+    <div class="form-group-title">Photos &amp; Description</div>
+    <label for="photos">Upload Photos</label>
     <input type="file" id="photos" name="photos[]" multiple accept="image/*">
-
-    <label for="message">Message / Description</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
-
-    <button type="submit">Submit</button>
+    <span class="file-hint">Up to 15 photos or short videos – the more you provide, the more accurate the assessment.</span>
+    <label for="urgency">Urgency / Preferred Appointment</label>
+    <input type="text" id="urgency" name="urgency" placeholder="e.g. as soon as possible / next week">
+    <label for="message">Description / Enquiry</label>
+    <textarea id="message" name="message" rows="5" placeholder="Briefly describe your concern or any known damage..." required></textarea>
+    <button type="submit">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+      Request Roof Check Now
+    </button>
   </form>
 </section>
 
@@ -420,18 +346,53 @@ form button { padding:14px 28px; font-size:0.95em; }
 </footer>
 
 <script>
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('navMenu');
+function toggleMenu() {
+  document.getElementById('navMenu').classList.toggle('show');
+}
 
-hamburger.addEventListener('click', () => {
-  navMenu.classList.toggle('show');
-});
-
-window.addEventListener('resize', () => {
+window.addEventListener('resize', function() {
   if (window.innerWidth > 768) {
-    navMenu.classList.remove('show');
+    document.getElementById('navMenu').classList.remove('show');
   }
 });
+
+function selectPackage(option) {
+  document.querySelectorAll('.package-option').forEach(function(o) {
+    o.style.borderColor = '#e0ede7';
+    o.style.borderWidth = '1.5px';
+    o.style.background = '#fff';
+    o.style.boxShadow = 'none';
+    var chk = o.querySelector('.package-check');
+    if (chk) { chk.style.backgroundColor = '#fff'; chk.style.borderColor = '#ccc'; }
+  });
+  option.style.borderColor = '#007f5f';
+  option.style.borderWidth = '2px';
+  option.style.background = '#f7fbf9';
+  option.style.boxShadow = '0 0 0 3px rgba(0,127,95,0.10)';
+  var chk = option.querySelector('.package-check');
+  if (chk) { chk.style.backgroundColor = '#007f5f'; chk.style.borderColor = '#007f5f'; }
+  document.getElementById('paketInput').value = option.getAttribute('data-value');
+}
+
+if ('IntersectionObserver' in window) {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('will-animate');
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in-section').forEach(function(el) {
+    var rect = el.getBoundingClientRect();
+    if (!(rect.top < window.innerHeight && rect.bottom > 0)) {
+      el.classList.add('will-animate');
+      observer.observe(el);
+    }
+  });
+}
 </script>
 
 </body>
