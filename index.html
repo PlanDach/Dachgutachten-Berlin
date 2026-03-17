@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="de">
 <head>
 <meta charset="UTF-8">
@@ -176,7 +175,7 @@ opacity:0.9;
 z-index:1;
 }
 .hero::after {
-content:””;
+content:"";
 position:absolute;
 top:0; left:0;
 width:100%;
@@ -406,7 +405,7 @@ box-shadow: 0 2px 8px rgba(0,127,95,0.08), 0 8px 24px rgba(0,127,95,0.06);
 transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .instagram-box::before {
-content: “”;
+content: "";
 position: absolute;
 top: 0;
 left: -100%;
@@ -641,8 +640,6 @@ align-self: center;
 
 <main>
 
-<!-- 1. HERO -->
-
 <section class="hero">
   <img src="IMG_3945.jpeg" alt="Berlin Skyline" class="hero-img">
   <div class="hero-text">
@@ -652,8 +649,6 @@ align-self: center;
   </div>
 </section>
 
-<!-- 2. INTRO -->
-
 <section class="intro-text scroll-animate">
   <h2>Ihr Dach. Unser Anspruch.</h2>
   <p>Willkommen bei PlanDach Höfinghoff – Ihrem Experten für Dachgutachten, Bauplanung und Bauüberwachung.</p>
@@ -661,29 +656,25 @@ align-self: center;
   <p>Vertrauen Sie auf Qualität, Präzision und Transparenz – für ein Dach, das langfristig schützt und überzeugt.</p>
 </section>
 
-<!-- 3. STATS -->
-
 <section class="stats-section">
   <h2 class="scroll-animate">Kompetenz rund um Dächer und Gebäudehüllen</h2>
   <div class="stats-grid">
     <div class="stat-block scroll-animate">
-      <div class="stat-number">10+</div>
+      <div class="stat-number"><span class="counter" data-target="10">0</span>+</div>
       <div class="stat-text">Jahre Erfahrung<br>im Dachhandwerk</div>
     </div>
     <div class="stat-divider"></div>
     <div class="stat-block scroll-animate">
-      <div class="stat-number">250+</div>
+      <div class="stat-number"><span class="counter" data-target="250">0</span>+</div>
       <div class="stat-text">Dächer analysiert,<br>geplant oder begleitet</div>
     </div>
     <div class="stat-divider"></div>
     <div class="stat-block scroll-animate">
-      <div class="stat-number">40.000+</div>
+      <div class="stat-number"><span class="counter" data-target="40000">0</span>+</div>
       <div class="stat-text">m² Dachfläche fachlich<br>bewertet und begleitet</div>
     </div>
   </div>
 </section>
-
-<!-- 4. ABOUT -->
 
 <div class="about-snippet scroll-animate" style="margin-left:auto; margin-right:auto; max-width:900px;">
   <img src="E928D746-D19B-4518-A21D-B6111AC3F50F.jpeg" alt="Philipp Höfinghoff" class="about-img">
@@ -694,8 +685,6 @@ align-self: center;
     <a href="ueber-mich.html">Mehr über mich →</a>
   </div>
 </div>
-
-<!-- 5. LEISTUNGEN -->
 
 <section class="services">
   <h2 class="scroll-animate">Unsere Leistungen</h2>
@@ -743,8 +732,6 @@ align-self: center;
   </div>
 </section>
 
-<!-- 6. ARBEITSEINBLICKE -->
-
 <section class="work-insights">
   <h2 class="scroll-animate">Einblicke in unsere Arbeit</h2>
   <div class="image-section">
@@ -765,14 +752,10 @@ align-self: center;
   </div>
 </section>
 
-<!-- 7. INSTAGRAM -->
-
 <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="instagram-box scroll-animate">
   <img src="13D7FD2D-4E4B-4521-B258-01727CBA0489.png" alt="Instagram Logo">
   <span>Folge uns auf Instagram</span>
 </a>
-
-<!-- 8. FAQ -->
 
 <section class="faq-section">
   <h2 class="scroll-animate">Häufig gestellte Fragen</h2>
@@ -819,6 +802,7 @@ align-self: center;
 </footer>
 
 <script>
+// --- BESTEHENDES NAVI-SKRIPT ---
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 
@@ -854,21 +838,50 @@ document.querySelectorAll('.faq-box').forEach(box => {
   box.addEventListener('click', () => { box.classList.toggle('open'); });
 });
 
+// --- ANIMATIONEN (SCROLL & COUNTER) ---
 window.addEventListener('load', () => {
+  const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -60px 0px' };
+
+  // Counter Funktion
+  const startCounter = (el) => {
+    const target = +el.getAttribute('data-target');
+    const speed = 150; // Geschwindigkeit steuern
+    const increment = target / speed;
+
+    const updateCount = () => {
+      const count = +el.innerText.replace(/\./g, '');
+      if (count < target) {
+        const nextVal = Math.ceil(count + increment);
+        el.innerText = nextVal.toLocaleString('de-DE');
+        setTimeout(updateCount, 15);
+      } else {
+        el.innerText = target.toLocaleString('de-DE');
+      }
+    };
+    updateCount();
+  };
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
+        
+        // Falls das Element ein Counter-Teil ist, Animation starten
+        const counters = entry.target.querySelectorAll('.counter');
+        counters.forEach(c => startCounter(c));
+        
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  }, observerOptions);
 
   document.querySelectorAll('.scroll-animate').forEach(el => {
     const rect = el.getBoundingClientRect();
     if (rect.top < window.innerHeight) {
       el.style.opacity = '1';
       el.style.transform = 'translateY(0)';
+      // Sofort-Start für Counter die schon im Sichtfeld sind
+      el.querySelectorAll('.counter').forEach(c => startCounter(c));
     } else {
       el.classList.add('will-animate');
       if (el.classList.contains('stat-block')) {
