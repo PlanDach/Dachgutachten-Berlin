@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="de">
 <head>
 <meta charset="UTF-8">
@@ -149,12 +150,12 @@ nav ul li:hover > ul { display:block; }
 nav ul li ul li a { padding:8px 15px; color:#004d00; }
 nav ul li ul li ul { top:0; left:100%; }
 
-/* HERO mit Parallax-Effekt */
+/* HERO */
 .hero {
 position:relative;
 width:100%;
-height:75vh;
-min-height:450px;
+height:70vh;
+min-height:400px;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -162,25 +163,28 @@ text-align:center;
 color:white;
 margin-top: 127px;
 margin-bottom: -20px;
-
-/* Parallax-Einstellungen */
-background-image: url('IMG_3945.jpeg');
-background-attachment: fixed;
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-
 -webkit-mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
 mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
 }
-
-.hero-text { 
-position:relative; 
-z-index:3; 
-max-width:800px; 
-padding:0 20px;
-text-shadow: 0px 2px 12px rgba(0,0,0,0.4); /* Erhöht Lesbarkeit ohne das Bild zu verdunkeln */
+.hero-img {
+position:absolute;
+top:0; left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0.9;
+z-index:1;
 }
+.hero::after {
+content:””;
+position:absolute;
+top:0; left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.50);
+z-index:2;
+}
+.hero-text { position:relative; z-index:3; max-width:800px; padding:0 20px; }
 .hero-text h1 { font-size:2.5em; margin-bottom:15px; }
 .hero-text p { font-size:1.2em; }
 
@@ -402,7 +406,7 @@ box-shadow: 0 2px 8px rgba(0,127,95,0.08), 0 8px 24px rgba(0,127,95,0.06);
 transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .instagram-box::before {
-content: "";
+content: “”;
 position: absolute;
 top: 0;
 left: -100%;
@@ -486,11 +490,7 @@ transform: translateY(0);
 @media (max-width:768px) {
 .top-bar { display: none; }
 header { top: 0; }
-.hero { 
-  margin-top: 90px; 
-  height: 50vh; 
-  background-attachment: scroll; /* Parallax auf Mobile oft buggy, daher hier deaktiviert */
-}
+.hero { margin-top: 90px; }
 .header-right > .lang-btn { display:none; }
 .mobile-controls { display:flex; }
 
@@ -516,11 +516,12 @@ nav ul li ul.active { display:flex; }
 nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
 nav ul li ul li ul { left:0; }
 
+.hero { height:50vh; }
 .hero-text h1 { font-size:1.8em; }
 .hero-text p { font-size:1em; }
 .service-grid { flex-direction:column; align-items:center; }
 
-.instagram-box { padding:166px 28px; font-size:1.05em; max-width:90%; }
+.instagram-box { padding:16px 28px; font-size:1.05em; max-width:90%; }
 .instagram-box img { width:48px; height:48px; }
 
 .work-insights { padding:80px 16px 100px 16px; }
@@ -564,334 +565,324 @@ align-self: center;
 <body>
 
 <div class="top-bar">
-  <a href="tel:+4917641122628">📞 +49 176 41122628</a>
-  <a href="mailto:info@plandach.de">✉ info@plandach.de</a>
-  <a href="index-en.html" class="lang-switcher">🇬🇧 EN</a>
+ <a href="tel:+4917641122628">📞 +49 176 41122628</a>
+ <a href="mailto:info@plandach.de">✉ info@plandach.de</a>
+ <a href="index-en.html" class="lang-switcher">🇬🇧 EN</a>
 </div>
 
 <header>
-  <div class="logo">
-    <a href="index.html"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></a>
-  </div>
+ <div class="logo">
+   <a href="index.html"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></a>
+ </div>
 
-  <div class="mobile-controls">
-    <a href="tel:+4917641122628" class="mobile-call-btn" title="Jetzt anrufen">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="#136f5a" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.24 1.01l-2.21 2.2z"/>
-      </svg>
-    </a>
-    <a href="index-en.html" class="mobile-flag-btn">🇬🇧</a>
-    <div class="hamburger" id="hamburger">☰</div>
-  </div>
+ <div class="mobile-controls">
+   <a href="tel:+4917641122628" class="mobile-call-btn" title="Jetzt anrufen">
+     <svg width="22" height="22" viewBox="0 0 24 24" fill="#136f5a" xmlns="http://www.w3.org/2000/svg">
+       <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.24 1.01l-2.21 2.2z"/>
+     </svg>
+   </a>
+   <a href="index-en.html" class="mobile-flag-btn">🇬🇧</a>
+   <div class="hamburger" id="hamburger">☰</div>
+ </div>
 
-  <div class="header-right">
-    <nav>
-      <ul id="navMenu">
-        <li><a href="index.html" class="active">Startseite</a></li>
-        <li><a href="ueber-mich.html">Über mich</a></li>
-        <li class="has-submenu">
-          <a href="#">Leistungen</a>
-          <ul class="submenu">
-            <li><a href="gutachten.html">Gutachten</a></li>
-            <li class="has-submenu">
-              <a href="zustandsanalyse.html">Zustandsanalyse</a>
-              <ul class="submenu">
-                <li><a href="dach-zustandsanalyse.html">Dach-Zustandsanalyse</a></li>
-                <li><a href="pv-check.html">PV-Check</a></li>
-                <li><a href="leckageortung.html">Leckageortung</a></li>
-              </ul>
-            </li>
-            <li class="has-submenu">
-              <a href="#">Planung</a>
-              <ul class="submenu">
-                <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
-                <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
-                <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
-                <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
-              </ul>
-            </li>
-            <li class="has-submenu">
-              <a href="#">Bauüberwachung</a>
-              <ul class="submenu">
-                <li><a href="bau-koordination.html">Koordination</a></li>
-                <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
-                <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
-                <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
-              </ul>
-            </li>
-            <li class="has-submenu">
-              <a href="#">Ausschreibung</a>
-              <ul class="submenu">
-                <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
-                <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
-                <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
-              </ul>
-            </li>
-            <li><a href="ankaufsberatung.html">Ankaufsberatung</a></li>
-          </ul>
-        </li>
-        <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-        <li><a href="impressum.html">Impressum</a></li>
-      </ul>
-    </nav>
-  </div>
+ <div class="header-right">
+   <nav>
+     <ul id="navMenu">
+       <li><a href="index.html" class="active">Startseite</a></li>
+       <li><a href="ueber-mich.html">Über mich</a></li>
+       <li class="has-submenu">
+         <a href="#">Leistungen</a>
+         <ul class="submenu">
+           <li><a href="gutachten.html">Gutachten</a></li>
+           <li class="has-submenu">
+             <a href="zustandsanalyse.html">Zustandsanalyse</a>
+             <ul class="submenu">
+               <li><a href="dach-zustandsanalyse.html">Dach-Zustandsanalyse</a></li>
+               <li><a href="pv-check.html">PV-Check</a></li>
+               <li><a href="leckageortung.html">Leckageortung</a></li>
+             </ul>
+           </li>
+           <li class="has-submenu">
+             <a href="#">Planung</a>
+             <ul class="submenu">
+               <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
+               <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
+               <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
+               <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
+             </ul>
+           </li>
+           <li class="has-submenu">
+             <a href="#">Bauüberwachung</a>
+             <ul class="submenu">
+               <li><a href="bau-koordination.html">Koordination</a></li>
+               <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
+               <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
+               <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
+             </ul>
+           </li>
+           <li class="has-submenu">
+             <a href="#">Ausschreibung</a>
+             <ul class="submenu">
+               <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
+               <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
+               <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
+             </ul>
+           </li>
+           <li><a href="ankaufsberatung.html">Ankaufsberatung</a></li>
+         </ul>
+       </li>
+       <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+       <li><a href="kontakt.html">Kontakt</a></li>
+       <li><a href="impressum.html">Impressum</a></li>
+     </ul>
+   </nav>
+ </div>
 </header>
 
 <main>
 
 <section class="hero">
-  <div class="hero-text">
-    <h1>Dächer verstehen. Werte sichern.</h1>
-    <p>Moderne Gutachten, Planung & Bauüberwachung – professionell und unabhängig.</p>
-    <a href="kontakt.html" class="cta-button">Angebot anfordern</a>
-  </div>
+ <img src="IMG_3945.jpeg" alt="Berlin Skyline" class="hero-img">
+ <div class="hero-text">
+   <h1>Dächer verstehen. Werte sichern.</h1>
+   <p>Moderne Gutachten, Planung & Bauüberwachung – professionell und unabhängig.</p>
+   <a href="kontakt.html" class="cta-button">Angebot anfordern</a>
+ </div>
 </section>
 
 <section class="intro-text scroll-animate">
-  <h2>Ihr Dach. Unser Anspruch.</h2>
-  <p>Willkommen bei PlanDach Höfinghoff – Ihrem Experten für Dachgutachten, Bauplanung und Bauüberwachung.</p>
-  <p>Egal ob Leckageortung, Dachwartung oder Online-DachCheck – wir liefern präzise Analysen, verlässliche Gutachten und praxisnahe Lösungen.</p>
-  <p>Vertrauen Sie auf Qualität, Präzision und Transparenz – für ein Dach, das langfristig schützt und überzeugt.</p>
+ <h2>Ihr Dach. Unser Anspruch.</h2>
+ <p>Willkommen bei PlanDach Höfinghoff – Ihrem Experten für Dachgutachten, Bauplanung und Bauüberwachung.</p>
+ <p>Egal ob Leckageortung, Dachwartung oder Online-DachCheck – wir liefern präzise Analysen, verlässliche Gutachten und praxisnahe Lösungen.</p>
+ <p>Vertrauen Sie auf Qualität, Präzision und Transparenz – für ein Dach, das langfristig schützt und überzeugt.</p>
 </section>
 
 <section class="stats-section">
-  <h2 class="scroll-animate">Kompetenz rund um Dächer und Gebäudehüllen</h2>
-  <div class="stats-grid">
-    <div class="stat-block scroll-animate">
-      <div class="stat-number"><span class="counter" data-target="10">0</span>+</div>
-      <div class="stat-text">Jahre Erfahrung<br>im Dachhandwerk</div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-block scroll-animate">
-      <div class="stat-number"><span class="counter" data-target="250">0</span>+</div>
-      <div class="stat-text">Dächer analysiert,<br>geplant oder begleitet</div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-block scroll-animate">
-      <div class="stat-number"><span class="counter" data-target="40000">0</span>+</div>
-      <div class="stat-text">m² Dachfläche fachlich<br>bewertet und begleitet</div>
-    </div>
-  </div>
+ <h2 class="scroll-animate">Kompetenz rund um Dächer und Gebäudehüllen</h2>
+ <div class="stats-grid">
+   <div class="stat-block scroll-animate">
+     <div class="stat-number"><span class="counter" data-target="10">0</span>+</div>
+     <div class="stat-text">Jahre Erfahrung<br>im Dachhandwerk</div>
+   </div>
+   <div class="stat-divider"></div>
+   <div class="stat-block scroll-animate">
+     <div class="stat-number"><span class="counter" data-target="250">0</span>+</div>
+     <div class="stat-text">Dächer analysiert,<br>geplant oder begleitet</div>
+   </div>
+   <div class="stat-divider"></div>
+   <div class="stat-block scroll-animate">
+     <div class="stat-number"><span class="counter" data-target="40000">0</span>+</div>
+     <div class="stat-text">m² Dachfläche fachlich<br>bewertet und begleitet</div>
+   </div>
+ </div>
 </section>
 
 <div class="about-snippet scroll-animate" style="margin-left:auto; margin-right:auto; max-width:900px;">
-  <img src="E928D746-D19B-4518-A21D-B6111AC3F50F.jpeg" alt="Philipp Höfinghoff" class="about-img">
-  <div class="about-text">
-    <h3>Philipp Höfinghoff</h3>
-    <span class="about-role">Dachdeckermeister &amp; Gutachter</span>
-    <p>Als Dachdeckermeister mit über zehn Jahren Erfahrung biete ich unabhängige Gutachten, professionelle Planung und ehrliche Beratung – ohne Interessenkonflikt, ohne versteckte Agenda. Mein Ziel: dass Sie fundierte Entscheidungen rund um Ihr Dach treffen können.</p>
-    <a href="ueber-mich.html">Mehr über mich →</a>
-  </div>
+ <img src="E928D746-D19B-4518-A21D-B6111AC3F50F.jpeg" alt="Philipp Höfinghoff" class="about-img">
+ <div class="about-text">
+   <h3>Philipp Höfinghoff</h3>
+   <span class="about-role">Dachdeckermeister &amp; Gutachter</span>
+   <p>Als Dachdeckermeister mit über zehn Jahren Erfahrung biete ich unabhängige Gutachten, professionelle Planung und ehrliche Beratung – ohne Interessenkonflikt, ohne versteckte Agenda. Mein Ziel: dass Sie fundierte Entscheidungen rund um Ihr Dach treffen können.</p>
+   <a href="ueber-mich.html">Mehr über mich →</a>
+ </div>
 </div>
 
 <section class="services">
-  <h2 class="scroll-animate">Unsere Leistungen</h2>
-  <div class="service-grid">
-    <a href="gutachten.html" class="service-box scroll-animate">
-      <svg class="service-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="12" y="8" width="40" height="48" rx="2" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
-        <path d="M20 18h24M20 26h24M20 34h16M20 42h20" stroke="#007f5f" stroke-width="2.5" stroke-linecap="round"/>
-        <circle cx="48" cy="48" r="10" fill="#007f5f"/>
-        <path d="M44 48l3 3 5-6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <h3>Gutachten</h3>
-      <p>Unabhängig. Ohne Handwerkerbindung.</p>
-    </a>
-    <a href="planung-grundlagenermittlung.html" class="service-box scroll-animate">
-      <svg class="service-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="8" y="12" width="48" height="40" rx="2" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
-        <path d="M16 20h32M16 28h24M16 36h28M16 44h20" stroke="#007f5f" stroke-width="2" stroke-linecap="round"/>
-        <circle cx="48" cy="44" r="11" stroke="#007f5f" stroke-width="2.5" fill="white"/>
-        <line x1="52" y1="52" x2="58" y2="58" stroke="#007f5f" stroke-width="2.5" stroke-linecap="round"/>
-      </svg>
-      <h3>Planung</h3>
-      <p>Von der Grundlage bis zur Ausführung.</p>
-    </a>
-    <a href="bau-koordination.html" class="service-box scroll-animate">
-      <svg class="service-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M32 8L8 20v24c0 8 6 16 24 24 18-8 24-16 24-24V20L32 8z" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea" stroke-linejoin="round"/>
-        <path d="M22 32l6 6 14-14" stroke="#007f5f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <h3>Bauüberwachung</h3>
-      <p>Fachgerecht. Vor Ort. Nach Vorschrift.</p>
-    </a>
-    <a href="online-dachcheck.html" class="service-box scroll-animate">
-      <svg class="service-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10" y="10" width="44" height="32" rx="2" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
-        <rect x="14" y="14" width="36" height="24" rx="1" fill="white" stroke="#007f5f" stroke-width="1.5"/>
-        <path d="M20 22h24M20 26h20M20 30h16" stroke="#007f5f" stroke-width="1.5" stroke-linecap="round"/>
-        <rect x="18" y="42" width="28" height="3" rx="1.5" fill="#007f5f"/>
-        <path d="M24 45v8h16v-8" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
-        <rect x="20" y="53" width="24" height="3" rx="1.5" fill="#007f5f"/>
-      </svg>
-      <h3>Online-DachCheck</h3>
-      <p>Schnell. Digital. Unkompliziert.</p>
-    </a>
-  </div>
+ <h2 class="scroll-animate">Unsere Leistungen</h2>
+ <div class="service-grid">
+   <a href="gutachten.html" class="service-box scroll-animate">
+     <svg class="service-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <rect x="12" y="8" width="40" height="48" rx="2" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
+       <path d="M20 18h24M20 26h24M20 34h16M20 42h20" stroke="#007f5f" stroke-width="2.5" stroke-linecap="round"/>
+       <circle cx="48" cy="48" r="10" fill="#007f5f"/>
+       <path d="M44 48l3 3 5-6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+     </svg>
+     <h3>Gutachten</h3>
+     <p>Unabhängig. Ohne Handwerkerbindung.</p>
+   </a>
+   <a href="planung-grundlagenermittlung.html" class="service-box scroll-animate">
+     <svg class="service-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <rect x="8" y="12" width="48" height="40" rx="2" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
+       <path d="M16 20h32M16 28h24M16 36h28M16 44h20" stroke="#007f5f" stroke-width="2" stroke-linecap="round"/>
+       <circle cx="48" cy="44" r="11" stroke="#007f5f" stroke-width="2.5" fill="white"/>
+       <line x1="52" y1="52" x2="58" y2="58" stroke="#007f5f" stroke-width="2.5" stroke-linecap="round"/>
+     </svg>
+     <h3>Planung</h3>
+     <p>Von der Grundlage bis zur Ausführung.</p>
+   </a>
+   <a href="bau-koordination.html" class="service-box scroll-animate">
+     <svg class="service-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <path d="M32 8L8 20v24c0 8 6 16 24 24 18-8 24-16 24-24V20L32 8z" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea" stroke-linejoin="round"/>
+       <path d="M22 32l6 6 14-14" stroke="#007f5f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+     </svg>
+     <h3>Bauüberwachung</h3>
+     <p>Fachgerecht. Vor Ort. Nach Vorschrift.</p>
+   </a>
+   <a href="online-dachcheck.html" class="service-box scroll-animate">
+     <svg class="service-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <rect x="10" y="10" width="44" height="32" rx="2" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
+       <rect x="14" y="14" width="36" height="24" rx="1" fill="white" stroke="#007f5f" stroke-width="1.5"/>
+       <path d="M20 22h24M20 26h20M20 30h16" stroke="#007f5f" stroke-width="1.5" stroke-linecap="round"/>
+       <rect x="18" y="42" width="28" height="3" rx="1.5" fill="#007f5f"/>
+       <path d="M24 45v8h16v-8" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
+       <rect x="20" y="53" width="24" height="3" rx="1.5" fill="#007f5f"/>
+     </svg>
+     <h3>Online-DachCheck</h3>
+     <p>Schnell. Digital. Unkompliziert.</p>
+   </a>
+ </div>
 </section>
 
 <section class="work-insights">
-  <h2 class="scroll-animate">Einblicke in unsere Arbeit</h2>
-  <div class="image-section">
-    <div class="work-grid">
-      <div class="work-item scroll-animate">
-        <img src="IMG_1164.jpeg" alt="Arbeit Beispiel 1">
-        <p>Neubau, trotzdem undicht – wir haben den Mangel gefunden, bevor er teuer wurde.</p>
-      </div>
-      <div class="work-item scroll-animate">
-        <img src="image0.jpeg" alt="Arbeit Beispiel 2">
-        <p>Falsch ausgeführt, neu gemacht: fachgerechte Rinne mit korrektem Gefälle für dauerhaften Schutz.</p>
-      </div>
-      <div class="work-item scroll-animate">
-        <img src="vornach1.jpeg" alt="Vorher-Nachher Dachsanierung">
-        <p>Von beschädigt zu dicht – eine fachgerechte Sanierung, die man sieht und spürt.</p>
-      </div>
-    </div>
-  </div>
+ <h2 class="scroll-animate">Einblicke in unsere Arbeit</h2>
+ <div class="image-section">
+   <div class="work-grid">
+     <div class="work-item scroll-animate">
+       <img src="IMG_1164.jpeg" alt="Arbeit Beispiel 1">
+       <p>Neubau, trotzdem undicht – wir haben den Mangel gefunden, bevor er teuer wurde.</p>
+     </div>
+     <div class="work-item scroll-animate">
+       <img src="image0.jpeg" alt="Arbeit Beispiel 2">
+       <p>Falsch ausgeführt, neu gemacht: fachgerechte Rinne mit korrektem Gefälle für dauerhaften Schutz.</p>
+     </div>
+     <div class="work-item scroll-animate">
+       <img src="vornach1.jpeg" alt="Vorher-Nachher Dachsanierung">
+       <p>Von beschädigt zu dicht – eine fachgerechte Sanierung, die man sieht und spürt.</p>
+     </div>
+   </div>
+ </div>
 </section>
 
 <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="instagram-box scroll-animate">
-  <img src="13D7FD2D-4E4B-4521-B258-01727CBA0489.png" alt="Instagram Logo">
-  <span>Folge uns auf Instagram</span>
+ <img src="13D7FD2D-4E4B-4521-B258-01727CBA0489.png" alt="Instagram Logo">
+ <span>Folge uns auf Instagram</span>
 </a>
 
 <section class="faq-section">
-  <h2 class="scroll-animate">Häufig gestellte Fragen</h2>
+ <h2 class="scroll-animate">Häufig gestellte Fragen</h2>
 
-  <div class="faq-box scroll-animate">
-    <div class="faq-question"><span>Bieten Sie auch bundesweite Gutachten an?</span><span class="faq-icon">▼</span></div>
-    <div class="faq-answer">Ja, ich erstelle unabhängige Gutachten deutschlandweit – vor Ort und digital über den Online-DachCheck.</div>
-  </div>
+ <div class="faq-box scroll-animate">
+   <div class="faq-question"><span>Bieten Sie auch bundesweite Gutachten an?</span><span class="faq-icon">▼</span></div>
+   <div class="faq-answer">Ja, ich erstelle unabhängige Gutachten deutschlandweit – vor Ort und digital über den Online-DachCheck.</div>
+ </div>
 
-  <div class="faq-box scroll-animate">
-    <div class="faq-question"><span>Wie funktioniert der Online-DachCheck?</span><span class="faq-icon">▼</span></div>
-    <div class="faq-answer">Sie senden mir Bilder und Infos zu Ihrem Dach. Ich prüfe diese und gebe eine fachliche Einschätzung mit Empfehlungen.</div>
-  </div>
+ <div class="faq-box scroll-animate">
+   <div class="faq-question"><span>Wie funktioniert der Online-DachCheck?</span><span class="faq-icon">▼</span></div>
+   <div class="faq-answer">Sie senden mir Bilder und Infos zu Ihrem Dach. Ich prüfe diese und gebe eine fachliche Einschätzung mit Empfehlungen.</div>
+ </div>
 
-  <div class="faq-box scroll-animate">
-    <div class="faq-question"><span>Übernehmen Sie auch Bauüberwachungen?</span><span class="faq-icon">▼</span></div>
-    <div class="faq-answer">Ja, ich biete Bauüberwachung und Baubegleitung an, um die fachgerechte Ausführung sicherzustellen.</div>
-  </div>
+ <div class="faq-box scroll-animate">
+   <div class="faq-question"><span>Übernehmen Sie auch Bauüberwachungen?</span><span class="faq-icon">▼</span></div>
+   <div class="faq-answer">Ja, ich biete Bauüberwachung und Baubegleitung an, um die fachgerechte Ausführung sicherzustellen.</div>
+ </div>
 
-  <div class="faq-box scroll-animate">
-    <div class="faq-question"><span>Kann ich einen Wartungsvertrag abschließen?</span><span class="faq-icon">▼</span></div>
-    <div class="faq-answer">Ja, ich biete regelmäßige Dachwartungen an, individuell abgestimmt auf Ihr Gebäude.</div>
-  </div>
+ <div class="faq-box scroll-animate">
+   <div class="faq-question"><span>Kann ich einen Wartungsvertrag abschließen?</span><span class="faq-icon">▼</span></div>
+   <div class="faq-answer">Ja, ich biete regelmäßige Dachwartungen an, individuell abgestimmt auf Ihr Gebäude.</div>
+ </div>
 
-  <div class="faq-box scroll-animate">
-    <div class="faq-question"><span>Was kostet ein Gutachten?</span><span class="faq-icon">▼</span></div>
-    <div class="faq-answer">Die Kosten richten sich nach Art und Umfang. Nach einem Erstgespräch erhalten Sie ein transparentes Angebot.</div>
-  </div>
+ <div class="faq-box scroll-animate">
+   <div class="faq-question"><span>Was kostet ein Gutachten?</span><span class="faq-icon">▼</span></div>
+   <div class="faq-answer">Die Kosten richten sich nach Art und Umfang. Nach einem Erstgespräch erhalten Sie ein transparentes Angebot.</div>
+ </div>
 
-  <div class="faq-box scroll-animate">
-    <div class="faq-question"><span>Kann ich kurzfristig einen Termin bekommen?</span><span class="faq-icon">▼</span></div>
-    <div class="faq-answer">In dringenden Fällen ermögliche ich schnellstmögliche Termine – am besten telefonisch Kontakt aufnehmen.</div>
-  </div>
+ <div class="faq-box scroll-animate">
+   <div class="faq-question"><span>Kann ich kurzfristig einen Termin bekommen?</span><span class="faq-icon">▼</span></div>
+   <div class="faq-answer">In dringenden Fällen ermögliche ich schnellstmögliche Termine – am besten telefonisch Kontakt aufnehmen.</div>
+ </div>
 </section>
 
 </main>
 
 <footer>
-  <div style="max-width:1000px; margin:0 auto;">
-    <p>© 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
-    <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="kontakt.html">Kontakt</a></p>
-    <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: <a href="tel:+4917641122628">+49 176 41122628</a> | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
-  </div>
+ <div style="max-width:1000px; margin:0 auto;">
+   <p>© 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
+   <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="kontakt.html">Kontakt</a></p>
+   <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: <a href="tel:+4917641122628">+49 176 41122628</a> | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
+ </div>
 </footer>
 
 <script>
-// --- BESTEHENDES NAVI-SKRIPT ---
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 
 hamburger.addEventListener('click', () => {
-  navMenu.classList.toggle('show');
+ navMenu.classList.toggle('show');
 });
 
 document.querySelectorAll('.has-submenu > a').forEach(link => {
-  link.addEventListener('click', e => {
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      const submenu = link.nextElementSibling;
-      if (submenu) {
-        submenu.classList.toggle('active');
-        if (!submenu.classList.contains('active')) {
-          submenu.querySelectorAll('.submenu.active').forEach(sub => {
-            sub.classList.remove('active');
-          });
-        }
-      }
-    }
-  });
+ link.addEventListener('click', e => {
+   if (window.innerWidth <= 768) {
+     e.preventDefault();
+     const submenu = link.nextElementSibling;
+     if (submenu) {
+       submenu.classList.toggle('active');
+       if (!submenu.classList.contains('active')) {
+         submenu.querySelectorAll('.submenu.active').forEach(sub => {
+           sub.classList.remove('active');
+         });
+       }
+     }
+   }
+ });
 });
 
 window.addEventListener('resize', () => {
-  if (window.innerWidth > 768) {
-    navMenu.classList.remove('show');
-    document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
-  }
+ if (window.innerWidth > 768) {
+   navMenu.classList.remove('show');
+   document.querySelectorAll('.submenu.active').forEach(sm => sm.classList.remove('active'));
+ }
 });
 
 document.querySelectorAll('.faq-box').forEach(box => {
-  box.addEventListener('click', () => { box.classList.toggle('open'); });
+ box.addEventListener('click', () => { box.classList.toggle('open'); });
 });
 
-// --- ANIMATIONEN (SCROLL & COUNTER) ---
 window.addEventListener('load', () => {
-  const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -60px 0px' };
 
-  // Counter Funktion
-  const startCounter = (el) => {
-    if (el.classList.contains('animated')) return; 
-    
-    const target = +el.getAttribute('data-target');
-    const speed = 150; 
-    const increment = target / speed;
+ function startCounter(el) {
+   if (el.classList.contains('animated')) return;
+   el.classList.add('animated');
+   var target = parseInt(el.getAttribute('data-target'));
+   var duration = 1800;
+   var start = performance.now();
+   function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+   function tick(now) {
+     var elapsed = now - start;
+     var progress = Math.min(elapsed / duration, 1);
+     el.innerText = Math.floor(easeOut(progress) * target).toLocaleString('de-DE');
+     if (progress < 1) { requestAnimationFrame(tick); }
+     else { el.innerText = target.toLocaleString('de-DE'); }
+   }
+   requestAnimationFrame(tick);
+ }
 
-    const updateCount = () => {
-      const count = +el.innerText.replace(/\./g, '');
-      if (count < target) {
-        const nextVal = Math.ceil(count + increment);
-        el.innerText = nextVal.toLocaleString('de-DE');
-        setTimeout(updateCount, 15);
-      } else {
-        el.innerText = target.toLocaleString('de-DE');
-      }
-    };
-    el.classList.add('animated');
-    updateCount();
-  };
+ const observer = new IntersectionObserver((entries) => {
+   entries.forEach(entry => {
+     if (entry.isIntersecting) {
+       entry.target.classList.add('active');
+       entry.target.querySelectorAll('.counter').forEach(c => startCounter(c));
+       observer.unobserve(entry.target);
+     }
+   });
+ }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        
-        const counters = entry.target.querySelectorAll('.counter');
-        counters.forEach(c => startCounter(c));
-        
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll('.scroll-animate').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight) {
-      el.style.opacity = '1';
-      el.style.transform = 'translateY(0)';
-      el.querySelectorAll('.counter').forEach(c => startCounter(c));
-    } else {
-      el.classList.add('will-animate');
-      if (el.classList.contains('stat-block')) {
-        const siblings = Array.from(document.querySelectorAll('.stat-block'));
-        const idx = siblings.indexOf(el);
-        el.style.transitionDelay = (idx * 150) + 'ms';
-      }
-      observer.observe(el);
-    }
-  });
+ document.querySelectorAll('.scroll-animate').forEach(el => {
+   const rect = el.getBoundingClientRect();
+   if (rect.top < window.innerHeight) {
+     el.style.opacity = '1';
+     el.style.transform = 'translateY(0)';
+     el.querySelectorAll('.counter').forEach(c => startCounter(c));
+   } else {
+     el.classList.add('will-animate');
+     if (el.classList.contains('stat-block')) {
+       const siblings = Array.from(document.querySelectorAll('.stat-block'));
+       const idx = siblings.indexOf(el);
+       el.style.transitionDelay = (idx * 150) + 'ms';
+     }
+     observer.observe(el);
+   }
+ });
 });
 </script>
 
