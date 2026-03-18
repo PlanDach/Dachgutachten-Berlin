@@ -57,7 +57,6 @@ box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 .logo img { height:80px; width:auto; display:block; }
 
-/* Sprach-Button */
 .lang-btn {
 text-decoration:none;
 font-weight:600;
@@ -75,14 +74,12 @@ background:#cde9d8;
 transform:translateY(-1px);
 }
 
-/* Desktop: nav + lang-btn rechts zusammen */
 .header-right {
 display:flex;
 align-items:center;
 gap:20px;
 }
 
-/* Mobile Controls */
 .mobile-controls {
 display:none;
 align-items:center;
@@ -91,7 +88,6 @@ margin-left:auto;
 height: 100%;
 }
 
-/* Mobile Phone Button */
 .mobile-call-btn {
 display: flex;
 align-items: center;
@@ -113,7 +109,6 @@ align-items: center;
 
 .hamburger { font-size:1.8em; cursor:pointer; user-select:none; line-height:1; display:flex; align-items:center; color:#136f5a; }
 
-/* Menü */
 nav ul { list-style:none; display:flex; gap:20px; }
 nav ul li { position:relative; }
 nav ul li a {
@@ -124,7 +119,6 @@ padding:5px 10px;
 display:block;
 transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 nav ul li a:hover {
 background-color:#e6f4ea;
 border-radius:6px;
@@ -137,7 +131,6 @@ border-radius:6px;
 color:#007f5f;
 }
 
-/* Submenus */
 nav ul li ul {
 display:none;
 position:absolute;
@@ -151,15 +144,13 @@ box-shadow:0 4px 10px rgba(0,0,0,0.1);
 z-index:20;
 border-radius:6px;
 }
-
 @media (min-width:769px) {
 nav ul li:hover > ul { display:block; }
 }
-
 nav ul li ul li a { padding:8px 15px; color:#004d00; }
 nav ul li ul li ul { top:0; left:100%; }
 
-/* Hero — FIXED: fade only on image+overlay, button stays visible */
+/* HERO */
 .hero {
 position:relative;
 width:100%;
@@ -199,7 +190,6 @@ mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
 .hero-text h1 { font-size:2.5em; margin-bottom:15px; color:#fff; }
 .hero-text p { font-size:1.2em; color:#fff; margin-bottom:30px; }
 
-/* CTA Button */
 .cta-button {
 display:inline-block;
 margin-top:20px;
@@ -218,7 +208,6 @@ background-color:#005f46;
 transform:translateY(-2px);
 }
 
-/* Intro Text */
 .intro-text {
 max-width:900px;
 margin:40px auto;
@@ -231,6 +220,54 @@ border-radius:8px;
 .intro-text h2 { font-size:2em; margin-bottom:15px; color:#004d00; }
 .intro-text p { margin-bottom:15px; font-size:1em; color:#000; }
 
+/* ── STATS SECTION ── */
+.stats-section {
+width: 100%;
+background: #fafafa;
+padding: 60px 20px;
+text-align: center;
+}
+.stats-section h2 {
+font-size: 1.1em;
+font-weight: 700;
+color: #004d00;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+margin-bottom: 40px;
+}
+.stats-grid {
+display: flex;
+justify-content: center;
+align-items: flex-start;
+max-width: 900px;
+margin: 0 auto;
+}
+.stat-block {
+flex: 1;
+padding: 0 32px;
+text-align: center;
+}
+.stat-block .stat-number {
+font-size: 3em;
+font-weight: 800;
+color: #007f5f;
+line-height: 1;
+margin-bottom: 10px;
+letter-spacing: -0.02em;
+}
+.stat-block .stat-text {
+font-size: 0.92em;
+color: #333;
+line-height: 1.5;
+}
+.stat-divider {
+width: 1px;
+height: 80px;
+background: #cde9d8;
+align-self: center;
+flex-shrink: 0;
+}
+
 /* ── ABOUT SNIPPET ── */
 .about-snippet {
 width: 100%;
@@ -239,7 +276,7 @@ padding: 80px 40px;
 display: flex;
 align-items: center;
 gap: 50px;
-background: #fafafa;
+background: #fff;
 border-radius: 0;
 border: none;
 }
@@ -256,22 +293,19 @@ align-items: center;
 justify-content: center;
 font-size: 4em;
 }
-.about-snippet .about-placeholder {
-width: 180px;
-height: 180px;
-border-radius: 50%;
-flex-shrink: 0;
-border: 4px solid #136f5a;
-background: #cde9d8;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 4em;
-}
 .about-snippet .about-text h3 {
 font-size: 1.5em;
 color: #004d00;
-margin-bottom: 12px;
+margin-bottom: 6px;
+}
+.about-snippet .about-text .about-role {
+font-size: 1em;
+color: #007f5f;
+font-weight: 700;
+margin-bottom: 14px;
+display: block;
+letter-spacing: 0.04em;
+text-transform: uppercase;
 }
 .about-snippet .about-text p {
 color: #333;
@@ -295,6 +329,63 @@ background: #005f46;
 transform: translateY(-2px);
 }
 
+/* Services */
+.services { width:100%; background-color:#fafafa; padding:60px 0; text-align:center; }
+.services h2 { margin-bottom:40px; font-size:2em; color:#004d00; }
+.service-grid {
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+max-width:1200px;
+margin:0 auto;
+padding:0 10px;
+}
+.service-box {
+background:#fff;
+border-radius:8px;
+padding:20px;
+max-width:300px;
+width:100%;
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
+border:1px solid #004d00;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+text-decoration: none;
+color: inherit;
+display: block;
+}
+.service-box:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.1); }
+.service-box h3 { margin-bottom:10px; color:#004d00; }
+.service-box p { font-size:0.95em; color:#333; }
+.service-icon { width:64px; height:64px; margin:0 auto 15px auto; display:block; }
+
+/* Work Insights */
+.work-insights {
+padding:100px 20px 120px 20px;
+text-align:center;
+background:#fff;
+}
+.work-insights h2 {
+font-size:2.2em;
+color:#004d00;
+margin-bottom:70px;
+font-weight:600;
+letter-spacing:-0.02em;
+}
+.image-section { max-width:900px; margin:0 auto; }
+.work-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:24px; }
+.work-item {
+background:#fff;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 2px 12px rgba(0,0,0,0.06);
+transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.work-item:hover { transform:translateY(-8px); box-shadow:0 12px 32px rgba(0,0,0,0.12); }
+.work-item img { width:100%; height:auto; display:block; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+.work-item:hover img { transform:scale(1.03); }
+.work-item p { padding:20px 24px 24px 24px; font-size:0.95em; color:#000; text-align:left; line-height:1.5; }
+
 /* Instagram Box */
 .instagram-box {
 margin:60px auto 80px auto;
@@ -313,12 +404,9 @@ max-width:480px;
 text-decoration:none;
 position:relative;
 overflow:hidden;
-box-shadow:
-0 2px 8px rgba(0,127,95,0.08),
-0 8px 24px rgba(0,127,95,0.06);
+box-shadow: 0 2px 8px rgba(0,127,95,0.08), 0 8px 24px rgba(0,127,95,0.06);
 transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .instagram-box::before {
 content: “”;
 position: absolute;
@@ -329,129 +417,22 @@ height: 100%;
 background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
 transition: left 0.6s ease;
 }
-
 .instagram-box:hover::before { left: 100%; }
-
 .instagram-box:hover {
 transform: translateY(-4px) scale(1.02);
 border-color: rgba(0,127,95,0.35);
-box-shadow:
-0 4px 16px rgba(0,127,95,0.12),
-0 12px 32px rgba(0,127,95,0.1),
-0 0 0 1px rgba(0,127,95,0.08);
+box-shadow: 0 4px 16px rgba(0,127,95,0.12), 0 12px 32px rgba(0,127,95,0.1), 0 0 0 1px rgba(0,127,95,0.08);
 }
-
-.instagram-box:active {
-transform: translateY(-2px) scale(1.01);
-transition: all 0.15s ease;
-}
-
+.instagram-box:active { transform: translateY(-2px) scale(1.01); transition: all 0.15s ease; }
 .instagram-box img {
-width:48px;
-height:48px;
-object-fit:contain;
+width:48px; height:48px; object-fit:contain;
 transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 display:block;
 filter: drop-shadow(0 2px 4px rgba(0,127,95,0.15));
 }
-
 .instagram-box:hover img { transform: scale(1.12) rotate(5deg); }
-
-.instagram-box span {
-color:#004d00;
-letter-spacing: -0.01em;
-transition: color 0.3s ease;
-}
-
+.instagram-box span { color:#004d00; letter-spacing: -0.01em; transition: color 0.3s ease; }
 .instagram-box:hover span { color:#007f5f; }
-
-/* Work Insights */
-.work-insights {
-padding:100px 20px 120px 20px;
-text-align:center;
-background:#fafafa;
-}
-
-.work-insights h2 {
-font-size:2.2em;
-color:#004d00;
-margin-bottom:70px;
-font-weight:600;
-letter-spacing:-0.02em;
-}
-
-.image-section { max-width:1400px; margin:0 auto; }
-
-.work-grid {
-display:grid;
-grid-template-columns: repeat(3, 1fr);
-gap:24px;
-}
-
-.work-item {
-background:#fff;
-border-radius:16px;
-overflow:hidden;
-box-shadow:0 2px 12px rgba(0,0,0,0.06);
-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.work-item:hover {
-transform:translateY(-8px);
-box-shadow:0 12px 32px rgba(0,0,0,0.12);
-}
-
-.work-item img {
-width:100%;
-height:auto;
-display:block;
-transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.work-item:hover img { transform:scale(1.03); }
-
-.work-item p {
-padding:20px 24px 24px 24px;
-font-size:0.95em;
-color:#000;
-text-align:left;
-line-height:1.5;
-}
-
-/* Services */
-.services {
-width:100%;
-background-color:#fff;
-padding:60px 0;
-text-align:center;
-}
-.services h2 { margin-bottom:40px; font-size:2em; color:#004d00; }
-.service-grid {
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-max-width:1200px;
-margin:0 auto;
-padding:0 10px;
-}
-.service-box {
-background:#fcfcfc;
-border-radius:8px;
-padding:20px;
-max-width:300px;
-width:100%;
-box-shadow:0 4px 10px rgba(0,0,0,0.05);
-border:1px solid #004d00;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-text-decoration: none;
-color: inherit;
-display: block;
-}
-.service-box:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.1); }
-.service-box h3 { margin-bottom:10px; color:#004d00; }
-.service-box p { font-size:0.95em; color:#333; }
-.service-icon { width:64px; height:64px; margin:0 auto 15px auto; display:block; }
 
 /* FAQ */
 .faq-section {
@@ -480,52 +461,33 @@ cursor:pointer;
 transition:background 0.3s ease;
 }
 .faq-box.open { background:#E6F4EA; }
-.faq-question {
-display:flex;
-justify-content:space-between;
-align-items:center;
-font-weight:bold;
-color:#004D00;
-font-size:1.1rem;
-}
+.faq-question { display:flex; justify-content:space-between; align-items:center; font-weight:bold; color:#004D00; font-size:1.1rem; }
 .faq-icon { transition:transform 0.3s ease; color:#007F5F; font-size:1.3rem; }
 .faq-box.open .faq-icon { transform:rotate(180deg); }
 .faq-answer { margin-top:15px; display:none; color:#333333; font-size:1rem; line-height:1.5; }
 .faq-box.open .faq-answer { display:block; }
 
-/* Footer */
 footer { background:#f8f8f8; padding:40px 20px; text-align:center; font-size:14px; color:#333; }
 footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
-/* Scroll Animation */
-.scroll-animate {
-opacity: 1;
-transform: translateY(0);
+/* ── SCROLL ANIMATE ── */
+.scroll-animate { opacity:1; transform:translateY(0); }
+.scroll-animate.will-animate {
+opacity:0;
+transform:translateY(40px);
+transition: opacity 0.8s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
 }
-.scroll-animate.animate-ready {
-opacity: 0;
-transform: translateY(40px);
-transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.scroll-animate.animate-ready.active { opacity: 1; transform: translateY(0); }
-.intro-text.scroll-animate { opacity: 1; transform: translateY(0); }
+.scroll-animate.will-animate.active { opacity:1; transform:translateY(0); }
 
-/* ── RESPONSIVE ── */
 @media (max-width:992px) {
 .work-grid { grid-template-columns: repeat(2, 1fr); gap:20px; }
 .about-snippet { gap: 30px; }
 }
 
 @media (max-width:768px) {
-/* Top-Bar hidden on Mobile */
 .top-bar { display: none; }
-
-/* Header back to top */
 header { top: 0; }
-
-/* Hero margin adjust */
-.hero { margin-top: 90px; }
-
+.hero { margin-top: 90px; min-height:380px; padding:80px 20px 70px; }
 .header-right > .lang-btn { display:none; }
 .mobile-controls { display:flex; }
 
@@ -534,12 +496,14 @@ flex-direction:column;
 display:none;
 background:#fff;
 position:absolute;
-top:60px;
+top:100%;
 left:0;
 width:100%;
 padding:10px 0;
 gap:0;
 text-align:center;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+z-index:100;
 }
 nav ul.show { display:flex; }
 nav ul li { width:100%; }
@@ -549,7 +513,6 @@ nav ul li ul.active { display:flex; }
 nav ul li ul li a { text-align:center; padding:10px 0; display:block; width:100%; }
 nav ul li ul li ul { left:0; }
 
-.hero { min-height:380px; padding:80px 20px 70px; }
 .hero-text h1 { font-size:1.8em; }
 .hero-text p { font-size:1em; }
 .service-grid { flex-direction:column; align-items:center; }
@@ -562,7 +525,6 @@ nav ul li ul li ul { left:0; }
 .image-section { max-width:100%; }
 .service-icon { width:56px; height:56px; }
 
-/* About Snippet on Mobile */
 .about-snippet {
 flex-direction: column;
 text-align: center;
@@ -570,6 +532,14 @@ padding: 40px 20px;
 gap: 24px;
 }
 .about-snippet .about-text a { margin: 0 auto; }
+
+.stats-grid {
+flex-direction: column;
+align-items: center;
+gap: 0;
+}
+.stat-block { padding: 24px 20px; width: 100%; }
+.stat-divider { width: 60px; height: 1px; background: #cde9d8; align-self: center; }
 }
 
 @media (max-width:600px) {
@@ -582,15 +552,9 @@ gap: 24px;
 
 <body>
 
-<!-- ── TOP BAR (Desktop only) ── -->
-
 <div class="top-bar">
-  <a href="tel:+4917641122628">
-    📞 +49 176 41122628
-  </a>
-  <a href="mailto:info@plandach.de">
-    ✉ info@plandach.de
-  </a>
+  <a href="tel:+4917641122628">📞 +49 176 41122628</a>
+  <a href="mailto:info@plandach.de">✉ info@plandach.de</a>
   <a href="index.html" class="lang-switcher">🇩🇪 DE</a>
 </div>
 
@@ -599,15 +563,15 @@ gap: 24px;
     <a href="index-en.html"><img src="final neu.jpeg" alt="PlanDach Höfinghoff Logo"></a>
   </div>
 
-  <!-- Mobile: Phone + Flag + Hamburger -->
-
   <div class="mobile-controls">
-    <a href="tel:+4917641122628" class="mobile-call-btn" title="Call now"><svg width="22" height="22" viewBox="0 0 24 24" fill="#136f5a" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.24 1.01l-2.21 2.2z"/></svg></a>
+    <a href="tel:+4917641122628" class="mobile-call-btn" title="Call now">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#136f5a" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.24 1.01l-2.21 2.2z"/>
+      </svg>
+    </a>
     <a href="index.html" class="mobile-flag-btn">🇩🇪</a>
     <div class="hamburger" id="hamburger">☰</div>
   </div>
-
-  <!-- Desktop: Nav + Flag right (flag now in Top-Bar) -->
 
   <div class="header-right">
     <nav>
@@ -624,6 +588,7 @@ gap: 24px;
 </header>
 
 <main>
+
 <section class="hero">
   <img src="IMG_3945.jpeg" alt="Roof Experts" class="hero-img">
   <div class="hero-text">
@@ -640,22 +605,81 @@ gap: 24px;
   <p>Trust in quality, precision and transparency – for a roof that protects and convinces in the long run.</p>
 </section>
 
-<!-- ── ABOUT SNIPPET ── -->
+<section class="stats-section">
+  <h2 class="scroll-animate">Expertise in Roofs and Building Envelopes</h2>
+  <div class="stats-grid">
+    <div class="stat-block scroll-animate">
+      <div class="stat-number"><span class="counter" data-target="10">0</span>+</div>
+      <div class="stat-text">Years of experience<br>in the roofing trade</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-block scroll-animate">
+      <div class="stat-number"><span class="counter" data-target="250">0</span>+</div>
+      <div class="stat-text">Roofs analysed,<br>planned or supervised</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-block scroll-animate">
+      <div class="stat-number"><span class="counter" data-target="40000">0</span>+</div>
+      <div class="stat-text">m² of roof area<br>assessed and supervised</div>
+    </div>
+  </div>
+</section>
 
 <div class="about-snippet scroll-animate" style="margin-left:auto; margin-right:auto; max-width:900px;">
   <img src="E928D746-D19B-4518-A21D-B6111AC3F50F.jpeg" alt="Philipp Höfinghoff" class="about-img">
   <div class="about-text">
     <h3>Philipp Höfinghoff</h3>
-    <span class="about-role" style="font-size:0.9em; color:#007f5f; font-weight:600; margin-bottom:14px; display:block;">Master Roofer &amp; Expert Assessor</span>
+    <span class="about-role">Master Roofer &amp; Expert Assessor</span>
     <p>As a master roofer with over ten years of experience, I offer independent assessments, professional planning and honest advice – free from conflicts of interest and hidden agendas. My goal: to help you make well-informed decisions about your roof.</p>
     <a href="about-en.html">More about me →</a>
   </div>
 </div>
 
-<a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="instagram-box scroll-animate">
-  <img src="13D7FD2D-4E4B-4521-B258-01727CBA0489.png" alt="Instagram Logo">
-  <span>Follow us on Instagram</span>
-</a>
+<section class="services">
+  <h2 class="scroll-animate">Our Services</h2>
+  <div class="service-grid">
+    <a href="services-en.html" class="service-box scroll-animate">
+      <svg class="service-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="12" y="8" width="40" height="48" rx="2" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
+        <path d="M20 18h24M20 26h24M20 34h16M20 42h20" stroke="#007f5f" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="48" cy="48" r="10" fill="#007f5f"/>
+        <path d="M44 48l3 3 5-6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h3>Assessments</h3>
+      <p>Independent roof assessments and expert reports.</p>
+    </a>
+    <a href="services-en.html" class="service-box scroll-animate">
+      <svg class="service-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="12" width="48" height="40" rx="2" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
+        <path d="M16 20h32M16 28h24M16 36h28M16 44h20" stroke="#007f5f" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="48" cy="44" r="11" stroke="#007f5f" stroke-width="2.5" fill="white"/>
+        <line x1="52" y1="52" x2="58" y2="58" stroke="#007f5f" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <h3>Planning</h3>
+      <p>Professional planning and project management.</p>
+    </a>
+    <a href="services-en.html" class="service-box scroll-animate">
+      <svg class="service-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 8L8 20v24c0 8 6 16 24 24 18-8 24-16 24-24V20L32 8z" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea" stroke-linejoin="round"/>
+        <path d="M22 32l6 6 14-14" stroke="#007f5f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h3>Site Supervision</h3>
+      <p>Coordination, quality control and final inspection.</p>
+    </a>
+    <a href="online-roofcheck-en.html" class="service-box scroll-animate">
+      <svg class="service-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="44" height="32" rx="2" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
+        <rect x="14" y="14" width="36" height="24" rx="1" fill="white" stroke="#007f5f" stroke-width="1.5"/>
+        <path d="M20 22h24M20 26h20M20 30h16" stroke="#007f5f" stroke-width="1.5" stroke-linecap="round"/>
+        <rect x="18" y="42" width="28" height="3" rx="1.5" fill="#007f5f"/>
+        <path d="M24 45v8h16v-8" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
+        <rect x="20" y="53" width="24" height="3" rx="1.5" fill="#007f5f"/>
+      </svg>
+      <h3>Online Roof Check</h3>
+      <p>Get your roof checked conveniently online.</p>
+    </a>
+  </div>
+</section>
 
 <section class="work-insights">
   <h2 class="scroll-animate">Insights Into Our Work</h2>
@@ -677,56 +701,10 @@ gap: 24px;
   </div>
 </section>
 
-<section class="services">
-  <h2 class="scroll-animate">Our Services</h2>
-  <div class="service-grid">
-    <a href="services-en.html" class="service-box scroll-animate">
-      <svg class="service-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="12" y="8" width="40" height="48" rx="2" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
-        <path d="M20 18h24M20 26h24M20 34h16M20 42h20" stroke="#007f5f" stroke-width="2.5" stroke-linecap="round"/>
-        <circle cx="48" cy="48" r="10" fill="#007f5f"/>
-        <path d="M44 48l3 3 5-6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <h3>Assessments</h3>
-      <p>Independent roof assessments and expert reports.</p>
-    </a>
-    <a href="services-en.html" class="service-box scroll-animate">
-      <svg class="service-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="8" y="12" width="48" height="40" rx="2" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
-        <path d="M16 20h32M16 28h24M16 36h28M16 44h20" stroke="#007f5f" stroke-width="2" stroke-linecap="round"/>
-        <path d="M44 40l8 8M52 40l-8 8" stroke="#007f5f" stroke-width="2.5" stroke-linecap="round"/>
-        <circle cx="48" cy="44" r="11" stroke="#007f5f" stroke-width="2.5" fill="white"/>
-        <line x1="52" y1="52" x2="58" y2="58" stroke="#007f5f" stroke-width="2.5" stroke-linecap="round"/>
-      </svg>
-      <h3>Planning</h3>
-      <p>Professional planning and project management.</p>
-    </a>
-    <a href="services-en.html" class="service-box scroll-animate">
-      <svg class="service-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M32 8L8 20v24c0 8 6 16 24 24 18-8 24-16 24-24V20L32 8z" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea" stroke-linejoin="round"/>
-        <path d="M22 32l6 6 14-14" stroke="#007f5f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="32" cy="12" r="3" fill="#007f5f"/>
-        <circle cx="12" cy="22" r="3" fill="#007f5f"/>
-        <circle cx="52" cy="22" r="3" fill="#007f5f"/>
-      </svg>
-      <h3>Site Supervision</h3>
-      <p>Coordination, quality control and final inspection.</p>
-    </a>
-    <a href="online-roofcheck-en.html" class="service-box scroll-animate">
-      <svg class="service-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10" y="10" width="44" height="32" rx="2" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
-        <rect x="14" y="14" width="36" height="24" rx="1" fill="white" stroke="#007f5f" stroke-width="1.5"/>
-        <path d="M20 22h24M20 26h20M20 30h16" stroke="#007f5f" stroke-width="1.5" stroke-linecap="round"/>
-        <rect x="18" y="42" width="28" height="3" rx="1.5" fill="#007f5f"/>
-        <path d="M24 45v8h16v-8" stroke="#007f5f" stroke-width="2.5" fill="#e6f4ea"/>
-        <rect x="20" y="53" width="24" height="3" rx="1.5" fill="#007f5f"/>
-        <circle cx="48" cy="20" r="2" fill="#007f5f"/>
-      </svg>
-      <h3>Online Roof Check</h3>
-      <p>Get your roof checked conveniently online.</p>
-    </a>
-  </div>
-</section>
+<a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="instagram-box scroll-animate">
+  <img src="13D7FD2D-4E4B-4521-B258-01727CBA0489.png" alt="Instagram Logo">
+  <span>Follow us on Instagram</span>
+</a>
 
 <section class="faq-section">
   <h2 class="scroll-animate">Frequently Asked Questions</h2>
@@ -760,16 +738,16 @@ gap: 24px;
     <div class="faq-question"><span>Can I get an appointment at short notice?</span><span class="faq-icon">▼</span></div>
     <div class="faq-answer">In urgent cases I will arrange an appointment as quickly as possible – best to reach out by phone.</div>
   </div>
-
 </section>
+
 </main>
 
 <footer>
-<div style="max-width:1000px; margin:0 auto;">
-  <p>© 2025 PlanDach Höfinghoff – All rights reserved.</p>
-  <p><a href="legal-en.html">Legal Notice</a> | <a href="privacy-en.html">Privacy Policy</a> | <a href="contact-en.html">Contact</a></p>
-  <p>Address: Musterstraße 1, 12345 Berlin | Phone: <a href="tel:+4917641122628">+49 176 41122628</a> | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
-</div>
+  <div style="max-width:1000px; margin:0 auto;">
+    <p>© 2025 PlanDach Höfinghoff – All rights reserved.</p>
+    <p><a href="legal-en.html">Legal Notice</a> | <a href="privacy-en.html">Privacy Policy</a> | <a href="contact-en.html">Contact</a></p>
+    <p>Address: Musterstraße 1, 12345 Berlin | Phone: <a href="tel:+4917641122628">+49 176 41122628</a> | E-Mail: <a href="mailto:info@plandach.de">info@plandach.de</a></p>
+  </div>
 </footer>
 
 <script>
@@ -808,26 +786,48 @@ document.querySelectorAll('.faq-box').forEach(box => {
   box.addEventListener('click', () => { box.classList.toggle('open'); });
 });
 
-// Scroll Animation — viewport check so elements already visible appear immediately
 window.addEventListener('load', () => {
+
+  function startCounter(el) {
+    if (el.classList.contains('animated')) return;
+    el.classList.add('animated');
+    var target = parseInt(el.getAttribute('data-target'));
+    var duration = 1800;
+    var start = performance.now();
+    function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+    function tick(now) {
+      var elapsed = now - start;
+      var progress = Math.min(elapsed / duration, 1);
+      el.innerText = Math.floor(easeOut(progress) * target).toLocaleString('en-US');
+      if (progress < 1) { requestAnimationFrame(tick); }
+      else { el.innerText = target.toLocaleString('en-US'); }
+    }
+    requestAnimationFrame(tick);
+  }
+
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('active');
-        }, index * 50);
+        entry.target.classList.add('active');
+        entry.target.querySelectorAll('.counter').forEach(c => startCounter(c));
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
   document.querySelectorAll('.scroll-animate').forEach(el => {
     const rect = el.getBoundingClientRect();
     if (rect.top < window.innerHeight) {
       el.style.opacity = '1';
       el.style.transform = 'translateY(0)';
+      el.querySelectorAll('.counter').forEach(c => startCounter(c));
     } else {
-      el.classList.add('animate-ready');
+      el.classList.add('will-animate');
+      if (el.classList.contains('stat-block')) {
+        const siblings = Array.from(document.querySelectorAll('.stat-block'));
+        const idx = siblings.indexOf(el);
+        el.style.transitionDelay = (idx * 150) + 'ms';
+      }
       observer.observe(el);
     }
   });
