@@ -52,12 +52,12 @@ nav ul li { position:relative; }
 nav ul li a { text-decoration:none; color:#004d00; font-weight:500; padding:5px 10px; display:block; transition:background-color 0.3s ease, color 0.3s ease; }
 nav ul li a:hover { background-color:#e6f4ea; border-radius:6px; color:#007f5f; }
 nav ul li a:active, nav ul li a.active { background-color:#cde9d8; border-radius:6px; color:#007f5f; }
+nav ul li:has(.active) > a { background-color:#cde9d8; border-radius:6px; color:#007f5f; }
 nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#fff; list-style:none; padding:10px 0; min-width:200px; box-shadow:0 4px 10px rgba(0,0,0,0.1); z-index:20; border-radius:6px; }
 @media (min-width:769px) { nav ul li:hover > ul { display:block; } }
 nav ul li ul li a { padding:8px 15px; color:#004d00; font-weight:500; }
 nav ul li ul li ul { top:0; left:100%; }
 
-/* Mobile Slide-in Menu */
 .mobile-overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:200; opacity:0; transition:opacity 0.3s ease; }
 .mobile-overlay.active { display:block; opacity:1; }
 .mobile-menu { position:fixed; top:0; right:0; width:82%; max-width:360px; height:100%; background:#fff; z-index:201; transform:translateX(100%); transition:transform 0.35s cubic-bezier(0.4,0,0.2,1); display:flex; flex-direction:column; box-shadow:-4px 0 20px rgba(0,0,0,0.15); }
@@ -95,7 +95,7 @@ mask-image:linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
 margin-bottom:-20px;
 }
 .hero-img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1; }
-.hero::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.50); z-index:2; }
+.hero::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.35); z-index:2; }
 .hero h1, .hero p { position:relative; z-index:3; color:#ffffff; padding:0 20px; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
 .hero p { font-size:1.2em; margin-bottom:30px; }
@@ -161,9 +161,9 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 <body>
 
 <div class="top-bar">
-  <a href="tel:+4917641122628">📞 +49 176 41122628</a>
-  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#102;&#111;&#64;&#112;&#108;&#97;&#110;&#100;&#97;&#99;&#104;&#46;&#100;&#101;">✉ info&#64;plandach.de</a>
-  <a href="index-en.html" class="lang-switcher">🇬🇧 EN</a>
+  <a href="tel:+4917641122628">&#128222; +49 176 41122628</a>
+  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#102;&#111;&#64;&#112;&#108;&#97;&#110;&#100;&#97;&#99;&#104;&#46;&#100;&#101;">&#10003; info&#64;plandach.de</a>
+  <a href="index-en.html" class="lang-switcher">&#127468;&#127463; EN</a>
 </div>
 
 <header>
@@ -176,14 +176,14 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
         <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.24 1.01l-2.21 2.2z"/>
       </svg>
     </a>
-    <a href="index-en.html" class="mobile-flag-btn">🇬🇧</a>
-    <div class="hamburger" id="hamburger">☰</div>
+    <a href="index-en.html" class="mobile-flag-btn">&#127468;&#127463;</a>
+    <div class="hamburger" id="hamburger">&#9776;</div>
   </div>
   <div class="header-right">
     <nav>
       <ul id="navMenu">
         <li><a href="index.html">Startseite</a></li>
-        <li><a href="ueber-mich.html">Über mich</a></li>
+        <li><a href="ueber-mich.html">&#220;ber mich</a></li>
         <li class="has-submenu">
           <a href="#">Leistungen</a>
           <ul class="submenu">
@@ -200,17 +200,17 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
               <a href="#">Planung</a>
               <ul class="submenu">
                 <li><a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a></li>
-                <li><a href="planung-ausfuehrung.html">Ausführungsplanung</a></li>
+                <li><a href="planung-ausfuehrung.html">Ausf&#252;hrungsplanung</a></li>
                 <li><a href="planung-projektmanagement.html">Projektmanagement</a></li>
                 <li><a href="planung-schadensanalyse.html">Schadensanalyse</a></li>
               </ul>
             </li>
             <li class="has-submenu">
-              <a href="#">Bauüberwachung</a>
+              <a href="#">Bau&#252;berwachung</a>
               <ul class="submenu">
                 <li><a href="bau-koordination.html">Koordination</a></li>
-                <li><a href="bau-qualitaet.html">Qualitätskontrolle</a></li>
-                <li><a href="bau-rechnung.html">Rechnungsprüfung</a></li>
+                <li><a href="bau-qualitaet.html">Qualit&#228;tskontrolle</a></li>
+                <li><a href="bau-rechnung.html">Rechnungspr&#252;fung</a></li>
                 <li><a href="bau-abnahme.html">Abnahmebegleitung</a></li>
               </ul>
             </li>
@@ -218,7 +218,7 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
               <a href="#">Ausschreibung</a>
               <ul class="submenu">
                 <li><a href="ausschreibung-lv.html">Leistungsverzeichnisse</a></li>
-                <li><a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a></li>
+                <li><a href="ausschreibung-angebote.html">Angebotspr&#252;fung &amp; Wertung</a></li>
                 <li><a href="ausschreibung-vergabe.html">Auftragsvergabe</a></li>
               </ul>
             </li>
@@ -233,25 +233,23 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
   </div>
 </header>
 
-<!-- Mobile Slide-in Menu -->
-
 <div class="mobile-overlay" id="mobileOverlay"></div>
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-header">
-    <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+    <button class="mobile-menu-close" id="mobileMenuClose">&#10005;</button>
   </div>
   <div class="mobile-menu-items">
     <a href="index.html">Startseite</a>
-    <a href="ueber-mich.html">Über mich</a>
+    <a href="ueber-mich.html">&#220;ber mich</a>
     <div class="mobile-item" data-target="sub-leistungen">
       <span>Leistungen</span>
-      <span class="mobile-item-arrow">›</span>
+      <span class="mobile-item-arrow">&#8250;</span>
     </div>
     <div class="mobile-submenu" id="sub-leistungen">
       <a href="gutachten.html">Gutachten</a>
       <div class="mobile-item" data-target="sub-zustand" style="padding-left:40px; background:#f9f9f9;">
         <span>Zustandsanalyse</span>
-        <span class="mobile-item-arrow">›</span>
+        <span class="mobile-item-arrow">&#8250;</span>
       </div>
       <div class="mobile-submenu-2" id="sub-zustand">
         <a href="dach-zustandsanalyse.html">Dach-Zustandsanalyse</a>
@@ -260,41 +258,41 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
       </div>
       <div class="mobile-item" data-target="sub-planung" style="padding-left:40px; background:#f9f9f9;">
         <span>Planung</span>
-        <span class="mobile-item-arrow">›</span>
+        <span class="mobile-item-arrow">&#8250;</span>
       </div>
       <div class="mobile-submenu-2" id="sub-planung">
         <a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a>
-        <a href="planung-ausfuehrung.html">Ausführungsplanung</a>
+        <a href="planung-ausfuehrung.html">Ausf&#252;hrungsplanung</a>
         <a href="planung-projektmanagement.html">Projektmanagement</a>
         <a href="planung-schadensanalyse.html">Schadensanalyse</a>
       </div>
       <div class="mobile-item" data-target="sub-bau" style="padding-left:40px; background:#f9f9f9;">
-        <span>Bauüberwachung</span>
-        <span class="mobile-item-arrow">›</span>
+        <span>Bau&#252;berwachung</span>
+        <span class="mobile-item-arrow">&#8250;</span>
       </div>
       <div class="mobile-submenu-2" id="sub-bau">
         <a href="bau-koordination.html">Koordination</a>
-        <a href="bau-qualitaet.html">Qualitätskontrolle</a>
-        <a href="bau-rechnung.html">Rechnungsprüfung</a>
+        <a href="bau-qualitaet.html">Qualit&#228;tskontrolle</a>
+        <a href="bau-rechnung.html">Rechnungspr&#252;fung</a>
         <a href="bau-abnahme.html">Abnahmebegleitung</a>
       </div>
       <div class="mobile-item" data-target="sub-ausschreibung" style="padding-left:40px; background:#f9f9f9;">
         <span>Ausschreibung</span>
-        <span class="mobile-item-arrow">›</span>
+        <span class="mobile-item-arrow">&#8250;</span>
       </div>
       <div class="mobile-submenu-2" id="sub-ausschreibung">
         <a href="ausschreibung-lv.html">Leistungsverzeichnisse</a>
-        <a href="ausschreibung-angebote.html">Angebotsprüfung & Wertung</a>
+        <a href="ausschreibung-angebote.html">Angebotspr&#252;fung &amp; Wertung</a>
         <a href="ausschreibung-vergabe.html">Auftragsvergabe</a>
       </div>
       <a href="ankaufsberatung.html" style="padding-left:40px;">Ankaufsberatung</a>
     </div>
     <a href="ratgeber.html">Ratgeber</a>
     <a href="online-dachcheck.html">Online-DachCheck</a>
-    <a href="index-en.html">🇬🇧 English</a>
+    <a href="index-en.html">&#127468;&#127463; English</a>
   </div>
   <div class="mobile-menu-footer">
-    <a href="kontakt.html" class="mobile-contact-btn">💬 Kontakt aufnehmen</a>
+    <a href="kontakt.html" class="mobile-contact-btn">&#128172; Kontakt aufnehmen</a>
   </div>
 </div>
 
@@ -356,7 +354,7 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 
 <footer>
   <div style="max-width:1000px; margin:0 auto;">
-    <p>© 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
+    <p>&#169; 2025 PlanDach Höfinghoff – Alle Rechte vorbehalten.</p>
     <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="kontakt.html">Kontakt</a></p>
     <p>Adresse: Musterstraße 1, 12345 Berlin | Telefon: <a href="tel:+4917641122628">+49 176 41122628</a> | E-Mail: info@plandach.de</p>
   </div>
