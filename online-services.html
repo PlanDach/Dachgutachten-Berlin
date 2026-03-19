@@ -108,6 +108,14 @@ color:#ffffff;
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
 .hero p { font-size:1.2em; }
 
+/* NEW: Hero animation (same feel as homepage) */
+@keyframes heroFadeUp {
+  from { opacity:0; transform:translateY(24px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.hero h1 { opacity:0; animation:heroFadeUp 0.9s ease-out 0.3s forwards; }
+.hero p { opacity:0; animation:heroFadeUp 0.9s ease-out 0.7s forwards; }
+
 /* Content */
 .content-wrapper {
 max-width:1200px;
@@ -373,8 +381,8 @@ padding:0 20px;
         </ul>
       </li>
       <li><a href="online-dachcheck.html">Online-DachCheck</a></li>
+      <li><a href="ratgeber.html">Ratgeber</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
-      <li><a href="impressum.html">Impressum</a></li>
     </ul>
   </nav>
 </header>

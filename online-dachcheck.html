@@ -40,6 +40,19 @@ main { padding-top:137px; }
 .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; }
 .hero p { font-size:1.2em; }
 
+/* NEW: Hero animation (same feel as homepage) */
+@keyframes kenburns {
+  from { transform:scale(1); transform-origin:center center; }
+  to   { transform:scale(1.08); transform-origin:center center; }
+}
+@keyframes heroFadeUp {
+  from { opacity:0; transform:translateY(24px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.hero-img { animation:kenburns 8s ease-out forwards; }
+.hero h1 { opacity:0; animation:heroFadeUp 0.9s ease-out 0.3s forwards; }
+.hero p { opacity:0; animation:heroFadeUp 0.9s ease-out 0.7s forwards; }
+
 .check-container { max-width:800px; margin:80px auto 100px; padding:0 30px; display:flex; flex-direction:column; gap:60px; }
 .form-description { background:#f7fbf9; border:1px solid #cde9d8; border-radius:16px; padding:32px 36px; color:#333; text-align:center; line-height:1.85; font-size:1.05em; }
 .steps-section { text-align:center; }
@@ -211,9 +224,9 @@ form button { padding:16px 28px; font-size:0.95em; }
             <li><a href="kaufberatung.html">Ankaufsberatung</a></li>
           </ul>
         </li>
+        <li><a href="ratgeber.html">Ratgeber</a></li>
         <li><a href="online-dachcheck.html" class="active">Online-DachCheck</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
-        <li><a href="impressum.html">Impressum</a></li>
       </ul>
     </nav>
   </div>
