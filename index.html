@@ -159,7 +159,7 @@ nav ul li ul li ul { top:0; left:100%; }
 .lightbox-close:hover { background:#f0f0f0; }
 
 /* ── MOBILE SLIDESHOW ── */
-.work-slideshow { display:none; position:relative; width:100%; overflow:hidden; }
+.work-slideshow { display:none; position:relative; width:100%; overflow:hidden; touch-action:pan-y; }
 .slideshow-track { display:flex; transition:transform 0.4s cubic-bezier(0.4,0,0.2,1); will-change:transform; }
 .slide-item { min-width:100%; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
 .slide-item img { width:100%; height:auto; display:block; }
@@ -485,7 +485,7 @@ header { top:0; }
 </div>
 
 <!-- Mobile slideshow -->
-<div class="work-slideshow">
+<div class="work-slideshow" id="workSlideshow">
   <div class="slideshow-track" id="slideshowTrack">
     <div class="slide-item">
       <img src="IMG_1164.jpeg" alt="Dachinspektion Neubau – Mangel gefunden">
@@ -627,6 +627,7 @@ lightbox.addEventListener('click', function(e) { if (e.target === lightbox) clos
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
 
 // ── SLIDESHOW (mobile) ──
+var slideshow = document.getElementById('workSlideshow');
 var track = document.getElementById('slideshowTrack');
 var dots = document.querySelectorAll('#slideshowDots span');
 var currentSlide = 0;
@@ -645,8 +646,13 @@ dots.forEach(function(dot) {
   dot.addEventListener('click', function() { goToSlide(parseInt(dot.getAttribute('data-index'))); });
 });
 
-track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; isDragging = true; }, { passive:true });
-track.addEventListener('touchend', function(e) {
+// Events auf den Container – nicht auf den Track
+slideshow.addEventListener('touchstart', function(e) {
+  startX = e.touches[0].clientX;
+  isDragging = true;
+}, { passive: true });
+
+slideshow.addEventListener('touchend', function(e) {
   if (!isDragging) return;
   var diff = startX - e.changedTouches[0].clientX;
   if (Math.abs(diff) > 50) {
@@ -654,7 +660,7 @@ track.addEventListener('touchend', function(e) {
     else if (diff < 0 && currentSlide > 0) goToSlide(currentSlide - 1);
   }
   isDragging = false;
-}, { passive:true });
+}, { passive: true });
 
 // ── SCROLL ANIMATE + COUNTER ──
 window.addEventListener('load', function() {
