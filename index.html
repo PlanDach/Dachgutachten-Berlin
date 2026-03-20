@@ -96,7 +96,6 @@ nav ul li a:hover { background-color:#e6f4ea; border-radius:6px; color:#007f5f; 
 nav ul li a:active, nav ul li a.active { background-color:#cde9d8; border-radius:6px; color:#007f5f; }
 nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#fff; list-style:none; padding:10px 0; min-width:200px; box-shadow:0 4px 10px rgba(0,0,0,0.1); z-index:20; border-radius:6px; }
 @media (min-width:769px) { nav ul li:hover > ul { display:block; } }
-/* FIX: font-weight:500 damit Gutachten & Ankaufsberatung gleich aussehen wie der Rest */
 nav ul li ul li a { padding:8px 15px; color:#004d00; font-weight:500; }
 nav ul li ul li ul { top:0; left:100%; }
 
@@ -181,9 +180,39 @@ nav ul li ul li ul { top:0; left:100%; }
 .work-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
 .work-item { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.06); transition:all 0.4s cubic-bezier(0.4,0,0.2,1); }
 .work-item:hover { transform:translateY(-8px); box-shadow:0 12px 32px rgba(0,0,0,0.12); }
-.work-item img { width:100%; height:auto; display:block; transition:transform 0.6s cubic-bezier(0.4,0,0.2,1); }
-.work-item:hover img { transform:scale(1.03); }
+
+/* Desktop: fixed height images with cursor pointer for lightbox */
+@media (min-width:601px) {
+  .work-item img {
+    width:100%; height:220px; object-fit:cover; display:block;
+    transition:transform 0.6s cubic-bezier(0.4,0,0.2,1);
+    cursor:pointer;
+  }
+  .work-item:hover img { transform:scale(1.03); }
+}
+
 .work-item p { padding:20px 24px 24px 24px; font-size:0.95em; color:#000; text-align:left; line-height:1.5; }
+
+/* ── LIGHTBOX ── */
+.lightbox-overlay {
+  display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,0.88); z-index:9999;
+  justify-content:center; align-items:center;
+  animation:lbFadeIn 0.2s ease;
+}
+.lightbox-overlay.active { display:flex; }
+@keyframes lbFadeIn { from { opacity:0; } to { opacity:1; } }
+.lightbox-inner { position:relative; max-width:90vw; max-height:88vh; display:flex; flex-direction:column; align-items:center; gap:16px; }
+.lightbox-inner img { max-width:90vw; max-height:80vh; object-fit:contain; border-radius:8px; box-shadow:0 8px 40px rgba(0,0,0,0.5); }
+.lightbox-caption { color:#fff; font-size:0.95em; text-align:center; max-width:600px; opacity:0.85; }
+.lightbox-close {
+  position:absolute; top:-16px; right:-16px;
+  width:36px; height:36px; border-radius:50%;
+  background:#fff; border:none; cursor:pointer;
+  font-size:1.2em; color:#333; display:flex; align-items:center; justify-content:center;
+  transition:background 0.2s; box-shadow:0 2px 8px rgba(0,0,0,0.3);
+}
+.lightbox-close:hover { background:#f0f0f0; }
 
 .instagram-box { margin:60px auto 80px auto; display:flex; justify-content:center; align-items:center; gap:14px; color:#004d00; font-weight:600; font-size:1.1em; background:linear-gradient(135deg,#ffffff 0%,#f9fffe 100%); padding:18px 32px; border-radius:16px; border:1.5px solid rgba(0,127,95,0.2); max-width:480px; text-decoration:none; position:relative; overflow:hidden; box-shadow:0 2px 8px rgba(0,127,95,0.08),0 8px 24px rgba(0,127,95,0.06); transition:all 0.4s cubic-bezier(0.4,0,0.2,1); }
 .instagram-box::before { content:""; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent); transition:left 0.6s ease; }
@@ -239,6 +268,10 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
 @media (max-width:600px) {
   .work-grid { grid-template-columns:1fr; gap:20px; }
   .work-item p { padding:18px 20px 20px 20px; font-size:0.9em; }
+  /* Mobile: limit image height */
+  .work-item img {
+    width:100%; height:260px; object-fit:cover; display:block;
+  }
 }
 </style>
 
@@ -382,6 +415,16 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
   </div>
 </div>
 
+<!-- LIGHTBOX -->
+
+<div class="lightbox-overlay" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <img id="lightboxImg" src="" alt="">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+</div>
+
 <main>
 
 <section class="hero">
@@ -481,15 +524,15 @@ footer a { color:#007f5f; text-decoration:none; margin:0 10px; }
   <div class="image-section">
     <div class="work-grid">
       <div class="work-item scroll-animate">
-        <img src="IMG_1164.jpeg" alt="Dachinspektion Neubau – Mangel gefunden">
+        <img src="IMG_1164.jpeg" alt="Dachinspektion Neubau – Mangel gefunden" data-caption="Neubau, trotzdem undicht – wir haben den Mangel gefunden, bevor er teuer wurde.">
         <p>Neubau, trotzdem undicht – wir haben den Mangel gefunden, bevor er teuer wurde.</p>
       </div>
       <div class="work-item scroll-animate">
-        <img src="image0.jpeg" alt="Dachrinne fachgerecht erneuert">
+        <img src="image0.jpeg" alt="Dachrinne fachgerecht erneuert" data-caption="Falsch ausgeführt, neu gemacht: fachgerechte Rinne mit korrektem Gefälle für dauerhaften Schutz.">
         <p>Falsch ausgeführt, neu gemacht: fachgerechte Rinne mit korrektem Gefälle für dauerhaften Schutz.</p>
       </div>
       <div class="work-item scroll-animate">
-        <img src="vornach1.jpeg" alt="Dachsanierung Vorher-Nachher Berlin">
+        <img src="vornach1.jpeg" alt="Dachsanierung Vorher-Nachher Berlin" data-caption="Von beschädigt zu dicht – eine fachgerechte Sanierung, die man sieht und spürt.">
         <p>Von beschädigt zu dicht – eine fachgerechte Sanierung, die man sieht und spürt.</p>
       </div>
     </div>
@@ -601,6 +644,42 @@ document.querySelectorAll('.faq-box').forEach(function(box) {
   box.addEventListener('click', function() { box.classList.toggle('open'); });
 });
 
+// ── LIGHTBOX ──
+var lightbox = document.getElementById('lightbox');
+var lightboxImg = document.getElementById('lightboxImg');
+var lightboxCaption = document.getElementById('lightboxCaption');
+var lightboxClose = document.getElementById('lightboxClose');
+
+function openLightbox(src, alt, caption) {
+  lightboxImg.src = src;
+  lightboxImg.alt = alt;
+  lightboxCaption.textContent = caption || '';
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Only attach lightbox on desktop
+document.querySelectorAll('.work-item img').forEach(function(img) {
+  img.addEventListener('click', function() {
+    if (window.innerWidth > 600) {
+      openLightbox(img.src, img.alt, img.getAttribute('data-caption'));
+    }
+  });
+});
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', function(e) {
+  if (e.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+// ── SCROLL ANIMATE + COUNTER ──
 window.addEventListener('load', function() {
   function startCounter(el) {
     if (el.classList.contains('animated')) return;
