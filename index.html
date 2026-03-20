@@ -30,11 +30,7 @@
     "postalCode": "12345",
     "addressCountry": "DE"
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 52.5200,
-    "longitude": 13.4050
-  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 52.5200, "longitude": 13.4050 },
   "areaServed": "Deutschland",
   "priceRange": "€€",
   "founder": {
@@ -140,30 +136,37 @@ nav ul li ul li ul { top:0; left:100%; }
 .service-box p { font-size:0.95em; color:#333; }
 .service-icon { width:64px; height:64px; margin:0 auto 15px auto; display:block; }
 
+/* ── WORK INSIGHTS ── */
 .work-insights { padding:100px 20px 120px 20px; text-align:center; background:#fff; }
 .work-insights h2 { font-size:2.2em; color:#004d00; margin-bottom:70px; font-weight:600; letter-spacing:-0.02em; }
 .image-section { max-width:900px; margin:0 auto; }
+
+/* Desktop grid */
 .work-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
 .work-item { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.06); transition:all 0.4s cubic-bezier(0.4,0,0.2,1); }
 .work-item:hover { transform:translateY(-8px); box-shadow:0 12px 32px rgba(0,0,0,0.12); }
-.work-item img { width:100%; height:220px; object-fit:cover; display:block; transition:transform 0.6s cubic-bezier(0.4,0,0.2,1); }
+.work-item img { width:100%; height:auto; display:block; transition:transform 0.6s cubic-bezier(0.4,0,0.2,1); cursor:pointer; }
 .work-item:hover img { transform:scale(1.03); }
 .work-item p { padding:20px 24px 24px 24px; font-size:0.95em; color:#000; text-align:left; line-height:1.5; }
 
-/* Desktop only: lightbox cursor */
-@media (min-width:601px) {
-.work-item img { cursor:pointer; }
-}
-
-/* LIGHTBOX */
-.lightbox-overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.88); z-index:9999; justify-content:center; align-items:center; animation:lbFadeIn 0.2s ease; }
+/* ── LIGHTBOX ── */
+.lightbox-overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.88); z-index:9999; justify-content:center; align-items:center; }
 .lightbox-overlay.active { display:flex; }
-@keyframes lbFadeIn { from { opacity:0; } to { opacity:1; } }
 .lightbox-inner { position:relative; max-width:90vw; max-height:88vh; display:flex; flex-direction:column; align-items:center; gap:16px; }
 .lightbox-inner img { max-width:90vw; max-height:80vh; object-fit:contain; border-radius:8px; box-shadow:0 8px 40px rgba(0,0,0,0.5); }
 .lightbox-caption { color:#fff; font-size:0.95em; text-align:center; max-width:600px; opacity:0.85; }
 .lightbox-close { position:absolute; top:-16px; right:-16px; width:36px; height:36px; border-radius:50%; background:#fff; border:none; cursor:pointer; font-size:1.2em; color:#333; display:flex; align-items:center; justify-content:center; transition:background 0.2s; box-shadow:0 2px 8px rgba(0,0,0,0.3); }
 .lightbox-close:hover { background:#f0f0f0; }
+
+/* ── MOBILE SLIDESHOW ── */
+.work-slideshow { display:none; position:relative; width:100%; overflow:hidden; }
+.slideshow-track { display:flex; transition:transform 0.4s cubic-bezier(0.4,0,0.2,1); will-change:transform; }
+.slide-item { min-width:100%; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+.slide-item img { width:100%; height:auto; display:block; }
+.slide-item p { padding:16px 20px 20px 20px; font-size:0.92em; color:#000; text-align:left; line-height:1.5; }
+.slideshow-dots { display:flex; justify-content:center; gap:8px; margin-top:16px; }
+.slideshow-dots span { width:8px; height:8px; border-radius:50%; background:#cde9d8; cursor:pointer; transition:background 0.2s; display:block; }
+.slideshow-dots span.active { background:#007f5f; }
 
 .instagram-box { margin:60px auto 80px auto; display:flex; justify-content:center; align-items:center; gap:14px; color:#004d00; font-weight:600; font-size:1.1em; background:linear-gradient(135deg,#ffffff 0%,#f9fffe 100%); padding:18px 32px; border-radius:16px; border:1.5px solid rgba(0,127,95,0.2); max-width:480px; text-decoration:none; position:relative; overflow:hidden; box-shadow:0 2px 8px rgba(0,127,95,0.08),0 8px 24px rgba(0,127,95,0.06); transition:all 0.4s cubic-bezier(0.4,0,0.2,1); }
 .instagram-box::before { content:””; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent); transition:left 0.6s ease; }
@@ -217,9 +220,8 @@ header { top:0; }
 .stat-divider { width:60px; height:1px; background:#cde9d8; align-self:center; }
 }
 @media (max-width:600px) {
-.work-grid { grid-template-columns:1fr; gap:20px; }
-.work-item p { padding:18px 20px 20px 20px; font-size:0.9em; }
-.work-item img { height:380px; }
+.work-grid { display:none; }
+.work-slideshow { display:block; }
 }
 </style>
 
@@ -308,14 +310,12 @@ header { top:0; }
     <a href="index.html">Startseite</a>
     <a href="ueber-mich.html">Über mich</a>
     <div class="mobile-item" data-target="sub-leistungen">
-      <span>Leistungen</span>
-      <span class="mobile-item-arrow">›</span>
+      <span>Leistungen</span><span class="mobile-item-arrow">›</span>
     </div>
     <div class="mobile-submenu" id="sub-leistungen">
       <a href="gutachten.html">Gutachten</a>
       <div class="mobile-item" data-target="sub-zustand" style="padding-left:40px; background:#f9f9f9;">
-        <span>Zustandsanalyse</span>
-        <span class="mobile-item-arrow">›</span>
+        <span>Zustandsanalyse</span><span class="mobile-item-arrow">›</span>
       </div>
       <div class="mobile-submenu-2" id="sub-zustand">
         <a href="dach-zustandsanalyse.html">Dach-Zustandsanalyse</a>
@@ -323,8 +323,7 @@ header { top:0; }
         <a href="leckageortung.html">Leckageortung</a>
       </div>
       <div class="mobile-item" data-target="sub-planung" style="padding-left:40px; background:#f9f9f9;">
-        <span>Planung</span>
-        <span class="mobile-item-arrow">›</span>
+        <span>Planung</span><span class="mobile-item-arrow">›</span>
       </div>
       <div class="mobile-submenu-2" id="sub-planung">
         <a href="planung-grundlagenermittlung.html">Grundlagenermittlung</a>
@@ -333,8 +332,7 @@ header { top:0; }
         <a href="planung-schadensanalyse.html">Schadensanalyse</a>
       </div>
       <div class="mobile-item" data-target="sub-bau" style="padding-left:40px; background:#f9f9f9;">
-        <span>Bauüberwachung</span>
-        <span class="mobile-item-arrow">›</span>
+        <span>Bauüberwachung</span><span class="mobile-item-arrow">›</span>
       </div>
       <div class="mobile-submenu-2" id="sub-bau">
         <a href="bau-koordination.html">Koordination</a>
@@ -343,8 +341,7 @@ header { top:0; }
         <a href="bau-abnahme.html">Abnahmebegleitung</a>
       </div>
       <div class="mobile-item" data-target="sub-ausschreibung" style="padding-left:40px; background:#f9f9f9;">
-        <span>Ausschreibung</span>
-        <span class="mobile-item-arrow">›</span>
+        <span>Ausschreibung</span><span class="mobile-item-arrow">›</span>
       </div>
       <div class="mobile-submenu-2" id="sub-ausschreibung">
         <a href="ausschreibung-lv.html">Leistungsverzeichnisse</a>
@@ -469,20 +466,48 @@ header { top:0; }
 <section class="work-insights">
   <h2 class="scroll-animate">Einblicke in unsere Arbeit</h2>
   <div class="image-section">
-    <div class="work-grid">
-      <div class="work-item scroll-animate">
-        <img src="IMG_1164.jpeg" alt="Dachinspektion Neubau – Mangel gefunden" data-caption="Neubau, trotzdem undicht – wir haben den Mangel gefunden, bevor er teuer wurde.">
-        <p>Neubau, trotzdem undicht – wir haben den Mangel gefunden, bevor er teuer wurde.</p>
-      </div>
-      <div class="work-item scroll-animate">
-        <img src="image0.jpeg" alt="Dachrinne fachgerecht erneuert" data-caption="Falsch ausgeführt, neu gemacht: fachgerechte Rinne mit korrektem Gefälle für dauerhaften Schutz.">
-        <p>Falsch ausgeführt, neu gemacht: fachgerechte Rinne mit korrektem Gefälle für dauerhaften Schutz.</p>
-      </div>
-      <div class="work-item scroll-animate">
-        <img src="vornach1.jpeg" alt="Dachsanierung Vorher-Nachher Berlin" data-caption="Von beschädigt zu dicht – eine fachgerechte Sanierung, die man sieht und spürt.">
-        <p>Von beschädigt zu dicht – eine fachgerechte Sanierung, die man sieht und spürt.</p>
-      </div>
+
+
+<!-- Desktop grid -->
+<div class="work-grid">
+  <div class="work-item scroll-animate">
+    <img src="IMG_1164.jpeg" alt="Dachinspektion Neubau – Mangel gefunden" data-caption="Neubau, trotzdem undicht – wir haben den Mangel gefunden, bevor er teuer wurde.">
+    <p>Neubau, trotzdem undicht – wir haben den Mangel gefunden, bevor er teuer wurde.</p>
+  </div>
+  <div class="work-item scroll-animate">
+    <img src="image0.jpeg" alt="Dachrinne fachgerecht erneuert" data-caption="Falsch ausgeführt, neu gemacht: fachgerechte Rinne mit korrektem Gefälle für dauerhaften Schutz.">
+    <p>Falsch ausgeführt, neu gemacht: fachgerechte Rinne mit korrektem Gefälle für dauerhaften Schutz.</p>
+  </div>
+  <div class="work-item scroll-animate">
+    <img src="vornach1.jpeg" alt="Dachsanierung Vorher-Nachher Berlin" data-caption="Von beschädigt zu dicht – eine fachgerechte Sanierung, die man sieht und spürt.">
+    <p>Von beschädigt zu dicht – eine fachgerechte Sanierung, die man sieht und spürt.</p>
+  </div>
+</div>
+
+<!-- Mobile slideshow -->
+<div class="work-slideshow">
+  <div class="slideshow-track" id="slideshowTrack">
+    <div class="slide-item">
+      <img src="IMG_1164.jpeg" alt="Dachinspektion Neubau – Mangel gefunden">
+      <p>Neubau, trotzdem undicht – wir haben den Mangel gefunden, bevor er teuer wurde.</p>
     </div>
+    <div class="slide-item">
+      <img src="image0.jpeg" alt="Dachrinne fachgerecht erneuert">
+      <p>Falsch ausgeführt, neu gemacht: fachgerechte Rinne mit korrektem Gefälle für dauerhaften Schutz.</p>
+    </div>
+    <div class="slide-item">
+      <img src="vornach1.jpeg" alt="Dachsanierung Vorher-Nachher Berlin">
+      <p>Von beschädigt zu dicht – eine fachgerechte Sanierung, die man sieht und spürt.</p>
+    </div>
+  </div>
+  <div class="slideshow-dots" id="slideshowDots">
+    <span class="active" data-index="0"></span>
+    <span data-index="1"></span>
+    <span data-index="2"></span>
+  </div>
+</div>
+
+
   </div>
 </section>
 
@@ -530,14 +555,13 @@ header { top:0; }
 </footer>
 
 <script>
+// ── MENU ──
 var hamburger = document.getElementById('hamburger');
 var mobileMenu = document.getElementById('mobileMenu');
 var mobileOverlay = document.getElementById('mobileOverlay');
 var mobileMenuClose = document.getElementById('mobileMenuClose');
-
-function openMenu() { mobileMenu.classList.add('active'); mobileOverlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
-function closeMenu() { mobileMenu.classList.remove('active'); mobileOverlay.classList.remove('active'); document.body.style.overflow = ''; }
-
+function openMenu() { mobileMenu.classList.add('active'); mobileOverlay.classList.add('active'); document.body.style.overflow='hidden'; }
+function closeMenu() { mobileMenu.classList.remove('active'); mobileOverlay.classList.remove('active'); document.body.style.overflow=''; }
 hamburger.addEventListener('click', openMenu);
 mobileMenuClose.addEventListener('click', closeMenu);
 mobileOverlay.addEventListener('click', closeMenu);
@@ -576,16 +600,16 @@ window.addEventListener('resize', function() {
   }
 });
 
+// ── FAQ ──
 document.querySelectorAll('.faq-box').forEach(function(box) {
   box.addEventListener('click', function() { box.classList.toggle('open'); });
 });
 
-// LIGHTBOX
+// ── LIGHTBOX (desktop only) ──
 var lightbox = document.getElementById('lightbox');
 var lightboxImg = document.getElementById('lightboxImg');
 var lightboxCaption = document.getElementById('lightboxCaption');
 var lightboxClose = document.getElementById('lightboxClose');
-
 function openLightbox(src, alt, caption) {
   lightboxImg.src = src; lightboxImg.alt = alt;
   lightboxCaption.textContent = caption || '';
@@ -593,7 +617,6 @@ function openLightbox(src, alt, caption) {
   document.body.style.overflow = 'hidden';
 }
 function closeLightbox() { lightbox.classList.remove('active'); document.body.style.overflow = ''; }
-
 document.querySelectorAll('.work-item img').forEach(function(img) {
   img.addEventListener('click', function() {
     if (window.innerWidth > 600) { openLightbox(img.src, img.alt, img.getAttribute('data-caption')); }
@@ -603,7 +626,37 @@ lightboxClose.addEventListener('click', closeLightbox);
 lightbox.addEventListener('click', function(e) { if (e.target === lightbox) closeLightbox(); });
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
 
-// SCROLL ANIMATE + COUNTER
+// ── SLIDESHOW (mobile) ──
+var track = document.getElementById('slideshowTrack');
+var dots = document.querySelectorAll('#slideshowDots span');
+var currentSlide = 0;
+var totalSlides = 3;
+var startX = 0;
+var isDragging = false;
+
+function goToSlide(idx) {
+  currentSlide = idx;
+  track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+  dots.forEach(function(d) { d.classList.remove('active'); });
+  dots[idx].classList.add('active');
+}
+
+dots.forEach(function(dot) {
+  dot.addEventListener('click', function() { goToSlide(parseInt(dot.getAttribute('data-index'))); });
+});
+
+track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; isDragging = true; }, { passive:true });
+track.addEventListener('touchend', function(e) {
+  if (!isDragging) return;
+  var diff = startX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) {
+    if (diff > 0 && currentSlide < totalSlides - 1) goToSlide(currentSlide + 1);
+    else if (diff < 0 && currentSlide > 0) goToSlide(currentSlide - 1);
+  }
+  isDragging = false;
+}, { passive:true });
+
+// ── SCROLL ANIMATE + COUNTER ──
 window.addEventListener('load', function() {
   function startCounter(el) {
     if (el.classList.contains('animated')) return;
